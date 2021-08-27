@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function() {
-    return redirect()->route('login');
+    return view('welcome');
+    /* return redirect()->route('login'); */
 });
 
 Route::get('sales/reports_day', 'ReportController@reports_day')->name('reports.day');
@@ -70,6 +71,6 @@ Route::get('/barcode', function () {
     return view('admin.product.barcode', compact('products'));
 });
 
-// Auth::routes();
-Auth::routes(['register' => false]);
+Auth::routes();
+/* Auth::routes(['register' => false]); */
 Route::get('/home', 'HomeController@index')->name('home');
