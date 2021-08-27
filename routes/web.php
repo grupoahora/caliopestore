@@ -15,8 +15,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/productos', function () {
+    return view('web.shop_grid');
+    /* return redirect()->route('login'); */
+});
 Route::get('/', function() {
     return view('welcome');
+    /* return redirect()->route('login'); */
+});
+Route::get('/detalles', function () {
+    return view('web.product_details');
+    /* return redirect()->route('login'); */
+});
+Route::get('/cuenta', function () {
+    return view('web.my-account');
+    /* return redirect()->route('login'); */
+});
+Route::get('/registro', function () {
+    return view('web.login-register');
+    /* return redirect()->route('login'); */
+});
+Route::get('/compra', function () {
+    return view('web.wishlist');
+    /* return redirect()->route('login'); */
+});
+Route::get('/contacto', function () {
+    return view('web.contact-us');
+    /* return redirect()->route('login'); */
+});
+Route::get('/carrito', function () {
+    return view('web.cart');
     /* return redirect()->route('login'); */
 });
 
