@@ -20,9 +20,9 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'name'=>'Cristian',
-            'email'=>'Cristian@gmail.com',
-            'password'=>'$2y$10$o.CnHSqHSCQ7qSj4zlJU7u0N1QiKqrIjJ2bLP8j/wdw3W8NCA3DkK',
+            'name'=>'David Cortes',
+            'email'=>'cortesmirandaedavid19@gmail.com',
+            'password'=> bcrypt('12345678')
         ]);
 
         $user->roles()->sync(1);
