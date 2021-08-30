@@ -37,16 +37,15 @@ class ProductController extends Controller
         $providers = Provider::get();
         return view('admin.product.create', compact('categories', 'providers'));
     }
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request, Product $product)
     {
-        if($request->hasFile('picture')){
+        /* if($request->hasFile('picture')){
             $file = $request->file('picture');
             $image_name = time().'_'.$file->getClientOriginalName();
             $file->move(public_path("/image"),$image_name);
-        }
-        $product = Product::create($request->all()+[
-            'image'=>$image_name,
-        ]);
+        } */
+        $product->my_store($request);
+        
         if ($request->code == "") {
             $numero = $product->id;
             $numeroConCeros = str_pad($numero, 8, "0", STR_PAD_LEFT);

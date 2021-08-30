@@ -3,17 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
     protected $fillable = [
         'code',
         'name',
+        'slug',
         'stock',
-        'image',
         'sell_price',
         'status',
-        'category_id',
+        'subcategory_id',
         'provider_id',
     ];
 
@@ -23,5 +24,30 @@ class Product extends Model
     public function provider(){
         return $this->belongsTo(Provider::class);
     }
-    
+    public function my_store($request)
+    {
+        self::create([
+            'code' => $request->code,
+            'name' => $request->name,
+            'slug' => Str::slug($request->name, '_'),
+            'stock' => $request->stock,
+            'sell_price' => $request->sell_price,
+            'status' => $request->status,
+            'subcategory_id' => $request->subcategory_id,
+            'provider_id' => $request->provider_id,
+        ]);
+    }
+    public function my_update($request)
+    {
+        $this->update([
+            'code' => $request->code,
+            'name' => $request->name,
+            'slug' => Str::slug($request->name, '_'),
+            'stock' => $request->stock,
+            'sell_price' => $request->sell_price,
+            'status' => $request->status,
+            'subcategory_id' => $request->subcategory_id,
+            'provider_id' => $request->provider_id,
+        ]);
+    }
 }

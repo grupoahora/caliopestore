@@ -26,9 +26,9 @@ class CategoryController extends Controller
     {
         return view('admin.category.create');
     }
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request, Category $category)
     {
-        Category::create($request->all());
+        $category->my_store($request);
         return redirect()->route('categories.index');
     }
     public function show(Category $category)
@@ -41,7 +41,7 @@ class CategoryController extends Controller
     }
     public function update(UpdateRequest $request, Category $category)
     {
-        $category->update($request->all());
+        $category->my_update($request);
         return redirect()->route('categories.index');
     }
     public function destroy(Category $category)
