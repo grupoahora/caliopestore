@@ -47,6 +47,18 @@ Route::get('/carrito', function () {
     return view('web.cart');
     /* return redirect()->route('login'); */
 });
+Route::get('/blog', function () {
+    return view('web.blog');
+    /* return redirect()->route('login'); */
+});
+Route::get('/blog-details', function () {
+    return view('web.blog_details');
+    /* return redirect()->route('login'); */
+});
+Route::get('/nosotros', function () {
+    return view('web.about_us');
+    /* return redirect()->route('login'); */
+});
 
 Route::get('sales/reports_day', 'ReportController@reports_day')->name('reports.day');
 Route::get('sales/reports_date', 'ReportController@reports_date')->name('reports.date');
