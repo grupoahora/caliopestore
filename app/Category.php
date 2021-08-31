@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Category extends Model
 {
     protected $fillable = [
-        'name', 'description', 'slug', 'icon'
+        'name', 'description', 'slug', 'icon',
     ];
     public function products(){
         return $this->hasMany(Product::class);
