@@ -30,6 +30,10 @@ class Product extends Model
     {
         return $this->morphToMany('App\Image', 'imageable');
     }
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
     public function my_store($request)
     {
         $product = self::create([
@@ -44,11 +48,13 @@ class Product extends Model
             'subcategory_id' => $request->subcategory_id,
             'provider_id' => $request->provider_id,
         ]);
+        $product->tags()->attach($request->get('tags'));
         $this->generate_code($product);
+        $this->upload_files($request, $product);
     }
     public function my_update($request)
     {
-        $product = $this->update([
+        $this->update([
             'code' => $request->code,
             'name' => $request->name,
             'slug' => Str::slug($request->name, '_'),
@@ -59,9 +65,10 @@ class Product extends Model
             'status' => $request->status,
             'subcategory_id' => $request->subcategory_id,
             'provider_id' => $request->provider_id,
-            
         ]);
-        $this->generate_code($product);
+        $this->tags()->sync($request->get('tags'));
+        $this->generate_code($this);
+        $this->upload_files($request, $this);
     }
     public function generate_code($product)
     {
@@ -69,5 +76,19 @@ class Product extends Model
         $numeroConCeros = str_pad($numero, 8, "0", STR_PAD_LEFT);
         $product->update(['code' => $numeroConCeros]);
     }
-    
+    public function upload_files($request, $product)
+    {
+        $urlimages = [];
+        if($request->hasFile('images')){
+            $images = $request->file('images');
+            @foreach ($images as $image) {
+                $nombre = time().$image->getClientOriginalName();
+                $ruta = public_path().'/image';
+                $image->move($ruta, $nombre);
+                $urlimages[]['url']='/image/'.$nombre;
+            @endforeach
+            }
+        }
+        $product->images()->createMany($urlimages);
+    }
 }
