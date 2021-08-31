@@ -17,6 +17,5 @@ public/hot
 storage/*.key
 .env
 
-/.vagrant
-.phpunit.result.cache
+
 © 2021 GitHub, Inc.
