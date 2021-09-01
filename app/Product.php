@@ -81,12 +81,12 @@ class Product extends Model
         $urlimages = [];
         if($request->hasFile('images')){
             $images = $request->file('images');
-            @foreach ($images as $image) {
+            foreach ($images as $image) {
                 $nombre = time().$image->getClientOriginalName();
                 $ruta = public_path().'/image';
                 $image->move($ruta, $nombre);
                 $urlimages[]['url']='/image/'.$nombre;
-            @endforeach
+            
             }
         }
         $product->images()->createMany($urlimages);
