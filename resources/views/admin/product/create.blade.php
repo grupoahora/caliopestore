@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('title','Registrar producto')
 @section('styles')
+{!! Html::style('select2/dist/css/select2.min.css') !!}
+
 @endsection
 @section('options')
 @endsection
@@ -21,7 +23,7 @@
         </nav>
     </div>
     <div class="row">
-        <div class="col-md-8 grid-margin stretch-card">
+        <div class="col-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     {{-- <div class="d-flex justify-content-between">
@@ -94,15 +96,31 @@
                 {!! Form::close() !!}
             </div>
         </div>
-        <div class="col-md-4 grid-margin stretch-card">
+        <div class="col-4 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="category_id">Categoría</label>
-                        <select class="form-control" name="category_id" id="category_id">
+                        <label for="category">Categoría</label>
+                        <select class="select2" id="category" style="width: 100%">
                             @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="subcategory_id">Subcategoría</label>
+                        <select class="select2" name="subcategory_id" id="subcategory_id" style="width: 100%">
+                            @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Etiquetas</label>
+                        <select class="select2" name="tags[]" id="tags" style="width: 100%" multiple>
+                            <option>fsfsd</option>
+                            <option>wefwe</option>
+                            <option>awdaw</option>
                         </select>
                     </div>
                 </div>
@@ -110,10 +128,30 @@
         </div>
     </div>
 </div>
-</div>
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Imágenes de producto</h4>
+                <form action="http://www.urbanui.com/file-upload" class="dropzone d-flex align-items-center"
+                    id="my-awesome-dropzone">
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
 {!! Html::script('melody/js/dropify.js') !!}
+
+{!! Html::script('melody/js/dropzone.js') !!}
+{!! Html::script('select2/dist/js/select2.min.js') !!}
+<script>
+    $(document).ready(function () {
+        $('#category').select2();
+        $('#subcategory_id').select2();
+        $('#tags').select2();
+    });
+</script>
 @endsection
