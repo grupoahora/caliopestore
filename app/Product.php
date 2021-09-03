@@ -11,13 +11,13 @@ class Product extends Model
         'code',
         'name',
         'slug',
-        'stock',
+        /* 'stock', */
         'short_description',
         'long_description',
         'sell_price',
         'status',
         'subcategory_id',
-        'provider_id',
+        /* 'provider_id', */
     ];
 
     public function category(){
@@ -28,7 +28,7 @@ class Product extends Model
     }
     public function images()
     {
-        return $this->morphToMany('App\Image', 'imageable');
+        return $this->morphMany('App\Image', 'imageable');
     }
     public function tags()
     {
@@ -40,13 +40,13 @@ class Product extends Model
             'code' => $request->code,
             'name' => $request->name,
             'slug' => Str::slug($request->name, '_'),
-            'stock' => $request->stock,
+            /* 'stock' => $request->stock, */
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
             'sell_price' => $request->sell_price,
-            'status' => $request->status,
+            /* 'status' => $request->status, */
             'subcategory_id' => $request->subcategory_id,
-            'provider_id' => $request->provider_id,
+            /* 'provider_id' => $request->provider_id, */
         ]);
         $product->tags()->attach($request->get('tags'));
         $this->generate_code($product);
@@ -58,13 +58,13 @@ class Product extends Model
             'code' => $request->code,
             'name' => $request->name,
             'slug' => Str::slug($request->name, '_'),
-            'stock' => $request->stock,
+            /* 'stock' => $request->stock, */
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
             'sell_price' => $request->sell_price,
-            'status' => $request->status,
+            /* 'status' => $request->status, */
             'subcategory_id' => $request->subcategory_id,
-            'provider_id' => $request->provider_id,
+            /* 'provider_id' => $request->provider_id, */
         ]);
         $this->tags()->sync($request->get('tags'));
         $this->generate_code($this);
