@@ -132,10 +132,8 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Imágenes de producto</h4>
-                <form action="http://www.urbanui.com/file-upload" class="dropzone d-flex align-items-center"
-                    id="my-awesome-dropzone">
-                </form>
+                <h4 class="card-title">Your so fresh input file — Default version</h4>
+                <input type="file" name="images[]" class="dropify" multiple/>
             </div>
         </div>
     </div>
@@ -153,5 +151,6 @@
         $('#subcategory_id').select2();
         $('#tags').select2();
     });
+
 </script>
 @endsection
