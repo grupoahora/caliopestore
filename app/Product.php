@@ -16,6 +16,7 @@ class Product extends Model
         'long_description',
         'sell_price',
         'status',
+        'category_id',
         'subcategory_id',
         /* 'provider_id', */
     ];
@@ -39,12 +40,13 @@ class Product extends Model
         $product = self::create([
             'code' => $request->code,
             'name' => $request->name,
-            'slug' => Str::slug($request->name, '_'),
+            'slug' => Str::slug($request->slug, '_'),
             /* 'stock' => $request->stock, */
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
             'sell_price' => $request->sell_price,
             /* 'status' => $request->status, */
+            'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
             /* 'provider_id' => $request->provider_id, */
         ]);
@@ -57,12 +59,13 @@ class Product extends Model
         $this->update([
             'code' => $request->code,
             'name' => $request->name,
-            'slug' => Str::slug($request->name, '_'),
+            'slug' => Str::slug($request->slug, '_'),
             /* 'stock' => $request->stock, */
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
             'sell_price' => $request->sell_price,
             /* 'status' => $request->status, */
+            'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
             /* 'provider_id' => $request->provider_id, */
         ]);

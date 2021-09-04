@@ -22,7 +22,9 @@ class CreateProductsTable extends Migration
             $table->decimal('sell_price',12,2);
             $table->mediumText('short_description')->nullable();
             $table->longText('long_description')->nullable();
-            $table->enum('status',['ACTIVE','DEACTIVATED'])->default('ACTIVE'); 
+            $table->enum('status',['ACTIVE','DEACTIVATED'])->default('ACTIVE');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->unsignedBigInteger('subcategory_id');
             $table->foreign('subcategory_id')->references('id')->on('subcategories');
             $table->timestamps();
