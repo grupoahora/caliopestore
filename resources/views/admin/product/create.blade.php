@@ -22,6 +22,7 @@
             </ol>
         </nav>
     </div>
+    {!! Form::open(['route'=>'products.store', 'method'=>'POST','files' => true]) !!}
     <div class="row">
         <div class="col-8 grid-margin stretch-card">
             <div class="card">
@@ -29,9 +30,6 @@
                     {{-- <div class="d-flex justify-content-between">
                         <h4 class="card-title">Registro de productos</h4>
                     </div> --}}
-                    {!! Form::open(['route'=>'products.store', 'method'=>'POST','files' => true]) !!}
-
-
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input type="text" name="name" id="name" class="form-control" aria-describedby="helpId"
@@ -63,9 +61,6 @@
                         <textarea class="form-control" name="short_description" id="short_description"
                             rows="10"></textarea>
                     </div>
-
-
-
                     {{-- <div class="form-group">
                         <label for="provider_id">Proveedor</label>
                         <select class="form-control" name="provider_id" id="provider_id">
@@ -73,14 +68,12 @@
                             <option value="{{$provider->id}}">{{$provider->name}}</option>
                     @endforeach
                     </select>
-                </div> --}}
-
-                {{--  <div class="custom-file mb-4">
+                    </div> --}}
+                    {{--  <div class="custom-file mb-4">
                         <input type="file" class="custom-file-input" name="picture" id="picture" lang="es">
                         <label class="custom-file-label" for="image">Seleccionar Archivo</label>
                     </div>  --}}
-
-                {{-- <div class="card-body">
+                    {{-- <div class="card-body">
                         <h4 class="card-title d-flex">Imagen de producto
                             <small class="ml-auto align-self-end">
                                 <a href="dropify.html" class="font-weight-light" target="_blank">Seleccionar Archivo</a>
@@ -88,12 +81,7 @@
                         </h4>
                         <input type="file" name="picture" id="picture" class="dropify" />
                     </div> --}}
-
-                {{-- <button type="submit" class="btn btn-primary mr-2">Registrar</button>
-                    <a href="{{route('products.index')}}" class="btn btn-light">
-                Cancelar
-                </a> --}}
-                {!! Form::close() !!}
+                </div>
             </div>
         </div>
         <div class="col-4 grid-margin stretch-card">
@@ -118,27 +106,34 @@
                     <div class="form-group">
                         <label for="tags">Etiquetas</label>
                         <select class="select2" name="tags[]" id="tags" style="width: 100%" multiple>
-                            <option>fsfsd</option>
-                            <option>wefwe</option>
-                            <option>awdaw</option>
+                            @foreach ($tags as $tag)
+                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
             </div>
         </div>
+        
+        
     </div>
-</div>
-<div class="row">
-    <div class="col-12 grid-margin">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Imágenes de producto</h4>
-                <form action="http://www.urbanui.com/file-upload" class="dropzone d-flex align-items-center"
-                    id="my-awesome-dropzone">
-                </form>
+    
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Your so fresh input file — Default version</h4>
+                    <input type="file" name="images[]" class="dropify" multiple />
+                </div>
             </div>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary mr-2">Registrar</button>
+                     <a href="{{route('products.index')}}" class="btn 
+                     btn-light">
+                        Cancelar
+                     </a>
+    {!! Form::close() !!}
 </div>
 @endsection
 @section('scripts')
@@ -153,5 +148,6 @@
         $('#subcategory_id').select2();
         $('#tags').select2();
     });
+
 </script>
 @endsection

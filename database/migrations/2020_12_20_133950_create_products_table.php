@@ -25,8 +25,6 @@ class CreateProductsTable extends Migration
             $table->enum('status',['ACTIVE','DEACTIVATED'])->default('ACTIVE'); 
             $table->unsignedBigInteger('subcategory_id');
             $table->foreign('subcategory_id')->references('id')->on('subcategories');
-            $table->unsignedBigInteger('provider_id');
-            $table->foreign('provider_id')->references('id')->on('providers');
             $table->timestamps();
         });
     }
