@@ -15,6 +15,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'long_description' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'sell_price' => $faker->randomNumber(2),
         'status' =>'ACTIVE',
+        'category_id' => rand(1, 10),
         'subcategory_id' =>rand(1,10),
     ];
 });

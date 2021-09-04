@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Provider;
+use App\Subcategory;
 use App\Tag;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -28,9 +29,10 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::get();
+        $subcategories = Subcategory::get();
         /* $providers = Provider::get(); */
         $tags = Tag::all();
-        return view('admin.product.create', compact('categories', 'tags'));
+        return view('admin.product.create', compact('categories', 'tags', 'subcategories'));
     }
     public function store(StoreRequest $request, Product $product)
     {

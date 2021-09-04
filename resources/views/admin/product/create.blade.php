@@ -88,8 +88,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="category">Categoría</label>
-                        <select class="select2" id="category" style="width: 100%">
+                        <label for="category_id">Categoría</label>
+                        <select class="select2" name="category_id" id="category_id" style="width: 100%">
                             @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
@@ -98,8 +98,8 @@
                     <div class="form-group">
                         <label for="subcategory_id">Subcategoría</label>
                         <select class="select2" name="subcategory_id" id="subcategory_id" style="width: 100%">
-                            @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @foreach ($subcategories as $subcategory)
+                            <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -141,7 +141,10 @@
 {!! Html::script('melody/js/dropify.js') !!}
 
 {!! Html::script('melody/js/dropzone.js') !!}
-{!! Html::script('select2/dist/js/select2.min.js') !!}
+{!! Html::script('ckeditor/ckeditor.js') !!}
+<script>
+    CKEDITOR.replace('long_description');
+</script>
 <script>
     $(document).ready(function () {
         $('#category').select2();
