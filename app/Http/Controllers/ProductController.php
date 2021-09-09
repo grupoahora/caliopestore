@@ -45,9 +45,11 @@ class ProductController extends Controller
     }
     public function edit(Product $product)
     {
+        $tags = Tag::all();
         $categories = Category::get();
+        $subcategories = Subcategory::get();
         /* $providers = Provider::get(); */
-        return view('admin.product.edit', compact('product', 'categories', 'providers'));
+        return view('admin.product.edit', compact('product', 'categories', 'subcategories', 'tags'));
     }
     public function update(UpdateRequest $request, Product $product)
     {

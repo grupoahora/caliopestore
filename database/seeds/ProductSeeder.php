@@ -1,7 +1,8 @@
 <?php
 
+use App\Product;
 use Illuminate\Database\Seeder;
-
+use App\tag;
 class ProductSeeder extends Seeder
 {
     /**
@@ -11,6 +12,11 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Product::class, 10)->create();
+        $products = factory(App\Product::class, 10)->create();
+        
+        foreach ($products as $product){
+            $product->tags()->sync([1,10]);
+        }
     }
 }
+/* $this->tags()->sync($request->get('tags')); */
