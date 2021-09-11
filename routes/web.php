@@ -110,6 +110,7 @@ Route::get('print_barcode', 'ProductController@print_barcode')->name('print_barc
 Route::get('/prueba', function () {
     return view('prueba');
 });
+Route::get('get_subcategories','AjaxController@get_subcategories')->name('get_subcategories');
 
 Route::get('/barcode', function () {
     $products = Product::get();

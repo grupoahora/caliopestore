@@ -81,10 +81,11 @@
                     <div class="form-group">
                         <label for="subcategory_id">Subcategoría</label>
                         <select class="select2" name="subcategory_id" id="subcategory_id" style="width: 100%">
-                            @foreach ($subcategories as $subcategory)
+                            <option value="" disabled selected>-- Selecciona una Categoria --</option>
+                            {{-- @foreach ($subcategories as $subcategory)
                             <option value="{{$subcategory->id}}" {{ old('subcategory_id', $product->subcategory_id) ==
                                 $subcategory->id ? 'selected' : ''}}>{{$subcategory->name}}</option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
                     </div>
                     <div class="form-group">
@@ -183,8 +184,25 @@
         
   </script>
   <script>
-        
-        console.log($('#fileuploader'));
+      var category = $('#category');
+      var subcategory_id = $('#subcategory_id');
+      category.change(function(){
+          $.ajax({
+              url: "{{route('get_subcategories')}}",
+              method: 'GET',
+              data: {
+                  category: category.val(),
+              },
+              success: function(data){
+                  subcategory_id.empty();
+                  subcategory_id.append('<option disabled selected>-- Selecciona una Subcategoria --</option>');
+                  $.each(data, function(index, element){
+                      subcategory_id.append('<option value="'+ element.id +'">'+ element.name +'</option>')
+                  });
+              }
+          });
+      });
+    
   </script>
 <!-- End custom js for this page-->
 @endsection
