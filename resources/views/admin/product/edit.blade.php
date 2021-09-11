@@ -100,7 +100,7 @@
                     <div class="form-group">
                         <h4 class="card-title">Subir imágenes</h4>
                         <div class="file-upload-wrapper">
-                            <div id="fileuploader">Subir</div>
+                            <div id="fileuploader" >Subir</div>
                         </div>
                     </div>
                 </div>
@@ -142,10 +142,10 @@
 </div>
 @endsection
 @section('scripts')
-{!! Html::script('melody/js/data-table.js') !!}
+{{-- {!! Html::script('melody/js/data-table.js') !!} --}}
 {!! Html::script('melody/js/dropify.js') !!}
 
-{!! Html::script('melody/js/dropzone.js') !!}
+{{-- {!! Html::script('melody/js/dropzone.js') !!} --}}
 {!! Html::script('ckeditor/ckeditor.js') !!}
 <script>
     CKEDITOR.replace('long_description');
@@ -166,6 +166,25 @@
   {!! Html::script('melody/js/light-gallery.js') !!}
   <!-- End custom js for this page-->
 <!-- Custom js for this page-->
-  {!! Html::script('melody/js/jquery-file-upload.js') !!}
+  {{-- {!! Html::script('melody/js/jquery-file-upload.js') !!} --}}
+  <script>
+      
+        (function($) {
+            'use strict';
+            if ($("#fileuploader").length) {
+                $("#fileuploader").uploadFile({
+                url: "/upload/product/{{$product->id}}/image",
+                fileName: "image",
+                
+                });
+            }
+            
+        })(jQuery);
+        
+  </script>
+  <script>
+        
+        console.log($('#fileuploader'));
+  </script>
 <!-- End custom js for this page-->
 @endsection

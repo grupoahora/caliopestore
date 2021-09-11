@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,10 @@ Route::resource('printers', 'PrinterController')->names('printers')->only([
 Route::resource('categories', 'CategoryController')->names('categories');
 Route::resource('clients', 'ClientController')->names('clients');
 Route::resource('products', 'ProductController')->names('products');
+
+Route::post('upload/product/{id}/image', 'ProductController@upload_image')->name('upload.product.image');
+
+
 Route::resource('providers', 'ProviderController')->names('providers');
 Route::resource('purchases', 'PurchaseController')->names('purchases')->except([
     'edit', 'update', 'destroy'

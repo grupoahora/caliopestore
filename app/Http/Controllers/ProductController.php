@@ -93,4 +93,22 @@ class ProductController extends Controller
         $pdf = PDF::loadView('admin.product.barcode', compact('products'));
         return $pdf->download('codigos_de_barras.pdf');
     }
+
+    public function upload_image(Request $request, $id){
+
+        
+        $product = Product::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $image_name = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/image"),$image_name);
+            $urlimage='/image/'.$image_name;
+        }
+
+
+
+        $product->images()->create([
+            'url'=> $urlimage,
+        ]);
+    }
 }
