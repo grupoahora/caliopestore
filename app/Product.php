@@ -59,7 +59,7 @@ class Product extends Model
         $this->update([
             'code' => $request->code,
             'name' => $request->name,
-            'slug' => Str::slug($request->slug, '_'),
+            'slug' => Str::slug($request->name, '_'),
             /* 'stock' => $request->stock, */
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
@@ -71,7 +71,7 @@ class Product extends Model
         ]);
         $this->tags()->sync($request->get('tags'));
         $this->generate_code($this);
-        $this->upload_files($request, $this);
+        
     }
     public function generate_code($product)
     {
