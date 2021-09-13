@@ -13,23 +13,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        Role::create([
-            'name'=>'Admin',
-            'slug'=>'admin',
-            'special'=>'all-access',
-        ]);
-
-        $user = User::create([
+       
+        User::create([
             'name'=>'David Cortes',
             'email'=>'cortesmirandaedavid19@gmail.com',
             'password'=> bcrypt('12345678')
-        ]);
-        $user = User::create([
+        ])->assignRole('Admin');
+        User::create([
             'name' => 'Andrespyg',
             'email' => 'andrespatino@grupoahora.co',
             'password' => bcrypt('12345678')
-        ]);
-
-        $user->roles()->sync(1);
+        ])->assignRole('Admin');
     }
 }

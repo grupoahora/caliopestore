@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @section('title','Editar producto')
 @section('styles')
 {!! Html::style('select2/dist/css/select2.min.css') !!}
@@ -32,36 +33,80 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" name="name" value="{{ old('name', $product->name)}}" id="name"
-                            class="form-control" aria-describedby="helpId" required>
+                        <input type="text" 
+                            name="name" 
+                            value="{{ old('name', $product->name)}}" 
+                            id="name"
+                            class="form-control" 
+                            aria-describedby="helpId" 
+                            {{-- required --}}>
+                            @error('name')
+                                <small class="text-danger">
+                                    {{ $message }}
+                                </small>
+                            @enderror
                     </div>
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="code">Código de barras</label>
-                                <input type="text" name="code" value="{{ old('code', $product->code)}}" id="code"
+                                <input type="text" 
+                                    name="code" 
+                                    value="{{ old('code', $product->code)}}" 
+                                    id="code"
                                     class="form-control">
+                                    @error('code')
+                                        <small class="text-danger">
+                                            {{ $message }}
+                                        </small>
+                                    @enderror
                                 <small id="helpId" class="text-muted">Campo opcional</small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="sell_price">Precio de venta</label>
-                                <input type="number" name="sell_price"
-                                    value="{{ old('sell_price', $product->sell_price)}}" id="sell_price"
-                                    class="form-control" aria-describedby="helpId" required>
+                                <input type="number" 
+                                    name="sell_price"
+                                    value="{{ old('sell_price', $product->sell_price)}}" 
+                                    id="sell_price"
+                                    class="form-control" 
+                                    aria-describedby="helpId" 
+                                    {{-- required --}}>
+                                    @error('sell_price')
+                                        <small class="text-danger">
+                                            {{ $message }}
+                                        </small>
+                                    @enderror
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="short_description">Extracto</label>
-                        <textarea class="form-control" name="short_description" id="short_description"
-                            rows="3">{{ old('short_description', $product->short_description)}}</textarea>
+                        <textarea class="form-control" 
+                            name="short_description" 
+                            id="short_description"
+                            rows="3">{{ old('short_description', $product->short_description)}}
+                        </textarea>
+                        @error('short_description')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="long_description">Descripción</label>
-                        <textarea class="form-control" name="long_description" id="long_description"
-                            rows="10">{{ old('long_description', $product->long_description)}}</textarea>
+                        <textarea class="form-control" 
+                            name="long_description" 
+                            id="long_description"
+                            rows="10">
+                            {{ old('long_description', $product->long_description)}}
+                        </textarea>
+                        @error('long_description')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -71,12 +116,18 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="category_id">Categoría</label>
-                        <select class="select2" name="category_id" id="category" style="width: 100%">
+                        <select class="select2" name="categAory_id" id="category" style="width: 100%">
                             @foreach ($categories as $category)
                             <option value="{{$category->id}}" {{ old('category_id', $product->category_id) ==
                                 $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                             @endforeach
                         </select>
+                        @error('category_id')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+
                     </div>
                     <div class="form-group">
                         <label for="subcategory_id">Subcategoría</label>
@@ -87,6 +138,11 @@
                                 $subcategory->id ? 'selected' : ''}}>{{$subcategory->name}}</option>
                             @endforeach --}}
                         </select>
+                        @error('subcategory_id')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="tags">Etiquetas</label>
@@ -135,7 +191,7 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary mr-2">Registrar</button>
+    <button type="submit" class="btn btn-primary mr-2">Editar</button>
     <a href="{{route('products.index')}}" class="btn btn-light">
         Cancelar
     </a>

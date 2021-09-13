@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\Http\Requests\Subcategory;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,13 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:products,name,' . $this->route('product')->id . '|string',
-            'code' => 'nullable|unique:products,code,' . $this->route('product')->id . '|string',
-            'short_description' => 'min:120|max:240|required',
-            'long_description' => 'min:300|max:900|required',
-            'sell_price' => 'required',
+            'name' => 'required|string|max:50|unique:subcategories|',
+            'description' => 'required|string|max:255',
             'category_id' => 'required',
-            'subcategory_id' => 'required',
         ];
     }
 }

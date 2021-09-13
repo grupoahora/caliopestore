@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Subcategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Subcategory\StoreRequest;
+use App\Http\Requests\Subcategory\UpdateRequest;
 use Illuminate\Http\Request;
+
 
 class SubcategoryController extends Controller
 {
@@ -21,10 +24,11 @@ class SubcategoryController extends Controller
     {
         return view('admin.subcategories.create');
     }
-    public function store(Request $request, Subcategory $subcategory)
+    public function store(StoreRequest $request, Subcategory $subcategory)
     {
+        
         $subcategory->my_store($request);
-        return redirect()->route('subcategories.index');
+        return redirect()->route('categories.index');
     }
     public function show(Subcategory $subcategory)
     {
@@ -34,7 +38,7 @@ class SubcategoryController extends Controller
     {
         return view('admin.subcategories.edit', compact('subcategories'));
     }
-    public function update(Request $request, Subcategory $subcategory)
+    public function update(UpdateRequest $request, Subcategory $subcategory)
     {
         $subcategory->my_update($request);
         return redirect()->route('subcategories.index');

@@ -24,17 +24,35 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Registro de categorías</h4>
                     </div>
-                    {!! Form::open(['route'=>'categories.store', 'method'=>'POST']) !!}
-                    @include('admin.category._form')
-                     <button type="submit" class="btn btn-primary mr-2">Registrar</button>
-                     <a href="{{route('categories.index')}}" class="btn btn-light">
-                        Cancelar
-                     </a>
-                     {!! Form::close() !!}
+                    {!! Form::open(['route'=>'subcategories.store', 'method'=>'POST']) !!}
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="icon">icono</label>
+                        <select name="icon" value="1" id="icon" class="form-control">
+                            <option value="1">icon1</option>
+                        </select>
+
+                    </div>
+                    {{-- <div class="form-group">
+                        <label for="slug">Slug</label>
+                        <textarea class="form-control" name="slug" id="slug" rows="3"></textarea>
+                    </div> --}}
+                    
+                    <div class="form-group">
+                        <label for="description">Descripción</label>
+                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Registrar</button>
+                    <a href="{{route('categories.index')}}" class="btn btn-light">
+                       Cancelar
+                    </a>
+                    {!! Form::close() !!}
                 </div>
                 {{--  <div class="card-footer text-muted">
                     {{$categories->render()}}

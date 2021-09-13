@@ -75,10 +75,76 @@
                                         <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
+                                        <button type="button" 
+                                                class="jsgrid-button jsgrid-delete-button unstyled-button"
+                                                data-toggle="modal" 
+                                                data-target="#exampleModal-{{$category->id}}">
+                                            <i class="far fa-plus-square"></i>
+                                        </button>
 
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
+
+                                <div class="modal fade" 
+                                    id="exampleModal-{{$category->id}}" 
+                                    tabindex="-1" 
+                                    role="dialog" 
+                                    aria-labelledby="exampleModalLabel" 
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Registrar Subcategoria</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {!! Form::open(['route'=>'subcategories.store', 'method'=>'POST']) !!}
+                                                <input type="hidden" name="category_id" value="{{$category->id}}">
+                                                @error('category_id')
+                                                        <small class="text-danger">
+                                                            {{ $message }}
+                                                        </small>
+                                                    @enderror
+                                                <div class="form-group">
+                                                    <label for="name">Nombre</label>
+                                                        <input type="text" 
+                                                                name="name" 
+                                                                id="name" 
+                                                                class="form-control" 
+                                                                placeholder="Nombre" 
+                                                                {{-- required --}}>
+                                                                @error('name')
+                                                                    <small class="text-danger">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                @enderror
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label for="description">Descripción</label>
+                                                    <textarea class="form-control" 
+                                                    name="description" 
+                                                    id="description" 
+                                                    rows="3">
+                                                    </textarea>
+                                                    @error('description')
+                                                        <small class="text-danger">
+                                                            {{ $message }}
+                                                        </small>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Registrar</button>
+                                                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                                            </div>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div>
+                                </div>
                                 @endforeach
                             </tbody>
                         </table>

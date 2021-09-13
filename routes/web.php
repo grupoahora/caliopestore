@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SubcategoryController;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -111,6 +112,10 @@ Route::get('/prueba', function () {
     return view('prueba');
 });
 Route::get('get_subcategories','AjaxController@get_subcategories')->name('get_subcategories');
+
+// rutas para las subcategorias
+Route::resource('subcategories', 'SubcategoryController')->names('subcategories');
+
 
 Route::get('/barcode', function () {
     $products = Product::get();
