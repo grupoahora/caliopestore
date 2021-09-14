@@ -35,7 +35,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3 grid-margin stretch-card">
+        <div class="col-md-4 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Varying Modal Content</h4>
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 grid-margin stretch-card">
+        <div class="col-md-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -99,8 +99,9 @@
                                 <tr>
                                     <th scope="row">{{$subcategory->id}}</th>
                                     <td>
-                                        <a
-                                            href="{{route('subcategories.show',$subcategory)}}">{{$subcategory->name}}</a>
+                                        <a href="#"
+                                            class="get_products"
+                                            data-artid="{{$subcategory->id}}">{{$subcategory->name}}</a>
                                     </td>
                                     <td>{{$subcategory->description}}</td>
                                     <td style="width: 50px;">
@@ -130,11 +131,55 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">Productos</h4>
+                        {{--  <i class="fas fa-ellipsis-v"></i>  --}}
+                    </div>
 
+                    <div class="table-responsive">
+                        <table id="products_listing" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Stock</th>
+                                    <th>Precio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            {{-- <tbody>
+                                @foreach ($products as $product)
+                                <tr>
+                                    <th scope="row">{{$product->id}}</th>
+                                    <td>
+                                        <a href="{{route('products.show',$product)}}">{{$product->name}}</a>
+                                    </td>
+                                    <td>{{$product->stock}}</td>
+                                    <td>{{$product->sell_price}}</td>
+                                    
 
+                                    <td>{{$product->category->name}}</td>
+                                    <td style="width: 50px;">
+                                        {!! Form::open(['route'=>['products.destroy',$product], 'method'=>'DELETE']) !!}
+
+                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}" title="Editar">
+                                            <i class="far fa-edit"></i>
+                                        </a>
+                                        
+                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+
+                                        {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody> --}}
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -199,10 +244,32 @@
             
         });
     </script>
-
-
-    
-
-    
 @endif
+    <script>
+        $(function(){
+            $('.get_products').click(function(){
+                var elem = $(this);
+                $.ajax({
+                    type: "GET",
+                    url: "/get_products_by_subcategory",
+                    data: "subcategory_id="+elem.attr('data-artid'),
+                    dataType: "json",
+                    success: function(data1){
+                        console.log(data1);
+                        $('#products_listing').dataTable( {
+                            data : data1.data,
+                            columns: [
+                                {"data" : "id"},
+                                {"data" : "name"},
+                                {"data" : "sell_price"},
+                                {"data" : "stock"}
+                            ],
+                        });
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+
 @endsection

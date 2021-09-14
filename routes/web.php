@@ -112,6 +112,7 @@ Route::get('/prueba', function () {
     return view('prueba');
 });
 Route::get('get_subcategories','AjaxController@get_subcategories')->name('get_subcategories');
+Route::get('get_products_by_subcategory', 'AjaxController@get_products_by_subcategory')->name('get_products_by_subcategory');
 
 // rutas para las subcategorias
 Route::resource('subcategories', 'SubcategoryController')->names('subcategories');

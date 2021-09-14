@@ -6,6 +6,8 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
+use App\Product;
+
 class CategoryController extends Controller
 {
     public function __construct()
@@ -34,8 +36,9 @@ class CategoryController extends Controller
     }
     public function show(Category $category)
     {
+        $products = Product::get();
         $subcategories = $category->subcategories;
-        return view('admin.category.show', compact('category', 'subcategories'));
+        return view('admin.category.show', compact('category', 'subcategories', 'products'));
     }
     public function edit(Category $category)
     {

@@ -36,12 +36,13 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'App\\Providers\\AppServiceProvider',
-      23 => 'App\\Providers\\AuthServiceProvider',
-      24 => 'App\\Providers\\EventServiceProvider',
-      25 => 'App\\Providers\\RouteServiceProvider',
-      26 => 'Barryvdh\\DomPDF\\ServiceProvider',
-      27 => 'Milon\\Barcode\\BarcodeServiceProvider',
+      22 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+      23 => 'App\\Providers\\AppServiceProvider',
+      24 => 'App\\Providers\\AuthServiceProvider',
+      25 => 'App\\Providers\\EventServiceProvider',
+      26 => 'App\\Providers\\RouteServiceProvider',
+      27 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      28 => 'Milon\\Barcode\\BarcodeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -84,6 +85,7 @@
       'PDF' => 'Barryvdh\\DomPDF\\Facade',
       'DNS1D' => 'Milon\\Barcode\\Facades\\DNS1DFacade',
       'DNS2D' => 'Milon\\Barcode\\Facades\\DNS2DFacade',
+      'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
     ),
   ),
   'auth' => 
@@ -736,6 +738,56 @@
     'remote_sites_path' => '',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
+  ),
+  'datatables' => 
+  array (
+    'search' => 
+    array (
+      'smart' => true,
+      'multi_term' => true,
+      'case_insensitive' => true,
+      'use_wildcards' => false,
+      'starts_with' => false,
+    ),
+    'index_column' => 'DT_RowIndex',
+    'engines' => 
+    array (
+      'eloquent' => 'Yajra\\DataTables\\EloquentDataTable',
+      'query' => 'Yajra\\DataTables\\QueryDataTable',
+      'collection' => 'Yajra\\DataTables\\CollectionDataTable',
+      'resource' => 'Yajra\\DataTables\\ApiResourceDataTable',
+    ),
+    'builders' => 
+    array (
+    ),
+    'nulls_last_sql' => ':column :direction NULLS LAST',
+    'error' => NULL,
+    'columns' => 
+    array (
+      'excess' => 
+      array (
+        0 => 'rn',
+        1 => 'row_num',
+      ),
+      'escape' => '*',
+      'raw' => 
+      array (
+        0 => 'action',
+      ),
+      'blacklist' => 
+      array (
+        0 => 'password',
+        1 => 'remember_token',
+      ),
+      'whitelist' => '*',
+    ),
+    'json' => 
+    array (
+      'header' => 
+      array (
+      ),
+      'options' => 0,
+    ),
   ),
   'trustedproxy' => 
   array (
