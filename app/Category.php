@@ -30,4 +30,8 @@ class Category extends Model
             'icon' => $request->icon,
         ]);
     }
+
+    public function subcategories(){
+        return $this->hasMany(Subcategory::class);
+    }
 }
