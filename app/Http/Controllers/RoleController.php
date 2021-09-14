@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Caffeinated\Shinobi\Models\Permission;
-use Caffeinated\Shinobi\Models\Role;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {

@@ -28,6 +28,7 @@ class CategoryController extends Controller
     }
     public function store(StoreRequest $request, Category $category)
     {
+        dd($request);
         $category->my_store($request);
         return redirect()->route('categories.index');
     }

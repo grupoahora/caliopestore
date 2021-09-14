@@ -53,7 +53,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>description</th>
+                                    {{-- <th>description</th> --}}
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -64,7 +64,7 @@
                                     <td>
                                         <a href="{{route('roles.show',$role)}}">{{$role->name}}</a>
                                     </td>
-                                    <td>{{$role->description}}</td>
+                                    {{-- <td>{{$role->description}}</td> --}}
                                     <td style="width: 50px;">
                                         {!! Form::open(['route'=>['roles.destroy',$role], 'method'=>'DELETE']) !!}
 

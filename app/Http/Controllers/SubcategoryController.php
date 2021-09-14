@@ -14,6 +14,11 @@ class SubcategoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:subcategories.create')->only(['create', 'store']);
+        $this->middleware('can:subcategories.index')->only(['index']);
+        $this->middleware('can:subcategories.edit')->only(['edit', 'update']);
+        $this->middleware('can:subcategories.show')->only(['show']);
+        $this->middleware('can:subcategories.destroy')->only(['destroy']);
     }
     public function index()
     {
