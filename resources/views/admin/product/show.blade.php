@@ -34,7 +34,7 @@
                         <div class="col-lg-4">
                             <div class="border-bottom text-center pb-4">
 
-                                <img src="{{asset('image/'.$product->image)}}" alt="profile" class="img-lg  mb-3" />
+                                {{-- <img src="{{asset('image/'.$product->image)}}" alt="profile" class="img-lg  mb-3" /> --}}
                                 {{--  <p>Nombre de proveedor. </p>  --}}
 
 
@@ -60,10 +60,10 @@
                                         Status
                                     </span>
                                     <span class="float-right text-muted">
-                                        {{$product->status}}
+                                        {{$product->status()}}
                                     </span>
                                 </p>
-                                <p class="clearfix">
+                                {{-- <p class="clearfix">
                                     <span class="float-left">
                                         Proveedor
                                     </span>
@@ -72,7 +72,7 @@
                                         {{$product->provider->name}}
                                         </a>
                                     </span>
-                                </p>
+                                </p> --}}
                                 <p class="clearfix">
                                     <span class="float-left">
                                         Categoría
@@ -80,7 +80,7 @@
                                     <span class="float-right text-muted">
                                         {{--  PRODUCTOS POR CATEGORIA  --}}
                                         <a href="">
-                                            {{$product->category->name}}
+                                            {{$product->subcategory->name}}
                                         </a>
                                     </span>
                                 </p>

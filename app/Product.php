@@ -21,8 +21,8 @@ class Product extends Model
         /* 'provider_id', */
     ];
 
-    public function category(){
-        return $this->belongsTo(Category::class);
+    public function subcategory(){
+        return $this->belongsTo(Subcategory::class);
     }
     public function provider(){
         return $this->belongsTo(Provider::class);
@@ -93,5 +93,16 @@ class Product extends Model
             }
         }
         $product->images()->createMany($urlimages);
+    }
+    public function status(){
+        switch ($this->status) {
+            case 'ACTIVE':
+                return 'Activo';
+            case 'DEACTIVATED':
+                return 'Inactivo';
+            default:
+                # code...
+                break;
+        }
     }
 }

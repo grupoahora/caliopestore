@@ -58,6 +58,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{route('tags.index')}}">
+                <i class="fas fa-tag menu-icon"></i>
+                <span class="menu-title">Etiquetas</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{route('products.index')}}">
                 <i class="fas fa-boxes menu-icon"></i>
                 <span class="menu-title">Productos</span>
