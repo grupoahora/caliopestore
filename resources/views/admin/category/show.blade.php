@@ -38,29 +38,23 @@
         <div class="col-md-4 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Varying Modal Content</h4>
-                    <div class="modal fade" id="exampleModal-4" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="ModalLabel">New message</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Send message</button>
-                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal-4"
-                        data-whatever="@mdo">Open modal for @mdo</button>
+                    <h4 class="card-title">
+                        <i class="far fa-futbol"></i>
+                        {{$category->name}}
+                    </h4>
+                    <ul class="solid-bullet-list">
+                        <li>
+                            <h5>Description</h5>
+                            <p class="text-muted">{{$category->description}}</p>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <div class="card-footer text-muted">
+                    {!! Form::open(['route'=>['categories.destroy',$category], 'method'=>'DELETE']) !!}
+                        <a class="btn btn-info" href="{{route('categories.edit', $category)}}">Editar</a>  
+                        <button type="submit" class="btn btn-danger float-right">Eliminar</button>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
@@ -99,8 +93,7 @@
                                 <tr>
                                     <th scope="row">{{$subcategory->id}}</th>
                                     <td>
-                                        <a href="#"
-                                            class="get_products"
+                                        <a href="#" class="get_products"
                                             data-artid="{{$subcategory->id}}">{{$subcategory->name}}</a>
                                     </td>
                                     <td>{{$subcategory->description}}</td>
@@ -124,7 +117,7 @@
                                     </td>
                                 </tr>
 
-                            @endforeach
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -154,29 +147,31 @@
                                 @foreach ($products as $product)
                                 <tr>
                                     <th scope="row">{{$product->id}}</th>
-                                    <td>
-                                        <a href="{{route('products.show',$product)}}">{{$product->name}}</a>
-                                    </td>
-                                    <td>{{$product->stock}}</td>
-                                    <td>{{$product->sell_price}}</td>
-                                    
+                            <td>
+                                <a href="{{route('products.show',$product)}}">{{$product->name}}</a>
+                            </td>
+                            <td>{{$product->stock}}</td>
+                            <td>{{$product->sell_price}}</td>
 
-                                    <td>{{$product->category->name}}</td>
-                                    <td style="width: 50px;">
-                                        {!! Form::open(['route'=>['products.destroy',$product], 'method'=>'DELETE']) !!}
 
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}" title="Editar">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-                                        
-                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
+                            <td>{{$product->category->name}}</td>
+                            <td style="width: 50px;">
+                                {!! Form::open(['route'=>['products.destroy',$product], 'method'=>'DELETE']) !!}
 
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
-                                @endforeach
+                                <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}"
+                                    title="Editar">
+                                    <i class="far fa-edit"></i>
+                                </a>
+
+                                <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit"
+                                    title="Eliminar">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+
+                                {!! Form::close() !!}
+                            </td>
+                            </tr>
+                            @endforeach
                             </tbody> --}}
                         </table>
                     </div>
@@ -186,8 +181,8 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -206,8 +201,7 @@
                 @enderror
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre"
-                        required>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" required>
                     @error('name')
                     <small class="text-danger">
                         {{ $message }}
@@ -238,42 +232,53 @@
 {!! Html::script('melody/js/profile-demo.js') !!}
 {!! Html::script('melody/js/data-table.js') !!}
 @if ($errors->any())
-    <script>
-        $(document).ready(function(){
-            $("#exampleModal").modal("show");
-            
-        });
-    </script>
+<script>
+    $(document).ready(function () {
+        $("#exampleModal").modal("show");
+
+    });
+
+</script>
 @endif
-    <script>
-        $(function(){
-            $('.get_products').click(function(){
-                var elem = $(this);
-                $.ajax({
-                    type: "GET",
-                    url: "/get_products_by_subcategory",
-                    data: "subcategory_id="+elem.attr('data-artid'),
-                    dataType: "json",
-                    success: function(data1){
-                        console.log(data1);
-                        /* Destruccion de tabla para ser recreada */
-                        $('#products_listing').dataTable().fnDestroy(),
+<script>
+    $(function () {
+        $('.get_products').click(function () {
+            var elem = $(this);
+            $.ajax({
+                type: "GET",
+                url: "/get_products_by_subcategory",
+                data: "subcategory_id=" + elem.attr('data-artid'),
+                dataType: "json",
+                success: function (data1) {
+                    console.log(data1);
+                    /* Destruccion de tabla para ser recreada */
+                    $('#products_listing').dataTable().fnDestroy(),
                         /* Creacion de tabla */
-                        $('#products_listing').dataTable( {
-                            data : data1.data,
-                            columns: [
-                                {"data" : "id"},
-                                {"data" : "name"},
-                                {"data" : "sell_price"},
-                                {"data" : "stock"},
-                                {"data" : "btn"}
+                        $('#products_listing').dataTable({
+                            data: data1.data,
+                            columns: [{
+                                    "data": "id"
+                                },
+                                {
+                                    "data": "name"
+                                },
+                                {
+                                    "data": "sell_price"
+                                },
+                                {
+                                    "data": "stock"
+                                },
+                                {
+                                    "data": "btn"
+                                }
                             ],
                         });
-                    }
-                });
-                return false;
+                }
             });
+            return false;
         });
-    </script>
+    });
+
+</script>
 
 @endsection

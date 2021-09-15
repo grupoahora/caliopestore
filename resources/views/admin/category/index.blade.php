@@ -75,18 +75,18 @@
                                         <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
-                                        <button type="button" 
+                                        {{-- <button type="button" 
                                                 class="jsgrid-button jsgrid-delete-button unstyled-button"
                                                 data-toggle="modal" 
                                                 data-target="#exampleModal-{{$category->id}}">
                                             <i class="far fa-plus-square"></i>
-                                        </button>
+                                        </button> --}}
 
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
 
-                                <div class="modal fade" 
+                                {{-- <div class="modal fade" 
                                     id="exampleModal-{{$category->id}}" 
                                     tabindex="-1" 
                                     role="dialog" 
@@ -115,7 +115,7 @@
                                                                 id="name" 
                                                                 class="form-control" 
                                                                 placeholder="Nombre" 
-                                                                {{-- required --}}>
+                                                                required>
                                                                 @error('name')
                                                                     <small class="text-danger">
                                                                         {{ $message }}
@@ -144,15 +144,12 @@
                                             {!! Form::close() !!}
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-                {{--  <div class="card-footer text-muted">
-                    {{$categories->render()}}
-                </div>  --}}
             </div>
         </div>
     </div>

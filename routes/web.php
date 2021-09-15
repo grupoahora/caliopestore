@@ -117,7 +117,7 @@ Route::get('get_products_by_subcategory', 'AjaxController@get_products_by_subcat
 // rutas para las subcategorias
 Route::resource('subcategories', 'SubcategoryController')->names('subcategories');
 
-
+Route::resource('tags', 'TagController')->names('tags');
 Route::get('/barcode', function () {
     $products = Product::get();
     return view('admin.product.barcode', compact('products'));

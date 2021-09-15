@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Tags\StoreRequest;
+use App\Http\Requests\Tags\UpdateRequest;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -21,7 +23,7 @@ class TagController extends Controller
     {
         return view('admin.tag.create');
     }
-    public function store(Request $request, Tag $tag)
+    public function store(StoreRequest $request, Tag $tag)
     {
         $tag->my_store($request);
         return redirect()->route('tags.index');
@@ -34,7 +36,7 @@ class TagController extends Controller
     {
         return view('admin.tag.edit', compact('tag'));
     }
-    public function update(Request $request, Tag $tag)
+    public function update(UpdateRequest $request, Tag $tag)
     {
         $tag->my_update($request);
         return redirect()->route('tags.index');

@@ -42,7 +42,7 @@
                     
 
                      <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
-                     <a href="{{route('categories.index')}}" class="btn btn-light">
+                     <a href="{{URL::previous() }}" class="btn btn-light">
                         Cancelar
                      </a>
                      {!! Form::close() !!}
