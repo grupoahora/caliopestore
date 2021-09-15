@@ -10,7 +10,9 @@ class Category extends Model
     protected $fillable = [
         'name', 'description', 'slug', 'icon',
     ];
-    
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
     public function my_store($request){
         self::create([
             'name' => $request->name,
