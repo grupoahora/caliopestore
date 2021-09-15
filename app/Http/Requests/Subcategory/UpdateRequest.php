@@ -24,9 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:50|unique:subcategories|',
+            'name' => 'required|string|max:50',
             'description' => 'required|string|max:255',
-            'category_id' => 'required',
+            
         ];
     }
 }

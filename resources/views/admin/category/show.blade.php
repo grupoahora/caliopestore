@@ -256,13 +256,17 @@
                     dataType: "json",
                     success: function(data1){
                         console.log(data1);
+                        /* Destruccion de tabla para ser recreada */
+                        $('#products_listing').dataTable().fnDestroy(),
+                        /* Creacion de tabla */
                         $('#products_listing').dataTable( {
                             data : data1.data,
                             columns: [
                                 {"data" : "id"},
                                 {"data" : "name"},
                                 {"data" : "sell_price"},
-                                {"data" : "stock"}
+                                {"data" : "stock"},
+                                {"data" : "btn"}
                             ],
                         });
                     }

@@ -26,9 +26,10 @@ class AjaxController extends Controller
             )->get();
             return response()->json($products); */
             return datatables()->of(Product::where(
-                'subcategory_id',
-                $request->subcategory_id
-            )->get())->toJson();
+                'subcategory_id', $request->subcategory_id)->get())
+            ->addColumn('btn','admin.category._actions')
+            ->rawColumns(['btn'])
+            ->toJson();
         }
     }
 }

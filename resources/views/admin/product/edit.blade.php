@@ -116,7 +116,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="category_id">Categoría</label>
-                        <select class="select2" name="categAory_id" id="category" style="width: 100%">
+                        <select class="select2" name="category_id" id="category" style="width: 100%">
                             @foreach ($categories as $category)
                             <option value="{{$category->id}}" {{ old('category_id', $product->category_id) ==
                                 $category->id ? 'selected' : ''}}>{{$category->name}}</option>

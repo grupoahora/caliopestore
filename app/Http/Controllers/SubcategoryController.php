@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Subcategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Subcategory\StoreRequest;
@@ -33,24 +34,29 @@ class SubcategoryController extends Controller
     {
         
         $subcategory->my_store($request);
-        return redirect()->route('categories.index');
+        return back();
+        /* return redirect()->route('categories.index'); */
     }
     public function show(Subcategory $subcategory)
     {
-        return view('admin.subcategories.show', compact('subcategories'));
+        return view('admin.subcategories.show', compact('subcategory'));
     }
-    public function edit(Subcategory $subcategory)
+    public function edit(Category $category, Subcategory $subcategory)
     {
-        return view('admin.subcategories.edit', compact('subcategories'));
+
+        return view('admin.subcategories.edit', compact( 'category', 'subcategory'));
     }
-    public function update(UpdateRequest $request, Subcategory $subcategory)
+    public function update(UpdateRequest $request, Subcategory $subcategory, Category $category)
     {
+        
         $subcategory->my_update($request);
-        return redirect()->route('subcategories.index');
+        
+        return back()->with('info', 'se actualizo la subcategoria correctamente');
     }
     public function destroy(Subcategory $subcategory)
     {
         $subcategory->delete();
-        return redirect()->route('subcategories.index');
+        return back();
+        /* return redirect()->route('subcategories.index'); */
     }
 }
