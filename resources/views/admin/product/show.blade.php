@@ -80,7 +80,7 @@
                                     <span class="float-right text-muted">
                                         {{--  PRODUCTOS POR CATEGORIA  --}}
                                         <a href="">
-                                            {{$product->subcategory->name}}
+                                            {{$product->category->name}}
                                         </a>
                                     </span>
                                 </p>
