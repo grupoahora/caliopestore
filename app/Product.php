@@ -94,4 +94,12 @@ class Product extends Model
         }
         $product->images()->createMany($urlimages);
     }
+
+
+
+
+    static function get_active_products()
+    {
+        return self::where('status', 'ACTIVE');
+    }
 }

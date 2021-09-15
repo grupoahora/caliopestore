@@ -17,50 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/productos', function () {
-    return view('web.shop_grid');
-    /* return redirect()->route('login'); */
-});
-Route::get('/', function() {
-    return view('welcome');
-    /* return redirect()->route('login'); */
-});
-Route::get('/detalles', function () {
-    return view('web.product_details');
-    /* return redirect()->route('login'); */
-});
-Route::get('/cuenta', function () {
-    return view('web.my-account');
-    /* return redirect()->route('login'); */
-});
-Route::get('/registro', function () {
-    return view('web.login-register');
-    /* return redirect()->route('login'); */
-});
-Route::get('/compra', function () {
-    return view('web.wishlist');
-    /* return redirect()->route('login'); */
-});
-Route::get('/contacto', function () {
-    return view('web.contact-us');
-    /* return redirect()->route('login'); */
-});
-Route::get('/carrito', function () {
-    return view('web.cart');
-    /* return redirect()->route('login'); */
-});
-Route::get('/blog', function () {
-    return view('web.blog');
-    /* return redirect()->route('login'); */
-});
-Route::get('/blog-details', function () {
-    return view('web.blog_details');
-    /* return redirect()->route('login'); */
-});
-Route::get('/nosotros', function () {
-    return view('web.about_us');
-    /* return redirect()->route('login'); */
-});
+
+
+Route::get('/compra', 'WebController@wishlist')->name('web.wishlist');
+Route::get('/nosotros', 'WebController@about_us')->name('web.about_us');
+Route::get('/pagar', 'WebController@checkout')->name('web.checkout');
+Route::get('/blog_details', 'WebController@blog_details')->name('web.blog_details');
+Route::get('/blog', 'WebController@blog')->name('web.blog');
+Route::get('/carrito', 'WebController@cart')->name('web.cart');
+Route::get('/contacto', 'WebController@contact_us')->name('web.contact_us');
+Route::get('/registro', 'WebController@login_register')->name('web.login_register');
+Route::get('/productos', 'WebController@shop_grid')->name('web.shop_grid');
+Route::get('/detalles', 'WebController@product_details')->name('web.product_details');
+Route::get('/micuenta', 'WebController@my_account')->name('web.my_account');
+Route::get('/', 'WebController@welcome')->name('web.welcome');
+//=====================================rutas del cliente =============================================//
+
+
+//=====================================fin  =============================================//
 
 Route::get('sales/reports_day', 'ReportController@reports_day')->name('reports.day');
 Route::get('sales/reports_date', 'ReportController@reports_date')->name('reports.date');
