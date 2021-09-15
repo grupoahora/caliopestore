@@ -13,6 +13,10 @@ class Subcategory extends Model
         'description',
         'category_id',
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
     public function my_store($request)
     {
         self::create([
