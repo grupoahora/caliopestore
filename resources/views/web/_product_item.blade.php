@@ -3,8 +3,10 @@
     <div class="product-item fix mb-30">
         <div class="product-thumb">
             <a href="product-details.html">
-                <img src="galio/assets/img/product/product-img1.jpg" class="img-pri" alt="">
-                <img src="galio/assets/img/product/product-img2.jpg" class="img-sec" alt="">
+                <img src="{{$product->images->pluck('url')[0]}}" 
+                class="img-pri" alt="">
+                <img src="{{$product->images->pluck('url')[1]}}" 
+                class="img-sec" alt="">
             </a>
             <div class="product-label">
                 <span>hot</span>
