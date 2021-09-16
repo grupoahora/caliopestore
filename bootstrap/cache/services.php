@@ -40,8 +40,9 @@
     36 => 'App\\Providers\\AuthServiceProvider',
     37 => 'App\\Providers\\EventServiceProvider',
     38 => 'App\\Providers\\RouteServiceProvider',
-    39 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    40 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    39 => 'App\\Providers\\ShoppingCartProvider',
+    40 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    41 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'eager' => 
   array (
@@ -70,8 +71,9 @@
     22 => 'App\\Providers\\AuthServiceProvider',
     23 => 'App\\Providers\\EventServiceProvider',
     24 => 'App\\Providers\\RouteServiceProvider',
-    25 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    26 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    25 => 'App\\Providers\\ShoppingCartProvider',
+    26 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    27 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'deferred' => 
   array (

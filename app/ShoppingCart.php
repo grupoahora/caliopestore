@@ -19,4 +19,11 @@ class ShoppingCart extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public static function findOrCreateBySessionId($shopping_cart_id){
+        if ($shopping_cart_id) {
+            return ShoppingCart::find($shopping_cart_id);
+        } else {
+            return ShoppingCart::create();
+        }
+    }
 }
