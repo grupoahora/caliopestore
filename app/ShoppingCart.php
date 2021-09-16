@@ -26,4 +26,16 @@ class ShoppingCart extends Model
             return ShoppingCart::create();
         }
     }
+    public function quantity_of_products()
+    {
+        return $this->shopping_cart_details->sum('quantity');
+    }
+    public function total_price()
+    {
+        $total = 0;
+        foreach ($this->shopping_cart_details as $key => $shopping_cart_detail){
+            $total += $shopping_cart_detail->price * $shopping_cart_detail->quantity;
+        }
+        return $total;
+    }
 }

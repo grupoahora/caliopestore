@@ -30,7 +30,7 @@ class ShoppingCartProvider extends ServiceProvider
             $shopping_cart_id = Session::get($session_name);
             $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
             Session::put($session_name, $shopping_cart->id);
-            $view->with('shopping:cart', $shopping_cart);
+            $view->with('shopping_cart', $shopping_cart);
         });
     }
 }
