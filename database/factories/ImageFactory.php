@@ -7,6 +7,6 @@ use App\Image;
 
 $factory->define(Image::class, function (Faker $faker) {
 return [
-    //
+    'url'
     ];
 });
