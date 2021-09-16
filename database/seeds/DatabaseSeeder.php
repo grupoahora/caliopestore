@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Category::class, 10)->create();
         factory(App\Subcategory::class, 50)->create();
         factory(App\Product::class,24)->create()->each(function($product){
-            $product->images()->saveMany(factory(App\Image::class, 2)->make());
+            $product->images()->saveMany(factory(App\Image::class, 4)->make());
         });
         factory(App\Client::class, 10)->create();
         
