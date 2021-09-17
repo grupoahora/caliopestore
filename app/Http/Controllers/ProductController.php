@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Color;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Provider;
+use App\Size;
 use App\Subcategory;
 use App\Tag;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -46,10 +48,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $tags = Tag::all();
+        $colors = Color::all();
+        $sizes = Size::all();
         $categories = Category::get();
         $subcategories = Subcategory::get();
         /* $providers = Provider::get(); */
-        return view('admin.product.edit', compact('product', 'categories', 'subcategories', 'tags'));
+        return view('admin.product.edit', compact('product', 'categories', 'subcategories', 'tags', 'colors', 'sizes'));
     }
     public function update(UpdateRequest $request, Product $product)
     {

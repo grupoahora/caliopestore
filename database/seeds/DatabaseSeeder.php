@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BusinessTableSeeder::class);
         $this->call(PrinterTableSeeder::class);
+        factory(App\Color::class, 10)->create();
+        factory(App\Size::class, 10)->create();
         factory(App\Tag::class, 10)->create();
         factory(App\Category::class, 10)->create();
         factory(App\Subcategory::class, 50)->create();

@@ -95,6 +95,8 @@ Route::get('get_products_by_subcategory', 'AjaxController@get_products_by_subcat
 Route::resource('subcategories', 'SubcategoryController')->names('subcategories');
 
 Route::resource('tags', 'TagController')->names('tags');
+Route::resource('colors', 'ColorController')->names('colors');
+Route::resource('sizes', 'SizeController')->names('sizes');
 Route::get('/barcode', function () {
     $products = Product::get();
     return view('admin.product.barcode', compact('products'));

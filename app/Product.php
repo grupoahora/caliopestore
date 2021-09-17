@@ -35,6 +35,14 @@ class Product extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class);
+    }
+    public function sizes()
+    {
+        return $this->belongsToMany(Size::class);
+    }
     public function my_store($request)
     {
         $product = self::create([
@@ -51,6 +59,8 @@ class Product extends Model
             /* 'provider_id' => $request->provider_id, */
         ]);
         $product->tags()->attach($request->get('tags'));
+        $product->colors()->attach($request->get('colors'));
+        $product->sizes()->attach($request->get('sizes'));
         $this->generate_code($product);
         $this->upload_files($request, $product);
     }
@@ -70,6 +80,9 @@ class Product extends Model
             /* 'provider_id' => $request->provider_id, */
         ]);
         $this->tags()->sync($request->get('tags'));
+        $this->colors()->sync($request->get('colors'));
+        $this->sizes()->sync($request->get('sizes'));
+        
         $this->generate_code($this);
         
     }
