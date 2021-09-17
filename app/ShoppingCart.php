@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class ShoppingCart extends Model
 {
@@ -37,5 +38,21 @@ class ShoppingCart extends Model
             $total += $shopping_cart_detail->price * $shopping_cart_detail->quantity;
         }
         return $total;
+    }
+
+    public static function get_the_session_shopping_cart()
+    {
+        $session_name = 'shopping_cart_id';
+        $shopping_cart_id = Session::get($session_name);
+        $shopping_cart = self::findOrCreateBySessionId($shopping_cart_id);
+        return  $shopping_cart;
+    }
+    public function my_store($product, $request)
+    {
+        $this->shopping_cart_details()->create([
+            'quantity' => $request->quantity,
+            'price' => $product->sell_price,
+            'product_id' => $product->id,
+        ]);
     }
 }

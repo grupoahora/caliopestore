@@ -47,16 +47,27 @@
                                     <p>
                                         {{$product->short_description}}
                                     </p>
-                                    {{-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
-                                    Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.</p> --}}
-                                    <div class="quantity-cart-box d-flex align-items-center mt-20">
+                                    {{-- <div class="quantity-cart-box d-flex align-items-center mt-20">
                                         <div class="quantity">
                                             <div class="pro-qty"><input type="text" value="1"></div>
                                         </div>
                                         <div class="action_link">
                                             <a class="buy-btn" href="#">add to cart<i class="fa fa-shopping-cart"></i> </a>
                                         </div>
-                                    </div>
+                                    </div> --}}
+                                    {!! Form::open(['route'=>'shopping_cart_details.store', 'method' => 'POST']) !!}
+                                        <div class="quantity-cart-box d-flex align-items-center mt-20">
+                                            <input type="hidden" name="product_id" value={{$product->id}}>
+                                            <div class="quantity">
+                                                <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
+                                            </div>
+                                            <div class="action_link">
+                                                <button class="buy-btn" type="submit" >add to cart
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>
