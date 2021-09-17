@@ -45,9 +45,10 @@ class WebController extends Controller
         
         return view('web.shop_grid', compact('products') );
     }
-    public function product_details()
+    public function product_details(Product $product)
     {
-        return view('web.product_details');
+        /* dd($product); */
+        return view('web.product_details', compact('product'));
     }
     public function my_account()
     {

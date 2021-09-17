@@ -32,6 +32,7 @@ Route::get('/detalles', 'WebController@product_details')->name('web.product_deta
 Route::get('/micuenta', 'WebController@my_account')->name('web.my_account');
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//
+Route::get('producto/{product}', 'WebController@product_details')->name('web.product_details');
 Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')->only([ 'update', 'destroy'])->names('shopping_cart_details');
 Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
 Route::get('add_a_product_to_the_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product');

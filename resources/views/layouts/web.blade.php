@@ -11,7 +11,7 @@
     <!-- Site title -->
     @yield('title', 'Caliope')
     <!-- Favicon -->
-    <link rel="shortcut icon" href="galio/assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/galio/assets/img/favicon.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     {!! Html::style('galio/assets/css/bootstrap.min.css') !!}
     <!-- Font-Awesome CSS -->
@@ -58,24 +58,24 @@
             <div class="switcher-panel-item bg">
                 <h3>Background Pattern</h3>
                 <ul class="nav flex-wrap bgbody-style bg-pattern">
-                    <li><img src="galio/assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
                 </ul>
             </div>
 
             <div class="switcher-panel-item bg">
                 <h3>Background Image</h3>
                 <ul class="nav flex-wrap bgbody-style bg-img">
-                    <li><img src="galio/assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
-                    <li><img src="galio/assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                    <li><img src="/galio/assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
                 </ul>
             </div>
         </div>
@@ -145,7 +145,7 @@
                         <div class="col-lg-3">
                             <div class="brand-logo">
                                 <a href="index-2.html">
-                                    <img src="galio/assets/img/logo/logo.png" alt="brand logo">
+                                    <img src="/galio/assets/img/logo/logo.png" alt="brand logo">
                                 </a>
                             </div>
                         </div> <!-- end logo area -->
@@ -538,7 +538,7 @@
                             <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
                         </div>
                         <div class="payment-method-img">
-                            <img src="galio/assets/img/payment.png" alt="">
+                            <img src="/galio/assets/img/payment.png" alt="">
                         </div>
                     </div>
                 </div>

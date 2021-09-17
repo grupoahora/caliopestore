@@ -2,7 +2,7 @@
     <!-- product single grid item start -->
     <div class="product-item fix mb-30">
         <div class="product-thumb">
-            <a href="product-details.html">
+            <a href="{{route('web.product_details', $product)}}">
                 <img src="{{$product->images->pluck('url')[0]}}" 
                 class="img-pri" alt="{{$product->name}}">
                 <img src="{{$product->images->pluck('url')[1]}}" 
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="product-content">
-            <h4><a href="product-details.html">{{$product->name}}</a></h4>
+            <h4><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h4>
             <div class="pricebox">
                 <span class="regular-price">${{$product->sell_price}}</span>
                 <div class="ratings">
@@ -43,7 +43,7 @@
     <!-- product single list item start -->
     <div class="product-list-item mb-30">
         <div class="product-thumb">
-            <a href="product-details.html">
+            <a href="{{route('web.product_details', $product)}}">
                 <img src="{{$product->images->pluck('url')[2]}}" 
                 class="img-pri" alt="{{$product->name}}">
                 <img src="{{$product->images->pluck('url')[3]}}" 
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="product-list-content">
-            <h3><a href="product-details.html">{{$product->name}}</a></h3>
+            <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
             <div class="ratings">
                 <span class="good"><i class="fa fa-star"></i></span>
                 <span class="good"><i class="fa fa-star"></i></span>

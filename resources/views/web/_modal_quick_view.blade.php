@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-lg-7">
                                 <div class="product-details-des mt-md-34 mt-sm-34">
-                                    <h3><a href="product-details.html">{{$product->name}}</a></h3>
+                                    <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
                                     <div class="ratings">
                                         <span class="good"><i class="fa fa-star"></i></span>
                                         <span class="good"><i class="fa fa-star"></i></span>
