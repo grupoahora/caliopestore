@@ -47,17 +47,9 @@
                                     <p>
                                         {{$product->short_description}}
                                     </p>
-                                    {{-- <div class="quantity-cart-box d-flex align-items-center mt-20">
-                                        <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1"></div>
-                                        </div>
-                                        <div class="action_link">
-                                            <a class="buy-btn" href="#">add to cart<i class="fa fa-shopping-cart"></i> </a>
-                                        </div>
-                                    </div> --}}
-                                    {!! Form::open(['route'=>'shopping_cart_details.store', 'method' => 'POST']) !!}
+                                    
+                                    {!! Form::open(['route'=>['shopping_cart_details.store', $product], 'method' => 'POST']) !!}
                                         <div class="quantity-cart-box d-flex align-items-center mt-20">
-                                            <input type="hidden" name="product_id" value={{$product->id}}>
                                             <div class="quantity">
                                                 <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
                                             </div>

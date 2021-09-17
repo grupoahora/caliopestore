@@ -55,4 +55,11 @@ class ShoppingCart extends Model
             'product_id' => $product->id,
         ]);
     }
+    public function my_store_a_product($product)
+    {
+        $this->shopping_cart_details()->create([
+            'price' => $product->sell_price,
+            'product_id' => $product->id,
+        ]);
+    }
 }
