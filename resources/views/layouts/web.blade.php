@@ -330,7 +330,7 @@
         <footer>
             <!-- footer top start -->
             <div class="footer-top bg-black pt-14 pb-14">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="footer-top-wrapper">
                         <div class="newsletter__wrap">
                             <div class="newsletter__title">
@@ -370,8 +370,8 @@
 
             <!-- footer main start -->
             <div class="footer-widget-area pt-40 pb-38 pb-sm-4 pt-sm-30">
-                <div class="container">
-                    <div class="row">
+                <div class="container-fluid">
+                    <div class="row mx-5">
                         <div class="col-md-3 col-sm-6">
                             <div class="footer-widget mb-sm-26">
                                 <div class="widget-title mb-10 mb-sm-6">
@@ -444,9 +444,7 @@
             <div class="footer-bottom-area bg-gray pt-20 pb-20">
                 <div class="container">
                     <div class="footer-bottom-wrap">
-                        <div class="copyright-text">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-                        </div>
+                        
                         <div class="payment-method-img">
                             <img src="/galio/assets/img/payment.png" alt="">
                         </div>

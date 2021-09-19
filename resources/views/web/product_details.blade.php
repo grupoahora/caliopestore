@@ -7,8 +7,8 @@
 @section('content')
 <!-- breadcrumb area start -->
 <div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <div class="col-12">
                 <div class="breadcrumb-wrap">
                     <nav aria-label="breadcrumb">
@@ -27,8 +27,8 @@
 
 <!-- product details wrapper start -->
 <div class="product-details-wrapper">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <div class="col-lg-9">
                 <!-- product details inner end -->
                 <div class="product-details-inner">
@@ -122,7 +122,7 @@
 
                 <!-- product details reviews start -->
                 <div class="product-details-reviews mt-34">
-                    <div class="row">
+                    <div class="row mx-5">
                         <div class="col-lg-12">
                             <div class="product-review-info">
                                 <ul class="nav review-tab">

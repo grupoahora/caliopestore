@@ -11,7 +11,7 @@
         <div class="hero-slider-active hero__3 slick-dot-style hero-dot">
             <div class="single-slider d-flex align-items-center"
                 style="background-image: url(galio/assets/img/slider/slider3_bg1.jpg);">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="slider-main-content">
                         <div class="slider-text">
                             <h2>our new range of</h2>
@@ -23,7 +23,7 @@
             </div>
             <div class="single-slider d-flex align-items-center"
                 style="background-image: url(galio/assets/img/slider/slider3_bg2.jpg);">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="slider-main-content">
                         <div class="slider-text">
                             <h2>shopping bag</h2>
@@ -40,8 +40,8 @@
 
 <!-- page wrapper start -->
 <div class="main-home-wrapper">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <div class="col-lg-3">
                 <div class="main-sidebar category-wrapper mb-24 mt-4 mt-md-8 mt-sm-8">
                     <div class="section-title-2 d-flex justify-content-between mb-28">
@@ -1101,8 +1101,8 @@
 
 <!-- home banner area start -->
 <div class="banner-area mt-8 mt-lg-28 mb-34 mb-md-0 mb-sm-0 mt-xs-0">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <div class="col-lg-4">
                 <div class="img-container img-full fix mb-md-30 mb-sm-30">
                     <a href="#">
@@ -1131,8 +1131,8 @@
 
 <!-- blog-testimonial-product area start -->
 <div class="section">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <!-- blog area start -->
             <div class="col-lg-3">
                 <div class="main-sidebar blog-area mb-24 mb-md-20 mb-sm-18">
@@ -1607,7 +1607,7 @@
 
 <!-- latest product start -->
 <div class="latest-product pt-md-30 pt-lg-30 pt-sm-30">
-    <div class="container">
+    <div class="container-fluid mx-5">
         <div class="section-title mb-30">
             <div class="title-icon">
                 <i class="fa fa-flash"></i>

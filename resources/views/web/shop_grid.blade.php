@@ -7,8 +7,8 @@
 @section('content')
 <!-- breadcrumb area start -->
 <div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <div class="col-12">
                 <div class="breadcrumb-wrap">
                     <nav aria-label="breadcrumb">
@@ -26,8 +26,8 @@
 
 <!-- page wrapper start -->
 <div class="page-main-wrapper">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <!-- product main wrap start -->
             <div class="col-12">
                 <div class="shop-banner img-full">
@@ -37,7 +37,7 @@
                 <div class="shop-product-wrapper pt-34">
                     <!-- shop product top wrap start -->
                     <div class="shop-top-bar">
-                        <div class="row">
+                        <div class="row mx-5">
                             <div class="col-lg-7 col-md-6">
                                 <div class="top-bar-left">
                                     <div class="product-view-mode mr-70 mr-sm-0">
@@ -81,7 +81,7 @@
 
                 <!-- start pagination area -->
                 <div class="paginatoin-area text-center pt-28">
-                    <div class="row">
+                    <div class="row mx-5">
                         <div class="col-12">
                             <ul class="pagination-box">
                                 <li><a class="Previous" href="#">Previous</a></li>
@@ -104,8 +104,8 @@
 
 <!-- brand area start -->
 <div class="brand-area pt-26 pb-30">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
             <div class="col-12">
                 <div class="section-title mb-30">
                     <div class="title-icon">
@@ -115,7 +115,7 @@
                 </div> <!-- section title end -->
             </div>
         </div>
-        <div class="row">
+        <div class="row mx-5">
             <div class="col-12">
                 <div class="brand-active slick-padding slick-arrow-style">
                     <div class="brand-item text-center">
