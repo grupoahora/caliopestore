@@ -1,4 +1,4 @@
-<div class="header-mini-cart">
+<div class="header-mini-cart mt-0 alto">
     <div class="mini-cart-btn">
         <i class="fa fa-shopping-cart"></i>
         @if ($shopping_cart->quantity_of_products() != 0)

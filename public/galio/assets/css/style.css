@@ -70,6 +70,19 @@ img {
     transition: all 0.4s ease-out;
 }
 
+.alto{
+    height: 52px;
+}
+
+.calioper2{
+    
+    border-right: 2px solid #000000;
+}
+.caliopelr {
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+
 .img-full img {
     width: 100%;
 }
@@ -710,7 +723,9 @@ body.modal-open {
 /*------ custom tooltip end -------*/
 /*------- header top start -------*/
 .header-top-area {
-    padding: 6px 0;
+    padding: 2px 0;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .header-top-area .header-call-action a {
@@ -2576,10 +2591,11 @@ only screen and (max-width: 767px) {
 .mean-container .mean-bar:after {
     color: #222222;
     content: "MENU";
-    font-size: 20px;
+    font-size: 15px;
     right: 40px;
     position: absolute;
-    top: -34px;
+    top: -30px;
+    
 }
 
 @media only screen and (max-width: 767px) {
