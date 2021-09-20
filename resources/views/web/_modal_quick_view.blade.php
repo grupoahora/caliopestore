@@ -48,7 +48,7 @@
                                         {{$product->short_description}}
                                     </p>
                                     
-                                    @include('web._add_to_shopping_cart_form')
+                                    @include('web._add_to_shopping_cart_form', ['class'=>' mt-20'])
                                 </div>
                             </div>
                         </div>
