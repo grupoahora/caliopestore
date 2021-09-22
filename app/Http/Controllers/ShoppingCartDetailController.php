@@ -25,7 +25,7 @@ class ShoppingCartDetailController extends Controller
     }
     public function update(Request $request, ShoppingCartDetail $shoppingCartDetail)
     {
-        //
+        dd($request);
     }
 
     public function destroy(ShoppingCartDetail $shoppingCartDetail)

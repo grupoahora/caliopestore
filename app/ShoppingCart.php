@@ -62,4 +62,11 @@ class ShoppingCart extends Model
             'product_id' => $product->id,
         ]);
     }
+    public function my_update($request)
+    {
+        foreach ($this->shopping_cart_details as $key => $detail) {
+            $result[] = array("quantity" => $request->quantity[$key]);
+            $detail->update($result[$key]);
+        }
+    }
 }

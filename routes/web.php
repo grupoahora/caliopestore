@@ -37,6 +37,7 @@ Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')->only([ 
 Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
 Route::get('add_a_product_to_the_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product');
 Route::get('mi_carrito_de_compras', 'WebController@cart')->name('web.cart');
+Route::put('shopping_cart', 'ShoppingCartController@update')->name('shopping_cart.update');
 
 //=====================================fin  =============================================//
 

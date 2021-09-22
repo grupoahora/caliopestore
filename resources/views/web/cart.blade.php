@@ -30,6 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                {!! Form::open(['route'=> 'shopping_cart.update', 'method'=>'PUT']) !!}
                 <!-- Cart Table Area -->
                 <div class="cart-table table-responsive">
                     <table class="table table-bordered">
@@ -51,7 +52,7 @@
                                     <td class="pro-title"><a href="{{route('web.product_details', $shopping_cart_detail->product)}}">{{$shopping_cart_detail->product->name}}</a></td>
                                     <td class="pro-price"><span>${{$shopping_cart_detail->product->sell_price}}</span></td>
                                     <td class="pro-quantity">
-                                        <div class="pro-qty"><input type="text" name="quantity" value="{{$shopping_cart_detail->quantity}}"></div>
+                                        <div class="pro-qty"><input type="text" name="quantity[]" value="{{$shopping_cart_detail->quantity}}"></div>
                                     </td>
                                     <td class="pro-subtotal"><span>${{$shopping_cart_detail->total()}}</span></td>
                                     <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
@@ -65,16 +66,18 @@
 
                 <!-- Cart Update Option -->
                 <div class="cart-update-option d-block d-md-flex justify-content-between">
-                    <div class="apply-coupon-wrapper">
+                    {{-- <div class="apply-coupon-wrapper">
                         <form action="#" method="post" class=" d-block d-md-flex">
                             <input type="text" placeholder="Enter Your Coupon Code" required />
                             <button class="sqr-btn">Apply Coupon</button>
                         </form>
-                    </div>
+                    </div> --}}
                     <div class="cart-update mt-sm-16">
-                        <a href="#" class="sqr-btn">Update Cart</a>
+                        <button type="submit" href="#" class="sqr-btn">Update Cart</button>
+                        {{-- <a href="#" class="sqr-btn">Update Cart</a> --}}
                     </div>
                 </div>
+                {!! Form::close() !!}
             </div>
         </div>
 
