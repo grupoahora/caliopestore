@@ -55,7 +55,7 @@
                                         <div class="pro-qty"><input type="text" name="quantity[]" value="{{$shopping_cart_detail->quantity}}"></div>
                                     </td>
                                     <td class="pro-subtotal"><span>${{$shopping_cart_detail->total()}}</span></td>
-                                    <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                    <td class="pro-remove"><a method="" href="{{route('shopping_cart_details.destroy', $shopping_cart_detail)}}"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                             @endforeach
                             
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-lg-5 ml-auto">
                 <!-- Cart Calculation Area -->
                 <div class="cart-calculator-wrapper">
@@ -91,15 +91,15 @@
                             <table class="table">
                                 <tr>
                                     <td>Sub Total</td>
-                                    <td>$230</td>
+                                    <td>${{$shopping_cart->total_price()}}</td>
                                 </tr>
                                 <tr>
                                     <td>Shipping</td>
-                                    <td>$70</td>
+                                    <td>$0.00</td>
                                 </tr>
                                 <tr class="total">
                                     <td>Total</td>
-                                    <td class="total-amount">$300</td>
+                                    <td class="total-amount">${{$shopping_cart->total_price()}}</td>
                                 </tr>
                             </table>
                         </div>
