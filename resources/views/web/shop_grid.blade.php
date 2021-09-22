@@ -27,7 +27,7 @@
 <!-- page wrapper start -->
 <div class="page-main-wrapper">
     <div class="container-fluid">
-        <div class="row mx-5">
+        <div class="row">
             <!-- product main wrap start -->
             <div class="col-12">
                 <div class="shop-banner img-full">

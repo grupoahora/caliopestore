@@ -1658,14 +1658,14 @@
 <!-- latest product start -->
 <div class="latest-product latest-pro-2 pt-14 pt-lg-0 pt-md-0 pt-sm-0">
             <div class="container-fluid">
-                <div class="section-title mb-30">
+                <div class="section-title mb-30 mx-5">
                     <div class="title-icon">
                         <i class="fa fa-flash"></i>
                     </div>
                     <h3>latest product</h3>
                 </div> <!-- section title end -->
                 <!-- featured category start -->
-                <div class="latest-product-active slick-padding slick-arrow-style">
+                <div class="latest-product-active slick-padding slick-arrow-style mx-5">
                     <!-- product single item start -->
                     <div class="product-item fix">
                         <div class="product-thumb">

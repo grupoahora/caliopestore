@@ -226,7 +226,7 @@
                                                 <a href="#">my wishlist</a>
                                             </li>
                                             <li>
-                                                <a href="#">my cart</a>
+                                                <a href="{{route('web.cart')}}">my cart</a>
                                             </li>
                                             <li>
                                                 <a href="#">checkout</a>
