@@ -240,6 +240,10 @@
             <!-- sidebar start -->
             <div class="col-lg-3">
                 <div class="shop-sidebar-wrap fix mt-md-22 mt-sm-22">
+                    <!-- category start -->
+                    @include('web._category')
+                    <!-- category end -->
+
                     <!-- featured category start -->
                     @include('web._featured_category')
                     <!-- featured category end -->

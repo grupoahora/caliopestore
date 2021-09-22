@@ -30,7 +30,7 @@ class CategoryController extends Controller
     }
     public function store(StoreRequest $request, Category $category)
     {
-        
+        /* dd($request); */
         $category->my_store($request);
         return redirect()->route('categories.index');
     }
@@ -53,5 +53,23 @@ class CategoryController extends Controller
     {
         $category->delete();
         return redirect()->route('categories.index');
+    }
+    public function upload_image(Request $request, $id)
+    {
+
+
+        $category = Category::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $image_name = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path("/image"), $image_name);
+            $urlimage = '/image/' . $image_name;
+        }
+
+
+
+        $category->images()->create([
+            'url' => $urlimage,
+        ]);
     }
 }

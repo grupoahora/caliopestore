@@ -209,7 +209,7 @@ ul li {
 /* .wrapper {
     &.boxed-layout{
         &.box-layout {
-            max-width: 1200px;
+            max-width: 100vh;
             margin: 0 auto;
             box-shadow: (0 9px 0px 0px white, 0 -9px 0px 0px white, 0px 0px 8px 2px #DAD5D5);
         }
