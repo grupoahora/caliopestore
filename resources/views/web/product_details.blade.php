@@ -42,7 +42,7 @@
                                 @endforeach
                             </div>
                             <div class="pro-nav slick-padding2 slick-arrow-style_2">
-                                @foreach ($product->images as $image)
+                                @foreach ($product->images as $key => $image)
                                     <div class="pro-nav-thumb "><img src="{{$image->url}}"
                                         alt="{{$product->name}}" /></div>
                                 @endforeach
@@ -101,7 +101,7 @@
                                         <option>XL</option>
                                     </select>
                                 </div>
-                                @include('web._add_to_shopping_cart_form')
+                                @include('web._add_to_shopping_cart_form', ['class'=>''])
                                 <div class="useful-links mt-20">
                                     <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
                                             class="fa fa-refresh"></i>compare</a>
@@ -249,7 +249,7 @@
                     <!-- featured category end -->
 
                     <!-- manufacturer start -->
-                    <div class="sidebar-widget mb-22">
+                    {{-- <div class="sidebar-widget mb-22">
                         <div class="sidebar-title mb-10">
                             <h3>Manufacturers</h3>
                         </div>
@@ -263,7 +263,7 @@
                                 <li><i class="fa fa-angle-right"></i><a href="#">Versace</a><span>(16)</span></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- manufacturer end -->
 
                     <!-- product tag start -->
