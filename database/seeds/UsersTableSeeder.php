@@ -14,15 +14,32 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
        
-        User::create([
-            'name'=>'David Cortes',
+        $role1_user = User::create([
+            'name'=>'David Cortes Client',
             'email'=>'cortesmirandaedavid19@gmail.com',
             'password'=> bcrypt('12345678')
-        ])->assignRole('Admin');
-        User::create([
-            'name' => 'Andrespyg',
+        ])->assignRole('Client');;
+        $role1_user->profile()->create([
+            'first_name' => $role1_user->name,
+        ]);
+        
+        $role2_user = User::create([
+            'name' => 'Andrespyg Admin',
             'email' => 'andrespatino@grupoahora.co',
             'password' => bcrypt('12345678')
         ])->assignRole('Admin');
+        $role2_user->profile()->create([
+            'first_name' => $role2_user->name,
+        ]);
+        
+        $role3_user = User::create([
+            'name' => 'Andrespyg Cashier',
+            'email' => 'andrespatino2@grupoahora.co',
+            'password' => bcrypt('12345678')
+        ])->assignRole('Cashier');
+        $role3_user->profile()->create([
+            'first_name' => $role3_user->name,
+        ]);
+        
     }
 }
