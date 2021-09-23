@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Product::class,24)->create()->each(function($product){
             $product->images()->saveMany(factory(App\Image::class, 4)->make());
         });
-        factory(App\Client::class, 10)->create();
+        /* factory(App\Client::class, 10)->create(); */
         
         
         
