@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
-use Illuminate\Http\Request;
-use App\Http\Requests\Client\StoreRequest;
-use App\Http\Requests\Client\UpdateRequest;
 use App\User;
+use Illuminate\Http\Request;
+use App\Http\Requests\User\StoreRequest;
+use App\Http\Requests\User\UpdateRequest;
+
 
 class ClientController extends Controller
 {
@@ -22,7 +22,7 @@ class ClientController extends Controller
 
     public function index()
     {
-        $clients = User::get();
+        $clients = User::role('Client')->get();
         return view('admin.client.index', compact('clients'));
     }
     public function create()
@@ -31,13 +31,13 @@ class ClientController extends Controller
     }
     public function store(StoreRequest $request)
     {
-        Client::create($request->all());
+        User::create($request->all())->assignRole('Client');
         if ($request->sale == 1) {
             return redirect()->back();
         }
         return redirect()->route('clients.index');
     }
-    public function show(Client $client)
+    public function show(User $client)
     {
         $total_purchases = 0;
         foreach ($client->sales as $key =>  $sale) {
@@ -45,16 +45,16 @@ class ClientController extends Controller
         }
         return view('admin.client.show', compact('client', 'total_purchases'));
     }
-    public function edit(Client $client)
+    public function edit(User $client)
     {
         return view('admin.client.edit', compact('client'));
     }
-    public function update(UpdateRequest $request, Client $client)
+    public function update(UpdateRequest $request, User $client)
     {
         $client->update($request->all());
         return redirect()->route('clients.index');
     }
-    public function destroy(Client $client)
+    public function destroy(User $client)
     {
         $client->delete();
         return redirect()->route('clients.index');
