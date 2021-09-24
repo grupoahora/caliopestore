@@ -26,7 +26,7 @@
 <!-- breadcrumb area end -->
 
 <!-- login register wrapper start -->
-<div class="login-register-wrapper">
+<div class="login-register-wrapper mb-4">
     <div class="container">
         <div class="member-area-from-wrap">
             <div class="row">
@@ -63,23 +63,39 @@
                 <!-- Register Content Start -->
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
-                        <h2>Singup Form</h2>
-                        <form action="#" method="post">
+                        <h2>Registrarse</h2>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
                             <div class="single-input-item">
-                                <input type="text" placeholder="Full Name" required />
+                                <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Nombre completo" />
+                                @error('name')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
                             </div>
                             <div class="single-input-item">
-                                <input type="email" placeholder="Enter your Email" required />
+                                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Correo Electronico" />
+                                @error('email')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="single-input-item">
-                                        <input type="password" placeholder="Enter your Password" required />
+                                        <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder="Contraseña" required />
+                                        @error('password')
+                                            <small class="text-danger">
+                                                {{ $message }}
+                                            </small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="single-input-item">
-                                        <input type="password" placeholder="Repeat your Password" required />
+                                        <input type="password" id="password-confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder=" Repetir Contraseña" />
                                     </div>
                                 </div>
                             </div>
@@ -88,14 +104,13 @@
                                     <div class="remember-meta">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="subnewsletter">
-                                            <label class="custom-control-label" for="subnewsletter">Subscribe Our
-                                                Newsletter</label>
+                                            <label class="custom-control-label" for="subnewsletter">Suscribirme al boleín</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="single-input-item">
-                                <button class="sqr-btn">Register</button>
+                                <button type="submit" class="sqr-btn">Registrar</button>
                             </div>
                         </form>
                     </div>
@@ -108,7 +123,7 @@
 <!-- login register wrapper end -->
 
 <!-- brand area start -->
-<div class="brand-area pt-34 pb-30">
+{{-- <div class="brand-area pt-34 pb-30">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -148,7 +163,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- brand area end -->
 @endsection
 @section('scripts')
