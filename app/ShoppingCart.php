@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+
 
 class ShoppingCart extends Model
 {
@@ -27,6 +29,18 @@ class ShoppingCart extends Model
             return ShoppingCart::create();
         }
     }
+    public static function findOrCreateByUserId($user)
+    {
+        $active = $user->shoppingcarts->where('status', 'ACTIVE')->first();
+        if ($active) {
+            return $user->shoppingcarts->where('status', 'ACTIVE')->first();
+        } else {
+
+            return Self::create([
+                'user_id' => auth()->user()->id,
+            ]);
+        }
+    }
     public function quantity_of_products()
     {
         return $this->shopping_cart_details->sum('quantity');
@@ -46,6 +60,11 @@ class ShoppingCart extends Model
         $shopping_cart_id = Session::get($session_name);
         $shopping_cart = self::findOrCreateBySessionId($shopping_cart_id);
         return  $shopping_cart;
+    }
+    public static function get_the_user_shopping_cart()
+    {
+        $shopping_cart = self::findOrCreateByUserId(Auth::user());
+        return $shopping_cart;
     }
     public function my_store($product, $request)
     {

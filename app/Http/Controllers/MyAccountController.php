@@ -14,5 +14,9 @@ class MyAccountController extends Controller
     {
         return view('web.my_account');
     }
+    public function checkout()
+    {
+        return view('web.checkout');
+    }
 }
 

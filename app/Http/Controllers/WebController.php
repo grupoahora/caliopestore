@@ -15,10 +15,7 @@ class WebController extends Controller
     {
         return view('web.about_us');
     }
-    public function checkout()
-    {
-        return view('web.checkout');
-    }
+    
     public function blog_details()
     {
         return view('web.blog_details');

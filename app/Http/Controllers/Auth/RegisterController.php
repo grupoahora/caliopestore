@@ -8,7 +8,9 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\ShoppingCart;
 
+        
 class RegisterController extends Controller
 {
     /*
@@ -78,6 +80,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ])->assignRole('Client');
+        $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
+        $shopping_cart->update([
+            'user_id'=> $user->id,
+        ]);
+        
         return  $user;
     }
 }

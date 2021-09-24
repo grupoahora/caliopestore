@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/compra', 'WebController@wishlist')->name('web.wishlist');
 Route::get('/nosotros', 'WebController@about_us')->name('web.about_us');
-Route::get('/pagar', 'WebController@checkout')->name('web.checkout');
+Route::get('/pagar', 'MyAccountController@checkout')->name('web.checkout');
 Route::get('/blog_details', 'WebController@blog_details')->name('web.blog_details');
 Route::get('/blog', 'WebController@blog')->name('web.blog');
 Route::get('/carrito', 'WebController@cart')->name('web.cart');
