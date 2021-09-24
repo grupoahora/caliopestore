@@ -29,7 +29,7 @@ Route::get('/contacto', 'WebController@contact_us')->name('web.contact_us');
 Route::get('/registro', 'WebController@login_register')->name('web.login_register');
 Route::get('/productos', 'WebController@shop_grid')->name('web.shop_grid');
 Route::get('/detalles', 'WebController@product_details')->name('web.product_details');
-Route::get('/micuenta', 'WebController@my_account')->name('web.my_account');
+Route::get('/micuenta', 'MyAccountController@my_account')->name('web.my_account');
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//
 Route::get('producto/{product}', 'WebController@product_details')->name('web.product_details');

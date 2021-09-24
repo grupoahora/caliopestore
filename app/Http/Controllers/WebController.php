@@ -50,10 +50,7 @@ class WebController extends Controller
         /* dd($product); */
         return view('web.product_details', compact('product'));
     }
-    public function my_account()
-    {
-        return view('web.my_account');
-    }
+    
     public function welcome()
     {
         return view('welcome');
