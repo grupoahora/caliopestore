@@ -34,26 +34,27 @@
                 <div class="col-lg-6">
                     <div class="login-reg-form-wrap  pr-lg-50">
                         <h2>Sign In</h2>
-                        <form action="#" method="post">
+                        <form class="pt-3" method="POST" action="{{ route('login') }}">
+                            @csrf
                             <div class="single-input-item">
-                                <input type="email" placeholder="Email or Username" required />
+                                <input id="email" type="email" name="email" id="email" placeholder="Correo Electronico">
                             </div>
                             <div class="single-input-item">
-                                <input type="password" placeholder="Enter your Password" required />
+                                <input id="password" type="password" name="password" id="password" placeholder="Contraseña">
                             </div>
                             <div class="single-input-item">
                                 <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
                                     <div class="remember-meta">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                            <label class="custom-control-label" for="rememberMe">Remember Me</label>
+                                            <label class="custom-control-label" for="rememberMe">Recuerdame</label>
                                         </div>
                                     </div>
-                                    <a href="#" class="forget-pwd">Forget Password?</a>
+                                    <a href="#" class="forget-pwd">Olvido la contraseña?</a>
                                 </div>
                             </div>
                             <div class="single-input-item">
-                                <button class="sqr-btn">Login</button>
+                                <button type="submit" class="sqr-btn">Iniciar Sesión</button>
                             </div>
                         </form>
                     </div>
