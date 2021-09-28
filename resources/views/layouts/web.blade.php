@@ -139,7 +139,7 @@
                                                         <li class="mega-title"><a href="#">column 03</a>
                                                             <ul>
                                                                 <li><a href="cart.html">cart</a></li>
-                                                                <li><a href="checkout.html">checkout</a></li>
+                                                                <li><a href="{{route('web.checkout')}}">checkout</a></li>
                                                                 <li><a href="compare.html">compare</a></li>
                                                                 <li><a href="wishlist.html">wishlist</a></li>
                                                             </ul>
@@ -229,7 +229,7 @@
                                                 <a href="{{route('web.cart')}}">my cart</a>
                                             </li>
                                             <li>
-                                                <a href="#">checkout</a>
+                                                <a href="{{route('web.checkout')}}">checkout</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -397,7 +397,7 @@
                                     <ul>
                                         <li><a href="#">my account</a></li>
                                         <li><a href="#">my cart</a></li>
-                                        <li><a href="#">checkout</a></li>
+                                        <li><a href="{{route('web.checkout')}}">checkout</a></li>
                                         <li><a href="#">my wishlist</a></li>
                                         <li><a href="#">login</a></li>
                                     </ul>

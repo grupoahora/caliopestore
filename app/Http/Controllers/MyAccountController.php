@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PaymentPlatform;
 use Illuminate\Http\Request;
 
 class MyAccountController extends Controller
@@ -16,7 +17,8 @@ class MyAccountController extends Controller
     }
     public function checkout()
     {
-        return view('web.checkout');
+        $paymentPlatforms = PaymentPlatform::all();
+        return view('web.checkout', compact('paymentPlatforms'));
     }
 }
 

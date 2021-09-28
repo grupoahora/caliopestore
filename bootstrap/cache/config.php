@@ -631,6 +631,18 @@
   ),
   'services' => 
   array (
+    'paypal' => 
+    array (
+      'base_uri' => 'https://api.sandbox.paypal.com',
+      'client_id' => 'AVyInJDzo3PVe6HdMcqp0a6J7iepDec6cInx_yaf70GlFDuEqoaOOFwhJgiHn2oU9bi875xZ9UbAEY4a',
+      'client_secret' => 'EPsu6YYK0vqzS2xib4rLuKNCLglkGsKBi_zMYVa5W1LUeSfJ9_O64TiyWEy5GncEgU-zp4NmIK6l6qig',
+      'class' => 'App\\Services\\PayPalService',
+      'plans' => 
+      array (
+        'monthly' => '',
+        'yearly' => '',
+      ),
+    ),
     'mailgun' => 
     array (
       'domain' => NULL,
