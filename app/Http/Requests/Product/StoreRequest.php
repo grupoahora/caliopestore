@@ -29,7 +29,7 @@ class StoreRequest extends FormRequest
          
             'sell_price'=>'required',
 
-            'code'=>'nullable|string|max:8|min:8',
+            'code'=>'nullable|string',
             
            
         ];

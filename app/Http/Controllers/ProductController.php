@@ -34,10 +34,13 @@ class ProductController extends Controller
         $subcategories = Subcategory::get();
         /* $providers = Provider::get(); */
         $tags = Tag::all();
-        return view('admin.product.create', compact('categories', 'tags', 'subcategories'));
+        $colors = Color::all();
+        $sizes = Size::all();
+        return view('admin.product.create', compact('categories', 'tags', 'subcategories', 'colors', 'sizes'));
     }
     public function store(StoreRequest $request, Product $product)
     {
+        
         $product->my_store($request);
         return redirect()->route('products.index');
     }

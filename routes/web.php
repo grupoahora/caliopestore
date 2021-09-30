@@ -30,6 +30,8 @@ Route::get('/registro', 'WebController@login_register')->name('web.login_registe
 Route::get('/productos', 'WebController@shop_grid')->name('web.shop_grid');
 Route::get('/detalles', 'WebController@product_details')->name('web.product_details');
 Route::get('/micuenta', 'MyAccountController@my_account')->name('web.my_account');
+Route::get('mis_ordenes', 'MyAccountController@orders')->name('web.orders');
+
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');

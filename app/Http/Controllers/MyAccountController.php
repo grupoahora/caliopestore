@@ -20,5 +20,11 @@ class MyAccountController extends Controller
         $paymentPlatforms = PaymentPlatform::all();
         return view('web.checkout', compact('paymentPlatforms'));
     }
+    public function orders()
+    {
+        $orders = auth()->user()->orders;
+        return view('web.orders', compact('orders'));
+        
+    }
 }
 

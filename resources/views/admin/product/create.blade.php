@@ -68,6 +68,35 @@
                         <label for="category_id">Categoría</label>
                         <select class="select2" name="category_id" id="category" style="width: 100%">
                             @foreach ($categories as $category)
+                            <option value="{{$category->id}}" >{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+
+                    </div>
+                    <div class="form-group">
+                        <label for="subcategory_id">Subcategoría</label>
+                        <select class="select2" name="subcategory_id" id="subcategory_id" style="width: 100%">
+                            <option value="" disabled selected>-- Selecciona una Categoria --</option>
+                            {{-- @foreach ($subcategories as $subcategory)
+                            <option value="{{$subcategory->id}}" {{ old('subcategory_id', $product->subcategory_id) ==
+                                $subcategory->id ? 'selected' : ''}}>{{$subcategory->name}}</option>
+                            @endforeach --}}
+                        </select>
+                        @error('subcategory_id')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+                    </div>
+                    {{-- <div class="form-group">
+                        <label for="category_id">Categoría</label>
+                        <select class="select2" name="category_id" id="category" style="width: 100%">
+                            @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
                         </select>
@@ -79,12 +108,30 @@
                             <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for="tags">Etiquetas</label>
                         <select class="select2" name="tags[]" id="tags" style="width: 100%" multiple>
                             @foreach ($tags as $tag)
                             <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="colors">Colores</label>
+                        <select class="select2" name="colors[]" id="colors" style="width: 100%" multiple>
+                            @foreach ($colors as $color)
+                            <option value="{{$color->id}}">
+                                {{$color->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sizes">Tamaños</label>
+                        <select class="select2" name="sizes[]" id="sizes" style="width: 100%" multiple>
+                            @foreach ($sizes as $size)
+                            <option value="{{$size->id}}">
+                                {{$size->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -124,7 +171,32 @@
         $('#category').select2();
         $('#subcategory_id').select2();
         $('#tags').select2();
+        $('#colors').select2();
+        $('#sizes').select2();
+        
+
     });
 
 </script>
+<script>
+      var category = $('#category');
+      var subcategory_id = $('#subcategory_id');
+      category.change(function(){
+          $.ajax({
+              url: "{{route('get_subcategories')}}",
+              method: 'GET',
+              data: {
+                  category: category.val(),
+              },
+              success: function(data){
+                  subcategory_id.empty();
+                  subcategory_id.append('<option disabled selected>-- Selecciona una Subcategoria --</option>');
+                  $.each(data, function(index, element){
+                      subcategory_id.append('<option value="'+ element.id +'">'+ element.name +'</option>')
+                  });
+              }
+          });
+      });
+    
+  </script>
 @endsection

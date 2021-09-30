@@ -209,19 +209,35 @@
                                 <div class="header-top-right float-md-right float-none">
                                     <nav>
                                         <ul>
+                                            @guest
+                                                <li>
+                                                    <a href="{{route('web.login_register')}}">Iniciar Sesión</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{route('web.login_register')}}">registro</a>
+                                                </li>
+                                            @else
                                             <li>
                                                 <div class="dropdown header-top-dropdown">
                                                     <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        my account
+                                                        Mi Cuenta
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                        <a class="dropdown-item" href="my-account.html">my account</a>
-                                                        <a class="dropdown-item" href="login-register.html"> login</a>
-                                                        <a class="dropdown-item" href="login-register.html">register</a>
+                                                        <a class="dropdown-item" href="{{route('web.my_account')}}">Mi Cuenta</a>
+                                                        {{-- <a class="dropdown-item" href="{{route('web.login_register')}}"> Iniciar Sesión</a> --}}
+                                                        {{-- <a class="dropdown-item" href="{{route('web.login_register')}}">Registrarse</a> --}}
+                                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();"">Cerrar Sesión</a>
+                                                       
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                            @csrf
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </li>
+                                            @endguest
                                             <li>
                                                 <a href="#">my wishlist</a>
                                             </li>
@@ -231,6 +247,7 @@
                                             <li>
                                                 <a href="{{route('web.checkout')}}">checkout</a>
                                             </li>
+                                            
                                         </ul>
                                     </nav>
                                 </div>
@@ -388,22 +405,50 @@
                                 </div>
                             </div> <!-- single widget end -->
                         </div> <!-- single widget column end -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget mb-sm-26">
-                                <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>my account</h4>
-                                </div>
-                                <div class="widget-body">
-                                    <ul>
-                                        <li><a href="#">my account</a></li>
-                                        <li><a href="#">my cart</a></li>
-                                        <li><a href="{{route('web.checkout')}}">checkout</a></li>
-                                        <li><a href="#">my wishlist</a></li>
-                                        <li><a href="#">login</a></li>
-                                    </ul>
-                                </div>
-                            </div> <!-- single widget end -->
-                        </div> <!-- single widget column end -->
+
+                        <!-- Authentication Links -->
+                        @guest
+                            {{-- login --}}
+                            @if (Route::has('register'))
+                                {{-- register --}}
+                            @endif
+                        @else
+                        {{-- {{ Auth::user()->name }}
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form> --}}
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer-widget mb-sm-26">
+                                    <div class="widget-title mb-10 mb-sm-6">
+                                        <h4>Mi cuenta</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <ul>
+                                            <li><a href="{{route('web.my_account')}}">Mi Cuenta</a></li>
+                                            <li><a href="{{route('web.cart')}}">my cart</a></li>
+                                            <li><a href="{{route('web.checkout')}}">checkout</a></li>
+                                            <li><a href="#">my wishlist</a></li>
+                                            <li><a href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();"">Cerrar Sesión</a></li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </ul>
+                                    </div>
+                                </div> <!-- single widget end -->
+                            </div> <!-- single widget column end -->
+                        @endguest
+
+                        
+
+
                         <div class="col-md-3 col-sm-6">
                             <div class="footer-widget mb-sm-26">
                                 <div class="widget-title mb-10 mb-sm-6">

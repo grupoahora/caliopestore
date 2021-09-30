@@ -28,7 +28,10 @@ class ShoppingCartProvider extends ServiceProvider
     {
         view()->composer("*", function($view){
             $session_name = 'shopping_cart_id';
-            if (Auth::check()) {
+            $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
+            Session::put($session_name, $shopping_cart->id);
+            $view->with('shopping_cart', $shopping_cart);
+            /* if (Auth::check()) {
                 $shopping_cart = ShoppingCart::get_the_user_shopping_cart();
                 Session::put($session_name, $shopping_cart->id);
                 $view->with('shopping_cart', $shopping_cart);
@@ -36,7 +39,7 @@ class ShoppingCartProvider extends ServiceProvider
                 $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
                 Session::put($session_name, $shopping_cart->id);
                 $view->with('shopping_cart', $shopping_cart);
-            }
+            } */
             
             /* $shopping_cart_id = Session::get($session_name);
             $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id); */

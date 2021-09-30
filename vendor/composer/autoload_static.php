@@ -36,6 +36,7 @@ class ComposerStaticInit2e2011f10a572c7f021bceed4f85022d
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
         '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
+        'd21d43db5f6e840ee7b10744ec7fdf66' => __DIR__ . '/../..' . '/app/Helpers/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -568,6 +569,7 @@ class ComposerStaticInit2e2011f10a572c7f021bceed4f85022d
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MyAccountController' => __DIR__ . '/../..' . '/app/Http/Controllers/MyAccountController.php',
         'App\\Http\\Controllers\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderController.php',
+        'App\\Http\\Controllers\\OrderDetailController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderDetailController.php',
         'App\\Http\\Controllers\\PaymentController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaymentController.php',
         'App\\Http\\Controllers\\PaymentPlatformController' => __DIR__ . '/../..' . '/app/Http/Controllers/PaymentPlatformController.php',
         'App\\Http\\Controllers\\PrinterController' => __DIR__ . '/../..' . '/app/Http/Controllers/PrinterController.php',
@@ -617,6 +619,8 @@ class ComposerStaticInit2e2011f10a572c7f021bceed4f85022d
         'App\\Http\\Requests\\Tags\\StoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Tags/StoreRequest.php',
         'App\\Http\\Requests\\Tags\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Tags/UpdateRequest.php',
         'App\\Image' => __DIR__ . '/../..' . '/app/Image.php',
+        'App\\Order' => __DIR__ . '/../..' . '/app/Order.php',
+        'App\\OrderDetail' => __DIR__ . '/../..' . '/app/OrderDetail.php',
         'App\\PaymentPlatform' => __DIR__ . '/../..' . '/app/PaymentPlatform.php',
         'App\\Printer' => __DIR__ . '/../..' . '/app/Printer.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
@@ -3268,6 +3272,8 @@ class ComposerStaticInit2e2011f10a572c7f021bceed4f85022d
         'Opis\\Closure\\SecurityProvider' => __DIR__ . '/..' . '/opis/closure/src/SecurityProvider.php',
         'Opis\\Closure\\SelfReference' => __DIR__ . '/..' . '/opis/closure/src/SelfReference.php',
         'Opis\\Closure\\SerializableClosure' => __DIR__ . '/..' . '/opis/closure/src/SerializableClosure.php',
+        'OrderDetailSeeder' => __DIR__ . '/../..' . '/database/seeds/OrderDetailSeeder.php',
+        'OrderSeeder' => __DIR__ . '/../..' . '/database/seeds/OrderSeeder.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/AssertionFailedError.php',
