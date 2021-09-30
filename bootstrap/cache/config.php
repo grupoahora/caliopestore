@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://caliope.test/',
+    'url' => 'http://caliopestore.com.test/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'es',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:4F6j2HzsYLO3SPjtDYa94Fn0pGI2I2nP2GrlmpmizBw=',
+    'key' => 'base64:du/eFAxbNWdxDc8PJ9gtTk4nXcI3TdeaQRwI1wOvSV0=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -184,7 +184,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\caliope\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -259,7 +259,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'caliope',
+        'database' => 'caliopestore',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -269,7 +269,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'caliope',
+        'database' => 'caliopestore',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -289,7 +289,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'caliope',
+        'database' => 'caliopestore',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -304,7 +304,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'caliope',
+        'database' => 'caliopestore',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -348,13 +348,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\caliope\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\caliope\\storage\\app/public',
-        'url' => 'http://caliope.test//storage',
+        'root' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\app/public',
+        'url' => 'http://caliopestore.com.test//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -369,7 +369,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\caliope\\public\\storage' => 'C:\\xampp\\htdocs\\caliope\\storage\\app/public',
+      'C:\\xampp\\htdocs\\caliopestore\\public\\storage' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\app/public',
     ),
   ),
   'flare' => 
@@ -422,13 +422,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\caliope\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\caliope\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -478,7 +478,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\caliope\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -525,7 +525,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\caliope\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\caliopestore\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -666,7 +666,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\caliope\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -709,9 +709,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\caliope\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\caliopestore\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\caliope\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\framework\\views',
     'expires' => true,
   ),
   'dompdf' => 
@@ -720,10 +720,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'C:\\xampp\\htdocs\\caliope\\storage\\fonts/',
-      'font_cache' => 'C:\\xampp\\htdocs\\caliope\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\PC\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\xampp\\htdocs\\caliope',
+      'font_dir' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\fonts/',
+      'font_cache' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\fonts/',
+      'temp_dir' => 'C:\\Users\\corte\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\xampp\\htdocs\\caliopestore',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',

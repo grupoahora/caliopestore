@@ -84,6 +84,28 @@
                                         </a>
                                     </span>
                                 </p>
+                                {{-- <p class="clearfix">
+                                    <span class="float-left">
+                                        Color
+                                    </span>
+                                    <span class="float-right text-muted"> --}}
+                                        {{--  PRODUCTOS POR COLORES  --}}
+                                        {{-- <a href="">
+                                            {{$product->color->name}}
+                                        </a>
+                                    </span>
+                                </p> --}}
+                                {{-- <p class="clearfix">
+                                    <span class="float-left">
+                                        Tamaño
+                                    </span>
+                                    <span class="float-right text-muted"> --}}
+                                        {{--  PRODUCTOS POR TAMAÑOS  --}}
+                                        {{-- <a href="">
+                                            {{$product->size->name}}
+                                        </a>
+                                    </span>
+                                </p> --}}
                                 {{--  <p class="clearfix">
                                     <span class="float-left">
                                         Facebook
