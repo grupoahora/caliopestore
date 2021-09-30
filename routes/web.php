@@ -30,6 +30,7 @@ Route::get('/registro', 'WebController@login_register')->name('web.login_registe
 Route::get('/productos', 'WebController@shop_grid')->name('web.shop_grid');
 Route::get('/detalles', 'WebController@product_details')->name('web.product_details');
 Route::get('/micuenta', 'MyAccountController@my_account')->name('web.my_account');
+
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//
 Route::get('producto/{product}', 'WebController@product_details')->name('web.product_details');
@@ -57,6 +58,9 @@ Route::resource('printers', 'PrinterController')->names('printers')->only([
 Route::resource('categories', 'CategoryController')->names('categories');
 Route::resource('clients', 'ClientController')->names('clients');
 Route::resource('products', 'ProductController')->names('products');
+Route::resource('tags', 'TagController')->names('tags');
+Route::resource('colors', 'ColorController')->names('colors');
+Route::resource('sizes', 'SizeController')->names('sizes');
 
 Route::post('upload/product/{id}/image', 'ProductController@upload_image')->name('upload.product.image');
 
@@ -97,9 +101,7 @@ Route::get('get_products_by_subcategory', 'AjaxController@get_products_by_subcat
 // rutas para las subcategorias
 Route::resource('subcategories', 'SubcategoryController')->names('subcategories');
 
-Route::resource('tags', 'TagController')->names('tags');
-Route::resource('colors', 'ColorController')->names('colors');
-Route::resource('sizes', 'SizeController')->names('sizes');
+
 Route::get('/barcode', function () {
     $products = Product::get();
     return view('admin.product.barcode', compact('products'));

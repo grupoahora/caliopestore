@@ -88,6 +88,22 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="colors">Colores</label>
+                        <select class="select2" name="colors[]" id="colors" style="width: 100%" multiple>
+                            @foreach ($colors as $color)
+                            <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sizes">Tamaños</label>
+                        <select class="select2" name="sizes[]" id="sizes" style="width: 100%" multiple>
+                            @foreach ($sizes as $size)
+                            <option value="{{$size->id}}">{{$size->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,6 +140,8 @@
         $('#category').select2();
         $('#subcategory_id').select2();
         $('#tags').select2();
+        $('#colors').select2();
+        $('#sizes').select2();
     });
 
 </script>
