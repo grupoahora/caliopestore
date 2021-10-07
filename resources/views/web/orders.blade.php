@@ -18,7 +18,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($orders as $key => $order)
+                            
+                            @forelse ($orders as $key => $order)
                             <tr>
                                 <td>{{$key}}</td>
                                 <td>{{$order->order_date}}</td>
@@ -26,8 +27,11 @@
                                 <td>${{$order->total()}}</td>
                                 <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
                             </tr>
-                            @endforeach
-                            
+                            @empty
+                                <tr>
+                                    <td colspan=5 >No tienes pedidos, haz <a href="{{route('web.shop_grid')}}">click aca </a>  para ir a la tienda</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

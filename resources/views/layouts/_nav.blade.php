@@ -64,6 +64,18 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{route('colors.index')}}">
+                <i class="fas fa-tag menu-icon"></i>
+                <span class="menu-title">Colores</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('sizes.index')}}">
+                <i class="fas fa-tag menu-icon"></i>
+                <span class="menu-title">Tamaños</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{route('products.index')}}">
                 <i class="fas fa-boxes menu-icon"></i>
                 <span class="menu-title">Productos</span>

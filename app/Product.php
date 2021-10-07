@@ -46,7 +46,7 @@ class Product extends Model
     public function my_store($request)
     {
         $product = self::create([
-            'code' => $request->code,
+            /* 'code' => $request->code, */
             'name' => $request->name,
             'slug' => Str::slug($request->slug, '_'),
             /* 'stock' => $request->stock, */

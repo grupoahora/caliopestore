@@ -137,16 +137,16 @@
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
+    @yield('scripts')
     {!! Html::script('melody/js/off-canvas.js') !!}
     {!! Html::script('melody/js/hoverable-collapse.js') !!}
     {!! Html::script('melody/js/misc.js') !!}
     {!! Html::script('melody/js/settings.js') !!}
     {!! Html::script('melody/js/todolist.js') !!}
+    {!! Html::script('melody/js/dashboard.js') !!}
     <!-- endinject -->
     <!-- Custom js for this page-->
-    {!! Html::script('melody/js/dashboard.js') !!}
     <!-- End custom js for this page-->
-    @yield('scripts')
 
 </body>
 

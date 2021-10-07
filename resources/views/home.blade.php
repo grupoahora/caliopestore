@@ -22,7 +22,7 @@
         </h3>
     </div>
 
-    @foreach ($totales as $total)
+    {{-- @foreach ($totales as $total) --}}
     <div class="row">
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card text-white bg-warning">
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    @endforeach
+    {{-- @endforeach --}}
 
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
@@ -153,7 +153,7 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
-!! Html::script('melody/js/chart.js') !!}
+{!! Html::script('melody/js/chart.js') !!}
 <script>
     $(function () {
         var varCompra=document.getElementById('compras').getContext('2d');
