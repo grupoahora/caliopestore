@@ -10,8 +10,9 @@ class Business extends Model
         'name',
         'description',
         'logo',
-        'mail',
+        'email',
         'address',
+        'phone',
         'ruc',
     ];
    

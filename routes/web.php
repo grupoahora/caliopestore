@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubcategoryController;
 use App\Product;
@@ -30,7 +31,7 @@ Route::get('/registro', 'WebController@login_register')->name('web.login_registe
 Route::get('/productos', 'WebController@shop_grid')->name('web.shop_grid');
 Route::get('/detalles', 'WebController@product_details')->name('web.product_details');
 Route::get('/micuenta', 'MyAccountController@my_account')->name('web.my_account');
-Route::get('mis_ordenes', 'MyAccountController@orders')->name('web.orders');
+Route::get('/mis_ordenes', 'MyAccountController@orders')->name('web.orders');
 
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//
@@ -112,3 +113,7 @@ Route::get('/barcode', function () {
 Auth::routes();
 /* Auth::routes(['register' => false]); */
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*Ruta para las Órdenes*/ 
+
+Route::resource('orders', 'OrderController')->names('orders')->only(['index', 'show']);

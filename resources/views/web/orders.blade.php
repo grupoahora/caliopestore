@@ -10,11 +10,11 @@
                     <table class="table table-bordered">
                         <thead class="thead-light">
                             <tr>
-                                <th>Orden</th>
+                                <th>Pedido</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Total</th>
-                                <th>Acciones</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
