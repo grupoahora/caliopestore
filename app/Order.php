@@ -26,7 +26,7 @@ class Order extends Model
     public function subtotal()
     {
         $total = 0;
-        foreach ($this->order_details() as $key => $order_detail) {
+        foreach ($this->order_details as $key => $order_detail) {
             $total += $order_detail->total();
         }
         return $total;
@@ -34,6 +34,10 @@ class Order extends Model
     public function total()
     {
         return $this->subtotal() * $this->tax;
+    }
+    public function totaltax()
+    {
+        return $this->subtotal() + $this->total();
     }
     public static function my_store()
     {

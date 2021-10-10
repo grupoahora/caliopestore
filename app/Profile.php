@@ -8,7 +8,7 @@ class Profile extends Model
 {
     protected $fillable = [
         'name',
-        'dni',
+        'last_name',
         'ruc',
         'address',
         'phone',

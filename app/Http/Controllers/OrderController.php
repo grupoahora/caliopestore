@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Business;
 use App\Order;
+use App\OrderDetail;
+use App\Profile;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -20,11 +22,24 @@ class OrderController extends Controller
     }
     public function show(Order $order)
     {
+       /*  $total = 0;
+        foreach ($order->order_details() as $key => $order_detail) {
+            $total += $order_detail->total();
+        }
+        return $total; */
+        /* return $order->order_details->total(); */
+       /*  dd($orderDetail->total());
+        dd($order->subtotal());
+        return $order->subtotal(); */
         /* dd($order)->total(); */
         $business = Business::firstOrFail();
-        $user = $order->user;
-        $details = $order->order_details;
+       /*  $user = $order->user;
+         */
+        
+       
+        
+        
         $business = Business::firstOrFail();
-        return view('admin.order.show', compact('order', 'business', 'user', 'details', 'business'));
+        return view('admin.order.show', compact('order', 'business', 'business'));
     }
 }

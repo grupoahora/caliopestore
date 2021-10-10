@@ -46,10 +46,10 @@
                         <div class="col-sm-4 invoice-col">
                             A
                             <address>
-                                <strong>{{$user->name}} {{$user->profile->last_name}}</strong><br>
-                                {{$user->profile->address}}<br>
-                                Teléfono: {{$user->profile->phone}}<br>
-                                Email: {{$user->profile->email}}
+                                <strong>{{$order->user->name}} {{$order->user->profile->last_name}}</strong><br>
+                                {{$order->user->profile->address}}<br>
+                                Teléfono: {{$order->user->profile->phone}}<br>
+                                Email: {{$order->user->profile->email}}
                             </address>
                         </div>
                         <div class="col-sm-4 invoice-col">
@@ -95,7 +95,7 @@
                                     <p align="right">SUBTOTAL:</p>
                                 </th>
                                 <th>
-                                    <p align="right">${{number_format($order->subtotal)}}</p>
+                                    <p align="right">${{$order->subtotal()}}</p>
                                 </th>
                             </tr>
 
@@ -104,7 +104,7 @@
                                     <p align="right">TOTAL IMPUESTO ({{$order->tax}}%):</p>
                                 </th>
                                 <th>
-                                    <p align="right">${{number_format($order->total())}}</p>
+                                    <p align="right">${{number_format($order->total(),2)}}</p>
                                 </th>
                             </tr>
                             <tr>
@@ -112,13 +112,13 @@
                                     <p align="right">TOTAL:</p>
                                 </th>
                                 <th>
-                                    <p align="right">${{number_format($order->total(),2)}}</p>
+                                    <p align="right">${{number_format($order->totaltax(),2)}}</p>
                                 </th>
                             </tr>
 
                         </tfoot>
                         <tbody>
-                            @foreach($details as $detail)
+                            @foreach($order->order_details as $detail)
                             <tr>
                                 <td>{{$detail->product->name}}</td>
                                 <td>s/ {{$detail->price}}</td>
