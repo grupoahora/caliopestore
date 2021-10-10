@@ -104,7 +104,7 @@
                                     <p align="right">TOTAL IMPUESTO ({{$order->tax}}%):</p>
                                 </th>
                                 <th>
-                                    <p align="right">${{number_format($order->total(),2)}}</p>
+                                    <p align="right">${{number_format($order->totaltax(),2)}}</p>
                                 </th>
                             </tr>
                             <tr>
@@ -112,7 +112,7 @@
                                     <p align="right">TOTAL:</p>
                                 </th>
                                 <th>
-                                    <p align="right">${{number_format($order->totaltax(),2)}}</p>
+                                    <p align="right">${{number_format($order->total(),2)}}</p>
                                 </th>
                             </tr>
 
@@ -123,7 +123,7 @@
                                 <td>{{$detail->product->name}}</td>
                                 <td>s/ {{$detail->price}}</td>
                                 <td>{{$detail->quantity}}</td>
-                                <td>s/{{number_format($detail->total())}}
+                                <td>s/{{number_format($detail->total(),2)}}
                                 </td>
                             </tr>
                             @endforeach
