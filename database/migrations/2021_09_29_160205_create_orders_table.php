@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->enum('shipping_status', ['PENDING', ' APPROVED', 'CANCELED', 'DELIVERED'])->default('PENDING');
+            $table->enum('shipping_status', ['PENDING', 'APPROVED', 'CANCELED', 'DELIVERED'])->default('PENDING');
             $table->enum('payment_status', ['PENDING', 'PAID', ' REFUNDED'])->default('PAID');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate('set null');

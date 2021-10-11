@@ -8,6 +8,7 @@
         background: none;
       }
 </style>
+{!! Html::style('/editable/jqueryui-editable/css/jqueryui-editable.css') !!}
 
 @endsection
 @section('options')
@@ -54,7 +55,19 @@
                                     <td>
                                         {{$order->order_date}}
                                     </td>
-                                    <td>{{$order->shipping_status}}</td>
+                                    <td>
+                                        <a
+                                        href="#"
+                                        id="username"
+                                        class="editable"
+                                        data-type="select"
+                                        data-pk="{{$order->id}}"
+                                        data-url="{{url("/orders_update/$order->id")}}"
+                                        data-title="Estado"
+                                        data-value="{{$order->shipping_status}}"
+                                        >{{$order->shipping_status()}}
+                                        </a>
+                                    </td>
                                     <td>{{$order->total()}}</td>
                                     <td style="width: 50px;">
                                         <a class="jsgrid-button jsgrid-edit-button" 
@@ -76,4 +89,19 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('/editable/jqueryui-editable/js/jqueryui-editable.min.js') !!}
+<script>
+    $.fn.editable.defaults.mode = 'inline';
+    $.fn.editable.defaults.ajaxOptions = {type: 'PUT'};
+    $(document).ready(function() {
+        $('.editable').editable({
+            source:[
+                {value: "PENDING", text: "PENDIENTE"},
+                {value: "APPROVED", text: "APROBADO"},
+                {value: "CANCELED", text: "CANCELADO"},
+                {value: "DELIVERED", text: "ENTREGADO"},
+            ]
+        });
+    });
+</script>
 @endsection

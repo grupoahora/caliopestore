@@ -39,7 +39,17 @@ class OrderController extends Controller
        
         
         
-        $business = Business::firstOrFail();
+        
         return view('admin.order.show', compact('order', 'business', 'business'));
+    }
+    public function orders_update(Request $request, $id){
+        
+        $order = Order::find($id);
+        
+        $order->update([
+            'shipping_status' => $request->value
+        ]);
+        dd($order->update);
+        return $request->value;
     }
 }

@@ -117,3 +117,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 /*Ruta para las Órdenes*/ 
 
 Route::resource('orders', 'OrderController')->names('orders')->only(['index', 'show']);
+Route::put('orders_update/{id}', 'OrderController@orders_update')->name('orders_update');

@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
+        'id',
         'shipping_status',
         'payment_status',
         'user_id',
         'order_date',
+        'updated_at',
         'subtotal',
         'tax',
     ];
@@ -58,6 +60,22 @@ class Order extends Model
         }
 
         $order->order_details()->createMany($results);
+    }
+    public function shipping_status()
+    {
+        switch ($this->shipping_status) {
+            case 'PENDING':
+                return 'PENDIENTE';
+            case 'APPROVED':
+                return 'APROBADO';
+            case 'CANCELED':
+                return 'CANCELADO';
+            case 'DELIVERED':
+                return 'ENTREGADO';
+            default:
+                # code...
+                break;
+        }
     }
 
 }
