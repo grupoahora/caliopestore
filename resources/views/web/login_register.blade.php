@@ -40,7 +40,8 @@
                                 <input id="email" type="email" name="email" id="email" placeholder="Correo Electronico">
                             </div>
                             <div class="single-input-item">
-                                <input id="password" type="password" name="password" id="password" placeholder="Contraseña">
+                                <input id="password" type="password" name="password" id="password"
+                                    placeholder="Contraseña">
                             </div>
                             <div class="single-input-item">
                                 <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
@@ -67,36 +68,59 @@
                         <h2>Registrarse</h2>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div class="single-input-item">
-                                <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Nombre completo" />
-                                @error('name')
-                                    <small class="text-danger">
-                                        {{ $message }}
-                                    </small>
-                                @enderror
-                            </div>
-                            <div class="single-input-item">
-                                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Correo Electronico" />
-                                @error('email')
-                                    <small class="text-danger">
-                                        {{ $message }}
-                                    </small>
-                                @enderror
-                            </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="single-input-item">
-                                        <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder="Contraseña" required />
-                                        @error('password')
-                                            <small class="text-danger">
-                                                {{ $message }}
-                                            </small>
+                                        <input type="text" id="name" name="name" value="{{ old('name') }}"
+                                            placeholder="Nombres" />
+                                        @error('name')
+                                        <small class="text-danger">
+                                            {{ $message }}
+                                        </small>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="single-input-item">
-                                        <input type="password" id="password-confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}" placeholder=" Repetir Contraseña" />
+                                        <input type="text" id="surnames" name="surnames" value="{{ old('surnames') }}"
+                                            placeholder="Apellidos" />
+                                        @error('surnames')
+                                        <small class="text-danger">
+                                            {{ $message }}
+                                        </small>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="single-input-item">
+                                <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                    placeholder="Correo Electronico" />
+                                @error('email')
+                                <small class="text-danger">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <input type="password" id="password" name="password"
+                                            value="{{ old('password') }}" placeholder="Contraseña" required />
+                                        @error('password')
+                                        <small class="text-danger">
+                                            {{ $message }}
+                                        </small>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="single-input-item">
+                                        <input type="password" id="password-confirmation" name="password_confirmation"
+                                            value="{{ old('password_confirmation') }}"
+                                            placeholder=" Repetir Contraseña" />
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +129,8 @@
                                     <div class="remember-meta">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="subnewsletter">
-                                            <label class="custom-control-label" for="subnewsletter">Suscribirme al boleín</label>
+                                            <label class="custom-control-label" for="subnewsletter">Suscribirme al
+                                                boleín</label>
                                         </div>
                                     </div>
                                 </div>

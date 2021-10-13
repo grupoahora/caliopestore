@@ -84,7 +84,7 @@ class RegisterController extends Controller
         $shopping_cart->update([
             'user_id'=> $user->id,
         ]); */
-        
+        $user->profile()->create();
         return  $user;
     }
 }
