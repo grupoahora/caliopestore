@@ -36,6 +36,9 @@ Route::get('/mis_ordenes', 'MyAccountController@orders')->name('web.orders');
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
+Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
+Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
+
 Route::get('producto/{product}', 'WebController@product_details')->name('web.product_details');
 Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')->only([ 'update'])->names('shopping_cart_details');
 Route::get('shopping_cart_detail/{shopping_cart_detail}/destroy', 'ShoppingCartDetailController@destroy')->name('shopping_cart_details.destroy');

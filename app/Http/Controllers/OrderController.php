@@ -22,6 +22,7 @@ class OrderController extends Controller
     }
     public function show(Order $order)
     {
+        
        /*  $total = 0;
         foreach ($order->order_details() as $key => $order_detail) {
             $total += $order_detail->total();
@@ -36,11 +37,12 @@ class OrderController extends Controller
        /*  $user = $order->user;
          */
         
+        
        
         
         
         
-        return view('admin.order.show', compact('order', 'business', 'business'));
+        return view('admin.order.show', compact('order', 'business'));
     }
     public function orders_update(Request $request, $id){
         
@@ -49,7 +51,7 @@ class OrderController extends Controller
         $order->update([
             'shipping_status' => $request->value
         ]);
-        dd($order->update);
+        
         return $request->value;
     }
 }

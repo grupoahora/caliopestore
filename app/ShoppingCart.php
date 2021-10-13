@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Session;
 
 class ShoppingCart extends Model
 {
-    /* protected $fillable = [
+    protected $fillable = [
         'status',
         'user_id',
         'order_date',
-    ]; */
+    ];
     public function shopping_cart_details()
     {
         return $this->hasMany(ShoppingCartDetail::class);

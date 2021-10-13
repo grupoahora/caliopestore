@@ -33,13 +33,14 @@ class Order extends Model
         }
         return $total;
     }
-    public function total()
-    {
-        return $this->subtotal() + $this->totaltax();
-    }
+    
     public function totaltax()
     {
-        return $this->subtotal() * $this->tax;
+        return $this->subtotal * $this->tax;
+    }
+    public function total()
+    {
+        return $this->subtotal + $this->totaltax();
     }
     public static function my_store()
     {
@@ -53,10 +54,13 @@ class Order extends Model
             'tax' => 0.19,
             
         ]);
-        foreach ($shopping_cart->shopping_cart_details as $key => $shopping_cart_detail) {
-            $results[] = array("product_id" => $shopping_cart_detail->product_id[$key],
-             "quantity" => $shopping_cart_detail->quantity[$key],
-             "price" => $shopping_cart_detail->price[$key]);
+        
+        foreach ($shopping_cart->shopping_cart_details as $key => $abc) {
+            $results[] = array(
+            
+            "quantity" => $shopping_cart-> shopping_cart_details[$key]->quantity,
+            "price" => $abc->product->sell_price,
+            "product_id" => $shopping_cart->shopping_cart_details[$key]->product_id);
         }
 
         $order->order_details()->createMany($results);

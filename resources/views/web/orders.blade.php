@@ -19,9 +19,9 @@
                         </thead>
                         <tbody>
                             
-                            @forelse ($orders as $key => $order)
+                            @forelse ($orders as $order)
                             <tr>
-                                <td>{{$key}}</td>
+                                <td>{{$order->id}}</td>
                                 <td>{{$order->order_date}}</td>
                                 <td>{{$order->shipping_status}}</td>
                                 <td>${{$order->total()}}</td>

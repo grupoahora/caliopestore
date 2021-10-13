@@ -76,12 +76,12 @@ class PayPalService
             Order::my_store();
 
             return redirect()
-                ->route('home')
+                ->route('web.orders')
                 ->withSuccess(['payment' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);
         }
 
         return redirect()
-            ->route('home')
+            ->route('web.checkout')
             ->withErrors('We cannot capture your payment. Try again, please');
     }
 
@@ -135,8 +135,8 @@ class PayPalService
                     'brand_name' => config('app.name'),
                     'shipping_preference' => 'NO_SHIPPING',
                     'user_action' => 'PAY_NOW',
-                    'return_url' => route('web.my_account'),
-                    'cancel_url' => route('web.my_account'),
+                    'return_url' => route('approval'),
+                    'cancel_url' => route('cancelled'),
                 ]
             ],
             [],
