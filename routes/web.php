@@ -32,6 +32,8 @@ Route::get('/productos', 'WebController@shop_grid')->name('web.shop_grid');
 Route::get('/detalles', 'WebController@product_details')->name('web.product_details');
 Route::get('/micuenta', 'MyAccountController@my_account')->name('web.my_account');
 Route::get('/mis_ordenes', 'MyAccountController@orders')->name('web.orders');
+Route::get('/detalles_de_la_cuenta', 'MyAccountController@account_info')->name('web.account_info');
+Route::get('/editar_direccion', 'MyAccountController@address_edit')->name('web.address_edit');
 
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//

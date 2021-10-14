@@ -40,17 +40,20 @@
                                 {{-- <a href="#orders" ><i class="fa fa-cart-arrow-down"></i>
                                     Orders</a> --}}
                                 <a href="{{route('web.orders')}}" class="{!! active_class(route('web.orders')) !!}" ><i class="fa fa-cart-arrow-down"></i>
-                                    Orders</a>
+                                    Pedidos</a>
                                 <a href="#download" ><i class="fa fa-cloud-download"></i>
                                     Download</a>
                                 <a href="#payment-method" ><i class="fa fa-credit-card"></i>
-                                    Payment
-                                    Method</a>
-                                <a href="#address-edit" ><i class="fa fa-map-marker"></i>
-                                    address</a>
-                                <a href="#account-info" ><i class="fa fa-user"></i> Account
-                                    Details</a>
-                                <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                    Payment Method</a>
+                                <a href="{{route('web.address_edit')}}"
+                                class="{!! active_class(route('web.address_edit')) !!}"
+                                ><i class="fa fa-map-marker"></i>
+                                    Dirección</a>
+                                <a href="{{route('web.account_info')}}"
+                                class="{!! active_class(route('web.account_info')) !!}"
+                                ><i class="fa fa-user"></i> Detalles de la cuenta</a>
+                                <a href="login-register.html"><i class="fa fa-sign-out"></i> 
+                                    Logout</a>
                             </div>
                         </div>
                         <!-- My Account Tab Menu End -->

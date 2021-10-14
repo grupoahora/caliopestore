@@ -36,4 +36,14 @@ class MyAccountController extends Controller
         return view('web.orders', compact('orders'));
         
     }
+    public function account_info()
+    {
+        $user = auth()->user();
+        return view('web.account_info', compact('user'));
+    }
+    public function address_edit()
+    {
+        $profile = auth()->user()->profile;
+        return view('web.address_edit', compact('profile'));
+    }
 }

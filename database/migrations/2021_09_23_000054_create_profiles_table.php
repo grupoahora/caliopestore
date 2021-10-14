@@ -21,7 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('ruc')->nullable()->unique();
             $table->string('address')->nullable();
             $table->string('phone')->unique()->nullable();
-            $table->string('email')->unique()->nullable();
+            
             $table->timestamps();
         });
     }

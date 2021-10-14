@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $fillable = [
-        'name',
-        'surname',
+        'user_id',
+        'dni',
         'ruc',
         'address',
         'phone',
-        'email',
     ];
     public function Sales()
     {
