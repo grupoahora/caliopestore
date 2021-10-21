@@ -601,6 +601,7 @@ class ComposerStaticInit2e2011f10a572c7f021bceed4f85022d
         'App\\Http\\Requests\\Business\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Business/UpdateRequest.php',
         'App\\Http\\Requests\\Category\\StoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Category/StoreRequest.php',
         'App\\Http\\Requests\\Category\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Category/UpdateRequest.php',
+        'App\\Http\\Requests\\Client\\ChangePasswordRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Client/ChangePasswordRequest.php',
         'App\\Http\\Requests\\Colors\\StoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Colors/StoreRequest.php',
         'App\\Http\\Requests\\Colors\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Colors/UpdateRequest.php',
         'App\\Http\\Requests\\Printer\\UpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Printer/UpdateRequest.php',

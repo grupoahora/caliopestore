@@ -31,8 +31,8 @@
                     <div class="float-right">
                         <i class="fas fa-cart-arrow-down fa-4x"></i>
                     </div>
-                    <div class="text-value h4"><strong>PEN {{$total->totalcompra}} (MES ACTUAL)</strong>
-                    </div>
+                    {{-- <div class="text-value h4"><strong>PEN {{$total->totalcompra}} (MES ACTUAL)</strong>
+                    </div> --}}
                     <div class="h3">Compras</div>
                 </div>
                 <div class="chart-wrapper mt-3 mx-3" style="height:35px;">
@@ -50,8 +50,8 @@
                     <div class="float-right">
                         <i class="fas fa-shopping-cart fa-4x"></i>
                     </div>
-                    <div class="text-value h4"><strong>PEN {{$total->totalventa}} (MES ACTUAL) </strong>
-                    </div>
+                    {{-- <div class="text-value h4"><strong>PEN {{$total->totalventa}} (MES ACTUAL) </strong>
+                    </div> --}}
                     <div class="h3">Ventas</div>
                 </div>
                 <div class="chart-wrapper mt-3 mx-3" style="height:35px;">
@@ -123,7 +123,7 @@
                                     <th>Ver detalles</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            {{-- <tbody>
                                 @foreach ($productosvendidos as $productosvendido)
                                 <tr>
                                     <td>{{$productosvendido->id}}</td>
@@ -140,7 +140,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                            </tbody>
+                            </tbody> --}}
                         </table>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
 {!! Html::script('melody/js/chart.js') !!}
-<script>
+{{-- <script>
     $(function () {
         var varCompra=document.getElementById('compras').getContext('2d');
     
@@ -245,6 +245,6 @@
                 }
             });
     });
-</script>
+</script> --}}
 
 @endsection

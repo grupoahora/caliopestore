@@ -22,20 +22,28 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
+                {!! Form::model($profile,['route'=>['update_profile', $profile], 'method'=>'PUT']) !!}
                 <div class="modal-body">
                     <div class="single-input-item">
-                        <label for="email" class="required">Dirección de envío</label>
-                        <input type="text" id="address" placeholder="Dirección de envío" />
+                        <label for="address" class="required">Dirección de envío</label>
+                        <input type="text" id="address" 
+                        name="address" 
+                        value="{{old('address', $profile->address )}}" 
+                        placeholder="Dirección de envío" />
                     </div>
                     <div class="single-input-item">
-                        <label for="email" class="required">Número de teléfono/celular</label>
-                        <input type="number" id="phone" placeholder="Número de teléfono/celular" />
+                        <label for="phone" class="required">Número de teléfono/celular</label>
+                        <input type="number" id="phone" 
+                        name="phone"
+                        value="{{old('phone', $profile->phone )}}"
+                        placeholder="Número de teléfono/celular" />
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="check-btn sqr-btn">Guardar cambios</button>
                 </div>
+                {!! Form::close() !!}
             </div>
             <!-- /.modal-content -->
         </div>

@@ -68,6 +68,7 @@ class UserController extends Controller
     }
     public function update_client(Request $request, User $user)
     {
+        
         $user->update_client($request);
         return back();
     }

@@ -36,7 +36,8 @@ Route::get('/detalles_de_la_cuenta', 'MyAccountController@account_info')->name('
 Route::get('/editar_direccion', 'MyAccountController@address_edit')->name('web.address_edit');
 Route::get('/cambiar_contrasena', 'MyAccountController@change_password')->name('web.change_password');
 Route::put('/update_client/{user}/update', 'UserController@update_client')->name('web.update_client');
-Route::put('/update_password/{user}/update', 'UserController@update_password')->name('web.update_password');
+Route::put('/update_profile/{profile}/update', 'ProfileController@update_password')->name('update_profile');
+Route::put('/update_password/{user}/update', 'UserController@update')->name('web.update_password');
 Route::get('/', 'WebController@welcome')->name('web.welcome');
 //=====================================rutas del cliente =============================================//
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');

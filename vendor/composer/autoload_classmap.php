@@ -61,6 +61,7 @@ return array(
     'App\\Http\\Requests\\Business\\UpdateRequest' => $baseDir . '/app/Http/Requests/Business/UpdateRequest.php',
     'App\\Http\\Requests\\Category\\StoreRequest' => $baseDir . '/app/Http/Requests/Category/StoreRequest.php',
     'App\\Http\\Requests\\Category\\UpdateRequest' => $baseDir . '/app/Http/Requests/Category/UpdateRequest.php',
+    'App\\Http\\Requests\\Client\\ChangePasswordRequest' => $baseDir . '/app/Http/Requests/Client/ChangePasswordRequest.php',
     'App\\Http\\Requests\\Colors\\StoreRequest' => $baseDir . '/app/Http/Requests/Colors/StoreRequest.php',
     'App\\Http\\Requests\\Colors\\UpdateRequest' => $baseDir . '/app/Http/Requests/Colors/UpdateRequest.php',
     'App\\Http\\Requests\\Printer\\UpdateRequest' => $baseDir . '/app/Http/Requests/Printer/UpdateRequest.php',

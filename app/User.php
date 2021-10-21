@@ -59,8 +59,12 @@ class User extends Authenticatable
     }
     public function update_client($request)
     {
+        
         $this->update($request->all());
-        $this->profile()->update($request->all());
+        $this->profile()->update([
+            'dni'=>$request->dni,
+            'ruc'=>$request->ruc,
+        ]);
     }
 
 }
