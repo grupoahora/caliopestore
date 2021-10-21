@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             'surname'=>'Cortes',
             'email'=>'cortesmirandaedavid19@gmail.com',
             'password'=> bcrypt('12345678')
-        ])->assignRole('Client');;
+        ])->assignRole('Admin');;
         $role1_user->profile()->create([
             /* 'first_name' => $role1_user->name, */
         ]);

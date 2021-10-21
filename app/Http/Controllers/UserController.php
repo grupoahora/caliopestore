@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\ChangePasswordRequest;
 use Illuminate\Http\Request;
 use App\User;
-
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
@@ -65,5 +65,17 @@ class UserController extends Controller
     {
         $user->delete();
         return back();
+    }
+    public function update_client(Request $request, User $user)
+    {
+        $user->update_client($request);
+        return back();
+    }
+    public function update_password(ChangePasswordRequest $request, User $user)
+    {
+        $user->update([
+            'password' => Hash::make($request->password)
+        ]);
+        return back()->with('info', 'La contraseña se a actualizado correctamente.');
     }
 }

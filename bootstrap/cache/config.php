@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://caliopestore.com.test/',
+    'url' => 'http://caliope.com.test/',
     'asset_url' => NULL,
     'timezone' => 'America/Bogota',
     'locale' => 'es',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:du/eFAxbNWdxDc8PJ9gtTk4nXcI3TdeaQRwI1wOvSV0=',
+    'key' => 'base64:gjiKyu8bZuW3s2V2lPC5OJCNQjtarigfEBrGS4V0kfg=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -164,7 +164,7 @@
   ),
   'cache' => 
   array (
-    'default' => 'array',
+    'default' => 'file',
     'stores' => 
     array (
       'apc' => 
@@ -259,7 +259,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'caliopestore',
+        'database' => 'caliope',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -269,7 +269,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'caliopestore',
+        'database' => 'caliope',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -289,7 +289,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'caliopestore',
+        'database' => 'caliope',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -304,7 +304,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'caliopestore',
+        'database' => 'caliope',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -354,7 +354,7 @@
       array (
         'driver' => 'local',
         'root' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\app/public',
-        'url' => 'http://caliopestore.com.test//storage',
+        'url' => 'http://caliope.com.test//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -722,7 +722,7 @@
     array (
       'font_dir' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\fonts/',
       'font_cache' => 'C:\\xampp\\htdocs\\caliopestore\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\corte\\AppData\\Local\\Temp',
+      'temp_dir' => 'C:\\Users\\dcort\\AppData\\Local\\Temp',
       'chroot' => 'C:\\xampp\\htdocs\\caliopestore',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',

@@ -23,11 +23,18 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>One fine body…</p>
+                    <div class="single-input-item">
+                        <label for="email" class="required">Dirección de envío</label>
+                        <input type="text" id="address" placeholder="Dirección de envío" />
+                    </div>
+                    <div class="single-input-item">
+                        <label for="email" class="required">Número de teléfono/celular</label>
+                        <input type="number" id="phone" placeholder="Número de teléfono/celular" />
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="check-btn sqr-btn">Guardar cambios</button>
+                    <button type="submit" class="check-btn sqr-btn">Guardar cambios</button>
                 </div>
             </div>
             <!-- /.modal-content -->

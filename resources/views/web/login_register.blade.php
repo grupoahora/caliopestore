@@ -82,9 +82,9 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="single-input-item">
-                                        <input type="text" id="surnames" name="surnames" value="{{ old('surnames') }}"
+                                        <input type="text" id="surname" name="surname" value="{{ old('surname') }}"
                                             placeholder="Apellidos" />
-                                        @error('surnames')
+                                        @error('surname')
                                         <small class="text-danger">
                                             {{ $message }}
                                         </small>

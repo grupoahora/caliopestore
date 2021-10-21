@@ -43,8 +43,7 @@
                                     Pedidos</a>
                                 <a href="#download" ><i class="fa fa-cloud-download"></i>
                                     Download</a>
-                                <a href="#payment-method" ><i class="fa fa-credit-card"></i>
-                                    Payment Method</a>
+                                
                                 <a href="{{route('web.address_edit')}}"
                                 class="{!! active_class(route('web.address_edit')) !!}"
                                 ><i class="fa fa-map-marker"></i>
@@ -52,6 +51,10 @@
                                 <a href="{{route('web.account_info')}}"
                                 class="{!! active_class(route('web.account_info')) !!}"
                                 ><i class="fa fa-user"></i> Detalles de la cuenta</a>
+                                <a 
+                                class="{!! active_class(route('web.change_password')) !!}"
+                                href="{{route('web.change_password')}}" ><i class="fa fa-credit-card"></i>
+                                    Cambiar Contraseña</a>
                                 <a href="login-register.html"><i class="fa fa-sign-out"></i> 
                                     Logout</a>
                             </div>

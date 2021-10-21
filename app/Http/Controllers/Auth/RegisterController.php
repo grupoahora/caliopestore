@@ -77,6 +77,7 @@ class RegisterController extends Controller
         $user =
         User::create([
             'name' => $data['name'],
+            'surname' => $data['surname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ])->assignRole('Client');
@@ -88,3 +89,4 @@ class RegisterController extends Controller
         return  $user;
     }
 }
+

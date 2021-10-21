@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\ChangePasswordRequest;
 use App\Order;
 use App\PaymentPlatform;
 use App\ShoppingCart;
+use App\User;
 use Illuminate\Http\Request;
 
 class MyAccountController extends Controller
@@ -45,5 +47,12 @@ class MyAccountController extends Controller
     {
         $profile = auth()->user()->profile;
         return view('web.address_edit', compact('profile'));
+    }
+    public function change_password()
+    {
+        
+        $user = auth()->user();
+        
+        return view('web.change_password', compact('user'));
     }
 }

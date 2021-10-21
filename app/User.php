@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password' , 'last_name'
+        'name','surname', 'email', 'password' , 'last_name'
     ];
 
     /**
@@ -57,6 +57,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-    
+    public function update_client($request)
+    {
+        $this->update($request->all());
+        $this->profile()->update($request->all());
+    }
 
 }
