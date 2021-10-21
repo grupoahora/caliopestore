@@ -41,8 +41,8 @@
                                     Orders</a> --}}
                                 <a href="{{route('web.orders')}}" class="{!! active_class(route('web.orders')) !!}" ><i class="fa fa-cart-arrow-down"></i>
                                     Pedidos</a>
-                                <a href="#download" ><i class="fa fa-cloud-download"></i>
-                                    Download</a>
+                                {{-- <a href="#download" ><i class="fa fa-cloud-download"></i>
+                                    Download</a> --}}
                                 
                                 <a href="{{route('web.address_edit')}}"
                                 class="{!! active_class(route('web.address_edit')) !!}"
@@ -55,9 +55,17 @@
                                 class="{!! active_class(route('web.change_password')) !!}"
                                 href="{{route('web.change_password')}}" ><i class="fa fa-credit-card"></i>
                                     Cambiar Contraseña</a>
-                                <a href="login-register.html"><i class="fa fa-sign-out"></i> 
-                                    Logout</a>
+                                <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').
+                                                submit();"><i class="fa fa-sign-out"></i> 
+                                                Cerrar Sesión</a>
+                                
                             </div>
+                            <form id="logout-form" action="{{ route('logout') }}" 
+                            method="POST" class="d-none">
+                                    @csrf
+                            </form>
                         </div>
                         <!-- My Account Tab Menu End -->
 
