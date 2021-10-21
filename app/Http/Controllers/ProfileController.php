@@ -69,7 +69,8 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        //
+        $profile->update($request->all());
+        return back();
     }
 
     /**

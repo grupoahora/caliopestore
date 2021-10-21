@@ -3,12 +3,12 @@
 <div class="col-lg- col-md-8">
     {{-- <div class="tab-content" id="myaccountContent"> --}}
     <div class="myaccount-content">
-        <h3>Billing Address</h3>
+        <h3>Dirección de Envío</h3>
         <address>
-            <p><strong>Alex Tuntuni</strong></p>
-            <p>1355 Market St, Suite 900 <br>
-                San Francisco, CA 94103</p>
-            <p>Mobile: (123) 456-7890</p>
+            <p><strong>{{$user->name}} {{$user->surname}}</strong></p>
+            <p>{{$profile->address}} <br>
+                </p>
+            <p>Teléfono: {{$profile->phone}}</p>
         </address>
         <a href="#" class="check-btn sqr-btn " data-toggle="modal" data-target="#modal-default"><i
                 class="fa fa-edit"></i> Editar Dirección</a>

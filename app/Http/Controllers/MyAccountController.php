@@ -46,7 +46,8 @@ class MyAccountController extends Controller
     public function address_edit()
     {
         $profile = auth()->user()->profile;
-        return view('web.address_edit', compact('profile'));
+        $user = auth()->user();
+        return view('web.address_edit', compact('profile', 'user'));
     }
     public function change_password()
     {
