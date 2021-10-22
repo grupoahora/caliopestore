@@ -17,12 +17,12 @@ class PaymentController extends Controller
     public function pay(Request $request){
         
         $request ->validate([
-            'payment_platform'=>['required'],
+            'paymentmethod'=>['required'],
         ]);
         $paymentPlatform = $this->paymentPlatformResolver
-        ->resolveService($request->payment_platform);
+        ->resolveService($request->paymentmethod);
 
-        session()->put('paymentPlatformId', $request->payment_platform);
+        session()->put('paymentPlatformId', $request->paymentmethod);
 
         /* if ($request->user()->hasActiveSubscription()) {
             $request->value = round($request->value * 0.9, 2);

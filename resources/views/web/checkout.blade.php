@@ -363,19 +363,27 @@
 
 
                                 @foreach ($paymentPlatforms as $key => $paymentPlatform)
-                                <div class="single-payment-method">
-                                    <div class="payment-method-name">
+                                <div class="single-payment-method show">
+                                    <div class="payment-method-name
+                                    @if ($loop->first)
+                                        show
+                                    @endif">
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="{{$key}}" name="paymentmethod" value="{{$paymentPlatform->id}}"
-                                                class="custom-control-input" checked />
+                                                class="custom-control-input" 
+                                                
+                                                @if ($loop->first)
+                                                    checked
+                                                @endif
+                                                
+                                                required />
                                             <label class="custom-control-label" for="{{$key}}">{{$paymentPlatform->name}}
                                             <img src="{{$paymentPlatform->image}}" class="img-fluid paypal-card"
                                             alt="{{$paymentPlatform->name}}" /></label>
                                         </div>
                                     </div>
                                     <div class="payment-method-details" data-method="{{$paymentPlatform->id}}">
-                                        <p>Pay via {{$paymentPlatform->name}}; you can pay with your credit card if you
-                                            don’t have a {{$paymentPlatform->name}} account.</p>
+                                        @includeIf('components', strtolower ($paymentPlatform->name), '-collapse')
                                     </div>
                                 </div>
                                 
