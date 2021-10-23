@@ -2,16 +2,16 @@
     <label class="mt-3">Detalles de la tarjeta:</label>
     <div class="form-group form-row mb-3 mt-3">
         <div class="col-6 single-input-item">
-            <input  name="payu_card" type="number" placeholder="Card Number">
+            <input  name="payu_card" type="text" placeholder="Card Number">
         </div>
         <div class="col-2 single-input-item">
-            <input  name="payu_cvc" type="number" placeholder="CVC">
+            <input  name="payu_cvc" type="text" placeholder="CVC">
         </div>
         <div class="col-2 single-input-item">
-            <input  name="payu_month" type="number" placeholder="MM">
+            <input  name="payu_month" type="text" placeholder="MM">
         </div>
         <div class="col-2 single-input-item">
-            <input  name="payu_year" type="number" placeholder="YY">
+            <input  name="payu_year" type="text" placeholder="YY">
         </div>
     </div>
     <div class="form-group form-row">
@@ -25,10 +25,10 @@
             </select>
         </div>
         <div class="col-4 single-input-item">
-            <input  name="payu_name" id="payu_name" type="text" placeholder="Tu Nombre" required>
+            <input  name="payu_name" id="payu_name" type="text" placeholder="Tu Nombre" {{-- required --}}>
         </div>
         <div class="col-4 single-input-item">
-            <input  name="payu_email" id="payu_email" type="email" placeholder="email@example.com" required>
+            <input  name="payu_email" id="payu_email" type="email" placeholder="email@example.com" {{-- required --}}>
         </div>
     </div>
     <div class="form-group form-row">

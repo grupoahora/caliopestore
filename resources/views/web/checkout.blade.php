@@ -383,7 +383,7 @@
                                         </div>
                                     </div>
                                     <div class="payment-method-details" data-method="{{$paymentPlatform->id}}">
-                                        @includeIf('components.' . strtolower ($paymentPlatform->name) . '-collapse')
+                                        @includeIf('components.' . strtoupper($paymentPlatform->name) . '-collapse')
                                     </div>
                                 </div>
                                 

@@ -35,6 +35,7 @@ class CurrencyConversionService
 
     public function convertCurrency($from, $to)
     {
+        /* dd($from); */
         $response = $this->makeRequest(
             'GET',
             '/api/v7/convert',
@@ -43,6 +44,7 @@ class CurrencyConversionService
                 'compact' => 'ultra',
             ],
         );
+        
 
         return $response->{strtoupper("{$from}_{$to}")};
     }

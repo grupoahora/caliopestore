@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\CurrencyConversionService;
+use App\ShoppingCart;
 use App\Traits\ConsumesExternalServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -60,9 +61,13 @@ class PayUService
             'payu_email' => 'required',
         ]);
 
+        $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
+        $total_price = $shopping_cart->total_price();
+        $currency = 'cop';
+        /* dd($request); */
         $payment = $this->createPayment(
-            $request->value,
-            $request->currency,
+            $total_price,
+            $currency,
             $request->payu_name,
             $request->payu_email,
             $request->payu_card,
@@ -72,6 +77,9 @@ class PayUService
             $request->payu_network,
         );
 
+        /* dd($payment); */
+
+
         if ($payment->transactionResponse->state === "APPROVED") {
             $name = $request->payu_name;
 
@@ -79,12 +87,12 @@ class PayUService
             $currency = strtoupper($request->currency);
 
             return redirect()
-                ->route('home')
+                ->route('web.orders')
                 ->withSuccess(['payment' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);
         }
 
         return redirect()
-            ->route('home')
+            ->route('web.checkout')
             ->withErrors('We were unable to process your payment. Check your details and try again, please');
     }
 
@@ -95,6 +103,7 @@ class PayUService
 
     public function createPayment($value, $currency, $name, $email, $card, $cvc, $year, $month, $network, $installments = 1, $paymentCountry = 'CO')
     {
+        
         return $this->makeRequest(
             'POST',
             '/payments-api/4.0/service.cgi',
