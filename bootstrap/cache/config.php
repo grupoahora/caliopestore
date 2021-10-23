@@ -631,17 +631,32 @@
   ),
   'services' => 
   array (
+    'currency_conversion' => 
+    array (
+      'base_uri' => 'https://free.currconv.com',
+      'api_key' => 'efd95acb3de8cb871bd4',
+    ),
     'paypal' => 
     array (
-      'base_uri' => NULL,
-      'client_id' => NULL,
-      'client_secret' => NULL,
+      'base_uri' => 'https://api.sandbox.paypal.com',
+      'client_id' => 'AVyInJDzo3PVe6HdMcqp0a6J7iepDec6cInx_yaf70GlFDuEqoaOOFwhJgiHn2oU9bi875xZ9UbAEY4a',
+      'client_secret' => 'EPsu6YYK0vqzS2xib4rLuKNCLglkGsKBi_zMYVa5W1LUeSfJ9_O64TiyWEy5GncEgU-zp4NmIK6l6qig',
       'class' => 'App\\Services\\PayPalService',
       'plans' => 
       array (
-        'monthly' => NULL,
-        'yearly' => NULL,
+        'monthly' => '',
+        'yearly' => '',
       ),
+    ),
+    'payu' => 
+    array (
+      'base_uri' => 'https://sandbox.api.payulatam.com',
+      'account_id' => '512321',
+      'merchant_id' => '508029',
+      'key' => '4Vj8eK4rloUd272L48hsrarnUA',
+      'secret' => 'pRRXKOl8ikMmt9u',
+      'base_currency' => 'cop',
+      'class' => 'App\\Services\\PayUService',
     ),
     'mailgun' => 
     array (

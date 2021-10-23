@@ -365,9 +365,9 @@
                                 @foreach ($paymentPlatforms as $key => $paymentPlatform)
                                 <div class="single-payment-method show">
                                     <div class="payment-method-name
-                                    @if ($loop->first)
-                                        show
-                                    @endif">
+                                        @if ($loop->first)
+                                            show
+                                        @endif">
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="{{$key}}" name="paymentmethod" value="{{$paymentPlatform->id}}"
                                                 class="custom-control-input" 
@@ -383,7 +383,7 @@
                                         </div>
                                     </div>
                                     <div class="payment-method-details" data-method="{{$paymentPlatform->id}}">
-                                        @includeIf('components', strtolower ($paymentPlatform->name), '-collapse')
+                                        @includeIf('components.' . strtolower ($paymentPlatform->name) . '-collapse')
                                     </div>
                                 </div>
                                 
@@ -456,3 +456,4 @@
 @section('scripts')
 
 @endsection
+<script src="galio/assets/js/switcher.js"></script>

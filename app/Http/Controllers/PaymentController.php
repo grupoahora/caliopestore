@@ -16,6 +16,7 @@ class PaymentController extends Controller
     }
     public function pay(Request $request){
         
+        /* dd($request); */
         $request ->validate([
             'paymentmethod'=>['required'],
         ]);
