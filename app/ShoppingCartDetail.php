@@ -8,7 +8,7 @@ class ShoppingCartDetail extends Model
 {
     protected $fillable = [
         'quantity',
-        'price',
+        
         'product_id',
         'shopping_cart_id',
     ];
@@ -19,6 +19,7 @@ class ShoppingCartDetail extends Model
     }
     public function total()
     {
-        return $this->quantity * $this->price;
+        return $this->quantity * $this->product->sell_price;
     }
+    
 }

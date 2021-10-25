@@ -88,6 +88,14 @@ class ShoppingCart extends Model
             $detail->update($result[$key]);
         }
     }
+    public function subtotal()
+    {
+        $total = 0;
+        foreach ($this->shopping_cart_details as $key => $shopping_cart_details) {
+            $total += $shopping_cart_details->total();
+        }
+        return $total;
+    }
     /* public function subtotal()
     {
         $total = 0;

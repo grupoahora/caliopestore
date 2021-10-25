@@ -20,16 +20,14 @@ class MyAccountController extends Controller
         return view('web.my_account');
     }
     public function checkout()
-    {
+    {   
         $paymentPlatforms = PaymentPlatform::all();
         $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
-        foreach($shopping_cart->shopping_cart_details as $key => $abc){
-            /* dd($abc->product_id); */
-           /*  dd($abc->product->sell_price); */
-        };
+        $subtotal = $shopping_cart->subtotal();
+        $products = $shopping_cart->shopping_cart_details;
 
 
-        return view('web.checkout', compact('paymentPlatforms'));
+        return view('web.checkout', compact('paymentPlatforms', 'products', 'subtotal'));
     }
     public function orders()
     {
