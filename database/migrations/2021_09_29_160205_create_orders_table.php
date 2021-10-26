@@ -22,8 +22,8 @@ class CreateOrdersTable extends Migration
             $table->timestamp('order_date')->nullable();
 
             
-            $table->decimal('subtotal');
-            $table->decimal('tax');
+            /* $table->decimal('subtotal');
+            $table->decimal('tax'); */
             
             $table->timestamps();
         });

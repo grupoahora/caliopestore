@@ -68,7 +68,7 @@
                                         >{{$order->shipping_status()}}
                                         </a>
                                     </td>
-                                    <td>{{$order->total()}}</td>
+                                    <td>{{$order->subtotal()}}</td>
                                     <td style="width: 50px;">
                                         <a class="jsgrid-button jsgrid-edit-button" 
                                         href="{{route('orders.show', $order)}}" 

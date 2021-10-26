@@ -216,6 +216,10 @@
 
 @endsection
 @section('scripts')
+{{-- {!! Html::script('js/jquery-3.6.0.js') !!}
+{!! Html::script('inputmask/dist/jquery.inputmask.js') !!} --}}
+
+
+<script src="galio/assets/js/switcher.js"></script>
 
 @endsection
-<script src="galio/assets/js/switcher.js"></script>

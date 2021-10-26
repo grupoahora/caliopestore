@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Order;
 use App\Services\CurrencyConversionService;
 use App\ShoppingCart;
 use App\Traits\ConsumesExternalServices;
@@ -86,7 +87,7 @@ class PayUService
 
             $amount = $request->value;
             $currency = strtoupper($request->currency);
-
+            Order::my_store();
             return redirect()
                 ->route('web.orders')
                 ->withSuccess(['payment' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Business;
 use App\Http\Requests\Client\ChangePasswordRequest;
 use App\Order;
 use App\PaymentPlatform;
@@ -53,5 +54,12 @@ class MyAccountController extends Controller
         $user = auth()->user();
         
         return view('web.change_password', compact('user'));
+    }
+    public function order_details(Order $order)
+    {
+        
+        $details = $order->order_details();
+        
+        return view('web.order_details', compact('details', 'order'));
     }
 }

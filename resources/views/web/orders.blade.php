@@ -24,8 +24,8 @@
                                 <td>{{$order->id}}</td>
                                 <td>{{$order->order_date}}</td>
                                 <td>{{$order->shipping_status}}</td>
-                                <td>${{$order->total()}}</td>
-                                <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
+                                <td>${{$order->subtotal()}}</td>
+                                <td><a href="{{route('web.order_details', $order)}}" class="check-btn sqr-btn ">View</a></td>
                             </tr>
                             @empty
                                 <tr>

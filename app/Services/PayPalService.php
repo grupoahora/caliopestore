@@ -73,7 +73,8 @@ class PayPalService
             $amount = $payment->value;
             $currency = $payment->currency_code;
 
-            Order::my_store();
+            /* $crer =  */Order::my_store();
+            /* dd($crer); */
 
             return redirect()
                 ->route('web.orders')

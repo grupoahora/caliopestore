@@ -99,20 +99,20 @@
                                 </th>
                             </tr>
 
-                            <tr>
+                            {{-- <tr>
                                 <th colspan="4">
                                     <p align="right">TOTAL IMPUESTO ({{$order->tax}}%):</p>
                                 </th>
                                 <th>
                                     <p align="right">${{number_format($order->totaltax(),2)}}</p>
                                 </th>
-                            </tr>
+                            </tr> --}}
                             <tr>
                                 <th colspan="4">
                                     <p align="right">TOTAL:</p>
                                 </th>
                                 <th>
-                                    <p align="right">${{number_format($order->total(),2)}}</p>
+                                    <p align="right">${{number_format($order->subtotal(),2)}}</p>
                                 </th>
                             </tr>
 

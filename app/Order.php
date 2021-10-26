@@ -36,12 +36,12 @@ class Order extends Model
     
     public function totaltax()
     {
-        return $this->subtotal * $this->tax;
+        return $this->subtotal() * $this->tax;
     }
-    public function total()
+    /* public function total()
     {
         return $this->subtotal + $this->totaltax();
-    }
+    } */
     public static function my_store()
     {
         $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
@@ -50,8 +50,8 @@ class Order extends Model
             'payment_status'=> 'PAID',
             'user_id' => auth()->user()->id,
             'order_date' => Carbon::now(),
-            'subtotal' => $shopping_cart->total_price(),
-            'tax' => 0.19,
+            /* 'subtotal' => $shopping_cart->total_price(),
+            'tax' => 0.19, */
             
         ]);
         
