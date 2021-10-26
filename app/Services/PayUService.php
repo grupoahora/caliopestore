@@ -51,7 +51,8 @@ class PayUService
 
     public function handlePayment(Request $request)
     {
-        $request->validate([
+        /* dd($request); */
+        /* $request->validate([
             'payu_card' => 'required',
             'payu_cvc' => 'required',
             'payu_year' => 'required',
@@ -63,11 +64,11 @@ class PayUService
 
         $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
         $total_price = $shopping_cart->total_price();
-        $currency = 'cop';
+        $currency = 'cop'; */
         /* dd($request); */
         $payment = $this->createPayment(
-            $total_price,
-            $currency,
+            $request->value,
+            $request->currency,
             $request->payu_name,
             $request->payu_email,
             $request->payu_card,

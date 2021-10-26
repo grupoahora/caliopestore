@@ -1,6 +1,6 @@
 @extends('layouts.web')
 @section('meta_description', '')
-@section('title', '')
+@section('title', 'Caliope')
 @section('styles')
 
 @endsection
@@ -13,8 +13,8 @@
                 <div class="breadcrumb-wrap">
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('web.welcome')}}">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('web.shop_grid')}}">Productos</a></li>
                             <li class="breadcrumb-item active" aria-current="page">checkout</li>
                         </ul>
                     </nav>
@@ -32,7 +32,7 @@
             <!-- Checkout Billing Details -->
             <div class="col-lg-6">
                 <div class="checkout-billing-details-wrap">
-                    <h2>Billing Details</h2>
+                    <h2>Detalles de Facturación</h2>
                     <div class="billing-form-wrap">
                       <!-- Order Summary Table -->
                         <div class="order-summary-table table-responsive text-center">
@@ -115,7 +115,7 @@
             <!-- Order Summary Details -->
             <div class="col-lg-6">
                 <div class="order-summary-details mt-md-26 mt-sm-26">
-                    <h2>Your Order Summary</h2>
+                    <h2>Metodo de Pago</h2>
                     <div class="order-summary-content mb-sm-4">
                         
                         <!-- Order Payment Method -->
@@ -156,10 +156,9 @@
                                 <div class="summary-footer-area">
                                     <div class="custom-control custom-checkbox mb-14">
                                         <input type="checkbox" class="custom-control-input" id="terms" required />
-                                        <label class="custom-control-label" for="terms">I have read and agree to the
-                                            website <a href="index.html">terms and conditions.</a></label>
+                                        <label class="custom-control-label" for="terms">He leido y accepto Terminos y condiciones de <a href="{{route('web.welcome')}}">Caliope.com.com.</a></label>
                                     </div>
-                                    <button type="submit" class="check-btn sqr-btn">Place Order</button>
+                                    <button type="submit" class="check-btn sqr-btn">Pagar</button>
                                 </div>
                             </div>
                         </form>

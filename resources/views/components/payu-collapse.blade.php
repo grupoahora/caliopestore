@@ -1,8 +1,8 @@
 <div class="payment-method-details" data-method="{{ $paymentPlatform->id }}">
     <label class="mt-3">Detalles de la tarjeta:</label>
     <div class="form-group form-row mb-3 mt-3">
-        <div class="col-6 single-input-item">
-            <input  name="payu_card" type="text" placeholder="Card Number">
+        <div class="col-5 single-input-item">
+            <input  name="payu_card" type="text" placeholder="Numero de tarjeta">
         </div>
         <div class="col-2 single-input-item">
             <input  name="payu_cvc" type="text" placeholder="CVC">
@@ -10,7 +10,7 @@
         <div class="col-2 single-input-item">
             <input  name="payu_month" type="text" placeholder="MM">
         </div>
-        <div class="col-2 single-input-item">
+        <div class="col-3 single-input-item">
             <input  name="payu_year" type="text" placeholder="YY">
         </div>
     </div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Pay\PaymentRequest;
 use Dotenv\Result\Result;
 use Illuminate\Http\Request;
 use App\Resolvers\PaymentPlatformResolver;
+use App\ShoppingCart;
 
 class PaymentController extends Controller
 {
@@ -14,7 +16,7 @@ class PaymentController extends Controller
         $this->middleware('client_auth');
         $this->paymentPlatformResolver = $paymentPlatformResolver;
     }
-    public function pay(Request $request){
+    public function pay(PaymentRequest $request){
         
         /* dd($request); */
         $request ->validate([
@@ -28,6 +30,12 @@ class PaymentController extends Controller
         /* if ($request->user()->hasActiveSubscription()) {
             $request->value = round($request->value * 0.9, 2);
         } */
+        $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
+        $total_price = $shopping_cart->total_price();
+        $request->merge([
+            'value'=> $total_price,
+            'currency' => 'cop',
+        ]);
 
         return $paymentPlatform->handlePayment($request);
     }
