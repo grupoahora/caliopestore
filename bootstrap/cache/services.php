@@ -41,8 +41,14 @@
     37 => 'App\\Providers\\EventServiceProvider',
     38 => 'App\\Providers\\RouteServiceProvider',
     39 => 'App\\Providers\\ShoppingCartProvider',
-    40 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    41 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    40 => 'App\\Providers\\CompanyProvider',
+    41 => 'App\\Providers\\CategoryProvider',
+    42 => 'App\\Providers\\SubCategoryProvider',
+    43 => 'App\\Providers\\SocialMediaProvider',
+    44 => 'App\\Providers\\TagProvider',
+    45 => 'App\\Providers\\FeacturedProductProvider',
+    46 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    47 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'eager' => 
   array (
@@ -72,8 +78,14 @@
     23 => 'App\\Providers\\EventServiceProvider',
     24 => 'App\\Providers\\RouteServiceProvider',
     25 => 'App\\Providers\\ShoppingCartProvider',
-    26 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    27 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    26 => 'App\\Providers\\CompanyProvider',
+    27 => 'App\\Providers\\CategoryProvider',
+    28 => 'App\\Providers\\SubCategoryProvider',
+    29 => 'App\\Providers\\SocialMediaProvider',
+    30 => 'App\\Providers\\TagProvider',
+    31 => 'App\\Providers\\FeacturedProductProvider',
+    32 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    33 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'deferred' => 
   array (

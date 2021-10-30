@@ -8,12 +8,17 @@ class Business extends Model
 {
     protected $fillable = [
         'name',
-        'description',
-        'logo',
-        'email',
-        'address',
-        'phone',
-        'ruc',
+    'description',
+    'logo',
+    'mail',
+    'address',
+    'ruc',
+    'phone',
+    'latitude',
+    'length',
+    'contact_text',
+    'hours_of_operation',
+    'google_maps_link',
     ];
    
 }

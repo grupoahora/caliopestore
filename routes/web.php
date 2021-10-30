@@ -3,6 +3,7 @@
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\WebController;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,14 @@ Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailControlle
 Route::get('add_a_product_to_the_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product');
 Route::get('mi_carrito_de_compras', 'WebController@cart')->name('web.cart');
 Route::put('shopping_cart', 'ShoppingCartController@update')->name('shopping_cart.update');
+
+Route::get('products/json', 'WebController@products')->name('products.json');
+Route::get('products/resultado/', 'webShopController@search_products')->name('web.search_products');
+
+Route::get('products/category/resultado/', 'webShopController@search_products_by_category')->name('web.search_products_by_category');
+Route::get('products/subcategory/resultado/', 'webShopController@search_products_by_subcategory')->name('web.search_products_by_subcategory');
+Route::get('products/tag/resultado/', 'webShopController@search_products_by_tag')->name('web.search_products_by_tag');
+Route::post('subscription_email', 'WebShopController@subscription_email')->name('web.subscription_email');
 
 //=====================================fin  =============================================//
 

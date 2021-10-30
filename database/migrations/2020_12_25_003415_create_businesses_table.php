@@ -22,7 +22,12 @@ class CreateBusinessesTable extends Migration
             $table->string('mail');
             $table->string('address');
             $table->string('ruc');
-
+            $table->string('phone');
+            $table->string('latitude');
+            $table->string('length');
+            $table->string('contact_text');
+            $table->string('hours_of_operation');
+            $table->string('google_maps_link');
             $table->timestamps();
         });
     }

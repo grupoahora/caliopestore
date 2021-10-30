@@ -18,6 +18,7 @@ class Product extends Model
         'status',
         'category_id',
         'subcategory_id',
+        'tag_id'
         /* 'provider_id', */
     ];
 

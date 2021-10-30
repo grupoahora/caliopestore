@@ -13,9 +13,9 @@
                 <div class="breadcrumb-wrap">
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">product details variable</li>
+                            <li class="breadcrumb-item"><a href="{{route('web.welcome')}}">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('web.shop_grid')}}">Tienda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detalles de producto</li>
                         </ul>
                     </nav>
                 </div>
@@ -29,7 +29,7 @@
 <div class="product-details-wrapper">
     <div class="container-fluid">
         <div class="row mx-5">
-            <div class="col-lg-9">
+            <div class="col-lg-10">
                 <!-- product details inner end -->
                 <div class="product-details-inner">
                     <div class="row">
@@ -51,7 +51,7 @@
                         <div class="col-lg-6">
                             <div class="product-details-des mt-md-34 mt-sm-34">
                                 <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
-                                <div class="ratings">
+                                {{-- <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -60,10 +60,10 @@
                                     <div class="pro-review">
                                         <span>1 review(s)</span>
                                     </div>
-                                </div>
-                                <div class="customer-rev">
+                                </div> --}}
+                                {{-- <div class="customer-rev">
                                     <a href="#">(1 customer review)</a>
-                                </div>
+                                </div> --}}
                                 <div class="availability mt-10">
                                     <h5>Disponible:</h5>
                                     <span>{{$product->stock}} en inventario</span>
@@ -238,14 +238,16 @@
             </div>
 
             <!-- sidebar start -->
-            <div class="col-lg-3">
+            <div class="col-lg-2">
                 <div class="shop-sidebar-wrap fix mt-md-22 mt-sm-22">
                     <!-- category start -->
                     @include('web._category')
                     <!-- category end -->
 
                     <!-- featured category start -->
-                    @include('web._featured_category')
+                    
+                        @include('web._featured_category')
+                    
                     <!-- featured category end -->
 
                     <!-- manufacturer start -->
@@ -271,11 +273,11 @@
                     <!-- product tag end -->
 
                     <!-- sidebar banner start -->
-                    <div class="sidebar-widget mb-22">
+                    {{-- <div class="sidebar-widget mb-22">
                         <div class="img-container fix img-full mt-30">
                             <a href="#"><img src="/galio/assets/img/banner/banner_shop.jpg" alt=""></a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- sidebar banner end -->
                 </div>
             </div>

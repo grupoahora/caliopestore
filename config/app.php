@@ -177,7 +177,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ShoppingCartProvider::class,
-
+        App\Providers\CompanyProvider::class,
+        App\Providers\CategoryProvider::class,
+        App\Providers\SubCategoryProvider::class,
+        App\Providers\SocialMediaProvider::class,
+        App\Providers\TagProvider::class,
+        App\Providers\FeacturedProductProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
         Milon\Barcode\BarcodeServiceProvider::class,

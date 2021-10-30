@@ -11,6 +11,7 @@ class Tag extends Model
         'name',
         'slug',
         'description',
+        'tag_id'
     ];
     public function products()
     {

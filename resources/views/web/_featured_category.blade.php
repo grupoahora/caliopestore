@@ -1,27 +1,29 @@
 <div class="sidebar-widget mb-22">
     <div class="section-title-2 d-flex justify-content-between mb-28">
-        <h3>featured</h3>
+        <h3>Des</h3>
         <div class="category-append"></div>
     </div> <!-- section title end -->
     <div class="category-carousel-active row" data-row="4">
+        @foreach ($web_feacturedproducts as $product)
         <div class="col">
             <div class="category-item">
                 <div class="category-thumb">
-                    <a href="product-details.html">
-                        <img src="/galio/assets/img/product/product-img1.jpg" alt="">
+                    <a href="{{route('web.product_details', $product)}}">
+                        <img src="{{$product->images->pluck('url')[0]}}" alt="">
                     </a>
+                    
                 </div>
                 <div class="category-content">
-                    <h4><a href="product-details.html">Virtual Product 01</a></h4>
-                    <div class="price-box">
-                        <div class="regular-price">
-                            $150.00
+                    <h4><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h4>
+                    <div class="price-box ">
+                        <div class="regular-price ">
+                            ${{$product->sell_price}}
                         </div>
-                        <div class="old-price">
-                            <del>$180.00</del>
+                        <div class="old-price ">
+                            <del>${{$product->sell_price}}</del>
                         </div>
                     </div>
-                    <div class="ratings">
+                    {{-- <div class="ratings">
                         <span class="good"><i class="fa fa-star"></i></span>
                         <span class="good"><i class="fa fa-star"></i></span>
                         <span class="good"><i class="fa fa-star"></i></span>
@@ -30,10 +32,13 @@
                         <div class="pro-review">
                             <span>1 review(s)</span>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div> <!-- end single item -->
-        </div> <!-- end single item column -->
+        </div>
+        @endforeach
+        {{-- 
+         <!-- end single item column -->
         <div class="col">
             <div class="category-item">
                 <div class="category-thumb">
@@ -243,6 +248,6 @@
                     </div>
                 </div>
             </div> <!-- end single item -->
-        </div> <!-- end single item column -->
+        </div> <!-- end single item column --> --}}
     </div>
 </div>

@@ -606,12 +606,14 @@
 			$mapaddress = map_id.data('mapaddress'),
 			mymap = L.map('map_content').setView([$lat, $lng], $zoom);
 
-		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 			attribution: 'Map',
+			tileSize: 512,
 			maxZoom: 18,
-			id: 'mapbox.streets',
-			scrollWheelZoom: false,
-			accessToken: 'pk.eyJ1Ijoic2hha2lsYWhtbWVlZCIsImEiOiJjamk4anF6NDgwMGd5M3BwM2c4eHU5dmIzIn0.yBLGUAB8kV1I1yGGonxzzg'
+			zoomOffset: -1,
+			id: 'mapbox/streets-v11',
+			/* scrollWheelZoom: false, */
+			accessToken: 'sk.eyJ1Ijoic295YW5kcmVzIiwiYSI6ImNrdmQzdDkxODFibWwyb3MxdDdqa2FlbDUifQ.je3Q1qW2me1bON3R_ovwcQ'
 		}).addTo(mymap);
 
 		var marker = L.marker([$lat, $lng]).addTo(mymap);

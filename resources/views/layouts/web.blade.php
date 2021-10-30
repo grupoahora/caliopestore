@@ -10,6 +10,7 @@
 
     <!-- Site title -->
     @yield('title', 'Caliope')
+    @stack('styles')
     <!-- Favicon -->
     <link rel="shortcut icon" href="/galio/assets/img/favicon.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
@@ -23,13 +24,15 @@
     <!-- Main Style CSS -->
     {!! Html::style('galio/assets/css/style.css') !!}
     {!! Html::style('galio/assets/css/skin-default.css') !!}
+    {!! Html::style('css/jquery-ui.min.css') !!}
     @yield('styles')
+    
 </head>
 
 <body>
 
     <!-- color switcher start -->
-    <div class="color-switcher">
+    {{-- <div class="color-switcher">
         <div class="color-switcher-inner">
             <div class="switcher-icon">
                 <i class="fa fa-cog fa-spin"></i>
@@ -79,7 +82,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- color switcher end -->
 
     
@@ -95,11 +98,11 @@
                                 <div class="header-call-action">
                                     <a href="#">
                                         <i class="fa fa-envelope"></i>
-                                        info@website.com
+                                        info@caliope.com.co
                                     </a>
                                     <a href="#">
                                         <i class="fa fa-phone"></i>
-                                        0123456789
+                                        313-313-1442
                                     </a>
                                 </div>
                             </div>
@@ -108,15 +111,15 @@
                                     <div class="main-menu border-0">
                                         <nav id="mobile-menu">
                                             <ul>
-                                                <li class="active p-0"><a href="#"><i class="fa fa-home"></i>Home <i class="fa fa-angle-down"></i></a>
-                                                    <ul class="dropdown">
+                                                <li class="active p-0"><a href="{{route('web.welcome')}}"><i class="fa fa-home"></i>Inicio {{-- <i class="fa fa-angle-down"></i> --}}</a>
+                                                    {{-- <ul class="dropdown">
                                                         <li><a href="index.html">Home version 01</a></li>
                                                         <li><a href="index-2.html">Home version 02</a></li>
                                                         <li><a href="index-3.html">Home version 03</a></li>
                                                         <li><a href="index-4.html">Home version 04</a></li>
-                                                    </ul>
+                                                    </ul> --}}
                                                 </li>
-                                                <li class="static p-0"><a href="#">pages <i class="fa fa-angle-down"></i></a>
+                                                {{-- <li class="static p-0"><a href="#">pages <i class="fa fa-angle-down"></i></a>
                                                     <ul class="megamenu dropdown">
                                                         <li class="mega-title"><a href="#">column 01</a>
                                                             <ul>
@@ -153,27 +156,27 @@
                                                             </ul>
                                                         </li>
                                                     </ul>
-                                                </li>
-                                                <li class="p-0"><a href="#">shop <i class="fa fa-angle-down"></i></a>
+                                                </li> --}}
+                                                <li class="p-0"><a href="{{route('web.shop_grid')}}">Tienda <i class="fa fa-angle-down"></i></a>
                                                     <ul class="dropdown">
-                                                        <li><a href="#">shop grid layout <i class="fa fa-angle-right"></i></a>
+                                                        <li><a href="#">Categorias <i class="fa fa-angle-right"></i></a>
                                                             <ul class="dropdown">
-                                                                <li><a href="shop-grid-left-sidebar.html">shop grid left sidebar</a></li>
-                                                                <li><a href="shop-grid-left-sidebar-3-col.html">left sidebar 3 col</a></li>
-                                                                <li><a href="shop-grid-right-sidebar.html">shop grid right sidebar</a></li>
-                                                                <li><a href="shop-grid-right-sidebar-3-col.html">grid right sidebar 3 col</a></li>
-                                                                <li><a href="shop-grid-full-3-col.html">shop grid full 3 column</a></li>
-                                                                <li><a href="shop-grid-full-4-col.html">shop grid full 4 column</a></li>
+                                                                <li><a href="shop-grid-left-sidebar.html">categoria 1</a></li>
+                                                                <li><a href="shop-grid-left-sidebar-3-col.html">categoria 2</a></li>
+                                                                <li><a href="shop-grid-right-sidebar.html">categoria 3</a></li>
+                                                                <li><a href="shop-grid-right-sidebar-3-col.html">categoria 4</a></li>
+                                                                <li><a href="shop-grid-full-3-col.html">categoria 5</a></li>
+                                                                <li><a href="shop-grid-full-4-col.html">categoria 6</a></li>
                                                             </ul>
                                                         </li>
-                                                        <li><a href="#">shop list layout <i class="fa fa-angle-right"></i></a>
+                                                        <li><a href="#">Sub-Categorias<i class="fa fa-angle-right"></i></a>
                                                             <ul class="dropdown">
-                                                                <li><a href="shop-list-left-sidebar.html">shop list left sidebar</a></li>
-                                                                <li><a href="shop-list-right-sidebar.html">shop list right sidebar</a></li>
-                                                                <li><a href="shop-list-full.html">shop list full width</a></li>
+                                                                <li><a href="shop-list-left-sidebar.html">sub-categoria 1</a></li>
+                                                                <li><a href="shop-list-right-sidebar.html">sub-categoria 2</a></li>
+                                                                <li><a href="shop-list-full.html">sub-categoria 3</a></li>
                                                             </ul>
                                                         </li>
-                                                        <li><a href="#">products details <i class="fa fa-angle-right"></i></a>
+                                                        {{-- <li><a href="#">products details <i class="fa fa-angle-right"></i></a>
                                                             <ul class="dropdown">
                                                                 <li><a href="product-details.html">product details</a></li>
                                                                 <li><a href="product-details-affiliate.html">product details
@@ -183,10 +186,10 @@
                                                                 <li><a href="product-details-group.html">product details group</a></li>
                                                                 <li><a href="product-details-box.html">product details box slider</a></li>
                                                             </ul>
-                                                        </li>
+                                                        </li> --}}
                                                     </ul>
                                                 </li>
-                                                <li class="p-0"><a href="#">Blog <i class="fa fa-angle-down"></i></a>
+                                                {{-- <li class="p-0"><a href="#">Blog <i class="fa fa-angle-down"></i></a>
                                                     <ul class="dropdown">
                                                         <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
                                                         <li><a href="blog-left-sidebar-2-col.html">blog left sidebar 2 col</a></li>
@@ -198,12 +201,13 @@
                                                         <li><a href="blog-details-video.html">blog details video</a></li>
                                                         <li><a href="blog-details-image.html">blog details image</a></li>
                                                     </ul>
-                                                </li>
-                                                <li class="p-0"><a href="contact-us.html">Contact us</a></li>
+                                                </li> --}}
+                                                <li class="p-0"><a href="contact-us.html">Contactanos</a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div class="col-lg-3 col-md-7 my-auto">
                                 <div class="header-top-right float-md-right float-none">
@@ -238,14 +242,14 @@
                                                 </div>
                                             </li>
                                             @endguest
+                                            {{-- <li>
+                                                <a href="#">mis deseo</a>
+                                            </li> --}}
                                             <li>
-                                                <a href="#">my wishlist</a>
+                                                <a href="{{route('web.cart')}}">Mi carrito</a>
                                             </li>
                                             <li>
-                                                <a href="{{route('web.cart')}}">my cart</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('web.checkout')}}">checkout</a>
+                                                <a href="{{route('web.checkout')}}">Checkout</a>
                                             </li>
                                             
                                         </ul>
@@ -267,7 +271,10 @@
                         <div class="col-lg-1 ml-auto">
                             <div class="brand-logo p-0 mx-auto">
                                 <a href="#">
-                                    <img src="/galio/assets/img/logo/logo.png" alt="brand logo">
+                                    
+                                        
+                                    <img src="{{$web_company->logo}}" alt="{{$web_company->name}}">
+                                    
                                 </a>
                             </div>
                         </div> <!-- end logo area -->
@@ -280,8 +287,8 @@
                                                         <i class="fa fa-clock-o"></i>
                                                     </div>
                                                     <div class="shipping-content">
-                                                        <h5>Working time</h5>
-                                                        <span>Mon- Sun: 8.00 - 18.00</span>
+                                                        <h5>Abierto</h5>
+                                                        <span>24 Horas</span>
                                                     </div>
                                                 </div> <!-- end single shipping -->
                                                 <div class="single-block-shipping">
@@ -289,8 +296,8 @@
                                                         <i class="fa fa-truck"></i>
                                                     </div>
                                                     <div class="shipping-content">
-                                                        <h5>free shipping</h5>
-                                                        <span>On order over $199</span>
+                                                        <h5>Envio Gratis</h5>
+                                                        <span>Pedidos mayores a 30.000$ pesos Cop</span>
                                                     </div>
                                                 </div> <!-- end single shipping -->
                                                 <div class="single-block-shipping">
@@ -298,8 +305,8 @@
                                                         <i class="fa fa-money"></i>
                                                     </div>
                                                     <div class="shipping-content">
-                                                        <h5>money back 100%</h5>
-                                                        <span>Within 30 Days after delivery</span>
+                                                        <h5>DEVOLUCIÓN DE DINERO 100%</h5>
+                                                        <span>Dentro de los 30 días posteriores a la entrega</span>
                                                     </div>
                                                 </div> <!-- end single shipping -->
                                     </div>
@@ -312,8 +319,15 @@
                                             <div class="row " >
                                                 <div class="col-9 col-lg-10 ">
                                                     <div class="header-middle-searchbox">
-                                                        <input type="text" placeholder="Search..."> 
-                                                        <button class="search-btn"><i class="fa fa-search"></i></button>
+                                                    <form action="{{route('web.search_products')}}" method="GET" >
+                                                        <div class="">
+                                                            <input id="search_products" name="search_words" type="text" class="form-control" placeholder="Buscando...">
+                                                            <div class="d-block">
+                                                                <button  class="search-btn"><i class="fa fa-search"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                        {{-- @include('layouts._search_products') --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-3 col-lg-2 px-0 ">
@@ -341,7 +355,7 @@
 
         </header>
         <!-- header area end -->
-
+        
         @yield('content')
 
         <!-- footer area start -->
@@ -349,6 +363,22 @@
             <!-- footer top start -->
             <div class="footer-top bg-black pt-14 pb-14">
                 <div class="container-fluid">
+                    <div class="row w-25 mx-auto ">
+
+                        @if (session('mensaje'))
+                        <div class="alert alert-success">
+                            <strong>{{ session('mensaje') }}</strong>
+                        </div>
+                        
+                        @endif
+
+                        @if ($errors->has('subscription_email'))
+                        <div class="alert alert-danger">
+                            {{$errors->first('subscription_email')}}
+                        </div>
+                        
+                        @endif
+                    </div>
                     <div class="footer-top-wrapper">
                         <div class="newsletter__wrap">
                             <div class="newsletter__title">
@@ -361,25 +391,29 @@
                                 </div>
                             </div>
                             <div class="newsletter__box">
-                                <form id="mc-form">
-                                    <input type="email" id="mc-email" autocomplete="off" placeholder="Email">
-                                    <button id="mc-submit">subscribe!</button>
+                                <form action="{{route('web.subscription_email')}}" method="POST">
+                                    @csrf
+                                    <input type="email" name="subscription_email" autocomplete="off" placeholder="Email">
+                                    <button type="submit" >subscribe!</button>
                                 </form>
                             </div>
                             <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts">
+                            {{-- <div class="mailchimp-alerts">
                                 <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
                                 <div class="mailchimp-success"></div><!-- mailchimp-success end -->
                                 <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>
+                            </div> --}}
                             <!-- mailchimp-alerts end -->
                         </div>
                         <div class="social-icons">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            @foreach ($web_socialmedias as $socialmedia)
+                                <a href="{{$socialmedia->url}}" data-toggle="tooltip" data-placement="top" title="{{$socialmedia->name}}"><i class="fa {{$socialmedia->icon}}"></i></a>
+                                
+                            @endforeach
+                            {{-- <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Google-plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="fa fa-youtube"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -393,15 +427,20 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="footer-widget mb-sm-26">
                                 <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>contact us</h4>
+                                    <h4>Contactanos</h4>
                                 </div>
                                 <div class="widget-body">
                                     <ul class="location">
-                                        <li><i class="fa fa-envelope"></i>support@galio.com</li>
-                                        <li><i class="fa fa-phone"></i>(800) 0123 456 789</li>
-                                        <li><i class="fa fa-map-marker"></i>Address:  1234 - Bandit Tringi Aliquam Vitae. New York</li>
+                                        
+                                            <li><i class="fa fa-envelope"></i>
+                                                {{$web_company->mail}}
+                                            </li>
+                                            
+                                            <li><i class="fa fa-phone"></i> (+57){{$web_company->phone}}</li>
+                                            <li><i class="fa fa-map-marker"></i>{{$web_company->address}}</li>
+                                        
                                     </ul>
-                                    <a class="map-btn" href="contact-us.html">open in google map</a>
+                                    <a class="map-btn" href="{{route('web.contact_us')}}">Ver en Google Maps</a>
                                 </div>
                             </div> <!-- single widget end -->
                         </div> <!-- single widget column end -->
@@ -517,7 +556,33 @@
 
 
 
+    @stack('scripts')
 
+    {!! Html::script('js/jquery-3.6.0.min.js') !!}
+    {!! Html::script('js/jquery-ui.min.js') !!}
+    <script>
+        /* $(function(){ */
+            /* var prueba = ['asd', 'vcs']; */
+
+            $('#search_products').autocomplete({
+                source: function(request, response){
+                    $.ajax({
+                        url: "{{route('products.json')}}",
+                        dataType: 'json',
+                        data:{
+                            term: request.term
+                        },
+                        success: function (data) {
+                            response(data)
+                        },
+                        /* console.log('data'); */
+                    });
+                }
+                
+            });
+        /* }); */
+        
+    </script>
     <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
     {!! Html::script('galio/assets/js/vendor/modernizr-3.6.0.min.js') !!}
     <!-- Jquery Min Js -->

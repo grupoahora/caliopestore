@@ -13,8 +13,8 @@
                 <div class="breadcrumb-wrap">
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">shop left sidebar</li>
+                            <li class="breadcrumb-item"><a href="{{route('web.welcome')}}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{{route('web.shop_grid')}}">Tienda</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -27,12 +27,21 @@
 <!-- page wrapper start -->
 <div class="page-main-wrapper">
     <div class="container-fluid">
-        <div class="row">
-            <!-- product main wrap start -->
-            <div class="col-12">
+        <div class="row mx-5">
+            <div class="col-12 pb-caliope">
                 <div class="shop-banner img-full">
-                    <img src="galio/assets/img/banner/banner_static1.jpg" alt="">
+                   <img src="/galio/assets/img/banner/banner_static1.jpg" alt="">
                 </div>
+            </div>
+            <!-- product main wrap start -->
+            <div class="col-lg-3 order-2 order-lg-1">
+                @include('web._subcategory')
+                <!-- product tag start -->
+                    @include('web._product_tag')
+                    <!-- product tag end -->
+            </div>
+            <div class="col-lg-9 order-1 order-lg-2">
+               
                 <!-- product view wrapper area start -->
                 <div class="shop-product-wrapper pt-34">
                     <!-- shop product top wrap start -->
@@ -71,9 +80,11 @@
 
                     <!-- product item start -->
                     <div class="shop-product-wrap grid row">
+
                         @foreach ($products as $product)
                             @include('web._product_item')
                         @endforeach
+                        
                     </div>
                     <!-- product item end -->
                 </div>

@@ -42,8 +42,14 @@
       25 => 'App\\Providers\\EventServiceProvider',
       26 => 'App\\Providers\\RouteServiceProvider',
       27 => 'App\\Providers\\ShoppingCartProvider',
-      28 => 'Barryvdh\\DomPDF\\ServiceProvider',
-      29 => 'Milon\\Barcode\\BarcodeServiceProvider',
+      28 => 'App\\Providers\\CompanyProvider',
+      29 => 'App\\Providers\\CategoryProvider',
+      30 => 'App\\Providers\\SubCategoryProvider',
+      31 => 'App\\Providers\\SocialMediaProvider',
+      32 => 'App\\Providers\\TagProvider',
+      33 => 'App\\Providers\\FeacturedProductProvider',
+      34 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      35 => 'Milon\\Barcode\\BarcodeServiceProvider',
     ),
     'aliases' => 
     array (

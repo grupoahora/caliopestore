@@ -3601,6 +3601,52 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     border-color: #d8373e;
 }
 
+.product-tag li {
+    color: #ffffff;
+    font-size: 13px;
+    padding: 4px 10px;
+    display: block;
+    border: 1px solid #d8373e;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    background-color: #d8373e;
+    border-color: #d8373e;
+}
+
+.product-tag li:hover {
+    color: #ffffff;
+    background-color: #d8373e;
+    border-color: #d8373e;
+}
+
+.product-tag button {
+    color: #444444;
+    font-size: 15px;
+    padding: 4px 10px;
+    display: inline-block;
+    border: 1px solid #d8373e;
+    text-transform: capitalize;
+    /* box-shadow: 0.35rem 0.4rem 0rem 0rem rgba(216, 55, 62, 1); */
+    /* margin-bottom: 5px; */
+    border-radius: 1.125rem;
+}
+.pb-caliope {
+    padding-bottom: 2rem;
+
+}
+.product-tag button:hover {
+    color: #d8373e;
+    font-size: 15px;
+    font-weight: 600;
+    /* -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out; */
+    transition: all 0.05s ease-out;
+    box-shadow: 0.35rem 0.4rem 0rem 0rem rgba(216, 55, 62, 1);
+    /* background-color: #d8373e;
+    border-color: #d8373e; */
+}
+
 /*---------- product tag end -----------*/
 /*------- testimonial item start -------*/
 .testimonial-item .testimonial-thumb {
@@ -4160,18 +4206,20 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
-    display: flex;
+    display: block;
 }
 
 .category-item .category-content .price-box .regular-price {
     color: #d8373e;
     font-size: 16px;
+    padding-left: 2px;
 }
 
 .category-item .category-content .price-box .old-price {
     color: #d8373e;
     font-size: 16px;
-    padding-left: 6px;
+    padding-left: 0px;
+    padding-inline: 2px;
 }
 
 /*-------- category item end --------*/

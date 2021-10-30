@@ -40,10 +40,26 @@
 <div class="banner-area mt-8 mt-lg-28 mb-34 mb-md-0 mb-sm-0 mt-xs-3">
     <div class="container-fluid">
         <div class="row ">
+            @foreach ($web_categories as $category)
             <div class="col-lg-4 mb-3 col-sm-6 col-6">
+                <div class="img-container img-full  mb-md-30 mb-sm-30">
+                    <form action="{{route('web.search_products_by_category')}}" method="GET" >
+                        <div class="">
+                            <input name="search_id" type="hidden" class="" value="{{$category->id}}">
+                            
+                            <div class="d-block">
+                                <button class="w-100" ><img src="{{$category->images->pluck('url')[0]}}" alt=""></button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            @endforeach
+            {{-- <div class="col-lg-4 mb-3 col-sm-6 col-6">
                 <div class="img-container img-full fix mb-md-30 mb-sm-30">
                     <a href="#">
-                        <img src="galio/assets/img/banner/home3_static6.jpg" alt="">
+                        <img src="{{$category->images->pluck('url')[0]}}" alt="">
                     </a>
                 </div>
             </div>
@@ -81,7 +97,7 @@
                         <img src="galio/assets/img/banner/home3_static8.jpg" alt="">
                     </a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
@@ -92,10 +108,10 @@
 <div class="main-home-wrapper">
     <div class="container-fluid">
         <div class="row mx-5">
-            <div class="col-lg-3">
+            {{-- <div class="col-lg-3">
                 <div class="main-sidebar category-wrapper mb-24 mt-4 mt-md-8 mt-sm-8">
                     <div class="section-title-2 d-flex justify-content-between mb-28">
-                        <h3>best seller</h3>
+                        <h3>Mas vendidos</h3>
                         <div class="category-append"></div>
                     </div> <!-- section title end -->
                     <div class="category-carousel-active row" data-row="4">
@@ -372,8 +388,8 @@
                     </div>
                 </div>
                 <!-- best seller area end -->
-            </div>
-            <div class="col-lg-9">
+            </div> --}}
+            <div class="col-lg-12">
                 <!-- banner statistic start -->
                 <div class="banner-statistic pt-6 pb-34">
                     <div class="img-container fix img-full">
@@ -391,13 +407,13 @@
                                 <i class="fa fa-flask"></i>
                             </li>
                             <li>
-                                <a class="active" data-toggle="tab" href="#tab_one">featured</a>
+                                <a class="active" data-toggle="tab" href="#tab_one">Destacados</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#tab_two">new</a>
+                                <a data-toggle="tab" href="#tab_two">Nuevos</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#tab_three">sale</a>
+                                <a data-toggle="tab" href="#tab_three">Venta</a>
                             </li>
                         </ul>
                     </div>
@@ -405,9 +421,14 @@
                 <div class="tab-content pb-md-20 pb-sm-20">
                     <div class="tab-pane fade show active" id="tab_one">
                         <div class="feature-category-carousel-wrapper">
-                            <div class="featured-carousel-active slick-padding slick-arrow-style arrow-space">
-                                <!-- product single item start -->
-                                <div class="product-item fix">
+                            <div class="latest-product-active slick-padding slick-arrow-style">
+                                @foreach ($web_feacturedproducts as $product)
+                                
+
+                                    <!-- product single item start -->
+                                    @include('web._product_feactured')
+                                
+                                    {{-- <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
                                             <img src="galio/assets/img/product/product-s-1.jpg" class="img-pri" alt="">
@@ -444,9 +465,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- product single item end -->
-                                <!-- product single item start -->
+                                @endforeach
+                                
+                                {{-- <!-- product single item start -->
                                 <div class="product-item fix">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
@@ -645,7 +668,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- product single item end -->
+                                <!-- product single item end --> --}}
                             </div>
                         </div>
                     </div>
@@ -1150,7 +1173,7 @@
 <!-- page wrapper end -->
 
 <!-- home banner area start -->
-<div class="banner-area mt-8 mt-lg-28 mb-34 mb-md-0 mb-sm-0 mt-xs-0">
+{{-- <div class="banner-area mt-8 mt-lg-28 mb-34 mb-md-0 mb-sm-0 mt-xs-0">
     <div class="container-fluid">
         <div class="row mx-5">
             <div class="col-lg-4">
@@ -1176,57 +1199,18 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- home banner area end -->
 
 <!-- blog-testimonial-product area start -->
-<div class="section">
+{{-- <div class="section">
     <div class="container-fluid">
         <div class="row mx-5">
             <!-- blog area start -->
-            <div class="col-lg-3">
-                <div class="main-sidebar blog-area mb-24 mb-md-20 mb-sm-18">
-                    <div class="section-title-2 d-flex justify-content-between mb-28">
-                        <h3>latest blog</h3>
-                        <div class="category-append"></div>
-                    </div> <!-- section title end -->
-                    <div class="blog-carousel-active">
-                        <div class="blog-item">
-                            <div class="blog-thumb img-full fix">
-                                <a href="blog-details.html">
-                                    <img src="galio/assets/img/blog/img_blog1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <h3><a href="blog-details.html">post format audio</a></h3>
-                                <div class="blog-meta">
-                                    <span class="posted-author">by: admin</span>
-                                    <span class="post-date">25 Nov, 2018</span>
-                                </div>
-                                <p>Curabitur sed diam enim. Sed varius faucibus lectus, a scelerisque</p>
-                            </div>
-                        </div> <!-- end single blog item -->
-                        <div class="blog-item">
-                            <div class="blog-thumb img-full fix">
-                                <a href="blog-details.html">
-                                    <img src="galio/assets/img/blog/img_blog2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <h3><a href="blog-details.html">post format image</a></h3>
-                                <div class="blog-meta">
-                                    <span class="posted-author">by: admin</span>
-                                    <span class="post-date">25 Nov, 2018</span>
-                                </div>
-                                <p>Curabitur sed diam enim. Sed varius faucibus lectus, a scelerisque</p>
-                            </div>
-                        </div> <!-- end single blog item -->
-                    </div>
-                </div>
-            </div>
+            
             <!-- blog area end -->
             <!-- testimonial area start -->
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="testimonial-area pb-md-64 pb-sm-64">
                     <div class="section-title-2 mb-28">
                         <h3>Clients Say</h3>
@@ -1267,7 +1251,7 @@
             </div>
             <!-- testimonial area end -->
             <!-- most view area start -->
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="mostview-wrap">
                     <div class="section-title-2 d-flex justify-content-between mb-28">
                         <h3>Most viewed</h3>
@@ -1459,7 +1443,7 @@
             </div>
             <!-- most view area end -->
             <!-- hot sale area start -->
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="hotsale-wrap mt-md-22 mt-sm-22">
                     <div class="section-title-2 d-flex justify-content-between mb-28">
                         <h3>hot sale</h3>
@@ -1652,17 +1636,17 @@
             <!-- hot sale area end -->
         </div>
     </div>
-</div>
+</div> --}}
 <!-- blog-testimonial-product area end -->
 
 <!-- latest product start -->
-<div class="latest-product latest-pro-2 pt-14 pt-lg-0 pt-md-0 pt-sm-0">
+{{-- <div class="latest-product latest-pro-2 pt-14 pt-lg-0 pt-md-0 pt-sm-0">
             <div class="container-fluid">
                 <div class="section-title mb-30 mx-5">
                     <div class="title-icon">
                         <i class="fa fa-flash"></i>
                     </div>
-                    <h3>latest product</h3>
+                    <h3>Últimos productos</h3>
                 </div> <!-- section title end -->
                 <!-- featured category start -->
                 <div class="latest-product-active slick-padding slick-arrow-style mx-5">
@@ -1879,10 +1863,10 @@
                 </div>
                 <!-- featured category end -->
             </div>
-</div>
+</div> --}}
 <!-- latest product end -->
 
 @endsection
 @section('scripts')
-
+    
 @endsection
