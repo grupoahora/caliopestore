@@ -12,7 +12,7 @@ class BusinessTableSeeder extends Seeder
     public function run()
     {
         Business::create([
-            'name'=>'Nombre de la empresa.',
+            'name'=>'Caliope',
             'description'=>'Descripción corta de la empresa.',
             'logo'=>'/galio/assets/img/logo/logo.png',
             'mail'=>'Ejemplo@gmail.com',
