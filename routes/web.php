@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+//==================== envio de correos ===================
+Route::resource('contact_mail', 'MailController')->names('contact.mail');
 
 Route::get('/compra', 'WebController@wishlist')->name('web.wishlist');
 Route::get('/nosotros', 'WebController@about_us')->name('web.about_us');

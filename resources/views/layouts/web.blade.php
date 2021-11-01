@@ -202,7 +202,7 @@
                                                         <li><a href="blog-details-image.html">blog details image</a></li>
                                                     </ul>
                                                 </li> --}}
-                                                <li class="p-0"><a href="contact-us.html">Contactanos</a></li>
+                                                <li class="p-0"><a href="{{route('web.contact_us')}}">Contactanos</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -440,7 +440,7 @@
                                             <li><i class="fa fa-map-marker"></i>{{$web_company->address}}</li>
                                         
                                     </ul>
-                                    <a class="map-btn" href="{{route('web.contact_us')}}">Ver en Google Maps</a>
+                                    <a class="map-btn" href="{{url($web_company->google_maps_link)}}" target="_blank">Ver en Google Maps</a>
                                 </div>
                             </div> <!-- single widget end -->
                         </div> <!-- single widget column end -->

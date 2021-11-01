@@ -31,24 +31,26 @@
             <div class="col-lg-6">
                 <div class="contact-message">
                     <h2>Caliope</h2>
-                    <form id="contact-form" action="http://demo.hasthemes.com/galio-v6/galio/assets/php/mail.php"
+                    {{-- id="contact-form" --}}
+                    <form  action="{{route('contact.mail.store')}}"
                         method="post" class="contact-form">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <input name="first_name" placeholder="Nombre Completo *" type="text" required>
+                                <input name="contact_first_name" placeholder="Nombre Completo *" type="text" required>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <input name="phone" placeholder="Telefono *" type="text" required>
+                                <input name="contact_phone" placeholder="Teléfono *" type="text" required>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <input name="email_address" placeholder="Correo *" type="text" required>
+                                <input name="contact_email_address" placeholder="Correo Electrónico*" type="text" required>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <input name="contact_subject" placeholder="Asunto *" type="text">
                             </div>
                             <div class="col-12">
                                 <div class="contact2-textarea text-center">
-                                    <textarea placeholder="Message *" name="Mensaje" class="form-control2"
+                                    <textarea placeholder="Message *" name="contact_mensaje" class="form-control2"
                                         required=""></textarea>
                                 </div>
                                 <div class="contact-btn">

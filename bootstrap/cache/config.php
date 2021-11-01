@@ -490,42 +490,18 @@
   ),
   'mail' => 
   array (
-    'default' => 'smtp',
-    'mailers' => 
-    array (
-      'smtp' => 
-      array (
-        'transport' => 'smtp',
-        'host' => 'smtp.mailtrap.io',
-        'port' => '2525',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
-      ),
-      'ses' => 
-      array (
-        'transport' => 'ses',
-      ),
-      'sendmail' => 
-      array (
-        'transport' => 'sendmail',
-        'path' => '/usr/sbin/sendmail -bs',
-      ),
-      'log' => 
-      array (
-        'transport' => 'log',
-        'channel' => NULL,
-      ),
-      'array' => 
-      array (
-        'transport' => 'array',
-      ),
-    ),
+    'driver' => 'smtp',
+    'host' => 'mail.caliope.com.co',
+    'port' => '587',
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'Laravel',
+      'address' => 'contacto@caliope.com.co',
+      'name' => ' caliope',
     ),
+    'encryption' => 'tls',
+    'username' => 'contacto@caliope.com.co',
+    'password' => 'grupoahoracaliope2021',
+    'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
@@ -534,6 +510,7 @@
         0 => 'C:\\xampp\\htdocs\\caliope\\resources\\views/vendor/mail',
       ),
     ),
+    'log_channel' => NULL,
   ),
   'permission' => 
   array (
