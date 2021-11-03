@@ -48,8 +48,9 @@
       31 => 'App\\Providers\\SocialMediaProvider',
       32 => 'App\\Providers\\TagProvider',
       33 => 'App\\Providers\\FeacturedProductProvider',
-      34 => 'Barryvdh\\DomPDF\\ServiceProvider',
-      35 => 'Milon\\Barcode\\BarcodeServiceProvider',
+      34 => 'willvincent\\Rateable\\RateableServiceProvider',
+      35 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      36 => 'Milon\\Barcode\\BarcodeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -534,6 +535,7 @@
       'model_morph_key' => 'model_id',
       'team_foreign_key' => 'team_id',
     ),
+    'register_permission_check_method' => true,
     'teams' => false,
     'display_permission_in_exception' => false,
     'display_role_in_exception' => false,

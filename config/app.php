@@ -183,8 +183,8 @@ return [
         App\Providers\SocialMediaProvider::class,
         App\Providers\TagProvider::class,
         App\Providers\FeacturedProductProvider::class,
+        willvincent\Rateable\RateableServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-
         Milon\Barcode\BarcodeServiceProvider::class,
     ],
 

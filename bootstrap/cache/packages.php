@@ -94,6 +94,13 @@
       0 => 'Spatie\\Permission\\PermissionServiceProvider',
     ),
   ),
+  'willvincent/laravel-rateable' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'willvincent\\Rateable\\RateableServiceProvider',
+    ),
+  ),
   'yajra/laravel-datatables-oracle' => 
   array (
     'providers' => 

@@ -4,14 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use willvincent\Rateable\Rateable;
+
 
 class Product extends Model
 {
+    use Rateable;
     protected $fillable = [
         'code',
         'name',
         'slug',
-        /* 'stock', */
+        'stock',
         'short_description',
         'long_description',
         'sell_price',
@@ -22,6 +25,10 @@ class Product extends Model
         /* 'provider_id', */
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function category(){
         return $this->belongsTo(Category::class);
     }

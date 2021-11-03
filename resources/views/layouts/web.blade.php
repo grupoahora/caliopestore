@@ -27,66 +27,12 @@
     {!! Html::style('css/jquery-ui.min.css') !!}
     @yield('styles')
     
+    
 </head>
 
 <body>
 
-    <!-- color switcher start -->
-    {{-- <div class="color-switcher">
-        <div class="color-switcher-inner">
-            <div class="switcher-icon">
-                <i class="fa fa-cog fa-spin"></i>
-            </div>
-
-            <div class="switcher-panel-item">
-                <h3>Color Schemes</h3>
-                <ul class="nav flex-wrap colors">
-                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
-                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
-                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
-                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
-                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
-                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
-                </ul>
-            </div>
-
-            <div class="switcher-panel-item">
-                <h3>Layout Style</h3>
-                <ul class="nav layout-changer">
-                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
-                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
-                </ul>
-            </div>
-
-            <div class="switcher-panel-item bg">
-                <h3>Background Pattern</h3>
-                <ul class="nav flex-wrap bgbody-style bg-pattern">
-                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
-                </ul>
-            </div>
-
-            <div class="switcher-panel-item bg">
-                <h3>Background Image</h3>
-                <ul class="nav flex-wrap bgbody-style bg-img">
-                    <li><img src="/galio/assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
-                    <li><img src="/galio/assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
-                </ul>
-            </div>
-        </div>
-    </div> --}}
-    <!-- color switcher end -->
-
     
-            <!-- header top end -->
         <!-- header area start -->
         <header>
             <div class="wrapper box-layout">
@@ -357,8 +303,9 @@
         <!-- header area end -->
         
         @yield('content')
-
         <!-- footer area start -->
+
+        @stack('modal')
         <footer>
             <!-- footer top start -->
             <div class="footer-top bg-black pt-14 pb-14">
@@ -555,11 +502,11 @@
     <!-- Scroll to Top End -->
 
 
-
-    @stack('scripts')
-
     {!! Html::script('js/jquery-3.6.0.min.js') !!}
+    
     {!! Html::script('js/jquery-ui.min.js') !!}
+    
+
     <script>
         /* $(function(){ */
             /* var prueba = ['asd', 'vcs']; */
@@ -582,24 +529,27 @@
             });
         /* }); */
         
-    </script>
+        </script>
+        
     <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
-    {!! Html::script('galio/assets/js/vendor/modernizr-3.6.0.min.js') !!}
+    {!! Html::script('/galio/assets/js/vendor/modernizr-3.6.0.min.js') !!}
     <!-- Jquery Min Js -->
-    {!! Html::script('galio/assets/js/vendor/jquery-3.3.1.min.js') !!}
+    {!! Html::script('/galio/assets/js/vendor/jquery-3.3.1.min.js') !!}
     <!-- Popper Min Js -->
-    {!! Html::script('galio/assets/js/vendor/popper.min.js') !!}
+    {!! Html::script('/galio/assets/js/vendor/popper.min.js') !!}
     <!-- Bootstrap Min Js -->
-    {!! Html::script('galio/assets/js/vendor/bootstrap.min.js') !!}
+    {!! Html::script('/galio/assets/js/vendor/bootstrap.min.js') !!}
     <!-- Plugins Js-->
-    {!! Html::script('galio/assets/js/plugins.js') !!}
+    {!! Html::script('/galio/assets/js/plugins.js') !!}
     <!-- Ajax Mail Js -->
-    {!! Html::script('galio/assets/js/ajax-mail.js') !!}
+    {!! Html::script('/galio/assets/js/ajax-mail.js') !!}
     <!-- Active Js -->
-    {!! Html::script('galio/assets/js/main.js') !!}
+    {!! Html::script('/galio/assets/js/main.js') !!}
     <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
-    {!! Html::script('galio/assets/js/switcher.js') !!}
+    {!! Html::script('/galio/assets/js/switcher.js') !!}
     @yield('scripts')
+    @stack('scripts')
+    
 </body>
 
 

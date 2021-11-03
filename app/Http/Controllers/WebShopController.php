@@ -55,4 +55,10 @@ class WebShopController extends Controller
         ]);
         return back()->with('mensaje', 'Se ha suscrito correctamente');
     }
+    public function rate_product(Request $request,Product $product)
+    {
+        /* dd($product); */
+        $product->rate($request->rate);
+        dd($product->userSumRating());
+    }
 }

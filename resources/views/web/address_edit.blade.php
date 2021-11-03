@@ -17,7 +17,7 @@
         <div class="modal-dialog">
             <div class="modal-content rounded-0">
                 <div class="modal-header">
-                    <h4 class="modal-title">Editar Dirección</h4>
+                    <h4 class=" h5 modal-title  mx-auto pt-3">Editar Dirección</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>

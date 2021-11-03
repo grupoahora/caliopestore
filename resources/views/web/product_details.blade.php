@@ -51,7 +51,7 @@
                         <div class="col-lg-6">
                             <div class="product-details-des mt-md-34 mt-sm-34">
                                 <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
-                                {{-- <div class="ratings">
+                                <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -60,10 +60,10 @@
                                     <div class="pro-review">
                                         <span>1 review(s)</span>
                                     </div>
-                                </div> --}}
-                                {{-- <div class="customer-rev">
+                                </div>
+                                <div class="customer-rev">
                                     <a href="#">(1 customer review)</a>
-                                </div> --}}
+                                </div>
                                 <div class="availability mt-10">
                                     <h5>Disponible:</h5>
                                     <span>{{$product->stock}} en inventario</span>
@@ -133,7 +133,7 @@
                                         <a data-toggle="tab" href="#tab_two">Información</a>
                                     </li>
                                     <li>
-                                        <a data-toggle="tab" href="#tab_three">reviews</a>
+                                        <a data-toggle="tab" href="#tab_three">Comentarios</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content reviews-tab">
@@ -157,73 +157,7 @@
                                         </table>
                                     </div>
                                     <div class="tab-pane fade" id="tab_three">
-                                        <form action="#" class="review-form">
-                                            <h5>1 review for Simple product 12</h5>
-                                            <div class="total-reviews">
-                                                <div class="rev-avatar">
-                                                    <img src="/galio/assets/img/about/avatar.jpg" alt="">
-                                                </div>
-                                                <div class="review-box">
-                                                    <div class="ratings">
-                                                        <span class="good"><i class="fa fa-star"></i></span>
-                                                        <span class="good"><i class="fa fa-star"></i></span>
-                                                        <span class="good"><i class="fa fa-star"></i></span>
-                                                        <span class="good"><i class="fa fa-star"></i></span>
-                                                        <span><i class="fa fa-star"></i></span>
-                                                    </div>
-                                                    <div class="post-author">
-                                                        <p><span>admin -</span> 30 Nov, 2018</p>
-                                                    </div>
-                                                    <p>Aliquam fringilla euismod risus ac bibendum. Sed sit amet sem
-                                                        varius ante feugiat lacinia. Nunc ipsum nulla, vulputate ut
-                                                        venenatis vitae, malesuada ut mi. Quisque iaculis, dui congue
-                                                        placerat pretium, augue erat accumsan lacus</p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col">
-                                                    <label class="col-form-label"><span class="text-danger">*</span>
-                                                        Your Name</label>
-                                                    <input type="text" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col">
-                                                    <label class="col-form-label"><span class="text-danger">*</span>
-                                                        Your Email</label>
-                                                    <input type="email" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col">
-                                                    <label class="col-form-label"><span class="text-danger">*</span>
-                                                        Your Review</label>
-                                                    <textarea class="form-control" required></textarea>
-                                                    <div class="help-block pt-10"><span class="text-danger">Note:</span>
-                                                        HTML is not translated!</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col">
-                                                    <label class="col-form-label"><span class="text-danger">*</span>
-                                                        Rating</label>
-                                                    &nbsp;&nbsp;&nbsp; Bad&nbsp;
-                                                    <input type="radio" value="1" name="rating">
-                                                    &nbsp;
-                                                    <input type="radio" value="2" name="rating">
-                                                    &nbsp;
-                                                    <input type="radio" value="3" name="rating">
-                                                    &nbsp;
-                                                    <input type="radio" value="4" name="rating">
-                                                    &nbsp;
-                                                    <input type="radio" value="5" name="rating" checked>
-                                                    &nbsp;Good
-                                                </div>
-                                            </div>
-                                            <div class="buttons">
-                                                <button class="sqr-btn" type="submit">Continue</button>
-                                            </div>
-                                        </form> <!-- end of review-form -->
+                                        @include('web.products.review_product_form')
                                     </div>
                                 </div>
                             </div>

@@ -5023,4 +5023,7 @@ return array(
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
     'phpDocumentor\\Reflection\\Utils' => $vendorDir . '/phpdocumentor/reflection-docblock/src/Utils.php',
     'voku\\helper\\ASCII' => $vendorDir . '/voku/portable-ascii/src/voku/helper/ASCII.php',
+    'willvincent\\Rateable\\Rateable' => $vendorDir . '/willvincent/laravel-rateable/src/Rateable.php',
+    'willvincent\\Rateable\\RateableServiceProvider' => $vendorDir . '/willvincent/laravel-rateable/src/RateableServiceProvider.php',
+    'willvincent\\Rateable\\Rating' => $vendorDir . '/willvincent/laravel-rateable/src/Rating.php',
 );
