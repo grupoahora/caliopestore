@@ -6,7 +6,8 @@
         border: none;
         padding: 0;
         background: none;
-      }
+    }
+
 </style>
 
 @endsection
@@ -31,7 +32,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    
+
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Productos</h4>
                         {{--  <i class="fas fa-ellipsis-v"></i>  --}}
@@ -40,12 +41,14 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                              <a href="{{route('products.create')}}" class="dropdown-item">Agregar</a>
-                              <a class="dropdown-item" href="{{route('print_barcode')}}">Exportar códigos de barras</a> 
-                              {{--  <button class="dropdown-item" type="button">Another action</button>
+                                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal-2">Agregar</button>
+                               {{--  <a href="{{route('products.create')}}" class="dropdown-item">Agregar</a> --}}
+                                <a class="dropdown-item" href="{{route('print_barcode')}}">Exportar códigos de
+                                    barras</a>
+                                {{--  <button class="dropdown-item" type="button">Another action</button>
                               <button class="dropdown-item" type="button">Something else here</button>  --}}
                             </div>
-                          </div>
+                        </div>
                     </div>
 
                     <div class="table-responsive">
@@ -70,28 +73,39 @@
                                     <td>{{$product->stock}}</td>
                                     @if ($product->status == 'ACTIVE')
                                     <td>
-                                        <a class="jsgrid-button btn btn-success" href="{{route('change.status.products', $product)}}" title="Editar">
+                                        <a class="jsgrid-button btn btn-success"
+                                            href="{{route('change.status.products', $product)}}" title="Editar">
                                             Activo <i class="fas fa-check"></i>
                                         </a>
                                     </td>
                                     @else
                                     <td>
-                                        <a class="jsgrid-button btn btn-danger" href="{{route('change.status.products', $product)}}" title="Editar">
+                                        <a class="jsgrid-button btn btn-danger"
+                                            href="{{route('change.status.products', $product)}}" title="Editar">
                                             Desactivado <i class="fas fa-times"></i>
                                         </a>
                                     </td>
                                     @endif
+                                    @if ($product->category_id == '')
+                                    <td>
+                                        no tiene categoria
+                                    </td>
+                                        @else
+                                        <td>{{$product->category->name}}</td>
+                                    @endif
+                                     
                                     
-
-                                    <td>{{$product->category->name}}</td>
+                                   
                                     <td style="width: 50px;">
                                         {!! Form::open(['route'=>['products.destroy',$product], 'method'=>'DELETE']) !!}
 
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('products.edit', $product)}}" title="Editar">
+                                        <a class="jsgrid-button jsgrid-edit-button"
+                                            href="{{route('products.edit', $product)}}" title="Editar">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        
-                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
+
+                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit"
+                                            title="Eliminar">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
 
@@ -105,8 +119,36 @@
                 </div>
                 {{--  <div class="card-footer text-muted">
                     {{$products->render()}}
-                </div>  --}}
+            </div> --}}
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-2"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-2">Registrar Nuevo Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            {!! Form::open(['route'=>'products.store', 'method'=>'POST']) !!}
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Nombre del Producto</label>
+                    <input type="text" name="name" id="title" value="{{old('name')}}" class="form-control" required>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Continuar</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+            </div>
+            {!! Form::close() !!}
         </div>
     </div>
 </div>

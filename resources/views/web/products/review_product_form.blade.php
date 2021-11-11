@@ -25,8 +25,32 @@
                 <span class="good"><i class="fa fa-star"></i></span>
                 <span><i class="fa fa-star"></i></span>
             </div>
+<<<<<<< HEAD
+            <div class="review-box">
+                <div class="ratings">
+                    <input id="input_rate_{{$key}}" name="rate" value="{{$rating->rating}}" class="rating-loading">
+                    @push('scripts')
+                    <script>
+                        
+                        $(document).ready(function(){
+                        $('#input_rate_{{$key}}').rating({min: 0, max: 5, theme: 'krajee-fa', step: 1, stars: 5});
+                    });
+                    </script>
+                    @endpush
+                    {{-- <span class="good"><i class="fa fa-star"></i></span>
+                    <span class="good"><i class="fa fa-star"></i></span>
+                    <span class="good"><i class="fa fa-star"></i></span>
+                    <span class="good"><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span> --}}
+                </div>
+                <div class="post-author">
+                    <p><span>admin -</span> 30 Nov, 2018</p>
+                </div>
+                
+=======
             <div class="post-author">
                 <p><span>admin -</span> 30 Nov, 2018</p>
+>>>>>>> parent of c2af997 (david mirar)
             </div>
             
         </div>
@@ -81,8 +105,15 @@
 
     
 {{-- </form> --}} <!-- end of review-form -->
+<<<<<<< HEAD
+
+{{-- {!! Html::script('/js/jquery-3.6.0.min.js')!!} --}}
+
+@push('scripts')
+=======
 @push('scripts')
 {{-- {!! Html::script('/js/jquery-3.6.0.min.js')!!} --}}
+>>>>>>> parent of c2af997 (david mirar)
 {!! Html::script('js/star-rating.js')!!}
 {!! Html::script('js/es.js')!!}
 {!! Html::script('js/theme.js')!!}

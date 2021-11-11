@@ -53,17 +53,24 @@ class Product extends Model
     }
     public function my_store($request)
     {
-        $product = self::create([
+        $product = self::create($request->all()+[
             /* 'code' => $request->code, */
+<<<<<<< HEAD
+           /*  'name' => $request->name, */
+            'slug' => Str::slug($request->name, '_'),
+            /* 'stock' => $request->stock, */
+            /* 'short_description' => $request->short_description,
+=======
             'name' => $request->name,
             'slug' => Str::slug($request->slug, '_'),
             /* 'stock' => $request->stock, */
             'short_description' => $request->short_description,
+>>>>>>> parent of c2af997 (david mirar)
             'long_description' => $request->long_description,
-            'sell_price' => $request->sell_price,
+            'sell_price' => $request->sell_price, */
             /* 'status' => $request->status, */
-            'category_id' => $request->category_id,
-            'subcategory_id' => $request->subcategory_id,
+            /* 'category_id' => $request->category_id,
+            'subcategory_id' => $request->subcategory_id, */
             /* 'provider_id' => $request->provider_id, */
         ]);
         $product->tags()->attach($request->get('tags'));

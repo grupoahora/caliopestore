@@ -3,6 +3,12 @@
 @section('title','Editar producto')
 @section('styles')
 {!! Html::style('select2/dist/css/select2.min.css') !!}
+<<<<<<< HEAD
+{!! Html::style('fileinput/css/fileinput.min.css') !!}
+{!! Html::style('css/jquery-ui.min.css') !!}
+<link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+=======
+>>>>>>> parent of c2af997 (david mirar)
   <!-- plugin css for this page -->
   {!! Html::style('melody/vendors/lightgallery/css/lightgallery.css') !!}
   <!--  plugin css for this page -->
@@ -115,6 +121,20 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
+                        <label for="status">Estado de Producto</label>
+                        <select class="select2" name="status" id="status" style="width: 100%">
+                            @foreach (get_product_statuses() as $status)
+                            <option value="{{$status['code']}}" >{{$status['name']}}</option>
+                            @endforeach
+                        </select>
+                        @error('status')
+                            <small class="text-danger">
+                                {{ $message }}
+                            </small>
+                        @enderror
+
+                    </div>
+                    <div class="form-group">
                         <label for="category_id">Categoría</label>
                         <select class="select2" name="category_id" id="category" style="width: 100%">
                             @foreach ($categories as $category)
@@ -198,14 +218,10 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Galeria de imàgenes</h4>
-                    <div id="lightgallery" class="row lightGallery">
-                        @foreach ($product->images as $image)
-                            
-                        <a href="{{$image->url}}" class="image-tile"><img
-                                src="{{$image->url}}" alt="image small"></a>
-                        @endforeach
-                        
+                    <input type="hidden" id="csrf_token" name="_token" value="{{ csrf_token() }}">
+                    <label for="files">Galería de imàgenes</label>
+                    <div class="file-loading" id="sortable">
+                        <input id="files" name="files[]" type="file" multiple>
                     </div>
                 </div>
             </div>
@@ -222,15 +238,23 @@
 {{-- {!! Html::script('melody/js/data-table.js') !!} --}}
 {!! Html::script('melody/js/dropify.js') !!}
 
-{{-- {!! Html::script('melody/js/dropzone.js') !!} --}}
+{!! Html::script('js/jquery-ui.min.js') !!}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+{!! Html::script('fileinput/js/fileinput.min.js') !!}
+{!! Html::script('fileinput/js/locales/es.js') !!}
+{!! Html::script('fileinput/themes/fas/theme.js') !!}
 {!! Html::script('ckeditor/ckeditor.js') !!}
 <script>
     CKEDITOR.replace('long_description');
 
 </script>
+
+
+
 <script>
     $(document).ready(function () {
         $('#category').select2();
+        $('#status').select2();
         $('#subcategory_id').select2();
         $('#tags').select2();
         $('#colors').select2();
@@ -282,5 +306,72 @@
       });
     
   </script>
+  <script>
+    $(document).ready(function() {
+        var krajeeGetCount = function(id) {
+            var cnt = $('#' + id).fileinput('getFilesCount');
+            return cnt === 0 ? 'You have no files remaining.' :
+                'You have ' +  cnt + ' file' + (cnt > 1 ? 's' : '') + ' remaining.';
+        };
+        $("#files").fileinput({
+            language: "es",
+            theme: "fas",
+            browseOnZoneClick: true,
+            uploadUrl: "../../upload_images_product/{{$product->id}}",
+          
+  
+            showClose: false,
+            uploadExtraData:{'_token':$("#csrf_token").val()},
+
+            initialPreview: [
+                <?php foreach ($product->images as $image)
+                {
+                  echo '"'.asset($image->url).'",';
+                } ?>
+            ],
+            initialPreviewAsData: true,
+            initialPreviewFileType: 'image',
+            initialPreviewConfig: [<?php foreach ($product->images as $image)
+            {
+                echo '{width:"120px",key:'.$image->id.'},';
+            } ?>],
+            overwriteInitial: false,
+            validateInitialCount: true,
+            minFileCount: 1,
+            maxFileCount: 5,
+            maxFileSize: 2100,
+            browseClass: "btn btn-primary btn-block",
+            showCaption: false,
+            showRemove: false,
+            showUpload: false,
+            deleteUrl: "../../file_delete",
+            deleteExtraData:{'_token':$("#csrf_token").val()},
+        }).on('filebeforedelete', function() {
+            return new Promise(function(resolve, reject) {
+                $.confirm({
+                    title: 'Confirmación!',
+                 content: '¿Estás seguro de que quieres eliminar este archivo?',
+                    type: 'red',
+                    buttons: {   
+                        ok: {
+                            btnClass: 'btn-primary text-white',
+                            keys: ['enter'],
+                            action: function(){
+                                resolve();
+                            }
+                        },
+                        cancel: function(){
+                           $.alert ('¡Se canceló la eliminación del archivo!');
+                        }
+                    }
+                });
+            });
+        }).on('filedeleted', function() {
+            setTimeout(function() {
+               $.alert('¡La eliminación del archivo se realizó correctamente! ' );
+            }, 900);
+        });
+    });
+</script>
 <!-- End custom js for this page-->
 @endsection
