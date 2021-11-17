@@ -8,12 +8,12 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
-use App\Image;
 use App\Provider;
 use App\Size;
 use App\Subcategory;
 use App\Tag;
 use Barryvdh\DomPDF\Facade as PDF;
+use Image;
 
 
 class ProductController extends Controller
@@ -116,9 +116,9 @@ class ProductController extends Controller
                 
                 foreach ($images as $key => $image) {
                     $image_name = time().'_'.$image->getClientOriginalName();
-                    /* $formatted_image = Image::make($image);
+                    $formatted_image = Image::make($image);
                     $formatted_image->fit(300, 300);
-                    $formatted_image->save(public_path('/image' . $image_name)); */
+                    $formatted_image->save(public_path('/image/' . $image_name));
                     $ruta = '/image/'. $image_name;
                     $urlimages[]['url'] = $ruta;
                     array_push($filesLink, $ruta);
