@@ -50,8 +50,9 @@
     46 => 'App\\Providers\\TagProvider',
     47 => 'App\\Providers\\FeacturedProductProvider',
     48 => 'willvincent\\Rateable\\RateableServiceProvider',
-    49 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    50 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    49 => 'Intervention\\Image\\ImageServiceProvider',
+    50 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    51 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'eager' => 
   array (
@@ -90,8 +91,9 @@
     32 => 'App\\Providers\\TagProvider',
     33 => 'App\\Providers\\FeacturedProductProvider',
     34 => 'willvincent\\Rateable\\RateableServiceProvider',
-    35 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    36 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    35 => 'Intervention\\Image\\ImageServiceProvider',
+    36 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    37 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'deferred' => 
   array (

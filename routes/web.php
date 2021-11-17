@@ -86,7 +86,7 @@ Route::resource('sizes', 'SizeController')->names('sizes');
 
 /* Route::post('upload/product/{id}/image', 'ProductController@upload_image')->name('upload.product.image'); */
 Route::post('upload_image/{id}', 'ProductController@upload_image')->name('upload.image');
-
+Route::post('file_delete', 'ProductController@file_delete')->name('file.delete');
 
 Route::resource('providers', 'ProviderController')->names('providers');
 Route::resource('purchases', 'PurchaseController')->names('purchases')->except([

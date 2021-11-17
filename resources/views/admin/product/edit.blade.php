@@ -191,13 +191,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        @csrf
-                        <h4 class="card-title">Subir imágenes</h4>
-                        <div class="file-upload-wrapper">
-                            <div id="fileuploader" >Subir</div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

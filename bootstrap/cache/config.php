@@ -49,8 +49,9 @@
       32 => 'App\\Providers\\TagProvider',
       33 => 'App\\Providers\\FeacturedProductProvider',
       34 => 'willvincent\\Rateable\\RateableServiceProvider',
-      35 => 'Barryvdh\\DomPDF\\ServiceProvider',
-      36 => 'Milon\\Barcode\\BarcodeServiceProvider',
+      35 => 'Intervention\\Image\\ImageServiceProvider',
+      36 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      37 => 'Milon\\Barcode\\BarcodeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -94,6 +95,7 @@
       'DNS1D' => 'Milon\\Barcode\\Facades\\DNS1DFacade',
       'DNS2D' => 'Milon\\Barcode\\Facades\\DNS2DFacade',
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
+      'Image' => 'Intervention\\Image\\Facades\\Image',
     ),
   ),
   'auth' => 
@@ -751,6 +753,10 @@
     'remote_sites_path' => '',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
+  ),
+  'image' => 
+  array (
+    'driver' => 'gd',
   ),
   'datatables' => 
   array (

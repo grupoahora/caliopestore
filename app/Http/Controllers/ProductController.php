@@ -8,12 +8,14 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
+use App\Image;
 use App\Provider;
 use App\Size;
 use App\Subcategory;
 use App\Tag;
 use Barryvdh\DomPDF\Facade as PDF;
-use Image;
+
+
 
 
 class ProductController extends Controller
@@ -116,16 +118,21 @@ class ProductController extends Controller
                 
                 foreach ($images as $key => $image) {
                     $image_name = time().'_'.$image->getClientOriginalName();
-                    $formatted_image = Image::make($image);
-                    $formatted_image->fit(300, 300);
-                    $formatted_image->save(public_path('/image/' . $image_name));
-                    $ruta = '/image/'. $image_name;
-                    $urlimages[]['url'] = $ruta;
-                    array_push($filesLink, $ruta);
+                    $ruta = public_path().'/image/';
+                    $image->move($ruta, $image_name);
+                    $urlimages[]['url'] = '/image/'. $image_name;;
+                    $url = '/image/'. $image_name;
+                    array_push($filesLink, $url);
                 }
             }
             $product->images()->createMany($urlimages);
             return $filesLink;
         }
+    }
+    public function file_delete(Request $request)
+    {
+        $image = Image::find($request->key);
+        $image->delete();
+        return true;
     }
 }
