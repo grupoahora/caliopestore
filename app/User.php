@@ -67,4 +67,9 @@ class User extends Authenticatable
         ]);
     }
 
+    public function getAvatarAttribute()
+    {
+        $email = md5($this->email);
+        return "https://i.pravatar.cc/150?u=/$email";
+    }
 }

@@ -58,7 +58,8 @@ class WebShopController extends Controller
     public function rate_product(Request $request,Product $product)
     {
         /* dd($product); */
-        $product->rate($request->rate);
-        dd($product->userSumRating());
+        
+        $product->rate($request->rate, $request->comment);
+        return back();
     }
 }

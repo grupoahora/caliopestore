@@ -14,16 +14,17 @@ trait Rateable
      *
      * @return Rating
      */
-    public function rate($value)
+    public function rate($value, $comment)
     {
         $rating = new Rating();
         $rating->rating = $value;
+        $rating->comment = $comment;
         $rating->user_id = Auth::id();
 
         $this->ratings()->save($rating);
     }
 
-    public function rateOnce($value)
+    public function rateOnce($value, $comment)
     {
         $rating = Rating::query()
             ->where('rateable_type', '=', get_class($this))
@@ -34,9 +35,10 @@ trait Rateable
 
         if ($rating) {
             $rating->rating = $value;
+            $rating->comment = $comment;
             $rating->save();
         } else {
-            $this->rate($value);
+            $this->rate($value, $comment);
         }
     }
 

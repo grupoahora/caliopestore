@@ -55,17 +55,10 @@ class Product extends Model
     {
         $product = self::create($request->all()+[
             /* 'code' => $request->code, */
-<<<<<<< HEAD
            /*  'name' => $request->name, */
             'slug' => Str::slug($request->name, '_'),
             /* 'stock' => $request->stock, */
             /* 'short_description' => $request->short_description,
-=======
-            'name' => $request->name,
-            'slug' => Str::slug($request->slug, '_'),
-            /* 'stock' => $request->stock, */
-            'short_description' => $request->short_description,
->>>>>>> parent of c2af997 (david mirar)
             'long_description' => $request->long_description,
             'sell_price' => $request->sell_price, */
             /* 'status' => $request->status, */
@@ -78,7 +71,9 @@ class Product extends Model
         $product->sizes()->attach($request->get('sizes'));
         $this->generate_code($product);
         $this->upload_files($request, $product);
+        return $product;
     }
+    
     public function my_update($request)
     {
         $this->update([
@@ -128,7 +123,7 @@ class Product extends Model
 
     static function get_active_products()
     {
-        return self::where('status', 'ACTIVE');
+        return self::where('status', 'BOTH');
     }
     public function status(){
         switch ($this->status) {

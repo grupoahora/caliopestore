@@ -3,12 +3,9 @@
 @section('title','Editar producto')
 @section('styles')
 {!! Html::style('select2/dist/css/select2.min.css') !!}
-<<<<<<< HEAD
 {!! Html::style('fileinput/css/fileinput.min.css') !!}
 {!! Html::style('css/jquery-ui.min.css') !!}
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
-=======
->>>>>>> parent of c2af997 (david mirar)
   <!-- plugin css for this page -->
   {!! Html::style('melody/vendors/lightgallery/css/lightgallery.css') !!}
   <!--  plugin css for this page -->
@@ -194,12 +191,12 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <h4 class="card-title">Subir imágenes</h4>
                         <div class="file-upload-wrapper">
                             <div id="fileuploader" >Subir</div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

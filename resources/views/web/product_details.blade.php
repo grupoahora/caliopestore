@@ -51,18 +51,9 @@
                         <div class="col-lg-6">
                             <div class="product-details-des mt-md-34 mt-sm-34">
                                 <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
-                                <div class="ratings">
-                                    <span class="good"><i class="fa fa-star"></i></span>
-                                    <span class="good"><i class="fa fa-star"></i></span>
-                                    <span class="good"><i class="fa fa-star"></i></span>
-                                    <span class="good"><i class="fa fa-star"></i></span>
-                                    <span><i class="fa fa-star"></i></span>
-                                    <div class="pro-review">
-                                        <span>1 review(s)</span>
-                                    </div>
-                                </div>
+                                @include('web.products._ratings')
                                 <div class="customer-rev">
-                                    <a href="#">(1 customer review)</a>
+                                    <a href="#" data-toggle="modal" data-target="#modal-default">Escribir un Comentario</a>
                                 </div>
                                 <div class="availability mt-10">
                                     <h5>Disponible:</h5>

@@ -26,16 +26,7 @@
             <h4><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h4>
             <div class="pricebox">
                 <span class="regular-price">${{$product->sell_price}}</span>
-                <div class="ratings">
-                    <span class="good"><i class="fa fa-star"></i></span>
-                    <span class="good"><i class="fa fa-star"></i></span>
-                    <span class="good"><i class="fa fa-star"></i></span>
-                    <span class="good"><i class="fa fa-star"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                    <div class="pro-review">
-                        <span>1 review(s)</span>
-                    </div>
-                </div>
+                @include('web.products._ratings')
             </div>
         </div>
     </div>

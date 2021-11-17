@@ -42,9 +42,9 @@ class ProductController extends Controller
     {
         /* dd($request); */
         /* dd($request); */
-        $product->my_store($request);
+        $product = $product->my_store($request);
         
-        return redirect()->route('products.index');
+        return redirect()->route('products.edit', $product);
     }
     public function show(Product $product)
     {
@@ -104,7 +104,7 @@ class ProductController extends Controller
     }
 
     public function upload_image(Request $request, $id){
-
+        
         
         $product = Product::findOrFail($id);
         if ($request->hasFile('image')) {

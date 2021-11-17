@@ -565,6 +565,7 @@ return array(
     'Facade\\Ignition\\Logger\\FlareHandler' => $vendorDir . '/facade/ignition/src/Logger/FlareHandler.php',
     'Facade\\Ignition\\Middleware\\AddDumps' => $vendorDir . '/facade/ignition/src/Middleware/AddDumps.php',
     'Facade\\Ignition\\Middleware\\AddEnvironmentInformation' => $vendorDir . '/facade/ignition/src/Middleware/AddEnvironmentInformation.php',
+    'Facade\\Ignition\\Middleware\\AddExceptionInformation' => $vendorDir . '/facade/ignition/src/Middleware/AddExceptionInformation.php',
     'Facade\\Ignition\\Middleware\\AddGitInformation' => $vendorDir . '/facade/ignition/src/Middleware/AddGitInformation.php',
     'Facade\\Ignition\\Middleware\\AddJobInformation' => $vendorDir . '/facade/ignition/src/Middleware/AddJobInformation.php',
     'Facade\\Ignition\\Middleware\\AddLogs' => $vendorDir . '/facade/ignition/src/Middleware/AddLogs.php',

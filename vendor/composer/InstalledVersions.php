@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '3553a77e2fd224f5b03f4b8beba61bdc1a3247c2',
+    'reference' => '9ca999a8da26815b1de3d46f94c096a2eb251260',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -141,12 +141,12 @@ private static $installed = array (
     ),
     'facade/ignition' => 
     array (
-      'pretty_version' => '2.16.0',
-      'version' => '2.16.0.0',
+      'pretty_version' => '2.16.1',
+      'version' => '2.16.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '23400e6cc565c9dcae2c53704b4de1c4870c0697',
+      'reference' => '29b533f63a3b269aa599d08dd4d22a0d720e295f',
     ),
     'facade/ignition-contracts' => 
     array (
@@ -455,7 +455,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '3553a77e2fd224f5b03f4b8beba61bdc1a3247c2',
+      'reference' => '9ca999a8da26815b1de3d46f94c096a2eb251260',
     ),
     'laravel/tinker' => 
     array (
@@ -571,21 +571,21 @@ private static $installed = array (
     ),
     'nesbot/carbon' => 
     array (
-      'pretty_version' => '2.53.1',
-      'version' => '2.53.1.0',
+      'pretty_version' => '2.54.0',
+      'version' => '2.54.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f4655858a784988f880c1b8c7feabbf02dfdf045',
+      'reference' => 'eed83939f1aed3eee517d03a33f5ec587ac529b5',
     ),
     'nikic/php-parser' => 
     array (
-      'pretty_version' => 'v4.13.0',
-      'version' => '4.13.0.0',
+      'pretty_version' => 'v4.13.1',
+      'version' => '4.13.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '50953a2691a922aa1769461637869a0a2faa3f53',
+      'reference' => '63a79e8daa781cac14e5195e63ed8ae231dd10fd',
     ),
     'nunomaduro/collision' => 
     array (
@@ -742,12 +742,12 @@ private static $installed = array (
     ),
     'psr/container' => 
     array (
-      'pretty_version' => '1.1.1',
-      'version' => '1.1.1.0',
+      'pretty_version' => '1.1.2',
+      'version' => '1.1.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
+      'reference' => '513e0666f7216c7459170d56df27dfcefe1689ea',
     ),
     'psr/container-implementation' => 
     array (
@@ -936,12 +936,12 @@ private static $installed = array (
     ),
     'sebastian/exporter' => 
     array (
-      'pretty_version' => '3.1.3',
-      'version' => '3.1.3.0',
+      'pretty_version' => '3.1.4',
+      'version' => '3.1.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6b853149eab67d4da22291d36f5b0631c0fd856e',
+      'reference' => '0c32ea2e40dbf59de29f3b49bf375176ce7dd8db',
     ),
     'sebastian/global-state' => 
     array (
@@ -1008,12 +1008,12 @@ private static $installed = array (
     ),
     'spatie/laravel-permission' => 
     array (
-      'pretty_version' => '5.3.0',
-      'version' => '5.3.0.0',
+      'pretty_version' => '5.3.1',
+      'version' => '5.3.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '1c9304af746b42308a1d1da2989e12a1439571a9',
+      'reference' => 'ee0a50ad174e7f8b14bd17dd2a79ab51ccbac3df',
     ),
     'swiftmailer/swiftmailer' => 
     array (

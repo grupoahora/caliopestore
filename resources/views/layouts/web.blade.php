@@ -25,6 +25,8 @@
     {!! Html::style('galio/assets/css/style.css') !!}
     {!! Html::style('galio/assets/css/skin-default.css') !!}
     {!! Html::style('css/jquery-ui.min.css') !!}
+    {!! Html::style('bootstrap_star_rating/themes/krajee-fa/theme.css')!!}
+{!! Html::style('bootstrap_star_rating/css/star-rating.css')!!}
     @yield('styles')
     
     
@@ -547,6 +549,9 @@
     {!! Html::script('/galio/assets/js/main.js') !!}
     <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
     {!! Html::script('/galio/assets/js/switcher.js') !!}
+    {!! Html::script('js/star-rating.js')!!}
+    {!! Html::script('js/es.js')!!}
+    {!! Html::script('js/theme.js')!!}
     @yield('scripts')
     @stack('scripts')
     
