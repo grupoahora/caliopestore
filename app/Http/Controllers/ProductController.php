@@ -8,11 +8,13 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
+use App\Image;
 use App\Provider;
 use App\Size;
 use App\Subcategory;
 use App\Tag;
 use Barryvdh\DomPDF\Facade as PDF;
+
 
 class ProductController extends Controller
 {
@@ -105,19 +107,25 @@ class ProductController extends Controller
 
     public function upload_image(Request $request, $id){
         
-        
-        $product = Product::findOrFail($id);
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $image_name = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path("/image"),$image_name);
-            $urlimage='/image/'.$image_name;
+        if ($request->ajax()) {
+            $product = Product::find($id);
+            $urlimages = [];
+            $filesLink = array();
+            if ($request->hasFile('files')) {
+                $images = $request->file('files');
+                
+                foreach ($images as $key => $image) {
+                    $image_name = time().'_'.$image->getClientOriginalName();
+                    /* $formatted_image = Image::make($image);
+                    $formatted_image->fit(300, 300);
+                    $formatted_image->save(public_path('/image' . $image_name)); */
+                    $ruta = '/image/'. $image_name;
+                    $urlimages[]['url'] = $ruta;
+                    array_push($filesLink, $ruta);
+                }
+            }
+            $product->images()->createMany($urlimages);
+            return $filesLink;
         }
-
-
-
-        $product->images()->create([
-            'url'=> $urlimage,
-        ]);
     }
 }

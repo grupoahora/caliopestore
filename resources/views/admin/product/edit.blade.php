@@ -2,12 +2,12 @@
 
 @section('title','Editar producto')
 @section('styles')
-{!! Html::style('select2/dist/css/select2.min.css') !!}
-{!! Html::style('fileinput/css/fileinput.min.css') !!}
 {!! Html::style('css/jquery-ui.min.css') !!}
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+{!! Html::style('select2/dist/css/select2.min.css') !!}
+{!! Html::style('fileinput/css/fileinput.min.css') !!}
   <!-- plugin css for this page -->
-  {!! Html::style('melody/vendors/lightgallery/css/lightgallery.css') !!}
+  
   <!--  plugin css for this page -->
 @endsection
 @section('options')
@@ -191,12 +191,13 @@
                             @endforeach
                         </select>
                     </div>
-                    {{-- <div class="form-group">
+                    <div class="form-group">
+                        @csrf
                         <h4 class="card-title">Subir imágenes</h4>
                         <div class="file-upload-wrapper">
                             <div id="fileuploader" >Subir</div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -232,8 +233,8 @@
 </div>
 @endsection
 @section('scripts')
-{{-- {!! Html::script('melody/js/data-table.js') !!} --}}
-{!! Html::script('melody/js/dropify.js') !!}
+{!! Html::script('melody/js/data-table.js') !!}
+{{-- {!! Html::script('melody/js/dropify.js') !!} --}}
 
 {!! Html::script('js/jquery-ui.min.js') !!}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
@@ -260,28 +261,24 @@
 
 </script>
 <!-- plugin js for this page -->
-  {!! Html::script('melody/vendors/lightgallery/js/lightgallery-all.min.js') !!}
+  {{-- {!! Html::script('melody/vendors/lightgallery/js/lightgallery-all.min.js') !!} --}}
   <!-- end plugin js for this page -->
 <!-- Custom js for this page-->
-  {!! Html::script('melody/js/light-gallery.js') !!}
+  {{-- {!! Html::script('melody/js/light-gallery.js') !!} --}}
   <!-- End custom js for this page-->
 <!-- Custom js for this page-->
   {{-- {!! Html::script('melody/js/jquery-file-upload.js') !!} --}}
-  <script>
-      
+  {{-- <script>
         (function($) {
             'use strict';
             if ($("#fileuploader").length) {
                 $("#fileuploader").uploadFile({
                 url: "/upload/product/{{$product->id}}/image",
                 fileName: "image",
-                
                 });
             }
-            
         })(jQuery);
-        
-  </script>
+  </script> --}}
   <script>
       var category = $('#category');
       var subcategory_id = $('#subcategory_id');
@@ -301,7 +298,6 @@
               }
           });
       });
-    
   </script>
   <script>
     $(document).ready(function() {
@@ -314,12 +310,9 @@
             language: "es",
             theme: "fas",
             browseOnZoneClick: true,
-            uploadUrl: "../../upload_images_product/{{$product->id}}",
-          
-  
+            uploadUrl: "../../upload_image/{{$product->id}}",
             showClose: false,
             uploadExtraData:{'_token':$("#csrf_token").val()},
-
             initialPreview: [
                 <?php foreach ($product->images as $image)
                 {
@@ -369,6 +362,7 @@
             }, 900);
         });
     });
+    
 </script>
 <!-- End custom js for this page-->
 @endsection

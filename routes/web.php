@@ -84,7 +84,8 @@ Route::resource('tags', 'TagController')->names('tags');
 Route::resource('colors', 'ColorController')->names('colors');
 Route::resource('sizes', 'SizeController')->names('sizes');
 
-Route::post('upload/product/{id}/image', 'ProductController@upload_image')->name('upload.product.image');
+/* Route::post('upload/product/{id}/image', 'ProductController@upload_image')->name('upload.product.image'); */
+Route::post('upload_image/{id}', 'ProductController@upload_image')->name('upload.image');
 
 
 Route::resource('providers', 'ProviderController')->names('providers');
