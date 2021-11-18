@@ -71,6 +71,7 @@ class ShoppingCart extends Model
         $this->shopping_cart_details()->create([
             'quantity' => $request->quantity,
             'price' => $product->sell_price,
+            'color' => $request->color,
             'product_id' => $product->id,
         ]);
     }

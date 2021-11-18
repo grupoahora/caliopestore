@@ -179,6 +179,7 @@ return [
         App\Providers\ShoppingCartProvider::class,
         App\Providers\CompanyProvider::class,
         App\Providers\CategoryProvider::class,
+        App\Providers\ColorProvider::class,
         App\Providers\SubCategoryProvider::class,
         App\Providers\SocialMediaProvider::class,
         App\Providers\TagProvider::class,

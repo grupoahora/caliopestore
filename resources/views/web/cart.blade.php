@@ -38,6 +38,7 @@
                             <tr>
                                 <th class="pro-thumbnail">Miniatura</th>
                                 <th class="pro-title">Producto</th>
+                                <th class="pro-title">Color</th>
                                 <th class="pro-price">Precio</th>
                                 <th class="pro-quantity">Cantidad</th>
                                 <th class="pro-subtotal">Total</th>
@@ -50,6 +51,11 @@
                                     <td class="pro-thumbnail"><a href="{{route('web.product_details', $shopping_cart_detail->product)}}"><img class="img-fluid"
                                                 src="{{$shopping_cart_detail->product->images->pluck('url')[0]}}" alt="{{$shopping_cart_detail->product->name}}" /></a></td>
                                     <td class="pro-title"><a href="{{route('web.product_details', $shopping_cart_detail->product)}}">{{$shopping_cart_detail->product->name}}</a></td>
+                                    <td class="pro-title">
+                                        @foreach ($web_colors->where('id',$shopping_cart_detail->color) as $color)
+                                            
+                                        <img width="35px" height="35px" class="mx-1 bordercaliope" src="{{$color->images->pluck('url')[0]}}" alt=""></td>
+                                        @endforeach
                                     <td class="pro-price"><span>${{$shopping_cart_detail->product->sell_price}}</span></td>
                                     <td class="pro-quantity">
                                         <div class="pro-qty"><input type="text" name="quantity[]" value="{{$shopping_cart_detail->quantity}}"></div>

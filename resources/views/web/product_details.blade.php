@@ -63,33 +63,7 @@
                                     <span class="regular-price">${{$product->sell_price}}</span>
                                 </div>
                                 <p>{{$product->short_description}}</p>
-                                <div class="color-option mt-10">
-                                    <h5>color/textura :</h5>
-                                                @foreach ($product->colors as $item)
-
-
-                                                <input type="checkbox" id="{{$item->id}}" value="{{$item->id}}" name="color"> <label for="color"><img width="35px" height="35px" class="mx-1 bordercaliope" src="{{$item->images->pluck('url')[0]}}" alt=""></label>
-
-                                                @endforeach
-
-                                        <ul>
-                                        <li>
-                                            <a class="c-black" href="#" title="Black"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-blue" href="#" title="Blue"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-brown" href="#" title="Brown"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-gray" href="#" title="Gray"></a>
-                                        </li>
-                                        <li>
-                                            <a class="c-red" href="#" title="Red"></a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                
                                 <div class="pro-size mb-20 mt-20">
                                     <h5>size :</h5>
                                     <select class="nice-select">

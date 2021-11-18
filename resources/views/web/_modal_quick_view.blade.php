@@ -27,7 +27,29 @@
                             <div class="col-lg-7">
                                 <div class="product-details-des mt-md-34 mt-sm-34">
                                     <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
-                                    @include('web.products._ratings')
+                                    <div class="ratings">
+                                        <input id="input_rate_{{$product->id}}4" name="rate" value="{{$product->AverageRating}}" class="rating-loading">
+                                        <div class="pro-review">
+                                            <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificació(s)</span>
+                                        </div>
+                                        @push('scripts')
+                                            <script>
+                                                $(document).ready(function(){
+                                                    $('#input_rate_{{$product->id}}4').rating({
+                                                        min: 0,
+                                                        max: 5,
+                                                        theme: 'krajee-fa', 
+                                                        displayOnly: true,
+                                                        step: 1, 
+                                                        language: 'es',
+                                                        size: 'xs', 
+                                                        stars: 5,
+                                                        showCaption: false,
+                                                    });
+                                                });
+                                            </script>
+                                        @endpush
+                                    </div>
                                     <div class="availability mt-10">
                                         <h5>Availability:</h5>
                                         <span>{{$product->stock}} en Inventario</span>
