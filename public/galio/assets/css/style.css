@@ -220,6 +220,10 @@ ul li {
         }
     }
 } */
+.bordercaliope {
+    border: 3px solid #e78282;
+}
+
 .ratings {
     display: -webkit-box;
     display: -moz-box;

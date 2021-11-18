@@ -3,10 +3,11 @@
     <div class="product-item fix mb-30">
         <div class="product-thumb">
             <a href="{{route('web.product_details', $product)}}">
-                <img src="{{$product->images->pluck('url')[0]}}" 
-                class="img-pri" alt="{{$product->name}}">
-                <img src="{{$product->images->pluck('url')[1]}}" 
-                class="img-sec" alt="{{$product->name}}">
+                @foreach ($product->images as $image)
+                <img src="{{$image->url}}" 
+                class="@if($loop->first) img-pri @else img-sec @endif" alt="{{$product->name}}">
+                    
+                @endforeach
             </a>
             <div class="product-label">
                 <span>hot</span>

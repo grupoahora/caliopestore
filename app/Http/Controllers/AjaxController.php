@@ -32,8 +32,5 @@ class AjaxController extends Controller
             ->toJson();
         }
     }
-    public function upload_image(Request $request, $id)
-    {
-        dd($request->ajax());
-    }
+   
 }

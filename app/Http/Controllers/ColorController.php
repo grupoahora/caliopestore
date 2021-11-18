@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Colors\StoreRequest;
 use App\Http\Requests\Colors\UpdateRequest;
+use App\Image;
 
 class ColorController extends Controller
 {
@@ -25,6 +26,7 @@ class ColorController extends Controller
     }
     public function store(StoreRequest $request, Color $color)
     {
+        /* dd($request); */
         $color->my_store($request);
         return redirect()->route('colors.index');
     }
@@ -32,8 +34,10 @@ class ColorController extends Controller
     {
         return view('admin.color.show', compact('color'));
     }
-    public function edit(Color $color)
+    public function edit(Color $color, Image $image)
     {
+        
+        
         return view('admin.color.edit', compact('color'));
     }
     public function update(UpdateRequest $request, Color $color)
@@ -45,5 +49,26 @@ class ColorController extends Controller
     {
         $color->delete();
         return redirect()->route('colors.index');
+    }
+    public function upload_image(Request $request, $id, Color $color)
+    {
+        
+
+        $color = Color::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $image_name = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path("/image"), $image_name);
+            $urlimage = '/image/' . $image_name;
+        }
+
+
+
+        $color->images()->create([
+            'url' => $urlimage,
+        ]);
+        $image = Image::where('imageable_type', 'App\color')->Where('imageable_id', $color->id)->first();
+        $image->delete();
+        return back();
     }
 }

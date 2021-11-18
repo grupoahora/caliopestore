@@ -21,7 +21,7 @@
         </nav>
     </div>
     <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
+        <div class="col-lg-8 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     {!! Form::model($color,['route'=>['colors.update',$color], 'method'=>'PUT']) !!}
@@ -45,6 +45,8 @@
                         </small>
                         @enderror
                     </div>
+                    
+
                     <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                     <a href="{{URL::previous() }}" class="btn btn-light">
                         Cancelar
@@ -53,9 +55,58 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <h4 class="card-title">Actualizar Textura</h4>
+                        <div class="file-upload-wrapper">
+                            <div id="fileuploader" >Subir</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    @csrf
+                    <h4 class="card-title">Galeria de Texturas</h4>
+                    <div id="lightgallery" class="row lightGallery">
+                        @foreach ($color->images as $image)
+                            
+                        <a href="{{$image->url}}" class="image-tile"><img
+                                src="{{$image->url}}" alt="image small"></a>
+                        
+                        
+                        @endforeach
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('melody/vendors/lightgallery/js/lightgallery-all.min.js') !!}
+{!! Html::script('melody/js/light-gallery.js') !!}
+<script>
+      
+        (function($) {
+            'use strict';
+            if ($("#fileuploader").length) {
+                $("#fileuploader").uploadFile({
+                url: "/upload/color/{{$color->id}}/image",
+                fileName: "image",
+                
+                });
+            }
+            
+        })(jQuery);
+        
+  </script>
 @endsection

@@ -39,7 +39,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
-                        <i class="far fa-futbol"></i>
+                        <i class="{{$category->icon}}"></i>
                         {{$category->name}}
                     </h4>
                     <ul class="solid-bullet-list">

@@ -83,9 +83,12 @@ Route::resource('products', 'ProductController')->names('products');
 Route::resource('tags', 'TagController')->names('tags');
 Route::resource('colors', 'ColorController')->names('colors');
 Route::resource('sizes', 'SizeController')->names('sizes');
+Route::resource('images', 'ImageController')->names('images');
 
 /* Route::post('upload/product/{id}/image', 'ProductController@upload_image')->name('upload.product.image'); */
 Route::post('upload_image/{id}', 'ProductController@upload_image')->name('upload.image');
+Route::post('/upload/category/{id}/image', 'CategoryController@upload_image')->name('upload.category.image');
+Route::post('/upload/color/{id}/image', 'ColorController@upload_image')->name('upload.color.image');
 Route::post('file_delete', 'ProductController@file_delete')->name('file.delete');
 
 Route::resource('providers', 'ProviderController')->names('providers');

@@ -3,10 +3,13 @@
     <div class="product-item fix mb-30">
         <div class="product-thumb">
             <a href="{{route('web.product_details', $product)}}">
-                <img src="{{$product->images->pluck('url')[0]}}" 
-                class="img-pri" alt="{{$product->name}}">
-                <img src="{{$product->images->pluck('url')[1]}}" 
-                class="img-sec" alt="{{$product->name}}">
+                @foreach ($product->images as $image)
+                <img src="{{$image->url}}" 
+                class="@if($loop->first) img-pri @else img-sec @endif" alt="{{$product->name}}">
+                    
+                @endforeach
+                {{-- <img src="{{$product->images->pluck('url')[1]}}" 
+                class="img-sec" alt="{{$product->name}}"> --}}
             </a>
             <div class="product-label">
                 <span>hot</span>
@@ -35,10 +38,11 @@
     <div class="product-list-item mb-30">
         <div class="product-thumb">
             <a href="{{route('web.product_details', $product)}}">
-                <img src="{{$product->images->pluck('url')[2]}}" 
-                class="img-pri" alt="{{$product->name}}">
-                <img src="{{$product->images->pluck('url')[3]}}" 
-                class="img-sec" alt="{{$product->name}}">
+                @foreach ($product->images as $image)
+                <img src="{{$image->url}}" 
+                class="@if($loop->first) img-pri @else img-sec @endif" alt="{{$product->name}}">
+                    
+                @endforeach
             </a>
             <div class="product-label">
                 <span>hot</span>
@@ -47,13 +51,26 @@
         <div class="product-list-content">
             <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
             <div class="ratings">
-                <span class="good"><i class="fa fa-star"></i></span>
-                <span class="good"><i class="fa fa-star"></i></span>
-                <span class="good"><i class="fa fa-star"></i></span>
-                <span class="good"><i class="fa fa-star"></i></span>
-                <span><i class="fa fa-star"></i></span>
+                <input id="input_rate_2{{$product->id}}" name="rate" value="{{$product->AverageRating}}" class="rating-loading">
+                @push('scripts')
+                <script>
+                    $(document).ready(function(){
+                        $('#input_rate_2{{$product->id}}').rating({
+                            min: 0,
+                            max: 5,
+                            theme: 'krajee-fa', 
+                            displayOnly: true,
+                            step: 1, 
+                            language: 'es',
+                            size: 'xs', 
+                            stars: 5,
+                            showCaption: false,
+                        });
+                    });
+                </script>
+                @endpush
                 <div class="pro-review">
-                    <span>1 review(s)</span>
+                    <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificació(s)</span>
                 </div>
             </div>
             <div class="pricebox">

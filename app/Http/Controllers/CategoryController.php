@@ -6,7 +6,9 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
+use App\Image;
 use App\Product;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -54,7 +56,7 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('categories.index');
     }
-    public function upload_image(Request $request, $id)
+    public function upload_image(Request $request, $id, Category $category)
     {
 
 
@@ -71,5 +73,8 @@ class CategoryController extends Controller
         $category->images()->create([
             'url' => $urlimage,
         ]);
+        $image = Image::where('imageable_type', 'App\category')->Where('imageable_id', $category->id)->first();
+        $image->delete();
+        
     }
 }

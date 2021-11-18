@@ -52,7 +52,7 @@
                         <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Imagenes de producto</h4>
+                                    <h4 class="card-title">Imagenes de categoria</h4>
                                     <input type="file" name="images[]" class="dropify" multiple />
                                 </div>
                             </div>

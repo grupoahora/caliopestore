@@ -34,6 +34,14 @@
                         <input type="text" name="name" id="name" value="{{$category->name}}" class="form-control" placeholder="Nombre" required>
                     </div>
                     <div class="form-group">
+                        <label for="name">Icono</label>
+                        <div class="form-text fw-light">
+                            Encuentra un icono para la categoria en <a href="https://fontawesome.com/v5.15/icons"> Font Awesome</a>
+                        </div>
+                        <input type="text" name="icon" id="icon" value="{{$category->icon}}" class="form-control" placeholder="fab fa-acquisitions-incorporated" required>
+                        <i class="{{$category->icon}}"></i>
+                    </div>
+                    <div class="form-group">
                         <label for="description">Descripción</label>
                         <textarea class="form-control" 
                             name="description" 
@@ -70,6 +78,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    
                     <h4 class="card-title">Galeria de imàgenes</h4>
                     <div id="lightgallery" class="row lightGallery">
                         @foreach ($category->images as $image)
