@@ -17,14 +17,19 @@ class Subcategory extends Model
     {
         return $this->hasMany(Product::class);
     }
+    public function images()
+    {
+        return $this->morphMany('App\Image', 'imageable');
+    }
     public function my_store($request)
     {
-        self::create([
+        $subcategory = self::create([
             'name' => $request->name,
             'description' => $request->description,
             'slug' => Str::slug($request->name, '_'),
             'category_id' => $request->category_id,
         ]);
+        $this->upload_files($request, $subcategory);
     }
     public function my_update($request)
     {
@@ -34,5 +39,20 @@ class Subcategory extends Model
             'slug' => Str::slug($request->name, '_'),
             
         ]);
+    }
+    
+    public function upload_files($request, $subcategory)
+    {
+        $urlimages = [];
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $image) {
+                $nombre = time() . $image->getClientOriginalName();
+                $ruta = public_path() . '/image';
+                $image->move($ruta, $nombre);
+                $urlimages[]['url'] = '/image/' . $nombre;
+            }
+        }
+        $subcategory->images()->createMany($urlimages);
     }
 }

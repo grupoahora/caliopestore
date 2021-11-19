@@ -69,8 +69,8 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{{route('subcategories.create')}}" class="dropdown-item" data-toggle="modal"
-                                    data-target="#exampleModal">Agregar</a>
+                                <a href="{{route('subcategories.create', compact('category'))}}" class="dropdown-item" {{-- data-toggle="modal"
+                                    data-target="#exampleModal" --}}>Agregar</a>
                                 {{--  <button class="dropdown-item" type="button">Another action</button>
                               <button class="dropdown-item" type="button">Something else here</button>  --}}
 

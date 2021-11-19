@@ -89,7 +89,7 @@ Route::resource('images', 'ImageController')->names('images');
 Route::post('upload_image/{id}', 'ProductController@upload_image')->name('upload.image');
 Route::post('upload_texture/{id}', 'ProductController@upload_texture')->name('upload.texture');
 Route::post('/upload/category/{id}/image', 'CategoryController@upload_image')->name('upload.category.image');
-Route::post('/upload/color/{id}/image', 'ColorController@upload_image')->name('upload.color.image');
+Route::post('/upload/subcategory/{id}/image', 'SubcategoryController@upload_image')->name('upload.color.image');
 Route::post('file_delete', 'ProductController@file_delete')->name('file.delete');
 Route::post('file_delete_texture', 'ProductController@file_delete_texture')->name('file.delete.texture');
 
