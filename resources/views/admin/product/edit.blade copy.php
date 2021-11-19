@@ -171,7 +171,7 @@
                             @endforeach
                         </select>
                     </div>
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label for="colors">Colores</label>
                         <select class="select2" name="colors[]" id="colors" style="width: 100%" multiple>
                             @foreach ($colors as $color)
@@ -180,7 +180,7 @@
                                 {{$color->name}}</option>
                             @endforeach
                         </select>
-                    </div> --}}
+                    </div>
                     <div class="form-group">
                         <label for="sizes">Tamaños</label>
                         <select class="select2" name="sizes[]" id="sizes" style="width: 100%" multiple>
@@ -206,19 +206,6 @@
             </div>
         </div>
     </div> --}}
-    <div class="row grid-margin">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <input type="hidden" id="csrf_token" name="_token" value="{{ csrf_token() }}">
-                    <label for="files">Textura</label>
-                    <div class="file-loading" id="sortable">
-                        <input id="files2" name="files[]" type="file" multiple>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row grid-margin">
         <div class="col-lg-12">
             <div class="card">
@@ -305,136 +292,71 @@
               }
           });
       });
-    </script>
-    <script>
-        $(document).ready(function() {
-            var krajeeGetCount = function(id) {
-                var cnt = $('#' + id).fileinput('getFilesCount');
-                return cnt === 0 ? 'You have no files remaining.' :
-                    'You have ' +  cnt + ' file' + (cnt > 1 ? 's' : '') + ' remaining.';
-            };
-            $("#files").fileinput({
-                language: "es",
-                theme: "fas",
-                browseOnZoneClick: true,
-                uploadUrl: "../../upload_image/{{$product->id}}",
-                showClose: false,
-                uploadExtraData:{'_token':$("#csrf_token").val()},
-                initialPreview: [
-                    <?php foreach ($product->images as $image)
-                    {
-                    echo '"'.asset($image->url).'",';
-                    } ?>
-                ],
-                initialPreviewAsData: true,
-                initialPreviewFileType: 'image',
-                initialPreviewConfig: [<?php foreach ($product->images as $image)
+  </script>
+  <script>
+    $(document).ready(function() {
+        var krajeeGetCount = function(id) {
+            var cnt = $('#' + id).fileinput('getFilesCount');
+            return cnt === 0 ? 'You have no files remaining.' :
+                'You have ' +  cnt + ' file' + (cnt > 1 ? 's' : '') + ' remaining.';
+        };
+        $("#files").fileinput({
+            language: "es",
+            theme: "fas",
+            browseOnZoneClick: true,
+            uploadUrl: "../../upload_image/{{$product->id}}",
+            showClose: false,
+            uploadExtraData:{'_token':$("#csrf_token").val()},
+            initialPreview: [
+                <?php foreach ($product->images as $image)
                 {
-                    echo '{width:"120px",key:'.$image->id.'},';
-                } ?>],
-                overwriteInitial: false,
-                validateInitialCount: true,
-                minFileCount: 1,
-                maxFileCount: 5,
-                maxFileSize: 2100,
-                browseClass: "btn btn-primary btn-block",
-                showCaption: false,
-                showRemove: false,
-                showUpload: false,
-                deleteUrl: "../../file_delete",
-                deleteExtraData:{'_token':$("#csrf_token").val()},
-            }).on('filebeforedelete', function() {
-                return new Promise(function(resolve, reject) {
-                    $.confirm({
-                        title: 'Confirmación!',
-                    content: '¿Estás seguro de que quieres eliminar este archivo?',
-                        type: 'red',
-                        buttons: {   
-                            ok: {
-                                btnClass: 'btn-primary text-white',
-                                keys: ['enter'],
-                                action: function(){
-                                    resolve();
-                                }
-                            },
-                            cancel: function(){
-                            $.alert ('¡Se canceló la eliminación del archivo!');
+                  echo '"'.asset($image->url).'",';
+                } ?>
+            ],
+            initialPreviewAsData: true,
+            initialPreviewFileType: 'image',
+            initialPreviewConfig: [<?php foreach ($product->images as $image)
+            {
+                echo '{width:"120px",key:'.$image->id.'},';
+            } ?>],
+            overwriteInitial: false,
+            validateInitialCount: true,
+            minFileCount: 1,
+            maxFileCount: 5,
+            maxFileSize: 2100,
+            browseClass: "btn btn-primary btn-block",
+            showCaption: false,
+            showRemove: false,
+            showUpload: false,
+            deleteUrl: "../../file_delete",
+            deleteExtraData:{'_token':$("#csrf_token").val()},
+        }).on('filebeforedelete', function() {
+            return new Promise(function(resolve, reject) {
+                $.confirm({
+                    title: 'Confirmación!',
+                 content: '¿Estás seguro de que quieres eliminar este archivo?',
+                    type: 'red',
+                    buttons: {   
+                        ok: {
+                            btnClass: 'btn-primary text-white',
+                            keys: ['enter'],
+                            action: function(){
+                                resolve();
                             }
+                        },
+                        cancel: function(){
+                           $.alert ('¡Se canceló la eliminación del archivo!');
                         }
-                    });
+                    }
                 });
-            }).on('filedeleted', function() {
-                setTimeout(function() {
-                $.alert('¡La eliminación del archivo se realizó correctamente! ' );
-                }, 900);
             });
+        }).on('filedeleted', function() {
+            setTimeout(function() {
+               $.alert('¡La eliminación del archivo se realizó correctamente! ' );
+            }, 900);
         });
+    });
     
-    </script>
-    <script>
-        $(document).ready(function() {
-            var krajeeGetCount = function(id) {
-                var cnt = $('#' + id).fileinput('getFilesCount');
-                return cnt === 0 ? 'You have no files remaining.' :
-                    'You have ' +  cnt + ' file' + (cnt > 1 ? 's' : '') + ' remaining.';
-            };
-            $("#files2").fileinput({
-                language: "es",
-                theme: "fas",
-                browseOnZoneClick: true,
-                uploadUrl: "../../upload_texture/{{$product->id}}",
-                showClose: false,
-                uploadExtraData:{'_token':$("#csrf_token").val()},
-                initialPreview: [
-                    <?php foreach ($product->textures as $texture)
-                    {
-                    echo '"'.asset($texture->url).'",';
-                    } ?>
-                ],
-                initialPreviewAsData: true,
-                initialPreviewFileType: 'image',
-                initialPreviewConfig: [<?php foreach ($product->textures as $texture)
-                {
-                    echo '{width:"120px",key:'.$texture->id.'},';
-                } ?>],
-                overwriteInitial: false,
-                validateInitialCount: true,
-                minFileCount: 1,
-                maxFileCount: 1,
-                maxFileSize: 2100,
-                browseClass: "btn btn-primary btn-block",
-                showCaption: false,
-                showRemove: false,
-                showUpload: false,
-                deleteUrl: "../../file_delete_texture",
-                deleteExtraData:{'_token':$("#csrf_token").val()},
-            }).on('filebeforedelete', function() {
-                return new Promise(function(resolve, reject) {
-                    $.confirm({
-                        title: 'Confirmación!',
-                    content: '¿Estás seguro de que quieres eliminar este archivo?',
-                        type: 'red',
-                        buttons: {   
-                            ok: {
-                                btnClass: 'btn-primary text-white',
-                                keys: ['enter'],
-                                action: function(){
-                                    resolve();
-                                }
-                            },
-                            cancel: function(){
-                            $.alert ('¡Se canceló la eliminación del archivo!');
-                            }
-                        }
-                    });
-                });
-            }).on('filedeleted', function() {
-                setTimeout(function() {
-                $.alert('¡La eliminación del archivo se realizó correctamente! ' );
-                }, 900);
-            });
-        });
-    
-    </script>
+</script>
 <!-- End custom js for this page-->
 @endsection

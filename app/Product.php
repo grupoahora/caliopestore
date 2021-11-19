@@ -39,6 +39,10 @@ class Product extends Model
     {
         return $this->morphMany('App\Image', 'imageable');
     }
+    public function textures()
+    {
+        return $this->morphMany('App\Texture', 'textureable');
+    }
     public function tags()
     {
         return $this->belongsToMany(Tag::class);

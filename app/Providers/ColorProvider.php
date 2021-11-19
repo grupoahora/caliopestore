@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Color;
+use App\Texture;
 use Illuminate\Support\ServiceProvider;
 
 class ColorProvider extends ServiceProvider
@@ -27,7 +28,7 @@ class ColorProvider extends ServiceProvider
         view()->composer(
             "*",
             function ($view) {
-                $categories = Color::get();
+                $categories = Texture::get();
                 /* dd($categories); */
                 $view->with('web_colors', $categories);
             }

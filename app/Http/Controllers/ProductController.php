@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Image;
+use App\Texture;
 use App\Provider;
 use App\Size;
 use App\Subcategory;
@@ -133,6 +134,35 @@ class ProductController extends Controller
     {
         $image = Image::find($request->key);
         $image->delete();
+        return true;
+    }
+    public function upload_texture(Request $request, $id)
+    {
+
+        if ($request->ajax()) {
+            $product = Product::find($id);
+            $urltextures = [];
+            $filesLink = array();
+            if ($request->hasFile('files')) {
+                $textures = $request->file('files');
+
+                foreach ($textures as $key => $texture) {
+                    $texture_name = time() . '_' . $texture->getClientOriginalName();
+                    $ruta = public_path() . '/texture/';
+                    $texture->move($ruta, $texture_name);
+                    $urltextures[]['url'] = '/texture/' . $texture_name;;
+                    $url = '/texture/' . $texture_name;
+                    array_push($filesLink, $url);
+                }
+            }
+            $product->textures()->createMany($urltextures);
+            return $filesLink;
+        }
+    }
+    public function file_delete_texture(Request $request)
+    {
+        $texture = Texture::find($request->key);
+        $texture->delete();
         return true;
     }
 }
