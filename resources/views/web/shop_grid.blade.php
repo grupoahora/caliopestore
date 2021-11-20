@@ -81,8 +81,8 @@
                     <!-- product item start -->
                     <div class="shop-product-wrap grid row">
 
-                        @foreach ($products as $product)
-                            @include('web._product_item')
+                        @foreach ($subcategories as $subcategory)
+                            @include('web._subcategory_item')
                         @endforeach
                         
                     </div>

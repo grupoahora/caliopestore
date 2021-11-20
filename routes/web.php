@@ -46,8 +46,8 @@ Route::get('/', 'WebController@welcome')->name('web.welcome');
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
 Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
 Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
-
-Route::get('producto/{product}', 'WebController@product_details')->name('web.product_details');
+Route::get('product/{product}', 'WebController@product_details')->name('web.product_details');
+Route::get('subcategoria/{subcategory}', 'WebController@subcategory_details')->name('web.subcategory_details');
 Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')->only([ 'update'])->names('shopping_cart_details');
 Route::get('shopping_cart_detail/{shopping_cart_detail}/destroy', 'ShoppingCartDetailController@destroy')->name('shopping_cart_details.destroy');
 Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
@@ -125,6 +125,7 @@ Route::get('/prueba', function () {
 });
 Route::get('get_subcategories','AjaxController@get_subcategories')->name('get_subcategories');
 Route::get('get_products_by_subcategory', 'AjaxController@get_products_by_subcategory')->name('get_products_by_subcategory');
+Route::get('get_product_by_product', 'AjaxController@get_product_by_product')->name('get_product_by_product');
 
 // rutas para las subcategorias
 Route::resource('subcategories', 'SubcategoryController')->names('subcategories');

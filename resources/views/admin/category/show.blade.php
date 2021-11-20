@@ -143,7 +143,7 @@
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            {{-- <tbody>
+                            <tbody>
                                 @foreach ($products as $product)
                                 <tr>
                                     <th scope="row">{{$product->id}}</th>
@@ -172,7 +172,7 @@
                             </td>
                             </tr>
                             @endforeach
-                            </tbody> --}}
+                            </tbody>
                         </table>
                     </div>
                 </div>

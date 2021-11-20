@@ -18,7 +18,7 @@ class AjaxController extends Controller
     }
     public function get_products_by_subcategory(Request $request)
     {
-        
+       /*  dd($request->subcategory_id); */
         if ($request->ajax()) {
             /* $products = Product::where(
                 'subcategory_id',
@@ -32,5 +32,14 @@ class AjaxController extends Controller
             ->toJson();
         }
     }
-   
+    public function get_product_by_product(Request $request)
+    {
+        if ($request->ajax()) {
+            $product = Product::find(
+                
+                $request->product
+            )->get();
+            return response()->json($product);
+        }
+    }
 }

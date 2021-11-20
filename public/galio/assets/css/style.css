@@ -508,13 +508,13 @@ body.modal-open {
     margin: 0 15px;
 }
 
-.slick-padding2 .slick-list {
+/* .slick-padding2 .slick-list {
     margin: 0 -5px;
-}
+} */
 
-.slick-padding2 .slick-list .slick-slide {
+/* .slick-padding2 .slick-list .slick-slide {
     margin: 0 5px;
-}
+} */
 
 /*--------- slick slider dot style start -------*/
 .slick-dot-style ul.slick-dots {
