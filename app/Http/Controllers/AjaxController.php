@@ -34,8 +34,9 @@ class AjaxController extends Controller
     }
     public function get_product_by_product(Request $request)
     {
+        /* dd($request); */
         if ($request->ajax()) {
-            $product = Product::find(
+            $product = Product::where('id',
                 
                 $request->product
             )->get();

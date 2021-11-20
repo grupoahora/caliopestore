@@ -45,9 +45,12 @@
                         <div class="col-lg-6">
                             <div class="product-details-des mt-md-34 mt-sm-34">
                                 <h3><a href="{{route('web.subcategory_details', $subcategory)}}">{{$subcategory->name}}</a></h3>
-                                <div id="productdetail_id">
-
-                                </div>
+                                
+                                    <div id="productdetail_id">
+                                            
+                                                
+                                    </div>
+                                
                                 {{-- @include('web.products._ratings') --}}
                                 {{-- <div class="customer-rev">
                                     <a href="#" data-toggle="modal" data-target="#modal-default">Escribir un Comentario</a>
@@ -64,13 +67,41 @@
                                     <h5>Texturas:</h5>
                                 <div class="pro-nav slick-padding2 slick-arrow-style_2">
                                     @foreach ($subcategory->products as $key => $product)
-                                        <div class="pro-nav-thumb " >
-                                            <input type="button" id="product_id" value="{{$product->id}}">
+                                        <button class="pro-nav-thumb{{$product->id}} border border-0 bg-transparent" id="product_id" value="{{$product->id}}">
                                             
-                                            <img   src="{{$product->textures->pluck('url')[0]}}"
-                                            alt="{{$product->name}}" />
+                                            {{-- <input type="button" "> --}}
+                                                <img   src="{{$product->textures->pluck('url')[0]}}"
+                                                alt="{{$product->name}}" />
+                                                
                                             
-                                        </div>
+                                            
+                                        </button>
+                                        @push('scripts')
+                                            
+                                        <script>
+                                            var product = $('.pro-nav-thumb{{$product->id}}');
+                                            /* console.log(product); */
+                                            var productdetail = $('#productdetail_id');
+                                            var envio = product.click(function(){
+                                                var productval = $('.pro-nav-thumb{{$product->id}}').val();
+                                                $.ajax({
+                                                    url: "{{route('get_product_by_product')}}",
+                                                    method: 'GET',
+                                                    data: {
+                                                        product: productval,
+                                                    },
+                                                    success: function(data){
+                                                        productdetail.empty();
+                                                        /* productdetail.append('<input type="text" value="seleccione una textura">'); */
+                                                        $.each(data, function(index, element){
+                                                            productdetail.append('<h4>nombre del producto:'+'</h4>'+ element.name)
+                                                        });
+                                                    }
+                                                });
+                                            });
+                                            console.log(envio);
+                                        </script>
+                                        @endpush
                                     @endforeach
                                 </div>
                                 
@@ -167,24 +198,5 @@
 <!-- brand area end -->
 @endsection
 @section('scripts')
-<script>
-      var product = $('#product_id');
-      var productdetail = $('#productdetail_id');
-      product.click(function(){
-          $.ajax({
-              url: "{{route('get_product_by_product')}}",
-              method: 'GET',
-              data: {
-                  product: product.val(),
-              },
-              success: function(data){
-                  productdetail.empty();
-                  /* productdetail.append('<input type="text" value="seleccione una textura">'); */
-                  $.each(data, function(index, element){
-                      productdetail.append('<input value="'+ element.id +'">'+ element.name)
-                  });
-              }
-          });
-      });
-    </script>
+
 @endsection
