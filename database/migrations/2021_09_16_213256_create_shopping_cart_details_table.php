@@ -16,7 +16,7 @@ class CreateShoppingCartDetailsTable extends Migration
         Schema::create('shopping_cart_details', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity')->default(1);
-            $table->integer('color')->nullable();
+            $table->string('size')->nullable();
             
             $table->unsignedBigInteger('shopping_cart_id')->nullable();
             $table->foreign('shopping_cart_id')->references('id')->on('shopping_carts')->onDelete('set null')->onUpdate('set null');

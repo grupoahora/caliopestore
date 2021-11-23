@@ -1,4 +1,4 @@
-<div class="related-products-area mt-34">
+<div class="related-products-area my-5">
     <div class="section-title mb-30">
         <div class="title-icon">
             <i class="fa fa-desktop"></i>

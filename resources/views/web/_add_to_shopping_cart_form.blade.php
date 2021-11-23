@@ -1,5 +1,5 @@
 {!! Form::open(['route'=>['shopping_cart_details.store', $product], 'method' => 'POST']) !!}
-<div class="color-option mt-10">
+{{-- <div class="color-option mt-10">
     <h5>color/textura :</h5>
      @foreach ($product->textures as $texture)
      
@@ -8,11 +8,30 @@
                 width="35px" height="35px" class="mx-1 bordercaliope" class="@if($loop->first)@else d-none @endif" alt="{{$product->name}}">
                     
                 @endforeach
-    {{-- @foreach ($product->colors as $item)
-    <input type="checkbox" id="{{$item->id}}" value="{{$item->id}}" name="color"> <label for="color"><img width="35px" height="35px" class="mx-1 bordercaliope" src="{{$item->images->pluck('url')[0]}}" alt=""></label>
-    @endforeach --}}
+    
         
-</div>
+</div> --}}
+    <div class="col-12">
+
+        <div class="pro-size mb-20 mt-20">
+            <div class="row">
+                <div class="col-12">
+                    <h5>Tamaño:</h5>
+                </div>
+                <div class="col-12">
+                    <select class="nice-select" name="size" >
+                        @foreach ($product->sizes as $size)
+                            <option value="{{$size->name}}">{{$size->name}}</option>
+                        @endforeach
+                        
+                        
+                    </select>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
 <div class="quantity-cart-box d-flex align-items-center {{$class}}">
     <div class="quantity">
         <div class="pro-qty"><input type="text" name="quantity" value="1"></div>

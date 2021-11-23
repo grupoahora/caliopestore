@@ -20,21 +20,31 @@ class WebShopController extends Controller
         /* dd($products); */
         return view('web.shop_grid', compact('products'));
     }
-    public function search_products_by_category(Request $request, Category $category)
+    public function search_subcategories_by_category(Request $request)
     {
 
-        $products  = Product::where('status', 'ACTIVE')->where('category_id', $request->search_id)->paginate(12);
+        $subcategories  = Subcategory::where('category_id', $request->search_id_category)->paginate(12);
         /* dd($products); */
 
-        return view('web.shop_grid', compact('products'));
+        return view('web.shop_grid', compact('subcategories'));
     }
-    public function search_products_by_subcategory(Request $request, Subcategory $subcategory)
+    public function search_products_by_category(Request $request)
     {
-
-        $products  = Product::where('status', 'ACTIVE')->where('subcategory_id', $request->search_id_subcategory)->paginate(12);
+        $subcategories = Subcategory::where('category_id', $request->search_id_category)->paginate(12);
+        $products  = Product::where('category_id', $request->search_id_category)->paginate(12);
         /* dd($products); */
 
-        return view('web.shop_grid', compact('products'));
+        return view('web.shop_grid', compact('products', 'subcategories'));
+    }
+    public function search_products_by_subcategory(Request $request)
+    {
+       /*  dd($request); */
+        $subcategories = Subcategory::where('category_id', $request->search_id_category)->paginate(12);
+        $products  = Product::where('subcategory_id', $request->search_id_subcategory)->paginate(12);
+        /* $subcategory  = Subcategory::where('category_id', $request->search_id_category)->paginate(12); */
+        /* dd($products); */
+
+        return view('web.shop_grid', compact('products', 'subcategories'));
     }
     public function search_products_by_tag(Request $request)
     {

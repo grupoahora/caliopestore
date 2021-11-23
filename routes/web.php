@@ -58,6 +58,7 @@ Route::put('shopping_cart', 'ShoppingCartController@update')->name('shopping_car
 Route::get('products/json', 'WebController@products')->name('products.json');
 Route::get('products/resultado/', 'webShopController@search_products')->name('web.search_products');
 
+Route::get('products/subcategory/resultado/', 'webShopController@search_subcategories_by_category')->name('web.search_subcategories_by_category');
 Route::get('products/category/resultado/', 'webShopController@search_products_by_category')->name('web.search_products_by_category');
 Route::get('products/subcategory/resultado/', 'webShopController@search_products_by_subcategory')->name('web.search_products_by_subcategory');
 Route::get('products/tag/resultado/', 'webShopController@search_products_by_tag')->name('web.search_products_by_tag');

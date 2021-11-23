@@ -45,7 +45,7 @@
                 <div class="img-container img-full  mb-md-30 mb-sm-30">
                     <form action="{{route('web.search_products_by_category')}}" method="GET" >
                         <div class="">
-                            <input name="search_id" type="hidden" class="" value="{{$category->id}}">
+                            <input name="search_id_category" type="hidden" class="" value="{{$category->id}}">
                             
                             <div class="d-block">
                                 <button class="w-100" ><img src="{{$category->images->pluck('url')[0]}}" alt=""></button>

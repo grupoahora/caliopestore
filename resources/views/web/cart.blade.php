@@ -52,9 +52,8 @@
                                                 src="{{$shopping_cart_detail->product->images->pluck('url')[0]}}" alt="{{$shopping_cart_detail->product->name}}" /></a></td>
                                     <td class="pro-title"><a href="{{route('web.product_details', $shopping_cart_detail->product)}}">{{$shopping_cart_detail->product->name}}</a></td>
                                     <td class="pro-title">
-                                       
-                                        <img width="35px" height="35px" class="mx-1 bordercaliope" src="{{$shopping_cart_detail->product->textures->pluck('url')[0]}}" alt=""></td>
-                                        
+                                    {{$shopping_cart_detail->size}}
+                                    </td>
                                     <td class="pro-price"><span>${{$shopping_cart_detail->product->sell_price}}</span></td>
                                     <td class="pro-quantity">
                                         <div class="pro-qty"><input type="text" name="quantity[]" value="{{$shopping_cart_detail->quantity}}"></div>

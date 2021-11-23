@@ -68,10 +68,11 @@ class ShoppingCart extends Model
     } */
     public function my_store($product, $request)
     {
+        
         $this->shopping_cart_details()->create([
             'quantity' => $request->quantity,
             'price' => $product->sell_price,
-            'color' => $request->color,
+            'size' => $request->size,
             'product_id' => $product->id,
         ]);
     }

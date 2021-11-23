@@ -27,7 +27,9 @@ class SubCategoryProvider extends ServiceProvider
         view()->composer(
             "*",
             function ($view) {
-                $subcategories = Subcategory::get();
+                $subcategories = Subcategory::whereHas('products', function ($query) {
+                    $query;
+                })->get();
                 /* dd($subcategories); */
                 $view->with('web_subcategories', $subcategories);
             }

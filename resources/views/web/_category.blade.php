@@ -24,22 +24,16 @@
 </div> --}}
 <div class="sidebar-widget mb-22">
     <div class="section-title-2 d-flex justify-content-between mb-28">
-        <h3>Categorias</h3>
+        <h4 >Mas texturas</h4>
         <div class="category-append"></div>
     </div> <!-- section title end -->
     <div class="category-carousel-active row" data-row="4">
-        @foreach ($web_categories as $category)
+        @foreach ($products as $product)
             <div class="col-lg-12 mb-3 col-sm-12 col-6">
                 <div class="img-container img-full fix mb-md-30 mb-sm-30">
-                        <form action="{{route('web.search_products_by_category')}}" method="GET" >
-                        <div class="">
-                            <input name="search_id" type="hidden" class="" value="{{$category->id}}">
-                            <div class="d-block">
-                            <button class="w-100" ><img src="{{$category->images->pluck('url')[0]}}" alt=""></button>
-                        </div>
-                        </div>
-                    </div>
-                </form>
+                        <a href="{{route('web.product_details', $product)}}"><img height="80px" width="auto" src="{{$product->images->pluck('url')[0]}}" alt=""></a>
+                        
+                </div>
             </div>
         @endforeach
         {{-- 

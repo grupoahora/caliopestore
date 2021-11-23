@@ -39,6 +39,30 @@
                 <!-- product tag start -->
                     @include('web._product_tag')
                     <!-- product tag end -->
+                <div class="shop-sidebar-wrap mt-md-28 mt-sm-28">
+                    <!-- sidebar categorie start -->
+                    <div class="sidebar-widget mb-30">
+                        <div class="sidebar-title mb-10">
+                            <h3>Otras Categorias</h3>
+                        </div>
+                        <div class="product-tag">
+                            <ul>
+                                @foreach ($web_categories as $category)
+                                <div class=" d-inline-block mr-1 pb-1">
+                                    <form class="" action="{{route('web.search_products_by_category')}}" method="GET" >
+                                        <div class="">
+                                            <input name="search_id_category" type="hidden" class="" value="{{$category->id}}">
+                                            <div class="d-block d-inline-block ">
+                                                <button type="submit" class="w-auto my-1 shadowcaliope " >{{$category->name}}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-9 order-1 order-lg-2">
                
@@ -81,8 +105,8 @@
                     <!-- product item start -->
                     <div class="shop-product-wrap grid row">
 
-                        @foreach ($subcategories as $subcategory)
-                            @include('web._subcategory_item')
+                        @foreach ($products as $product)
+                            @include('web._product_item')
                         @endforeach
                         
                     </div>

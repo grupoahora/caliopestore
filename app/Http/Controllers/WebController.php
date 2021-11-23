@@ -53,14 +53,15 @@ class WebController extends Controller
     {
         
         
-        $subcategories = Subcategory::paginate(12);
+        $products = Product::paginate(12);
         
-        return view('web.shop_grid', compact('subcategories') );
+        return view('web.shop_grid', compact('products') );
     }
     public function product_details(product $product)
     {
-        /* dd($product); */
-        return view('web.product_details', compact('product'));
+        $products = Product::where('subcategory_id', $product->subcategory_id)->get();
+        /* dd($products); */
+        return view('web.product_details', compact('product', 'products'));
     }
     public function subcategory_details(Subcategory $subcategory)
     {

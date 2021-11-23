@@ -28,27 +28,29 @@
 <!-- product details wrapper start -->
 <div class="product-details-wrapper">
     <div class="container-fluid">
-        <div class="row mx-5">
-            <div class="col-lg-10">
+        <div class="row mx-2 mx-sm-5">
+            <div class="col-lg-9 ml-auto">
                 <!-- product details inner end -->
                 <div class="product-details-inner">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="product-large-slider mb-20 slick-arrow-style_2">
+                        <div class="col-lg-7">
+                            <div class="product-large-slider mb-20 slick-arrow-style_2" autoplay>
                                 @foreach ($product->images as $image)
                                     <div class="pro-large-img img-zoom" id="img{{$image->id}}">
                                         <img src="{{$image->url}}" alt="{{$product->name}}" />
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="pro-nav slick-padding2 slick-arrow-style_2">
+                            <div class="pro-nav  slick-padding2 slick-arrow-style_2" autoplay>
                                 @foreach ($product->images as $key => $image)
-                                    <div class="pro-nav-thumb "><img src="{{$image->url}}"
+                                    <div class="pro-nav-thumb  "><img src="{{$image->url}}"
                                         alt="{{$product->name}}" /></div>
                                 @endforeach
                             </div>
+                            
+                            
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="product-details-des mt-md-34 mt-sm-34">
                                 <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
                                 @include('web.products._ratings')
@@ -93,58 +95,16 @@
                 <!-- product details inner end -->
 
                 <!-- product details reviews start -->
-                <div class="product-details-reviews mt-34">
-                    <div class="row mx-5">
-                        <div class="col-lg-12">
-                            <div class="product-review-info">
-                                <ul class="nav review-tab">
-                                    <li>
-                                        <a class="active" data-toggle="tab" href="#tab_one">Descripción</a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#tab_two">Información</a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#tab_three">Comentarios</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content reviews-tab">
-                                    <div class="tab-pane fade show active" id="tab_one">
-                                        <div class="tab-one">
-                                            {!! $product->long_description !!}
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab_two">
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td>color</td>
-                                                    <td>black, blue, red</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>size</td>
-                                                    <td>L, M, S</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab_three">
-                                        @include('web.products.review_product_form')
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- product details reviews end -->
 
                 <!-- related products area start -->
-                @include('web._related_products')
                 <!-- related products area end -->
+                {{-- @include('web._related_products') --}}
             </div>
 
             <!-- sidebar start -->
-            <div class="col-lg-2">
+            <div class="col-lg-2 mr-auto ">
                 <div class="shop-sidebar-wrap fix mt-md-22 mt-sm-22">
                     <!-- category start -->
                     @include('web._category')
@@ -152,7 +112,7 @@
 
                     <!-- featured category start -->
                     
-                        @include('web._featured_category')
+                        {{-- @include('web._featured_category') --}}
                     
                     <!-- featured category end -->
 
@@ -187,6 +147,53 @@
                     <!-- sidebar banner end -->
                 </div>
             </div>
+            <div class="col-lg-11 mx-auto col">
+                <div class="product-details-reviews mt-34">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="product-review-info">
+                                <ul class="nav review-tab">
+                                    <li>
+                                        <a class="active" data-toggle="tab" href="#tab_one">Descripción</a>
+                                    </li>
+                                    {{-- <li>
+                                        <a data-toggle="tab" href="#tab_two">Información</a>
+                                    </li> --}}
+                                    <li>
+                                        <a data-toggle="tab" href="#tab_three">Comentarios</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content reviews-tab">
+                                    <div class="tab-pane fade show active" id="tab_one">
+                                        <div class="tab-one">
+                                            {!! $product->long_description !!}
+                                        </div>
+                                    </div>
+                                    {{-- <div class="tab-pane fade" id="tab_two">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>color</td>
+                                                    <td>black, blue, red</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>size</td>
+                                                    <td>L, M, S</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> --}}
+                                    <div class="tab-pane fade" id="tab_three">
+                                        @include('web.products.review_product_form')
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="col-lg-2 mr-auto ">
+            </div> --}}
             <!-- sidebar end -->
         </div>
     </div>
@@ -199,5 +206,8 @@
 <!-- brand area end -->
 @endsection
 @section('scripts')
+
+ 
+
 
 @endsection

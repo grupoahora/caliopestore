@@ -27,7 +27,9 @@ class CategoryProvider extends ServiceProvider
         view()->composer(
             "*",
             function ($view) {
-                $categories = Category::get();
+                $categories = Category::whereHas('products', function ($query) {
+                    $query;
+                })->get();
                 /* dd($categories); */
                 $view->with('web_categories', $categories);
             }

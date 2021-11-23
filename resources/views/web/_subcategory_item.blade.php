@@ -2,7 +2,7 @@
     <!-- product single grid item start -->
     <div class="product-item fix mb-30">
         <div class="product-thumb">
-            <a href="{{route('web.product_details', $subcategory)}}">
+            <a href="{{route('web.subcategory_details', $subcategory)}}">
                 @foreach ($subcategory->images as $image)
                 <img src="{{$image->url}}" 
                 class="@if($loop->first) img-pri @else img-sec @endif" alt="{{$subcategory->name}}">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="product-content">
-            <h4><a href="{{route('web.product_details', $subcategory)}}">{{$subcategory->name}}</a></h4>
+            <h4><a href="{{route('web.subcategory_details', $subcategory)}}">{{$subcategory->name}}</a></h4>
             {{-- <div class="pricebox">
                 <span class="regular-price">${{$subcategory->sell_price}}</span>
                 @include('web.products._ratings')
@@ -37,7 +37,7 @@
     <!-- product single list item start -->
     <div class="product-list-item mb-30">
         <div class="product-thumb">
-            <a href="{{route('web.product_details', $subcategory)}}">
+            <a href="{{route('web.subcategory_details', $subcategory)}}">
                 @foreach ($subcategory->images as $image)
                 <img src="{{$image->url}}" 
                 class="@if($loop->first) img-pri @else img-sec @endif" alt="{{$subcategory->name}}">
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="product-list-content">
-            <h3><a href="{{route('web.product_details', $subcategory)}}">{{$subcategory->name}}</a></h3>
+            <h3><a href="{{route('web.subcategory_details', $subcategory)}}">{{$subcategory->name}}</a></h3>
             
             <p>
                 {{$subcategory->short_description}}

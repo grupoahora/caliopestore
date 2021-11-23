@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Product;
 use App\Subcategory;
+use Dotenv\Result\Result;
 use Illuminate\Http\Request;
 
 class AjaxController extends Controller
@@ -34,7 +36,7 @@ class AjaxController extends Controller
     }
     public function get_product_by_product(Request $request)
     {
-        /* dd($request); */
+        
         if ($request->ajax()) {
             $product = Product::where('id',
                 
@@ -42,5 +44,15 @@ class AjaxController extends Controller
             )->get();
             return response()->json($product);
         }
+    }
+    public function get_images_by_product(Request $request,Product $product)
+    {
+        $product->get_images($request);
+        /* dd($request); */
+        /* if ($request->ajax()) {
+            
+            $images = Image::where('imageable_type','App\Product')->where('imageable_id', $request->product)->get();
+            return json_encode(array($images));
+        } */
     }
 }

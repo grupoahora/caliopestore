@@ -15,8 +15,8 @@
     
     <div class="total-reviews">
         <div class="rev-avatar">
-            {{-- <img src="{!!asset('/galio/assets/img/about/avatar.jpg')!!}" alt=""> --}}
-            <img src="{{auth()->user()->avatar}}" alt="">
+            <img src="{{$rating->user->avatar}}" alt="">
+            
         </div>
         <div class="review-box">
             <div class="review-box">
@@ -33,13 +33,14 @@
                                 language: 'es',
                                 size: 'xs', 
                                 stars: 5,
+                                displayOnly: true,
                                 starCaptions: {1: 'Muy Malo', 2: 'Malo', 3: 'Está bien', 4: 'Bueno', 5: 'Muy Bueno'},
-                                starCaptionClasses: {1: 'text-danger', 2: 'text-warning', 3: 'text-info', 4: 'text-primary', 5: 'text-success'}
+                                starCaptionClasses: {1: 'bg-danger text-white rounded-caliope', 2: 'bg-warning text-white rounded-caliope', 3: 'bg-info text-white rounded-caliope', 4: 'bg-primary text-white rounded-caliope ', 5: 'bg-success text-white rounded-caliope'}
                             });
                         });
                     </script>
                     @endpush
-                    <span><i class="fa fa-star"></i></span> --}}
+                    {{-- <span><i class="fa fa-star"></i></span> --}}
                 </div>
                 <div class="post-author">
                     <p><span>{{$rating->user->name}} -</span> {{$rating->created_at}}</p>
