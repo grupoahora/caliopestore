@@ -27,7 +27,7 @@ class CompanyProvider extends ServiceProvider
         view()->composer(
             "*",
             function ($view) {
-                $business = Business::where('id', 1)->firstOrFail();
+                $business = Business::where('id', 1)->first();
                 /* dd($business); */
                 $view->with('web_company', $business);
             }

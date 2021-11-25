@@ -33,7 +33,7 @@
                 <!-- product details inner end -->
                 <div class="product-details-inner">
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-6">
                             <div class="product-large-slider mb-20 slick-arrow-style_2" autoplay>
                                 @foreach ($product->images as $image)
                                     <div class="pro-large-img img-zoom" id="img{{$image->id}}">
@@ -41,16 +41,21 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="pro-nav  slick-padding2 slick-arrow-style_2" autoplay>
-                                @foreach ($product->images as $key => $image)
-                                    <div class="pro-nav-thumb  "><img src="{{$image->url}}"
-                                        alt="{{$product->name}}" /></div>
-                                @endforeach
+                            <div class="rol p-0 m-0">
+                                <div class="col-12 m-0 p-0 h-300-md">
+
+                                    <div class="pro-nav  slick-padding2 slick-arrow-style_2" autoplay>
+                                        @foreach ($product->images as $key => $image)
+                                            <div class="pro-nav-thumb  "><img class="h-300-md" src="{{$image->url}}"
+                                                alt="{{$product->name}}" /></div>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
                             
                             
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <div class="product-details-des mt-md-34 mt-sm-34">
                                 <h3><a href="{{route('web.product_details', $product)}}">{{$product->name}}</a></h3>
                                 @include('web.products._ratings')

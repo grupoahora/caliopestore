@@ -63,7 +63,7 @@ class WebShopController extends Controller
         Subscription::create([
             'email' => $request->subscription_email
         ]);
-        return back()->with('mensaje', 'Se ha suscrito correctamente');
+        return redirect()->route('web.welcome')->with('mensaje', 'Se ha suscrito correctamente');
     }
     public function rate_product(Request $request,Product $product)
     {

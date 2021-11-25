@@ -42,19 +42,19 @@
                 <div class="sticky-top header-top-area bg-gray text-center text-md-left">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-2 col-md-5 my-auto">
+                            <div class="col-lg-3 col-md-5 my-auto">
                                 <div class="header-call-action">
-                                    <a href="#">
+                                    <a href="{{route('web.contact_us')}}">
                                         <i class="fa fa-envelope"></i>
-                                        info@caliope.com.co
+                                        {{$web_company->mail}}
                                     </a>
-                                    <a href="#">
+                                    <a href="{{route('web.contact_us')}}">
                                         <i class="fa fa-phone"></i>
-                                        313-313-1442
+                                        {{$web_company->phone}}
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-lg-7 col-md-5 my-auto">
+                            <div class="col-lg-6 col-md-5 my-auto">
                                 <div class="main-header-inner border-0">
                                     <div class="main-menu border-0">
                                         <nav id="mobile-menu">
@@ -109,19 +109,26 @@
                                                     <ul class="dropdown">
                                                         <li><a href="#">Categorias <i class="fa fa-angle-right"></i></a>
                                                             <ul class="dropdown">
-                                                                <li><a href="shop-grid-left-sidebar.html">categoria 1</a></li>
+                                                                @foreach ($web_categories as $category)
+                                                                    <li>
+                                                                        <a href="{{route('web.search_products_by_category', $category)}}">{{$category->name}}</a>
+                                                                    </li>
+                                                                @endforeach
+                                                                {{-- <li><a href="shop-grid-left-sidebar.html">categoria 1</a></li>
                                                                 <li><a href="shop-grid-left-sidebar-3-col.html">categoria 2</a></li>
                                                                 <li><a href="shop-grid-right-sidebar.html">categoria 3</a></li>
                                                                 <li><a href="shop-grid-right-sidebar-3-col.html">categoria 4</a></li>
                                                                 <li><a href="shop-grid-full-3-col.html">categoria 5</a></li>
-                                                                <li><a href="shop-grid-full-4-col.html">categoria 6</a></li>
+                                                                <li><a href="shop-grid-full-4-col.html">categoria 6</a></li> --}}
                                                             </ul>
                                                         </li>
                                                         <li><a href="#">Sub-Categorias<i class="fa fa-angle-right"></i></a>
                                                             <ul class="dropdown">
-                                                                <li><a href="shop-list-left-sidebar.html">sub-categoria 1</a></li>
-                                                                <li><a href="shop-list-right-sidebar.html">sub-categoria 2</a></li>
-                                                                <li><a href="shop-list-full.html">sub-categoria 3</a></li>
+                                                                @foreach ($web_subcategories as $subcategory)
+                                                                    <li>
+                                                                        <a href="{{route('web.search_products_by_category', $subcategory)}}">{{$subcategory->name}}</a>
+                                                                    </li>
+                                                                @endforeach
                                                             </ul>
                                                         </li>
                                                         {{-- <li><a href="#">products details <i class="fa fa-angle-right"></i></a>
@@ -218,7 +225,7 @@
                     <div class="row ">
                         <div class="col-lg-1 ml-auto">
                             <div class="brand-logo p-0 mx-auto">
-                                <a href="#">
+                                <a href="/">
                                     
                                         
                                     <img src="{{$web_company->logo}}" alt="{{$web_company->name}}">
@@ -314,12 +321,7 @@
                 <div class="container-fluid">
                     <div class="row w-25 mx-auto ">
 
-                        @if (session('mensaje'))
-                        <div class="alert alert-success">
-                            <strong>{{ session('mensaje') }}</strong>
-                        </div>
                         
-                        @endif
 
                         @if ($errors->has('subscription_email'))
                         <div class="alert alert-danger">
@@ -330,13 +332,71 @@
                     </div>
                     <div class="footer-top-wrapper">
                         <div class="newsletter__wrap">
+                            @auth
+                                
+                            
+                                @if ($web_subscription->email === $web_email_user)
+                                <div class="newsletter__title">
+                                        <div class="newsletter__icon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="newsletter__content">
+                                            <h3>Gracias por estar subscrito al boletín ♥ </h3>
+                                            {{-- <p>Conoce todas nuestras nuevas ofertas y colecciones caliope</p> --}}
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="newsletter__title">
+                                        <div class="newsletter__icon">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="newsletter__content">
+                                            <h3>suscribirse al boletín</h3>
+                                            <p>Conoce todas nuestras nuevas ofertas y colecciones caliope</p>
+                                        </div>
+                                    </div>
+                                    <div class="newsletter__box">
+                                        <form action="{{route('web.subscription_email')}}" method="POST">
+                                            @csrf
+                                            <input type="email" name="subscription_email" autocomplete="off" placeholder="Email" value="{{auth()->user()->email}}">
+                                            <button type="submit" >subscribe!</button>
+                                        </form>
+                                    </div>
+                                @endif
+                            
+                                
+                            @endauth
+                                
+                            @guest
+                                
+                            
                             <div class="newsletter__title">
+                                @if (session('mensaje'))
+                                <div class="alert alert-success">
+                                    <strong>{{ session('mensaje') }}</strong>
+                                </div>
+                                @push('scripts')
+                                    <script>
+                                        $(function(){
+                                            function ocultar_alert() {
+                                                $('.alert-success').addClass("d-none");
+                                                
+                                            };
+                                            window.setTimeout( ocultar_alert, 5000 );
+                                        }
+                                        );
+                                        
+                                            console.log(($('.alert-success')));
+                                        
+                                    </script>
+                                @endpush
+                            @endif
                                 <div class="newsletter__icon">
                                     <i class="fa fa-envelope"></i>
                                 </div>
                                 <div class="newsletter__content">
-                                    <h3>sign up for newsletter</h3>
-                                    <p>Duis autem vel eum iriureDuis autem vel eum</p>
+                                    <h3>suscribirse al boletín</h3>
+                                    <p>Conoce todas nuestras nuevas ofertas y colecciones caliope</p>
                                 </div>
                             </div>
                             <div class="newsletter__box">
@@ -346,6 +406,9 @@
                                     <button type="submit" >subscribe!</button>
                                 </form>
                             </div>
+                            @endguest
+                            {{-- @endif
+                             --}}
                             <!-- mailchimp-alerts Start -->
                             {{-- <div class="mailchimp-alerts">
                                 <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->

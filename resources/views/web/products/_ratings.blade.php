@@ -17,7 +17,7 @@
         });
     </script>
     @endpush
-    <div class="pro-review">
-        <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificació(s)</span>
-    </div>
+</div>
+<div class="pro-review">
+    <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificació(s)</span>
 </div>

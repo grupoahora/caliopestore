@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             $category->images()->saveMany(factory(App\Image::class, 1)->make());
         });
         factory(App\Subcategory::class, 15)->create();
-        factory(App\Product::class,2)->create()->each(function($product){
+        factory(App\Product::class,10)->create()->each(function($product){
             $product->images()->saveMany(factory(App\Image::class, 4)->make());
         });
         factory(App\SocialMedia::class, 4)->create();

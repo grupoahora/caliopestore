@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ShoppingCartProvider::class,
         App\Providers\CompanyProvider::class,
+        App\Providers\SubscritionProvider::class,
         App\Providers\CategoryProvider::class,
         App\Providers\ColorProvider::class,
         App\Providers\SubCategoryProvider::class,

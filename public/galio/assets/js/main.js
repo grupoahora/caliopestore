@@ -99,7 +99,8 @@
 
 	// Hero main slider active js
 	$('.hero-slider-active').slick({
-		autoplay: false,
+		autoplay: true,
+		autoplaySpeed: 10000,
 		infinite: true,
 		fade: true,
 		dots: true,
@@ -430,24 +431,28 @@
 
 	// prodct details slider active
 	$('.product-large-slider').slick({
+		autoplay: true,
+		autoplaySpeed: 5000,
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		fade: true,
 		arrows: true,
-		asNavFor: '.pro-nav',
+		/* asNavFor: '.pro-nav', */
 		prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
 		nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
 	});
 
 	// product details slider nav active
 	$('.pro-nav').slick({
-		slidesToShow: 4,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		slidesToShow: 2,
 		slidesToScroll: 1,
-		asNavFor: '.product-large-slider',
-		centerMode: true,
+		/* asNavFor: '.product-large-slider', */
+		/* centerMode: true, */
 		arrows: true,
-		centerPadding: 0,
-		focusOnSelect: true,
+		/* centerPadding: 0, */
+		/* focusOnSelect: true, */
 		prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
 		nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>'
 	});
