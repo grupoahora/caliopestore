@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             $product->tags()->attach($this->array(rand(1, 10)));
             $product->sizes()->attach($this->array(rand(1, 10)));
             $product->images()->saveMany(factory(App\Image::class, 4)->make());
+            $product->textures()->saveMany(factory(App\Texture::class, 1)->make());
         });
         factory(App\SocialMedia::class, 4)->create();
         

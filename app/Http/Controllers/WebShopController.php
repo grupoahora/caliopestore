@@ -50,7 +50,7 @@ class WebShopController extends Controller
     {
 
         $tag = Tag::where('id', $request->search_id_tag)->first();
-        $products = $tag->products()->where('status', 'ACTIVE')->paginate(12);
+        $products = $tag->products()->where('status', 'BOTH')->paginate(12);
 
 
         /* $products = Product::Has('tags', 'LIKE' ,$request->search_id_tag)->get(); */
