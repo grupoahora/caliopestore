@@ -1,7 +1,7 @@
 <div class="sidebar-widget mb-22">
 
     <div class="section-title-2 d-flex justify-content-between mb-28">
-        <h3>Des</h3>
+        <h3>Destacados</h3>
         <div class="category-append"></div>
     </div> <!-- section title end -->
     <div class="category-carousel-active row" data-row="4">
@@ -23,11 +23,10 @@
                         <div class="old-price ">
                             <del>${{$product->sell_price}}</del>
                         </div>
+                        
                         <div class="ratings">
                             <input id="input_rate_{{$product->id}}2" name="rate" value="{{$product->AverageRating}}" class="rating-loading">
-                            <div class="pro-review">
-                                <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificació(s)</span>
-                            </div>
+                            
                             @push('scripts')
                                 <script>
                                     $(document).ready(function(){
@@ -46,7 +45,9 @@
                                 </script>
                             @endpush
                         </div>
-
+                        <div class="pro-review">
+                                <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificació(s)</span>
+                            </div>
                     </div>
                 </div>
             </div> <!-- end single item -->

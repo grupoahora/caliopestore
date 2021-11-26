@@ -71,7 +71,7 @@
                                 </div>
                                 <p>{{$product->short_description}}</p>
                                 
-                                <div class="pro-size mb-20 mt-20">
+                                {{-- <div class="pro-size mb-20 mt-20">
                                     <h5>size :</h5>
                                     <select class="nice-select">
                                         <option>S</option>
@@ -79,7 +79,7 @@
                                         <option>L</option>
                                         <option>XL</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 @include('web._add_to_shopping_cart_form', ['class'=>''])
                                 <div class="useful-links mt-20">
                                     <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
@@ -105,7 +105,7 @@
 
                 <!-- related products area start -->
                 <!-- related products area end -->
-                {{-- @include('web._related_products') --}}
+                
             </div>
 
             <!-- sidebar start -->
@@ -117,7 +117,7 @@
 
                     <!-- featured category start -->
                     
-                        {{-- @include('web._featured_category') --}}
+                        @include('web._featured_category')
                     
                     <!-- featured category end -->
 
@@ -196,6 +196,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-11 mx-auto col">
+                @include('web._related_products')
             </div>
             {{-- <div class="col-lg-2 mr-auto ">
             </div> --}}

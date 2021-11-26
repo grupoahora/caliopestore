@@ -460,9 +460,25 @@
                         <!-- Authentication Links -->
                         @guest
                             {{-- login --}}
-                            @if (Route::has('register'))
-                                {{-- register --}}
-                            @endif
+                            <div class="col-md-3 col-sm-6">
+                                <div class="footer-widget mb-sm-26">
+                                    <div class="widget-title mb-10 mb-sm-6">
+                                        <h4>Mi cuenta</h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <ul>
+                                            <li>
+                                                @if (Route::has('register'))
+                                                    <a href="{{route('web.login_register')}}">Registrarme</a>
+                                                @endif
+                                            </li>
+                                            <li>
+                                                <a href="{{route('web.login_register')}}">Iniciar sesión</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         @else
                         {{-- {{ Auth::user()->name }}
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -482,9 +498,9 @@
                                     <div class="widget-body">
                                         <ul>
                                             <li><a href="{{route('web.my_account')}}">Mi Cuenta</a></li>
-                                            <li><a href="{{route('web.cart')}}">my cart</a></li>
+                                            <li><a href="{{route('web.cart')}}">mi Carrito</a></li>
                                             <li><a href="{{route('web.checkout')}}">checkout</a></li>
-                                            <li><a href="#">my wishlist</a></li>
+                                            
                                             <li><a href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();"">Cerrar Sesión</a></li>
@@ -500,23 +516,32 @@
                         
 
 
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-6 col-sm-12">
                             <div class="footer-widget mb-sm-26">
                                 <div class="widget-title mb-10 mb-sm-6">
-                                    <h4>short code</h4>
+                                    <h4>Aliados</h4>
                                 </div>
                                 <div class="widget-body">
-                                    <ul>
-                                        <li><a href="#">gallery</a></li>
-                                        <li><a href="#">accordion</a></li>
-                                        <li><a href="#">carousel</a></li>
-                                        <li><a href="#">map</a></li>
-                                        <li><a href="#">tab</a></li>
-                                    </ul>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <a href="https://www.ccce.org.co/"><img src="https://static.dafiti.com.co/cms/cce.png" alt=""></a>
+                                        </div>
+                                        <div class="col-3 mx-auto">
+                                            <a href="https://sicfacilita.sic.gov.co/SICFacilita/consumidor"><img src="https://static.dafiti.com.co/cms/2019/Octubre/Onsite/sicfacilita.png" alt=""></a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a href="https://www.sic.gov.co/"><img src="https://static.dafiti.com.co/cms/push/cyberagosto/sic.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+            
+                                        
+                             
+                                        
+                                    
                                 </div>
                             </div> <!-- single widget end -->
                         </div> <!-- single widget column end -->
-                        <div class="col-md-3 col-sm-6">
+                        {{-- <div class="col-md-3 col-sm-6">
                             <div class="footer-widget mb-sm-26">
                                 <div class="widget-title mb-10 mb-sm-6">
                                     <h4>product tags</h4>
@@ -531,7 +556,7 @@
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
-                        </div> <!-- single widget column end -->
+                        </div> --}} <!-- single widget column end -->
                     </div>
                 </div>
             </div>

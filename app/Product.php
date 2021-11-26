@@ -133,6 +133,10 @@ class Product extends Model
     {
         return self::where('status', 'BOTH');
     }
+    static function get_rating_products()
+    {
+        return self::where('status', 'BOTH');
+    }
     public function status(){
         switch ($this->status) {
             case 'ACTIVE':

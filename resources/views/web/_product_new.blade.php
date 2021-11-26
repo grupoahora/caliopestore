@@ -10,7 +10,7 @@
                 @endforeach
             </a>
             <div class="product-label">
-                <span>hot</span>
+                <span>New</span>
             </div>
             <div class="product-action-link">
                 {{-- <a href="#" data-toggle="modal" data-target="#quick_view_feactured{{$product->id}}"> <span data-toggle="tooltip"

@@ -35,4 +35,3 @@
     <!-- product single grid item end -->
 </div>
 
-{{-- @include('web._modal_quick_view_feactured') --}}

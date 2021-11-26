@@ -50,10 +50,11 @@
       33 => 'App\\Providers\\SocialMediaProvider',
       34 => 'App\\Providers\\TagProvider',
       35 => 'App\\Providers\\FeacturedProductProvider',
-      36 => 'willvincent\\Rateable\\RateableServiceProvider',
-      37 => 'Intervention\\Image\\ImageServiceProvider',
-      38 => 'Barryvdh\\DomPDF\\ServiceProvider',
-      39 => 'Milon\\Barcode\\BarcodeServiceProvider',
+      36 => 'App\\Providers\\NewProductProvider',
+      37 => 'willvincent\\Rateable\\RateableServiceProvider',
+      38 => 'Intervention\\Image\\ImageServiceProvider',
+      39 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      40 => 'Milon\\Barcode\\BarcodeServiceProvider',
     ),
     'aliases' => 
     array (

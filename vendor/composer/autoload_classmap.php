@@ -102,6 +102,7 @@ return array(
     'App\\Providers\\CompanyProvider' => $baseDir . '/app/Providers/CompanyProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\FeacturedProductProvider' => $baseDir . '/app/Providers/FeacturedProductProvider.php',
+    'App\\Providers\\NewProductProvider' => $baseDir . '/app/Providers/NewProductProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Providers\\ShoppingCartProvider' => $baseDir . '/app/Providers/ShoppingCartProvider.php',
     'App\\Providers\\SocialMediaProvider' => $baseDir . '/app/Providers/SocialMediaProvider.php',

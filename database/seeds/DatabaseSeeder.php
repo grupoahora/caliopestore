@@ -29,7 +29,9 @@ class DatabaseSeeder extends Seeder
             $category->images()->saveMany(factory(App\Image::class, 1)->make());
         });
         factory(App\Subcategory::class, 15)->create();
-        factory(App\Product::class,10)->create()->each(function($product){
+        factory(App\Product::class,1000)->create()->each(function($product){
+            $product->tags()->attach($this->array(rand(1, 10)));
+            $product->sizes()->attach($this->array(rand(1, 10)));
             $product->images()->saveMany(factory(App\Image::class, 4)->make());
         });
         factory(App\SocialMedia::class, 4)->create();
@@ -37,5 +39,13 @@ class DatabaseSeeder extends Seeder
         
         
         
+    }
+    public function array($max)
+    {
+        $values = [];
+        for($i=1; $i < $max; $i++){
+            $values[] = $i;
+        }
+        return $values;
     }
 }

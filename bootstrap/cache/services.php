@@ -51,10 +51,11 @@
     47 => 'App\\Providers\\SocialMediaProvider',
     48 => 'App\\Providers\\TagProvider',
     49 => 'App\\Providers\\FeacturedProductProvider',
-    50 => 'willvincent\\Rateable\\RateableServiceProvider',
-    51 => 'Intervention\\Image\\ImageServiceProvider',
-    52 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    53 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    50 => 'App\\Providers\\NewProductProvider',
+    51 => 'willvincent\\Rateable\\RateableServiceProvider',
+    52 => 'Intervention\\Image\\ImageServiceProvider',
+    53 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    54 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'eager' => 
   array (
@@ -94,10 +95,11 @@
     33 => 'App\\Providers\\SocialMediaProvider',
     34 => 'App\\Providers\\TagProvider',
     35 => 'App\\Providers\\FeacturedProductProvider',
-    36 => 'willvincent\\Rateable\\RateableServiceProvider',
-    37 => 'Intervention\\Image\\ImageServiceProvider',
-    38 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    39 => 'Milon\\Barcode\\BarcodeServiceProvider',
+    36 => 'App\\Providers\\NewProductProvider',
+    37 => 'willvincent\\Rateable\\RateableServiceProvider',
+    38 => 'Intervention\\Image\\ImageServiceProvider',
+    39 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    40 => 'Milon\\Barcode\\BarcodeServiceProvider',
   ),
   'deferred' => 
   array (

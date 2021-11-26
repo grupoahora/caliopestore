@@ -31,7 +31,14 @@
         @foreach ($products as $product)
             <div class="col-lg-12 mb-3 col-sm-12 col-6">
                 <div class="img-container img-full fix mb-md-30 mb-sm-30">
-                        <a href="{{route('web.product_details', $product)}}"><img height="80px" width="auto" src="{{$product->images->pluck('url')[0]}}" alt=""></a>
+                    
+                        <a href="{{route('web.product_details', $product)}}">@foreach ($product->textures as $image)<img height="80px" width="auto" src="{{$image->url}}" 
+                        class="@if($loop->first)  @else d-none @endif" alt="{{$product->name}}">
+                        
+                        @endforeach
+                    </a>
+                        {{-- <a href="{{route('web.product_details', $product)}}">
+                            <img height="80px" width="auto" src="{{$product->images->pluck('url')[0]}}" alt=""></a> --}}
                         
                 </div>
             </div>

@@ -60,8 +60,9 @@ class WebController extends Controller
     public function product_details(product $product)
     {
         $products = Product::where('subcategory_id', $product->subcategory_id)->get();
+        $products_category = Product::where('category_id', $product->category_id)->get();
         /* dd($products); */
-        return view('web.product_details', compact('product', 'products'));
+        return view('web.product_details', compact('product', 'products', 'products_category'));
     }
     public function subcategory_details(Subcategory $subcategory)
     {

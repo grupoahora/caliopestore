@@ -655,6 +655,7 @@ class ComposerStaticInit2e2011f10a572c7f021bceed4f85022d
         'App\\Providers\\CompanyProvider' => __DIR__ . '/../..' . '/app/Providers/CompanyProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\FeacturedProductProvider' => __DIR__ . '/../..' . '/app/Providers/FeacturedProductProvider.php',
+        'App\\Providers\\NewProductProvider' => __DIR__ . '/../..' . '/app/Providers/NewProductProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Providers\\ShoppingCartProvider' => __DIR__ . '/../..' . '/app/Providers/ShoppingCartProvider.php',
         'App\\Providers\\SocialMediaProvider' => __DIR__ . '/../..' . '/app/Providers/SocialMediaProvider.php',

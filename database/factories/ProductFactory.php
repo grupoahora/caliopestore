@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Product::class, function (Faker $faker) {
     return [
         'code'=>$faker->ean8,
-        'name'=>$faker->streetName,
+        'name'=> $faker->unique()->streetName,
         'slug' => $faker->unique()->slug,
         'stock' => $faker->buildingNumber,
         'short_description' => $faker->realText($maxNbChars = 300, $indexSize = 2),

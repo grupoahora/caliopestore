@@ -11,35 +11,37 @@
     
         
 </div> --}}
-    <div class="col-12">
+    {{-- <div class="col-12">
 
-        <div class="pro-size mb-20 mt-20">
-            <div class="row">
-                <div class="col-12">
-                    <h5>Tamaño:</h5>
-                </div>
-                <div class="col-12">
-                    <select class="nice-select" name="size" >
-                        @foreach ($product->sizes as $size)
-                            <option value="{{$size->name}}">{{$size->name}}</option>
-                        @endforeach
+        
+    </div> --}}
+    <div class="quantity-cart-box d-flex align-items-center {{$class}}">
+        <div class="d-block">
+            <div class="pro-size mb-20 mt-20">
+                
                         
+                            <h5>Tamaño:</h5>
                         
-                    </select>
-                </div>
+                        <select class="nice-select" name="size" >
+                            @foreach ($product->sizes as $size)
+                                <option value="{{$size->name}}">{{$size->name}}</option>
+                            @endforeach
+                            
+                            
+                        </select>
+                    
+                
+                
             </div>
-            
-            
         </div>
+        <div class="quantity mx-auto">
+            <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
+        </div>
+        <div class="action_link">
+            <button class="buy-btn" type="submit">add to cart
+                <i class="fa fa-shopping-cart"></i>
+            </button>
+        </div>
+       
     </div>
-<div class="quantity-cart-box d-flex align-items-center {{$class}}">
-    <div class="quantity">
-        <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
-    </div>
-    <div class="action_link">
-        <button class="buy-btn" type="submit">add to cart
-            <i class="fa fa-shopping-cart"></i>
-        </button>
-    </div>
-</div>
 {!! Form::close() !!}

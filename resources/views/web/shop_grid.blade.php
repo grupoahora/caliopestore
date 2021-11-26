@@ -117,14 +117,8 @@
                 <!-- start pagination area -->
                 <div class="paginatoin-area text-center pt-28">
                     <div class="row mx-5">
-                        <div class="col-12">
-                            <ul class="pagination-box">
-                                <li><a class="Previous" href="#">Previous</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a class="Next" href="#"> Next </a></li>
-                            </ul>
+                        <div class="col-6 mx-auto">
+                            {{$products->render()}}
                         </div>
                     </div>
                 </div>
@@ -138,7 +132,7 @@
 <!-- page wrapper end -->
 
 <!-- brand area start -->
-<div class="brand-area pt-26 pb-30">
+{{-- <div class="brand-area pt-26 pb-30">
     <div class="container-fluid">
         <div class="row mx-5">
             <div class="col-12">
@@ -178,7 +172,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- brand area end -->
 @endsection
 @section('scripts')

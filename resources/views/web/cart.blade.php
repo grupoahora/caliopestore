@@ -38,7 +38,7 @@
                             <tr>
                                 <th class="pro-thumbnail">Miniatura</th>
                                 <th class="pro-title">Producto</th>
-                                <th class="pro-title">Color</th>
+                                <th class="pro-title">tamaño</th>
                                 <th class="pro-price">Precio</th>
                                 <th class="pro-quantity">Cantidad</th>
                                 <th class="pro-subtotal">Total</th>

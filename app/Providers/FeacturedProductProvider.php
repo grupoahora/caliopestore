@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class FeacturedProductProvider extends ServiceProvider
@@ -27,8 +28,11 @@ class FeacturedProductProvider extends ServiceProvider
         view()->composer(
             "*",
             function ($view) {
-                $feacturedproducts = Product::get_active_products()->orderBy('id', 'DESC')->paginate(12);
-                /* dd($business); */
+                $feacturedproducts =
+                Product::withCount(['ratings as average_rating' => function ($query) {
+                    $query->select(DB::raw('coalesce(avg(rating),0)'));
+                }])->orderByDesc('average_rating')->get(12)->take(12);
+                /* dd($feacturedproducts); */
                 $view->with('web_feacturedproducts', $feacturedproducts);
             }
         );
