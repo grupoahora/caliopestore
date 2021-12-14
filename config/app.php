@@ -184,6 +184,7 @@ return [
         App\Providers\SubCategoryProvider::class,
         App\Providers\SocialMediaProvider::class,
         App\Providers\TagProvider::class,
+        App\Providers\PaymentPlatformsProvider::class, 
         App\Providers\FeacturedProductProvider::class,
         App\Providers\NewProductProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,

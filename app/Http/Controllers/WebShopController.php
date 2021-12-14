@@ -48,9 +48,9 @@ class WebShopController extends Controller
     }
     public function search_products_by_tag(Request $request)
     {
-
         $tag = Tag::where('id', $request->search_id_tag)->first();
         $products = $tag->products()->where('status', 'BOTH')->paginate(12);
+        /* dd($products); */
 
 
         /* $products = Product::Has('tags', 'LIKE' ,$request->search_id_tag)->get(); */

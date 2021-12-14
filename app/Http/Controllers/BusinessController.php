@@ -23,11 +23,14 @@ class BusinessController extends Controller
         if($request->hasFile('picture')){
             $file = $request->file('picture');
             $image_name = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path("/image"),$image_name);
+            $file->move(public_path("/image/"),$image_name);
+            
+            $url = '/image/'.$image_name;
         }
+        /* dd($url); */
 
         $business->update($request->all()+[
-            'logo'=>$image_name,
+            'logo'=> $url,
         ]);
 
         return redirect()->route('business.index');

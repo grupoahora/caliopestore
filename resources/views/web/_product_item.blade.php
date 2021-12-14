@@ -70,7 +70,7 @@
                 </script>
                 @endpush
                 <div class="pro-review">
-                    <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificació(s)</span>
+                    <span>{{$product->timesRated()}} ({{round($product->userAverageRating, 1)}}) Calificacióm(s)</span>
                 </div>
             </div>
             <div class="pricebox">
@@ -81,13 +81,13 @@
                 {{$product->short_description}}
             </p>
             <div class="product-list-action-link">
-                <a class="buy-btn" href="{{route('store_a_product', $product)}}" data-toggle="tooltip" data-placement="top" title="Add to cart">go to buy <i
+                <a class="buy-btn" href="{{route('web.product_details', $product)}}" data-toggle="tooltip" data-placement="top" title="Add to cart">Ver mas <i
                         class="fa fa-shopping-cart"></i> </a>
                 <a href="#" data-toggle="modal" data-target="#quick_view{{$product->id}}"> <span data-toggle="tooltip"
                         data-placement="top" title="Quick view"><i class="fa fa-search"></i></span> </a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist"><i
+                {{-- <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist"><i
                         class="fa fa-heart-o"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-refresh"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-refresh"></i></a> --}}
             </div>
         </div>
     </div>

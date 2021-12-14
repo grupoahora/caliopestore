@@ -74,7 +74,7 @@
 .footer-widget .widget-body ul li a:hover,
 .footer-widget .widget-body ul li a:before,
 .footer-bottom-wrap .copyright-text p a {
-    color: #d8373e !important;
+    color: #44444485 !important;
 }
 
 /*----- theme color css end ----*/
@@ -129,7 +129,7 @@
 .price-range-wrap .price-range.ui-widget-content .ui-slider-handle,
 .layout-changer li button:hover,
 .layout-changer li button.active {
-    background-color: #d8373e !important;
+    background-color: #EFB7B7 !important;
 }
 
 /*----- background color css end ----*/
@@ -166,7 +166,7 @@
 .pro-nav .slick-slide.slick-current img,
 .layout-changer li button,
 .comment-section ul li .comment-body .reply-btn a {
-    border-color: #d8373e !important;
+    border-color: #EFB7B7 !important;
 }
 
 .bdr-bottom1 {

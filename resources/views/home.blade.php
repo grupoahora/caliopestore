@@ -22,47 +22,54 @@
         </h3>
     </div>
 
-    {{-- @foreach ($totales as $total) --}}
+    @foreach ($totales as $total)
     <div class="row">
-        <div class="col-md-6 grid-margin stretch-card">
-            <div class="card text-white bg-warning">
-
-                <div class="card-body pb-0">
-                    <div class="float-right">
-                        <i class="fas fa-cart-arrow-down fa-4x"></i>
+        <div class="col-md-6 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-0">Compras</h4>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-inline-block pt-3">
+                            <div class="d-md-flex">
+                                <h2 class="mb-0">${{$total->totalcompra}}</h2>
+                                <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
+                                    <i class="far fa-clock text-muted"></i>
+                                    <small class=" ml-1 mb-0">Updated: 9:10am</small>
+                                </div>
+                            </div>
+                            <small class="text-gray">Raised from  orders.</small>
+                        </div>
+                        <div class="d-inline-block">
+                            <i class="fas fa-chart-pie text-info icon-lg"></i>                                    
+                        </div>
                     </div>
-                    {{-- <div class="text-value h4"><strong>PEN {{$total->totalcompra}} (MES ACTUAL)</strong>
-                    </div> --}}
-                    <div class="h3">Compras</div>
                 </div>
-                <div class="chart-wrapper mt-3 mx-3" style="height:35px;">
-                    <a href="{{route('purchases.index')}}" class="small-box-footer h4">Compras <i
-                            class="fa fa-arrow-circle-right"></i></a>
-                </div>
-
             </div>
         </div>
-        <div class="col-md-6 grid-margin stretch-card">
-            <div class="card  text-white bg-info">
-
-                <div class="card-body pb-0">
-
-                    <div class="float-right">
-                        <i class="fas fa-shopping-cart fa-4x"></i>
+        <div class="col-md-6 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-0">Ventas</h4>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-inline-block pt-3">
+                            <div class="d-md-flex">
+                                <h2 class="mb-0">${{$total->totalventa}}</h2>
+                                <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
+                                    <i class="far fa-clock text-muted"></i>
+                                    <small class="ml-1 mb-0">Updated: 05:42pm</small>
+                                </div>
+                            </div>
+                            <small class="text-gray">hey, let’s have lunch together</small>
+                        </div>
+                        <div class="d-inline-block">
+                            <i class="fas fa-shopping-cart text-danger icon-lg"></i>                                    
+                        </div>
                     </div>
-                    {{-- <div class="text-value h4"><strong>PEN {{$total->totalventa}} (MES ACTUAL) </strong>
-                    </div> --}}
-                    <div class="h3">Ventas</div>
                 </div>
-                <div class="chart-wrapper mt-3 mx-3" style="height:35px;">
-                    <a href="{{route('sales.index')}}" class="small-box-footer h4">Ventas <i
-                            class="fa fa-arrow-circle-right"></i></a>
-                </div>
-
             </div>
         </div>
     </div>
-    {{-- @endforeach --}}
+    @endforeach
 
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
@@ -154,9 +161,9 @@
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
 {!! Html::script('melody/js/chart.js') !!}
-{{-- <script>
+<script>
     $(function () {
-        var varCompra=document.getElementById('compras').getContext('2d');
+        /* var varCompra=document.getElementById('compras').getContext('2d');
     
             var charCompra = new Chart(varCompra, {
                 type: 'line',
@@ -215,7 +222,7 @@
                         }]
                     }
                 }
-            });
+            }); */
             var varVenta=document.getElementById('ventas_diarias').getContext('2d');
             var charVenta = new Chart(varVenta, {
                 type: 'bar',
@@ -245,6 +252,6 @@
                 }
             });
     });
-</script> --}}
+</script>
 
 @endsection

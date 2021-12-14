@@ -81,17 +81,18 @@
                                     </select>
                                 </div> --}}
                                 @include('web._add_to_shopping_cart_form', ['class'=>''])
-                                <div class="useful-links mt-20">
+                                {{-- <div class="useful-links mt-20">
                                     <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
                                             class="fa fa-refresh"></i>compare</a>
                                     <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist"><i
                                             class="fa fa-heart-o"></i>wishlist</a>
-                                </div>
+                                </div> --}}
                                 <div class="share-icon mt-20">
-                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
-                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
-                                    <a class="pinterest" href="#"><i class="fa fa-pinterest"></i>save</a>
-                                    <a class="google" href="#"><i class="fa fa-google-plus"></i>share</a>
+                                    @foreach ($web_socialmedias as $socialmedia)
+                                        <a class="{{$socialmedia->name}}" href="{{$socialmedia->url}}" title="{{$socialmedia->name}}"><i class="fa {{$socialmedia->icon}}"></i></a>
+                                
+                                    @endforeach
+                                    
                                 </div>
                             </div>
                         </div>

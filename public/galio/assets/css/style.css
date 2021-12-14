@@ -38,8 +38,16 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #404040;
     line-height: 24px;
+    background-color: #fff;
 }
-
+.sticky-top-caliope{
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+.sticky-color-caliope{
+    background-color: #f9f9f9;
+}
 a,
 a:hover,
 a:focus,
@@ -61,7 +69,9 @@ button:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-
+.fw-bold-caliope{
+    font-weight: bold;
+}
 img {
     max-width: 100%;
     -webkit-transition: all 0.4s ease-out;
@@ -877,6 +887,7 @@ only screen and (max-width: 767px) {
     height: 50px;
     text-align: center;
     border: 2px solid;
+    border-color: #44444485;
     display: block;
     margin-right: 10px;
     -webkit-transition: all 0.4s ease-out;
@@ -977,7 +988,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     height: 52px;
     padding: 0 70px 0 10px;
     width: 100%;
-    border: 2px solid #444444;
+    border: 2px solid #44444485;
     border-right: 2px solid transparent;
     position: relative;
 }
@@ -997,8 +1008,8 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     position: absolute;
     display: inline-block;
     cursor: pointer;
-    border: 2px solid #444444;
-    background-color: #444444;
+    border: 2px solid #44444485;
+    background-color: #44444485;
 }
 
 @media only screen and (max-width: 575px) {
@@ -1039,7 +1050,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     -moz-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
-    background-color: #444444;
+    background-color: #44444485;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px),
@@ -5152,6 +5163,12 @@ only screen and (max-width: 767px) {
 .product-details-des .share-icon a.pinterest {
     background-color: #CB2028;
 }
+.product-details-des .share-icon a.instagram {
+    background-color: #b1cb20;
+}
+.product-details-des .share-icon a.youtube {
+    background-color: #CB2028;
+}
 
 .product-details-des .share-icon a.google {
     background-color: #fe6d4c;
@@ -5203,7 +5220,7 @@ only screen and (max-width: 767px) {
 .product-details-des .pro-size h5 {
     color: #444444;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 25px;
     margin-bottom: 0;
     margin-right: 10px;

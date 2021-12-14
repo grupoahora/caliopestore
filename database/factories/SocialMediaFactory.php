@@ -10,7 +10,7 @@ $factory->define(SocialMedia::class, function (Faker $faker) {
         
         'name' =>  $name = $faker->unique()->randomElement([
             'facebook',
-            'twitter',
+            
             'instagram',
             'youtube',
             

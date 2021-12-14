@@ -13,9 +13,9 @@
                 <div class="breadcrumb-wrap">
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">cart</li>
+                            <li class="breadcrumb-item"><a href="{{route('web.welcome')}}">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('web.shop_grid')}}">Tienda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Mi Carrito</li>
                         </ul>
                     </nav>
                 </div>
@@ -77,7 +77,7 @@
                         </form>
                     </div> --}}
                     <div class="cart-update mt-sm-16">
-                        <button type="submit" href="#" class="sqr-btn">Update Cart</button>
+                        <button type="submit" href="#" class="sqr-btn">Actualizar Carrito</button>
                         {{-- <a href="#" class="sqr-btn">Update Cart</a> --}}
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                 <!-- Cart Calculation Area -->
                 <div class="cart-calculator-wrapper">
                     <div class="cart-calculate-items">
-                        <h3>Cart Totals</h3>
+                        <h3>Total</h3>
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
@@ -98,7 +98,7 @@
                                     <td>${{$shopping_cart->total_price()}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Shipping</td>
+                                    <td>Domicilio</td>
                                     <td>$0.00</td>
                                 </tr>
                                 <tr class="total">
@@ -108,7 +108,7 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{{route('web.checkout')}}" class="sqr-btn d-block">Proceed To Checkout</a>
+                    <a href="{{route('web.checkout')}}" class="sqr-btn d-block">Continuar Con El Pago</a>
                 </div>
             </div>
         </div>

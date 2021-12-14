@@ -20,7 +20,7 @@ class ShoppingCartDetailController extends Controller
     }
     public function store_a_product(Product $product)
     {
-        dd($product);
+        /* dd($product); */
         $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
         $shopping_cart->my_store_a_product($product);
         return back();

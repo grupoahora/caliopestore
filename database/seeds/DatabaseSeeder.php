@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BusinessTableSeeder::class);
         $this->call(PrinterTableSeeder::class);
-        factory(App\Color::class, 10)->create();
+        /* factory(App\Color::class, 10)->create();
         factory(App\Size::class, 10)->create();
         factory(App\Tag::class, 10)->create();
         factory(App\Category::class, 10)->create()->each(function ($category) {
@@ -34,11 +34,11 @@ class DatabaseSeeder extends Seeder
             $product->sizes()->attach($this->array(rand(1, 10)));
             $product->images()->saveMany(factory(App\Image::class, 4)->make());
             $product->textures()->saveMany(factory(App\Texture::class, 1)->make());
-        });
-        factory(App\SocialMedia::class, 4)->create();
+        }); */
+        factory(App\SocialMedia::class, 3)->create();
         
         
-        
+    
         
     }
     public function array($max)
