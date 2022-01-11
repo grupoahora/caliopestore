@@ -7,7 +7,6 @@
 .color-switcher-inner .switcher-icon i,
 .header-top-area .header-call-action a:hover,
 .header-top-area .header-top-right ul li a:hover,
-.header-middle-right .header-middle-shipping .single-block-shipping .shipping-icon i,
 .header-middle-right .header-middle-block .header-mini-cart:hover .mini-cart-btn span.cart-notification,
 .header-middle-right .header-middle-block .header-mini-cart ul.cart-list li .cart-info h4 a:hover,
 .header-middle-right .header-middle-block .header-mini-cart ul.cart-list li .cart-info span,
@@ -74,8 +73,14 @@
 .footer-widget .widget-body ul li a:hover,
 .footer-widget .widget-body ul li a:before,
 .footer-bottom-wrap .copyright-text p a {
-    color: #44444485 !important;
+    color: #000 !important;
 }
+/* .header-middle-right .header-middle-shipping .shipping-icon {
+    color: #fff !important;
+} */
+/* .header-middle-right .header-middle-shipping .shipping-icon:hover {
+    color: #000 !important;
+} */
 
 /*----- theme color css end ----*/
 /*----- background color css start ----*/
@@ -85,9 +90,9 @@
 .home-btn:hover,
 .home-btn.hm4-btn:hover,
 .sqr-btn,
-.scroll-top,
-.tooltip>.tooltip-inner,
-.header-middle-right .header-middle-shipping .single-block-shipping:hover .shipping-icon,
+
+
+
 .header-middle-right .header-middle-block .header-middle-searchbox button.search-btn:hover,
 .header-middle-right .header-middle-block .header-mini-cart:hover,
 .header-middle-right .header-middle-block .header-mini-cart .mini-cart-btn span.cart-notification,
@@ -122,7 +127,7 @@
 .team-member .team-thumb .team-social a:hover,
 .blog-sidebar .title::before,
 .blog-sidebar .blog-tags li a:hover,
-.footer-top-wrapper .social-icons a:hover,
+
 .footer-widget .widget-body a.map-btn:hover,
 .footer-top-wrapper .newsletter__wrap .newsletter__box button,
 .price-range-wrap .price-range.ui-widget-content .ui-slider-range,
@@ -139,7 +144,7 @@
 .slick-append button:hover,
 .category-append button:hover,
 .home-btn:hover,
-.header-middle-right .header-middle-shipping .single-block-shipping:hover .shipping-icon,
+
 .header-middle-right .header-middle-block .header-middle-searchbox button.search-btn:hover,
 .product-tag a:hover,
 .nice-select.open,
@@ -166,13 +171,16 @@
 .pro-nav .slick-slide.slick-current img,
 .layout-changer li button,
 .comment-section ul li .comment-body .reply-btn a {
-    border-color: #EFB7B7 !important;
+    border-color: #fff !important;
 }
 
 .bdr-bottom1 {
     border-bottom-color: #d8373e !important;
 }
 
+/* .tooltip>.tooltip-inner{
+    color: #000;
+} */
 .tooltip.bs-tooltip-top .arrow:before,
 .product-list-item .product-list-content .pricebox {
     border-top-color: #d8373e !important;
@@ -190,5 +198,7 @@
 .product-details-des .action_link a.buy-btn i,
 .product-details-des .action_link a.buy-btn:hover i,
 .footer-top-wrapper .newsletter__wrap .newsletter__box form button:hover {
-    background-color: #b8242a !important;
+    background-color: #fff !important;
+    color: #44444485;
+    font-weight: bold;
 }

@@ -39,7 +39,7 @@
         <header class="sticky-top-caliope">
             <div class="wrapper box-layout ">
             <!-- header top start -->
-                <div class=" header-top-area sticky-color-caliope text-center text-md-left">
+                <div class=" header-top-area sticky-color-caliope text-center text-md-left py-2">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-3 col-md-5 my-auto">
@@ -59,11 +59,11 @@
                                     <div class="main-menu border-0">
                                         <nav id="mobile-menu">
                                             <ul>
-                                                <li class="active p-0"><a href="{{route('web.welcome')}}"><i class="fa fa-home"></i>Inicio</a>
+                                                <li class="{!! active_class(route('web.welcome')) !!} p-0"><a href="{{route('web.welcome')}} " class=""><i class="fa fa-home"></i>Inicio</a>
                                                    
                                                 </li>
                                                 
-                                                <li class="p-0"><a href="{{route('web.shop_grid')}}">Tienda <i class="fa fa-angle-down"></i></a>
+                                                <li class="{!! active_class(route('web.shop_grid')) !!} p-0"><a href="{{route('web.shop_grid')}} " class="">Tienda <i class="fa fa-angle-down"></i></a>
                                                     <ul class="dropdown">
                                                         <li><a href="#">Categorias <i class="fa fa-angle-right"></i></a>
                                                             <ul class="dropdown">
@@ -88,7 +88,7 @@
                                                     </ul>
                                                 </li>
                                                 
-                                                <li class="p-0"><a href="{{route('web.contact_us')}}">Contactanos</a></li>
+                                                <li class="{!! active_class(route('web.contact_us')) !!} p-0"><a href="{{route('web.contact_us')}}"  class="">Contactanos</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -100,8 +100,8 @@
                                     <nav>
                                         <ul>
                                             @guest
-                                                <li>
-                                                    <a href="{{route('web.login_register')}}">Iniciar Sesión</a>
+                                                <li >
+                                                    <a  href="{{route('web.login_register')}}">Iniciar Sesión</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{route('web.login_register')}}">registro</a>
@@ -156,7 +156,7 @@
         </header>
         <!-- header area end -->
          <!-- header middle start -->
-            <div class="header-middle-area pt-20 ">
+            <div class="header-middle-area pt-20 pb-20 bg-nav-header">
                 <div class="container-fluid">
                     <div class="row ">
                         <div class="col-lg-1 mx-auto">
@@ -174,8 +174,8 @@
                                 <div class="header-middle-right mx-3">
                                     <div class="header-middle-shipping mb-20 ">
                                         <div class="single-block-shipping">
-                                            <div class="shipping-icon">
-                                                        <i class="fa fa-clock-o"></i>
+                                            <div class="shipping-icon ">
+                                                <i class="fa fa-clock-o "></i>
                                             </div>
                                             <div class="shipping-content">
                                                 <h5>Abierto</h5>
@@ -183,8 +183,8 @@
                                             </div>
                                         </div> <!-- end single shipping -->
                                         <div class="single-block-shipping">
-                                            <div class="shipping-icon">
-                                                <i class="fa fa-truck"></i>
+                                            <div class="shipping-icon ">
+                                                <i class="fa fa-truck "></i>
                                             </div>
                                             <div class="shipping-content">
                                                 <h5>Envio Gratis</h5>
@@ -192,8 +192,8 @@
                                             </div>
                                         </div> <!-- end single shipping -->
                                         <div class="single-block-shipping">
-                                            <div class="shipping-icon">
-                                                <i class="fa fa-money"></i>
+                                            <div class="shipping-icon ">
+                                                <i class="fa fa-money "></i>
                                             </div>
                                             <div class="shipping-content">
                                                 <h5>DEVOLUCIÓN DE DINERO 100%</h5>
@@ -245,7 +245,7 @@
         @stack('modal')
         <footer>
             <!-- footer top start -->
-            <div class="footer-top bg-black pt-14 pb-14">
+            <div class="footer-top bg-footer-caliope pt-14 pb-14">
                 <div class="container-fluid">
                     <div class="row w-25 mx-auto ">
 
@@ -279,7 +279,7 @@
                                             <i class="fa fa-envelope"></i>
                                         </div>
                                         <div class="newsletter__content">
-                                            <h3>suscribirse al boletín</h3>
+                                            <h3 class="">suscribirse al boletín</h3>
                                             <p>Conoce todas nuestras nuevas ofertas y colecciones caliope</p>
                                         </div>
                                     </div>
@@ -287,10 +287,10 @@
                                         <form action="{{route('web.subscription_email')}}" method="POST">
                                             @csrf
                                             <input type="email" name="subscription_email" autocomplete="off" placeholder="Email" value="{{auth()->user()->email}}">
-                                            <button type="submit" >subscribe!</button>
-                                        </form>
-                                    </div>
-                                @endif
+                                        </div>
+                                        <button type="submit" class="bg-footer-buttom-caliope" >subscribe!</button>
+                                    </form>
+                                        @endif
                             
                                 
                             @endauth
@@ -331,9 +331,9 @@
                                 <form action="{{route('web.subscription_email')}}" method="POST">
                                     @csrf
                                     <input type="email" name="subscription_email" autocomplete="off" placeholder="Email">
-                                    <button type="submit" >subscribe!</button>
-                                </form>
-                            </div>
+                                    <button type="submit" class="bg-footer-buttom-caliope btn btn-sm">subscribe!</button>
+                                </div>
+                            </form>
                             @endguest
                             
                             <!-- mailchimp-alerts end -->
@@ -442,11 +442,24 @@
                                             <a href="https://www.sic.gov.co/"><img src="https://static.dafiti.com.co/cms/push/cyberagosto/sic.jpg" alt=""></a>
                                         </div>
                                     </div>
-            
-                                        
-                             
-                                        
-                                    
+                                </div>
+                                <div class="widget-title mb-10 mb-sm-6">
+                                    <h4>Medios de pago</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="row">
+                                         @foreach ($web_paymentplatforms as $web_paymentplatform)
+                                        <div class="col-3">
+                                            <a href="https://www.ccce.org.co/"><img src="{{$web_paymentplatform->image}}" alt="{{$web_paymentplatform->name}}"></a>
+                                        </div>
+                                        @endforeach
+                                        {{-- <div class="col-3 mx-auto">
+                                            <a href="https://sicfacilita.sic.gov.co/SICFacilita/consumidor"><img src="https://static.dafiti.com.co/cms/2019/Octubre/Onsite/sicfacilita.png" alt=""></a>
+                                        </div>
+                                        <div class="col-3">
+                                            <a href="https://www.sic.gov.co/"><img src="https://static.dafiti.com.co/cms/push/cyberagosto/sic.jpg" alt=""></a>
+                                        </div> --}}
+                                    </div>
                                 </div>
                             </div> <!-- single widget end -->
                         </div> <!-- single widget column end -->
@@ -457,17 +470,18 @@
             <!-- footer main end -->
 
             <!-- footer bootom start -->
-            <div class="footer-bottom-area bg-gray pt-20 pb-20">
+            <div class="footer-bottom-area bg-gray pt-20 pb-2">
                 <div class="container">
-                    <div class="footer-bottom-wrap">
-                        
-                        <div class="payment-method-img">
-                            @foreach ($web_paymentplatforms as $web_paymentplatform)
-                            <img src="{{$web_paymentplatform->image}}" alt="{{$web_paymentplatform->name}}">
-                                
-                            @endforeach
+                    <div class="footer-bottom-wrap d-block">
+                        <div class="text-center h5 ">
+                            © Copyright 2021. Todos los derechos reservados. <br>
+                            Sitio web diseñado y desarrollado por manos Cucuteñas. <br>
+            
+                            
                         </div>
-                    </div>
+                        <div class="text-center h6">
+                            Hecho con ❤ Softwow!
+                        </div>
                 </div>
             </div>
             <!-- footer bootom end -->
@@ -495,8 +509,6 @@
     
 
     <script>
-        /* $(function(){ */
-            /* var prueba = ['asd', 'vcs']; */
 
             $('#search_products').autocomplete({
                 source: function(request, response){
@@ -509,12 +521,11 @@
                         success: function (data) {
                             response(data)
                         },
-                        /* console.log('data'); */
                     });
                 }
                 
             });
-        /* }); */
+     
         
         </script>
         

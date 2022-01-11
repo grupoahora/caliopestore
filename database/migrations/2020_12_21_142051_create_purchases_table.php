@@ -9,15 +9,15 @@ class CreatePurchasesTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void 
      */
     public function up()
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('provider_id');
-            $table->foreign('provider_id')->references('id')->on('providers');
+            /* $table->unsignedBigInteger('provider_id');
+            $table->foreign('provider_id')->references('id')->on('providers'); */
            
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

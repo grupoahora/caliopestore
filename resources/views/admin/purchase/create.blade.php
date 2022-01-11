@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 @section('title','Registro de compra')
 @section('styles')
-{!! Html::style('select/dist/css/bootstrap-select.min.css') !!}
+{!! Html::style('select/dist/css/bootstrap-select.min.css') !!} 
+<link rel="stylesheet" href="/vendors/iconfonts/ti-icons/css/themify-icons.css">
 @endsection
 @section('options')
 @endsection
@@ -37,9 +38,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     <button type="submit" id="guardar" class="btn btn-primary float-right">Registrar</button>
-                     <a href="{{route('purchases.index')}}" class="btn btn-light">
-                        Cancelar
-                     </a>
+                     
                 </div>
                 {!! Form::close() !!}
             </div>

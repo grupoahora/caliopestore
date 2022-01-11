@@ -21248,7 +21248,7 @@ code {
 /* Buttons */
 .btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a {
   font-size: 1rem;
-  line-height: 1;
+  line-height: 1.5;
   font-weight: 400;
   /* Buttons with only icons */
   /* Buttons with icon and text */

@@ -81,6 +81,7 @@ class WebController extends Controller
     public function products(Request $request)
     {
         $term = $request->get('term');
+        return $term;
         $querys = Product::where('name', 'LIKE', '%' . $term . '%')->get();
 
         $data =[];

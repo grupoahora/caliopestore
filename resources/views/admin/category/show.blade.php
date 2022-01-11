@@ -154,7 +154,7 @@
                             <td>{{$product->sell_price}}</td>
 
 
-                            <td>{{$product->category->name}}</td>
+                           {{--  <td>{{$product->category->name}}</td> --}}
                             <td style="width: 50px;">
                                 {!! Form::open(['route'=>['products.destroy',$product], 'method'=>'DELETE']) !!}
 

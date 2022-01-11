@@ -40,13 +40,38 @@ body {
     line-height: 24px;
     background-color: #fff;
 }
+/* .fa-white{
+    color:#fff;
+} */
+/* .shipping-icon-caliope{
+    color: ;
+}    */
+/* .shipping-icon-caliope:hover{
+    border-color: #000 !important;
+} */
+/* .fa-white:hover {
+    color: #000;
+    
+} */
 .sticky-top-caliope{
     position: sticky;
     top: 0;
     z-index: 99;
 }
 .sticky-color-caliope{
-    background-color: #f9f9f9;
+   background: #bd4b4bde;
+   
+}
+.bg-footer-caliope{
+    background: rgb(189, 75, 75);
+    background: linear-gradient(0deg, rgb(189, 75, 75) 75%, rgba(239, 183, 183, 1) 100%);
+}
+.bg-footer-buttom-caliope{
+    background-color: #44444485!important;
+}
+.bg-nav-header{
+  background: rgb(239, 183, 183);
+  background: linear-gradient(0deg, rgba(239, 183, 183, 1) 0%, #bd4b4bde 35%);
 }
 a,
 a:hover,
@@ -686,7 +711,7 @@ body.modal-open {
 
 /* ----scroll to top css ----*/
 .scroll-top {
-    background-color: #d8373e;
+    background-color: #bd4c48ad;
     bottom: 50px;
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
     box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
@@ -724,11 +749,14 @@ body.modal-open {
 }
 
 .tooltip>.tooltip-inner {
-    font-size: 13px;
-    background-color: #d8373e;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    box-shadow: inset 0 0 10px 5px #EFB7B7;
+    background-color: #ffffff;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
-    border-radius: 0;
+    border-radius: 50px;
 }
 
 .tooltip.bs-tooltip-top .arrow:before {
@@ -748,11 +776,12 @@ body.modal-open {
 }
 
 .header-top-area .header-call-action a {
-    color: #444444;
+    color: #fff;
     font-size: 12px;
     display: inline-block;
     padding-right: 20px;
     margin-right: 20px;
+    font-weight: 700;
 }
 
 .header-top-area .header-call-action a:last-child {
@@ -820,9 +849,10 @@ body.modal-open {
 }
 
 .header-top-area .header-top-right ul li a {
-    color: #444444;
+    color: #fff;
     font-size: 12px;
     text-transform: capitalize;
+    font-weight: 700;
 }
 
 .header-top-area .header-top-right ul li a:hover {
@@ -887,7 +917,7 @@ only screen and (max-width: 767px) {
     height: 50px;
     text-align: center;
     border: 2px solid;
-    border-color: #44444485;
+    border-color: #ffffff;
     display: block;
     margin-right: 10px;
     -webkit-transition: all 0.4s ease-out;
@@ -899,9 +929,9 @@ only screen and (max-width: 767px) {
     border-radius: 50%;
 }
 
-.header-middle-right .header-middle-shipping .single-block-shipping .shipping-icon i {
+.header-middle-right .header-middle-shipping .single-block-shipping .shipping-icon {
     font-size: 24px;
-    color: #d8373e;
+    color: #ffffff;
     line-height: 46px;
 }
 
@@ -912,30 +942,41 @@ only screen and (max-width: 767px) {
 }
 
 .header-middle-right .header-middle-shipping .single-block-shipping .shipping-content h5 {
-    color: #444444;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
+}
+.header-middle-right .header-middle-shipping .single-block-shipping:hover .shipping-content h5 {
+    color: #000;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px),
 only screen and (max-width: 767px) {
     .header-middle-right .header-middle-shipping .single-block-shipping .shipping-content h5 {
         font-size: 16px;
+        
     }
 }
 
 .header-middle-right .header-middle-shipping .single-block-shipping .shipping-content span {
     font-size: 13px;
+    color: #ffffff;
+    
+}
+.header-middle-right .header-middle-shipping .single-block-shipping:hover .shipping-content span {
+    font-size: 13px;
+    color: #000000;
+
 }
 
 .header-middle-right .header-middle-shipping .single-block-shipping:hover .shipping-icon {
-    background-color: #d8373e;
-    border-color: #d8373e;
+    
+    border-color: #000000;
 }
 
 .header-middle-right .header-middle-shipping .single-block-shipping:hover .shipping-icon i {
-    color: #ffffff !important;
+    color: #000000 !important;
 }
 
 .header-middle-right .header-middle-block {
@@ -1836,12 +1877,12 @@ only screen and (max-width: 767px) {
 .main-header-inner .main-menu ul li {
     position: relative;
     padding: 5px 0;
-    border-right: 1px solid #444444;
+    /* border-right: 1px solid #444444; */
 }
 
 .main-header-inner .main-menu ul li a {
     font-size: 14px;
-    color: #444444;
+    color: #fff;
     padding: 5px 25px;
     font-weight: 700;
     display: block;
@@ -1855,7 +1896,10 @@ only screen and (max-width: 767px) {
 
 .main-header-inner .main-menu ul li:hover>a,
 .main-header-inner .main-menu ul li.active>a {
-    color: #d8373e;
+    border-radius: 50px;
+    background-color: #fff;
+    box-shadow: inset 0 0 10px 5px #EFB7B7;
+    color: #000;
 }
 
 .main-header-inner .main-menu ul li ul.dropdown {
@@ -7098,13 +7142,13 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .footer-top-wrapper .newsletter__wrap .newsletter__icon {
     width: 62px;
     height: 40px;
-    border: 1px solid #696969;
+/*     border: 1px solid #696969; */
     line-height: 40px;
     text-align: center;
 }
 
 .footer-top-wrapper .newsletter__wrap .newsletter__icon i {
-    color: #ffffff;
+    color: #fff;
     font-size: 18px;
 }
 
@@ -7126,7 +7170,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .footer-top-wrapper .newsletter__wrap .newsletter__content h3 {
-    color: #ffffff;
+    color: #fff;
     font-size: 22px;
     line-height: 24px;
     font-weight: 700;
@@ -7140,7 +7184,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .footer-top-wrapper .newsletter__wrap .newsletter__content p {
-    color: #c6c6c6;
+    color: #fff;
     font-size: 13px;
     line-height: 18px;
 }
@@ -7230,10 +7274,11 @@ only screen and (min-width: 768px) and (max-width: 991px) {
     cursor: pointer;
     background: #d8373e;
     text-transform: uppercase;
+    background-color: #44444485!important;
 }
 
 .footer-top-wrapper .newsletter__wrap .newsletter__box form button:hover {
-    background-color: #a32025;
+    background-color: #EFB7B7;
 }
 
 @media only screen and (max-width: 479px) {
@@ -7279,7 +7324,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .footer-top-wrapper .social-icons a {
-    color: #ffffff;
+    color: #fff;
     font-size: 18px;
     height: 36px;
     width: 36px;
@@ -7290,7 +7335,12 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .footer-top-wrapper .social-icons a:hover {
-    background-color: #d8373e;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50px;
+    border: 0.08rem solid #000;
+    box-shadow: inset 0 0 10px 5px #EFB7B7;
+
 }
 
 .footer-top-wrapper .social-icons a:first-child {

@@ -31,103 +31,144 @@
             <div class="collapse" id="page-layouts1">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link" href="{{route('reports.day')}}">Reportes por día</a>
+                        <a class="nav-link" href="{{route('reports.day')}}">
+                            <i class="fas fa-flag menu-icon"></i>
+                            <span class="menu-title"> Reportes por día</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('reports.date')}}">Reportes por fecha</a>
+                        <a class="nav-link" href="{{route('reports.date')}}">
+                            <i class="fas fa-flag menu-icon"></i>
+                            <span class="menu-title"> Reportes por fecha</span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('purchases.index')}}">
-                <i class="fas fa-cart-plus menu-icon"></i>
-                <span class="menu-title">Compras</span>
+            <a class="nav-link" data-toggle="collapse" href="#page-layouts2" aria-expanded="false"
+                aria-controls="page-layouts">
+                <i class="fas fa-chart-line menu-icon"></i>
+                <span class="menu-title">E-commerce</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="page-layouts2">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('categories.index')}}">
+                            <i class="fas fa-tags menu-icon"></i>
+                            <span class="menu-title">Categorías</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('tags.index')}}">
+                            <i class="fas fa-tag menu-icon"></i>
+                            <span class="menu-title">Etiquetas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sizes.index')}}">
+                            <i class="fas fa-tag menu-icon"></i>
+                            <span class="menu-title">Tamaños</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('products.index')}}">
+                            <i class="fas fa-boxes menu-icon"></i>
+                            <span class="menu-title">Productos</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('sales.index')}}">
-                <i class="fas fa-shopping-cart menu-icon"></i>
-                <span class="menu-title">Ventas</span>
+            <a class="nav-link" data-toggle="collapse" href="#page-layouts3" aria-expanded="false"
+                aria-controls="page-layouts">
+                <i class="fas fa-chart-line menu-icon"></i>
+                <span class="menu-title">Administración</span> </span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="page-layouts3">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('purchases.index')}}">
+                            <i class="fas fa-cart-plus menu-icon"></i>
+                            <span class="menu-title">Compras</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sales.index')}}">
+                            <i class="fas fa-shopping-cart menu-icon"></i>
+                            <span class="menu-title">Ventas</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('orders.index')}}">
+                            <i class="fas fa-tag menu-icon"></i>
+                            <span class="menu-title">Pedidos</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('clients.index')}}">
+                            <i class="fas fa-users menu-icon"></i>
+                            <span class="menu-title">Clientes</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('categories.index')}}">
-                <i class="fas fa-tags menu-icon"></i>
-                <span class="menu-title">Categorías</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('tags.index')}}">
-                <i class="fas fa-tag menu-icon"></i>
-                <span class="menu-title">Etiquetas</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('colors.index')}}">
-                <i class="fas fa-tag menu-icon"></i>
-                <span class="menu-title">Colores</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('sizes.index')}}">
-                <i class="fas fa-tag menu-icon"></i>
-                <span class="menu-title">Tamaños</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('products.index')}}">
-                <i class="fas fa-boxes menu-icon"></i>
-                <span class="menu-title">Productos</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('clients.index')}}">
-                <i class="fas fa-users menu-icon"></i>
-                <span class="menu-title">Clientes</span>
-            </a>
-        </li>
+        
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('providers.index')}}">
                 <i class="fas fa-shipping-fast menu-icon"></i>
                 <span class="menu-title">Proveedores</span>
             </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('users.index')}}">
-                <i class="fas fa-user-tag menu-icon"></i>
-                <span class="menu-title">Usuarios</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('roles.index')}}">
-                <i class="fas fa-user-cog menu-icon"></i>
-                <span class="menu-title">Roles</span>
-            </a>
-        </li>
+        </li> --}}
+        
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                 aria-controls="page-layouts">
                 <i class="fas fa-cogs menu-icon"></i>
-                <span class="menu-title">Configuración</span>
+                <span class="menu-title">Sistema</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="page-layouts">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item d-none d-lg-block">
-                        <a class="nav-link" href="{{route('business.index')}}">Empresa</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('users.index')}}">
+                            <i class="fas fa-user-tag menu-icon"></i>
+                            <span class="menu-title">Usuarios</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('printers.index')}}">Impresora</a>
+                        <a class="nav-link" href="{{route('roles.index')}}">
+                            <i class="fas fa-user-cog menu-icon"></i>
+                            <span class="menu-title">Roles</span>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link" href="{{route('business.index')}}">
+                            <i class="fas fa-folder menu-icon"></i>
+                            <span class="menu-title">Empresa</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('printers.index')}}">
+                            <i class="fas fa-copy menu-icon"></i>
+                            <span class="menu-title">Impresora</span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="https://www.youtube.com/channel/UCMWSlUcDJS00-5pmicciZ_w">
-                <i class="fab fa-youtube menu-icon"></i>
-                <span class="menu-title">YouTube</span>
+            <a class="nav-link" href="https://softwow.co">
+                <i class=" menu-icon"></i>
+                <span class="menu-title">SoftWoW ♥ </span>
             </a>
         </li>
     </ul>

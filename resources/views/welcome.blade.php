@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 <!-- hero slider start -->
-<div class="hero-slider-area mt-3 mb-3">
+<div class="hero-slider-area pt-5 mb-3">
     <div class="slider-wrapper-area3">
         <div class="hero-slider-active hero__3 slick-dot-style hero-dot">
             <div class="single-slider d-flex align-items-center"

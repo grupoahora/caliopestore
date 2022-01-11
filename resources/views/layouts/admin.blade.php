@@ -117,9 +117,20 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.
-                            Todos los derechos reservados.</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.youtube.com/channel/UCMWSlUcDJS00-5pmicciZ_w">Texvn Online</a> </> <i class="far fa-heart text-danger"></i></span>
+                        
+                            <div class="container">
+                                <div class="footer-bottom-wrap d-block">
+                                    <div class="text-center h5 ">
+                                        © Copyright 2022. Todos los derechos reservados. <br>
+                                        Sitio web diseñado y desarrollado por manos Cucuteñas. <br>
+                        
+                                        
+                                    </div>
+                                    <div class="text-center h6">
+                                        Hecho con ❤ Softwow!
+                                    </div>
+                            </div>
+                        
                     </div>
                 </footer>
                 <!-- partial -->

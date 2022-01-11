@@ -29,9 +29,9 @@ class CreateProductsTable extends Migration
             $table->enum('status',['DRAFT','SHOP', 'POS', 'BOTH', 'DISABLED'])->default('DRAFT');
 
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('subcategory_id')->nullable();
-            $table->foreign('subcategory_id')->references('id')->on('subcategories');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

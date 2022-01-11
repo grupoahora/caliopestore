@@ -54,6 +54,7 @@
                                     <th>Id</th>
                                     <th>Nombre</th>
                                     <th>Correo electrónico</th>
+                                    <th>Rol</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -65,6 +66,16 @@
                                         <a href="{{route('users.show',$user)}}">{{$user->name}}</a>
                                     </td>
                                     <td>{{$user->email}}</td>
+                                    <td>
+                                        @foreach ($user->getRoleNames() as $role)
+                                            {{$role}}
+                                            @if ($loop->last)
+                                                
+                                            @else
+                                                .
+                                            @endif
+                                        @endforeach
+                                    </td>
                                     <td style="width: 50px;">
                                         {!! Form::open(['route'=>['users.destroy',$user], 'method'=>'DELETE']) !!}
 
