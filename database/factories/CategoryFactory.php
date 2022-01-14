@@ -10,7 +10,8 @@ $factory->define(Category::class, function (Faker $faker) {
         'name' => $faker->unique()->word,
         'slug' => $faker->unique()->slug,
         'description' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-        'icon' => $faker->randomElement(['icon-fruits',
+        'icon' => $faker->randomElement([
+        'icon-fruits',
         'icon-broccoli-1',
         'icon-beef',
         'icon-fast-food',

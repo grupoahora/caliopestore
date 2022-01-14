@@ -52,9 +52,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     <button type="submit" id="guardar" class="btn btn-primary float-right">Registrar</button>
-                     <a href="{{route('sales.index')}}" class="btn btn-light">
-                        Cancelar
-                     </a>
+                    
                 </div>
                 {!! Form::close() !!}
             </div>
@@ -80,13 +78,21 @@
 
             <div class="modal-body">
 
+                
                 <div class="form-group">
                     <label for="name">Nombre</label>
                     <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required>
+                </div><div class="form-group">
+                    <label for="surname">Apellido</label>
+                    <input type="text" class="form-control" name="surname" id="surname" aria-describedby="helpId" required>
                 </div>
                 <div class="form-group">
                     <label for="dni">DNI</label>
                     <input type="number" class="form-control" name="dni" id="dni" aria-describedby="helpId" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">correo electrónico</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="helpId" required>
                 </div>
 
                 <input type="hidden" name="sale" value="1">

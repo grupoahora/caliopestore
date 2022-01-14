@@ -119,11 +119,23 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="status">Estado de Producto</label>
-                        <select class="select2" name="status" id="status" style="width: 100%">
+                        <br>
+                        <a
+                        href="#"
+                        id="product_status"
+                        class="editable"
+                        data-type="select"
+                        data-pk="{{$product->id}}"
+                        data-url="{{url("/products_update/$product->id")}}"
+                        data-title="Estado"
+                        data-value="{{$product->status}}"
+                        >{{$product->product_status()}}
+                        </a>
+                        {{-- <select class="select2" name="status" id="status" style="width: 100%">
                             @foreach (get_product_statuses() as $status)
                             <option value="{{$status['code']}}" >{{$status['name']}}</option>
                             @endforeach
-                        </select>
+                        </select> --}}
                         @error('status')
                             <small class="text-danger">
                                 {{ $message }}
@@ -241,6 +253,23 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('/editable/jqueryui-editable/js/jqueryui-editable.min.js') !!}
+<script>
+    $.fn.editable.defaults.mode = 'inline';
+    $.fn.editable.defaults.ajaxOptions = {type: 'PUT'};
+    $(document).ready(function() {
+        $('.editable').editable({
+            source:[
+                
+                {value: "DRAFT", text: "BORRADOR"},
+                {value: "SHOP", text: "TIENDA"},
+                {value: "POS", text: "PUNTO DE VENTA"},
+                {value: "BOTH", text: "AMBOS"},
+                {value: "DISABLED", text: "DESACTIVADO"},
+            ]
+        });
+    });
+</script>
 {{-- {!! Html::script('melody/js/dropify.js') !!} --}}
 
 {!! Html::script('js/jquery-ui.min.js') !!}

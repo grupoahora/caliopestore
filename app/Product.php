@@ -131,21 +131,29 @@ class Product extends Model
 
     static function get_active_products()
     {
-        return self::where('status', 'BOTH');
+        return self::where('status', 'BOTH')->orWhere('status', 'SHOP');
     }
     static function get_rating_products()
     {
         return self::where('status', 'BOTH');
     }
-    public function status(){
-        switch ($this->status) {
-            case 'ACTIVE':
-                return 'Activo';
-            case 'DEACTIVATED':
-                return 'Inactivo';
+    public function product_status()
+    {
+        switch ($this->shipping_status) {
+            case 'DRAFT':
+                return 'BORRADOR';
+            case 'SHOP':
+                return 'TIENDA';
+            case 'POS':
+                return 'PUNTO DE VENTA';
+            case 'BOTH':
+                return 'AMBOS';
+            case 'DISABLED':
+                return 'DESACTIVADO';
             default:
                 # code...
                 break;
         }
     }
-}
+
+    }

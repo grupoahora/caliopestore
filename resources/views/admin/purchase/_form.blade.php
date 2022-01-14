@@ -1,15 +1,6 @@
 
 <div class="form-row">
-    {{-- <div class="form-group col-md-8">
-        <div class="form-group">
-            <label for="provider_id">Proveedor</label>
-            <select class="form-control" name="provider_id" id="provider_id">
-                @foreach ($providers as $provider)
-                <option value="{{$provider->id}}">{{$provider->name}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div> --}}
+
     <div class="form-group col-md-4">
         <label for="product_id">Producto</label>
         <div class="form-group">
@@ -92,9 +83,9 @@
                 <tr>
                     <th>Eliminar</th>
                     <th>Producto</th>
-                    <th>Precio(PEN)</th>
+                    <th>Precio(COP)</th>
                     <th>Cantidad</th>
-                    <th>SubTotal(PEN)</th>
+                    <th>SubTotal(COP)</th>
                 </tr>
             </thead>
             <tfoot>
@@ -103,7 +94,7 @@
                         <p align="right">TOTAL:</p>
                     </th>
                     <th>
-                        <p align="right"><span id="total">PEN 0.00</span> </p>
+                        <p align="right"><span id="total">COP 0.00</span> </p>
                     </th>
                 </tr>
                 <tr>
@@ -111,7 +102,7 @@
                         <p align="right">TOTAL IMPUESTO (18%):</p>
                     </th>
                     <th>
-                        <p align="right"><span id="total_impuesto">PEN 0.00</span></p>
+                        <p align="right"><span id="total_impuesto">COP 0.00</span></p>
                     </th>
                 </tr>
                 <tr>
@@ -119,7 +110,7 @@
                         <p align="right">TOTAL PAGAR:</p>
                     </th>
                     <th>
-                        <p align="right"><span align="right" id="total_pagar_html">PEN 0.00</span> <input type="hidden"
+                        <p align="right"><span align="right" id="total_pagar_html">COP 0.00</span> <input type="hidden"
                                 name="total" id="total_pagar"></p>
                     </th>
                 </tr>

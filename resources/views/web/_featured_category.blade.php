@@ -10,7 +10,10 @@
             <div class="category-item">
                 <div class="category-thumb">
                     <a href="{{route('web.product_details', $product)}}">
-                        <img src="{{$product->images->pluck('url')[0]}}" alt="">
+                        @foreach ($product->images as $image)
+                            <img class="@if($loop->first)  @else d-none @endif" src="{{$image->url}}" alt="">
+                        @endforeach
+                        {{-- <img src="{{$product->images->pluck('url')[0]}}" alt=""> --}}
                     </a>
                     
                 </div>

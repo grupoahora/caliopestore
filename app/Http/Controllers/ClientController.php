@@ -29,9 +29,17 @@ class ClientController extends Controller
     {
         return view('admin.client.create');
     }
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        User::create($request->all())->assignRole('Client');
+        
+        User::create([
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'dni' => $request->dni,
+            'email' => $request->email,
+            'password' => bcrypt('12345678'),
+
+        ])->assignRole('Client');
         if ($request->sale == 1) {
             return redirect()->back();
         }

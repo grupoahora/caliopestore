@@ -92,5 +92,15 @@ class WebController extends Controller
         }
         return $data;
     }
+    public function products_update(Request $request, $id){
+        
+        $product = Product::find($id);
+
+        $product->update([
+            'status' => $request->value
+        ]);
+        
+        return $request->value;
+    }
    
 }

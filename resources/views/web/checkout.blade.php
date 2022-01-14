@@ -1,6 +1,5 @@
 @extends('layouts.web')
-@section('meta_description', '')
-@section('title', 'Caliope')
+
 @section('styles')
 
 @endsection

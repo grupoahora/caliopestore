@@ -2,12 +2,13 @@
 @section('title','Gestión de productos')
 @section('styles')
 <style type="text/css">
-    .unstyled-button {
+ .unstyled-button {
         border: none;
         padding: 0;
         background: none;
-    }
-
+      }
+</style>
+{!! Html::style('/editable/jqueryui-editable/css/jqueryui-editable.css') !!}
 </style>
 
 @endsection
@@ -71,21 +72,19 @@
                                         <a href="{{route('products.show',$product)}}">{{$product->name}}</a>
                                     </td>
                                     <td>{{$product->stock}}</td>
-                                    @if ($product->status == 'ACTIVE')
                                     <td>
-                                        <a class="jsgrid-button btn btn-success"
-                                            href="{{route('change.status.products', $product)}}" title="Editar">
-                                            Activo <i class="fas fa-check"></i>
+                                        <a
+                                        href="#"
+                                        id="product_status"
+                                        class="editable"
+                                        data-type="select"
+                                        data-pk="{{$product->id}}"
+                                        data-url="{{url("/products_update/$product->id")}}"
+                                        data-title="Estado"
+                                        data-value="{{$product->status}}"
+                                        >{{$product->product_status()}}
                                         </a>
                                     </td>
-                                    @else
-                                    <td>
-                                        <a class="jsgrid-button btn btn-danger"
-                                            href="{{route('change.status.products', $product)}}" title="Editar">
-                                            Desactivado <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                    @endif
                                     @if ($product->category_id == '')
                                     <td>
                                         no tiene categoria
@@ -155,4 +154,21 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('/editable/jqueryui-editable/js/jqueryui-editable.min.js') !!}
+<script>
+    $.fn.editable.defaults.mode = 'inline';
+    $.fn.editable.defaults.ajaxOptions = {type: 'PUT'};
+    $(document).ready(function() {
+        $('.editable').editable({
+            source:[
+                
+                {value: "DRAFT", text: "BORRADOR"},
+                {value: "SHOP", text: "TIENDA"},
+                {value: "POS", text: "PUNTO DE VENTA"},
+                {value: "BOTH", text: "AMBOS"},
+                {value: "DISABLED", text: "DESACTIVADO"},
+            ]
+        });
+    });
+</script>
 @endsection

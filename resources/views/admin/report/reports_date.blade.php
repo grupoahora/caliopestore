@@ -1,12 +1,14 @@
 @extends('layouts.admin')
 @section('title','Reporte por rango de fecha')
 @section('styles')
+
 <style type="text/css">
     .unstyled-button {
         border: none;
         padding: 0;
         background: none;
-      }
+    }
+
 </style>
 
 @endsection
@@ -32,46 +34,42 @@
             <div class="card">
                 <div class="card-body">
                     
-                    <div class="d-flex justify-content-between">
-                        {{--  <h4 class="card-title">Reporte por rango de fecha </h4>  --}}
-                        {{--  <i class="fas fa-ellipsis-v"></i>  --}}
-                        {{--  <div class="btn-group">
-                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="{{route('sales.create')}}" class="dropdown-item">Registrar</a>
-                            </div>
-                        </div>  --}}
-                    </div>
+                    
 
                     {!! Form::open(['route'=>'report.results', 'method'=>'POST']) !!}
 
                     <div class="row ">
-            
+                        
                         <div class="col-12 col-md-3">
-                            <span>Fecha inicial</span>
-                            <div class="form-group">
-                                <input class="form-control" type="date" 
-                                value="{{old('fecha_ini')}}" 
-                                name="fecha_ini" id="fecha_ini">
+                            <span class="card-description">Fecha de inicio</span>
+                            <div id="datepicker1" class="input-group date datepicker">
+                                <input class="form-control" type="text" 
+                                    value="{{old('fecha_ini')}}" 
+                                    name="fecha_ini" id="fecha_ini" >
+                                    <span class="input-group-addon input-group-append border-left">
+                                        <span class="far fa-calendar input-group-text"></span>
+                                    </span>
                             </div>
                         </div>
                         <div class="col-12 col-md-3">
-                            <span>Fecha final</span>
-                            <div class="form-group">
-                                <input class="form-control" type="date" 
-                                value="{{old('fecha_fin')}}" 
-                                name="fecha_fin" id="fecha_fin">
+                            <span class="card-description">Fecha de final</span>
+                            <div id="datepicker2" class="input-group date datepicker">
+                                <input class="form-control" type="text" 
+                                value="{{old('fecha_fin')}}"
+                                name="fecha_fin" id="fecha_fin" data-date="">
+                                    <span class="input-group-addon input-group-append border-left">
+                                        <span class="far fa-calendar input-group-text"></span>
+                                    </span>
                             </div>
                         </div>
+                        
                         <div class="col-12 col-md-3 text-center mt-4">
                             <div class="form-group">
                                <button type="submit" class="btn btn-primary btn-sm">Consultar</button>
                             </div>
                         </div>
-                        
-                        <div class="col-12 col-md-3 text-center">
+                         
+                        <div class="col-12 col-md-3 text-center my-auto">
                             <span>Total de ingresos: <b> </b></span>
                             <div class="form-group">
                                 <strong>s/ {{$total}}</strong>
@@ -126,6 +124,21 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+
+<script>
+
+    $(function(){
+      $('#datepicker1').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d'
+});
+      
+      $('#datepicker2').datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: '-3d'
+});
+    });
+</script>
 <script>
     window.onload = function(){
         var fecha = new Date(); //Fecha actual
@@ -138,6 +151,19 @@
           mes='0'+mes //agrega cero si el menor de 10
         document.getElementById('fecha_fin').value=ano+"-"+mes+"-"+dia;
       }
+    var fechafin = $('#datepicker2');
+    fechafin.click(function(){
+        var fecha = new Date(); //Fecha actual
+        var mes = fecha.getMonth()+1; //obteniendo mes
+        var dia = fecha.getDate(); //obteniendo dia
+        var ano = fecha.getFullYear(); //obteniendo año
+        if(dia<10)
+          dia='0'+dia; //agrega cero si el menor de 10
+        if(mes<10)
+          mes='0'+mes //agrega cero si el menor de 10
+        document.getElementById('fecha_fin').value=ano+"-"+mes+"-"+dia;
+    });
+    /*  */
 </script>
 
 @endsection

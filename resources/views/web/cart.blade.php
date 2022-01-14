@@ -48,8 +48,13 @@
                         <tbody>
                             @foreach ($shopping_cart->shopping_cart_details as $shopping_cart_detail)
                                 <tr>
-                                    <td class="pro-thumbnail"><a href="{{route('web.product_details', $shopping_cart_detail->product)}}"><img class="img-fluid"
-                                                src="{{$shopping_cart_detail->product->images->pluck('url')[0]}}" alt="{{$shopping_cart_detail->product->name}}" /></a></td>
+                                    <td class="pro-thumbnail"><a href="{{route('web.product_details', $shopping_cart_detail->product)}}">
+                                        @foreach ($shopping_cart_detail->product->images as $image)
+                                            
+                                        <img class="img-fluid @if($loop->first)  @else d-none @endif" 
+                                                src="{{$image->url}}" alt="{{$shopping_cart_detail->product->name}}" /></a>
+                                        @endforeach
+                                    </td>
                                     <td class="pro-title"><a href="{{route('web.product_details', $shopping_cart_detail->product)}}">{{$shopping_cart_detail->product->name}}</a></td>
                                     <td class="pro-title">
                                     {{$shopping_cart_detail->size}}

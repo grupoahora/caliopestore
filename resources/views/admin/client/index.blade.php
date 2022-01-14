@@ -54,7 +54,6 @@
                                     <th>Id</th>
                                     <th>Nombre</th>
                                     <th>DNI</th>
-                                    <th>Teléfono / Celular</th>
                                     <th>Correo electrónico</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -67,7 +66,6 @@
                                         <a href="{{route('clients.show',$client)}}">{{$client->name}}</a>
                                     </td>
                                     <td>{{$client->dni}}</td>
-                                    <td>{{$client->phone}}</td>
                                     <td>{{$client->email}}</td>
                                     <td style="width: 50px;">
                                         {!! Form::open(['route'=>['clients.destroy',$client], 'method'=>'DELETE']) !!}

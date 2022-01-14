@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description', 'Caliope')">
-
+    <title>Caliope</title>
     <!-- Site title -->
-    @yield('title', 'Caliope')
+   
     @stack('styles')
     <!-- Favicon -->
     <link rel="shortcut icon" href="/galio/assets/img/favicon.ico" type="image/x-icon" />
