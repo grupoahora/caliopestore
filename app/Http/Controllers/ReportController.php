@@ -19,7 +19,7 @@ class ReportController extends Controller
         return view('admin.report.reports_day', compact('sales', 'total'));
     }
     public function reports_date(){
-        $sales = Sale::whereDate('sale_date', Carbon::today('America/Lima'))->get();
+        $sales = Sale::get();
         $total = $sales->sum('total');
         return view('admin.report.reports_date', compact('sales', 'total'));
     }

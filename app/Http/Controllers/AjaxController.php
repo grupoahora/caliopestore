@@ -7,9 +7,20 @@ use App\Product;
 use App\Subcategory;
 use Dotenv\Result\Result;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AjaxController extends Controller
 {
+    public function get_compras(Request $request)
+    {
+
+        $data = DB::select('SELECT monthname(c.purchase_date) as mes, sum(c.total) as totalmes from purchases c where c.status="VALID" group by monthname(c.purchase_date) order by month(c.purchase_date) asc limit 12');
+        return $data;
+    }
+    public function products_ver($id)
+    {
+        dd($id);
+    }
     public function get_subcategories(Request $request)
     {
         if ($request->ajax()) {

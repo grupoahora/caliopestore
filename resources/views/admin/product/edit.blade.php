@@ -296,25 +296,7 @@
     });
 
 </script>
-<!-- plugin js for this page -->
-  {{-- {!! Html::script('melody/vendors/lightgallery/js/lightgallery-all.min.js') !!} --}}
-  <!-- end plugin js for this page -->
-<!-- Custom js for this page-->
-  {{-- {!! Html::script('melody/js/light-gallery.js') !!} --}}
-  <!-- End custom js for this page-->
-<!-- Custom js for this page-->
-  {{-- {!! Html::script('melody/js/jquery-file-upload.js') !!} --}}
-  {{-- <script>
-        (function($) {
-            'use strict';
-            if ($("#fileuploader").length) {
-                $("#fileuploader").uploadFile({
-                url: "/upload/product/{{$product->id}}/image",
-                fileName: "image",
-                });
-            }
-        })(jQuery);
-  </script> --}}
+
   <script>
       var category = $('#category');
       var subcategory_id = $('#subcategory_id');

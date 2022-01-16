@@ -154,7 +154,7 @@
     {!! Html::script('melody/js/misc.js') !!}
     {!! Html::script('melody/js/settings.js') !!}
     {!! Html::script('melody/js/todolist.js') !!}
-    {!! Html::script('melody/js/dashboard.js') !!}
+   {{--  {!! Html::script('melody/js/dashboard.js') !!} --}}
     <!-- endinject -->
     <!-- Custom js for this page-->
     <!-- End custom js for this page-->

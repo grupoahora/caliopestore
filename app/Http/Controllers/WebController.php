@@ -102,5 +102,10 @@ class WebController extends Controller
         
         return $request->value;
     }
-   
+    public function products_ver($id)
+    {
+        
+        $product = Product::find($id);
+        return redirect()->route('products.show', compact('product'));
+    }
 }

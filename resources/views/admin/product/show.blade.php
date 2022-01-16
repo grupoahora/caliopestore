@@ -60,7 +60,7 @@
                                         Status
                                     </span>
                                     <span class="float-right text-muted">
-                                        {{$product->status()}}
+                                        {{$product->product_status()}}
                                     </span>
                                 </p>
                                 {{-- <p class="clearfix">
@@ -80,7 +80,7 @@
                                     <span class="float-right text-muted">
                                         {{--  PRODUCTOS POR CATEGORIA  --}}
                                         <a href="">
-                                            {{$product->category->name}}
+                                            {{-- {{$product->category->name}} --}}
                                         </a>
                                     </span>
                                 </p>

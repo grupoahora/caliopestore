@@ -56,6 +56,7 @@ Route::get('mi_carrito_de_compras', 'WebController@cart')->name('web.cart');
 Route::put('shopping_cart', 'ShoppingCartController@update')->name('shopping_cart.update');
 //=====================================rutas del productos =============================================//
 Route::get('products/json', 'WebController@products')->name('products.json');
+Route::get('verproducto/{product}', 'WebController@products_ver')->name('products.ver');
 Route::get('products/resultado/', 'webShopController@search_products')->name('web.search_products');
 
 Route::get('products/subcategory/resultado/', 'webShopController@search_subcategories_by_category')->name('web.search_subcategories_by_category');
@@ -125,6 +126,7 @@ Route::get('/prueba', function () {
     return view('prueba');
 });
 Route::get('get_subcategories','AjaxController@get_subcategories')->name('get_subcategories');
+Route::get('get_compras', 'AjaxController@get_compras')->name('get.compras');
 Route::get('get_products_by_subcategory', 'AjaxController@get_products_by_subcategory')->name('get_products_by_subcategory');
 Route::get('get_product_by_product', 'AjaxController@get_product_by_product')->name('get_product_by_product');
 

@@ -72,7 +72,7 @@
                         <div class="col-12 col-md-3 text-center my-auto">
                             <span>Total de ingresos: <b> </b></span>
                             <div class="form-group">
-                                <strong>s/ {{$total}}</strong>
+                                <strong>COP {{$total}}</strong>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                                     <td>
                                         {{\Carbon\Carbon::parse($sale->sale_date)->format('d M y h:i a')}}
                                     </td>
-                                    <td>{{$sale->total}}</td>
+                                    <td>COP {{$sale->total}}</td>
                                     <td>{{$sale->status}}</td>
                                     <td style="width: 50px;">
 
@@ -123,19 +123,22 @@
 </div>
 @endsection
 @section('scripts')
-{!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('melody/jCOPdata-table.js') !!}
 
 <script>
 
+    var fecha_ini = $('#fecha_ini').value;
     $(function(){
-      $('#datepicker1').datepicker({
-    format: 'yyyy-mm-dd',
-    startDate: '-3d'
+        $('#datepicker1').datepicker({
+    format: 'yyyy/mm/dd',
+    startDate: fecha_ini,
+    disabledDays: [],
 });
       
       $('#datepicker2').datepicker({
-    format: 'yyyy-mm-dd',
-    startDate: '-3d'
+    format: 'yyyy/mm/dd',
+    startDate: fecha_ini,
+    disabledDays: [],
 });
     });
 </script>
@@ -149,7 +152,9 @@
           dia='0'+dia; //agrega cero si el menor de 10
         if(mes<10)
           mes='0'+mes //agrega cero si el menor de 10
-        document.getElementById('fecha_fin').value=ano+"-"+mes+"-"+dia;
+        document.getElementById('fecha_fin').value=ano+"/"+mes+"/"+dia;
+        document.getElementById('fecha_ini').value=ano+"/01/01";
+
       }
     var fechafin = $('#datepicker2');
     fechafin.click(function(){
