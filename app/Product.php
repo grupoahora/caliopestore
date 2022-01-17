@@ -10,8 +10,8 @@ use willvincent\Rateable\Rateable;
 class Product extends Model
 {
     use Rateable;
-    protected $fillable = [
-        'code',
+    protected $guarded = [
+        /* 'code',
         'name',
         'slug',
         'stock',
@@ -21,7 +21,7 @@ class Product extends Model
         'status',
         'category_id',
         'subcategory_id',
-        'tag_id'
+        'tag_id' */
         /* 'provider_id', */
     ];
 

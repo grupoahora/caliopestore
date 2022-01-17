@@ -7,6 +7,7 @@ use App\OrderDetail;
 use App\Product;
 use App\Purchase;
 use App\Sale;
+use App\saleDetail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +32,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Product $product)
     {
         /* $comprasmes=DB::select('SELECT monthname(c.purchase_date) as mes, sum(c.total) as totalmes 
         from purchases c where c.status="VALID" group by monthname(c.purchase_date) 
@@ -85,15 +86,17 @@ class HomeController extends Controller
             DB::raw("SUM(total) as total")
         )->get();
 
-
-        $productosvendidos = Sale::store_products();
-
-        dd($productosvendidos);
+       
+        $productosvendidos = saleDetail::select(DB::raw('SUM(quantity) as total, product_id'))
+              ->groupBy('product_id')
+              ->get();
+        
+        
 
        
        
         return view('home', compact( 'comprasmes', 'ventasmes', 
-        'ventasdia', 'totalventa', 'totalcompra', 'productosvendidos', 'order_mes', 
-        'sale_products'));
+        'ventasdia', 'totalventa', 'totalcompra', 'order_mes', 
+        'sale_products','productosvendidos'))/* ->with('productosvendidos', json_encode($productosvendidos, JSON_NUMERIC_CHECK)) */;
     }
 }

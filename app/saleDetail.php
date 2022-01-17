@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class saleDetail extends Model
 {
-    protected $fillable = [
-        'sale_id',
+    protected $guarded = [
+        /* 'sale_id',
         'product_id',
         'quantity',
         'price',
-        'discount',
+        'discount', */
     ];
     public function product(){
         return $this->belongsTo(Product::class);

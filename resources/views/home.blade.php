@@ -178,14 +178,14 @@
                                 <tbody>
                                     @foreach ($productosvendidos as $product)
                                         <tr>
-                                            <td>{{ $product->id }}</td>
-                                            <td>{{ $product->name }}</td>
-                                            <td>{{ $product->code }}</td>
-                                            <td><strong>{{ $product->stock }}</strong> Unidades</td>
-                                            <td><strong>{{ $product->quantity }}</strong> Unidades</td>
+                                            <td>{{ $product->product->id }}</td>
+                                            <td>{{ $product->product->name }}</td>
+                                            <td>{{ $product->product->code }}</td>
+                                            <td><strong>{{ $product->product->stock }}</strong> Unidades</td>
+                                            <td><strong>{{ $product->total }}</strong> Unidades</td>
                                             <td>
                                                 <a class="btn btn-primary"
-                                                    href="{{ route('products.ver', $product->id) }}">
+                                                    href="{{ route('products.ver', $product->product->id) }}">
                                                     <i class="far fa-eye"></i>
                                                     Ver detalles
                                                 </a>

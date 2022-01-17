@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    protected $fillable = [
-        'client_id',
+    protected $guarded = [
+        /* 'client_id',
         'user_id',
         'sale_date',
         'tax',
         'total',
-        'status',
+        'status', */
     ];
     public function user(){
         return $this->belongsTo(User::class);
