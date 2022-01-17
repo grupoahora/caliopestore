@@ -44,18 +44,10 @@ class SaleController extends Controller
         $products = Product::get_active_products()->get();
         return view('admin.sale.create', compact('clients', 'products'));
     }
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request, Sale $sale)
     {
+        $sale->my_store($request);
         
-        $sale = Sale::create($request->all()+[
-            'user_id'=> $request->client_id,
-            'sale_date'=>Carbon::now('America/Lima'),
-        ]);
-        
-        foreach ($request->product_id as $key => $product) {
-            $results[] = array("product_id"=>$request->product_id[$key], "quantity"=>$request->quantity[$key], "price"=>$request->price[$key], "discount"=>$request->discount[$key]);
-        }
-        $sale->saleDetails()->createMany($results);
         return redirect()->route('sales.index');
     }
     public function show(Sale $sale)

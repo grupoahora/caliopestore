@@ -34,7 +34,7 @@ class ClientController extends Controller
         
         User::create([
             'name' => $request->name,
-            
+            'surname' => $request->surname,
             'dni' => $request->dni,
             'email' => $request->email,
             'password' => bcrypt('12345678'),

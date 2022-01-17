@@ -86,18 +86,15 @@
                                             
                                             <ul class="shipping-type">
                                                 <li>
-                                                    
                                                     <strong>
                                                         <div class="fw-700">Envío Gratis</div>
                                                     </strong>
                                                         
-                                                        <div class="form-label">
-                                                            El tiempo de envìo esta sujeto <br> a la empresa Domiciliaria
-                                                        </div>
-                                                        
-                                                        
-                                                    </li>
-                                                </ul>
+                                                    <div class="form-label">
+                                                        El tiempo de envìo esta sujeto <br> a la empresa Domiciliaria
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </td>
                                     </tr>
                                     <tr>

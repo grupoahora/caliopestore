@@ -1,4 +1,4 @@
-{{--  <div class="form-row">
+{{-- <div class="form-row">
     <div class="form-group col-md-6">
       
     </div>
@@ -8,12 +8,18 @@
     <div class="form-group col-md-2">
         
     </div>
-</div>  --}}
+</div> --}}
 <div class="form-row">
     <div class="form-group col-md-6">
         <div class="form-group">
             <label for="name">Nombre</label>
             <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" required>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            <label for="surname">Apellido</label>
+            <input type="text" class="form-control" name="surname" id="surname" aria-describedby="helpId" required>
         </div>
     </div>
     <div class="form-group col-md-6">
