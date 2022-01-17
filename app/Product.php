@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use willvincent\Rateable\Rateable;
+use Illuminate\Support\Facades\DB;
 
 
 class Product extends Model
@@ -25,6 +26,19 @@ class Product extends Model
         /* 'provider_id', */
     ];
 
+    public function add_stock($quantity)
+    {
+        $this->increment('stock', $quantity);
+        /* $this->update([
+            'stock'=> DB::raw("stock + $quantity")
+        ]); */
+
+    }
+    public function substract_stock($quantity)
+    {
+        $this->decrement('stock', $quantity);
+        
+    }
     public function getRouteKeyName()
     {
         return 'slug';

@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
@@ -38,6 +39,11 @@ class Order extends Model
     {
         return $this->subtotal() * $this->tax;
     }
+    public function update_stock($id, $quantity)
+    {
+        $product = Product::find($id);
+        $product->substract_stock($quantity);
+    }
     /* public function total()
     {
         return $this->subtotal + $this->totaltax();
@@ -48,22 +54,29 @@ class Order extends Model
         $order = self::create([
             'shipping_status'=> 'PENDING',
             'payment_status'=> 'PAID',
-            'user_id' => auth()->user()->id,
+            'user_id' => Auth::user()->id,
             'order_date' => Carbon::now(),
             /* 'subtotal' => $shopping_cart->total_price(),
             'tax' => 0.19, */
             
         ]);
+        $order->add_order_details($shopping_cart);
         
+        
+    }
+    public function add_order_details($shopping_cart)
+    {
         foreach ($shopping_cart->shopping_cart_details as $key => $abc) {
+            $this->update_stock($shopping_cart->shopping_cart_details[$key]->product_id, $shopping_cart->shopping_cart_details[$key]->quantity);
             $results[] = array(
-            
-            "quantity" => $shopping_cart-> shopping_cart_details[$key]->quantity,
-            "price" => $abc->product->sell_price,
-            "product_id" => $shopping_cart->shopping_cart_details[$key]->product_id);
+
+                "quantity" => $shopping_cart->shopping_cart_details[$key]->quantity,
+                "price" => $abc->product->sell_price,
+                "product_id" => $shopping_cart->shopping_cart_details[$key]->product_id
+            );
         }
 
-        $order->order_details()->createMany($results);
+        $this->order_details()->createMany($results);
     }
     public function shipping_status()
     {
