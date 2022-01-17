@@ -22,7 +22,7 @@
             </h3>
         </div>
 
-        @foreach ($totales as $total)
+        
             <div class="row">
                 <div class="col-md-6 grid-margin">
                     <div class="card">
@@ -31,13 +31,16 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-inline-block pt-3">
                                     <div class="d-md-flex">
-                                        <h2 class="mb-0">${{ $total->totalcompra }}</h2>
-                                        <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
-                                            <i class="far fa-clock text-muted"></i>
-                                            <small class=" ml-1 mb-0">Updated: 9:10am</small>
+                                            @foreach ($totalcompra as $totalcompra)
+                                                <h2 class="mb-0">${{ $totalcompra->total }}</h2>
+                                            @endforeach
+                                            <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
+                                                <i class="far fa-clock text-muted"></i>
+                                                <small class=" ml-1 mb-0">Updated: 9:10am</small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <small class="text-gray">Raised from 89 orders.</small>
+                                        <small class="text-gray">Raised from 89 orders.</small>
+                                        
                                 </div>
                                 <div class="d-inline-block">
                                     <i class="fas fa-chart-pie text-info icon-lg"></i>
@@ -53,7 +56,9 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-inline-block pt-3">
                                     <div class="d-md-flex">
-                                        <h2 class="mb-0">${{ $total->totalventa }}</h2>
+                                        @foreach ($totalventa as $totalventa)
+                                            <h2 class="mb-0">${{ $totalventa->total }}</h2>
+                                        @endforeach
                                         <div class="d-flex align-items-center ml-md-2 mt-2 mt-md-0">
                                             <i class="far fa-clock text-muted"></i>
                                             <small class="ml-1 mb-0">Updated: 05:42pm</small>
@@ -70,7 +75,7 @@
                 </div>
             </div>
             
-        @endforeach
+        
         <div class="row">
 
             <div class="col-md-6 grid-margin stretch-card">
@@ -133,7 +138,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <i class="fas fa-chart-line"></i>
+                            Ventas - Productos
+                        </h4>
 
+                        <canvas id="compras_productos"></canvas>
+                        <div id="orders-products-chart-legend" class="orders-chart-legend"></div>
+                    </div>
+                </div>
+            </div>
             
 
         </div>
@@ -266,7 +283,50 @@
     </script>
     <script>
         $(function() {
-            
+            var varCompraproduct = document.getElementById('compras_productos').getContext('2d');
+            var charCompraproduct = new Chart(varCompraproduct, {
+                type: 'bar',
+                data: 
+                    {
+                        labels: 
+                            [
+                                <?php foreach ($sale_products as $reg) {
+                                    setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish');
+                                    $mes_traducido = $reg->name;
+                                    echo '"' . $mes_traducido . '",';
+                                } ?>
+                            ],
+                        datasets: 
+                            [
+                                {
+                                    label: 'Compras',
+                                    data: 
+                                        [
+                                            <?php foreach ($sale_products as $reg) {
+                                                echo '' . $reg->sale_count . ',';
+                                            }?>
+                                        ],
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 3,
+                                }
+                            ],
+                    },
+                options: 
+                    {
+                        scales: 
+                            {
+                                yAxes: 
+                                    [
+                                        {
+                                            ticks: 
+                                                {
+                                                    beginAtZero: true
+                                                }
+                                        }
+                                    ]
+                            }
+                    },
+            });
             
             var varCompra = document.getElementById('compras').getContext('2d');
             var charCompra = new Chart(varCompra, {

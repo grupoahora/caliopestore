@@ -59,6 +59,10 @@ class Product extends Model
     {
         return $this->belongsToMany(Size::class);
     }
+    public function saleDetails()
+    {
+        return $this->hasMany(saleDetail::class);
+    }
     public function my_store($request)
     {
         $product = self::create($request->all()+[
@@ -156,4 +160,5 @@ class Product extends Model
         }
     }
 
-    }
+    
+}

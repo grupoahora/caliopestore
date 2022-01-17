@@ -23,4 +23,15 @@ class Sale extends Model
     public function saleDetails(){
         return $this->hasMany(saleDetail::class);
     }
+
+    public static function store_products()
+    {
+        $sales = Sale::where('status', 'VALID')->get();
+        $sale_details = new saleDetail;
+        foreach ($sales as $key => $value) {
+            # code...
+            $sale_details = saleDetail::where('sale_id', $value->id)->get();
+        }
+        return $sale_details;
+    }
 }

@@ -34,7 +34,7 @@ class ClientController extends Controller
         
         User::create([
             'name' => $request->name,
-            'surname' => $request->surname,
+            
             'dni' => $request->dni,
             'email' => $request->email,
             'password' => bcrypt('12345678'),
@@ -57,7 +57,7 @@ class ClientController extends Controller
     {
         return view('admin.client.edit', compact('client'));
     }
-    public function update(UpdateRequest $request, User $client)
+    public function update(Request $request, User $client)
     {
         $client->update($request->all());
         return redirect()->route('clients.index');
