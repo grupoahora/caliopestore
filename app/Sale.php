@@ -39,11 +39,16 @@ class Sale extends Model
     {
         $product = Product::find($id);
         $product->substract_stock($quantity);
+        /* dd($product); */
+        return $product;
     }
     public function my_store($request)
     {
         
-        $sale = self::create($request->all() + [
+        $sale = self::create([
+            'client_id' => $request->client_id,
+            'tax' => $request->tax,
+            'total' => $request->total,
             'user_id' => Auth::user()->id,
             'sale_date' => Carbon::now('America/Lima'),
         ]);
@@ -56,6 +61,7 @@ class Sale extends Model
             $results[] = array("product_id" => $request->product_id[$key], "quantity" => $request->quantity[$key], "price" => $request->price[$key], "discount" => $request->discount[$key]);
         }
         $this->saleDetails()->createMany($results);
+        /* dd($this->saleDetails()->createMany($results)); */
         # code...
     }
         /* dd($sale); */

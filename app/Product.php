@@ -28,7 +28,7 @@ class Product extends Model
 
     public function add_stock($quantity)
     {
-        $this->increment('stock', $quantity);
+        return $this->increment('stock', $quantity);
         /* $this->update([
             'stock'=> DB::raw("stock + $quantity")
         ]); */
@@ -36,7 +36,7 @@ class Product extends Model
     }
     public function substract_stock($quantity)
     {
-        $this->decrement('stock', $quantity);
+        return $this->decrement('stock', $quantity);
         
     }
     public function getRouteKeyName()

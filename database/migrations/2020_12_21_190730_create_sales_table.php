@@ -25,7 +25,7 @@ class CreateSalesTable extends Migration
             $table->dateTime('sale_date');
 
             $table->decimal('tax');
-            $table->decimal('total', $precision=8, $scale=2);
+            $table->decimal('total', $precision=20, $scale=2);
 
             $table->enum('status',['VALID','CANCELED'])->default('VALID');
 

@@ -22,6 +22,7 @@ class Purchase extends Model
     {
         $product = Product::find($id);
         $product->add_stock($quantity);
+        return $product;
     }
 
     public function user(){
