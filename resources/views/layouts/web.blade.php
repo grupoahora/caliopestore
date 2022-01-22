@@ -114,9 +114,9 @@
                                                         <i class="fa fa-angle-down"></i>
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                        <a class="dropdown-item" href="{{route('web.my_account')}}">Mi Cuenta</a>
+                                                        <a class="dropdown-item text-dark" href="{{route('web.my_account')}}">Mi Cuenta</a>
                                                         
-                                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                        <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();"">Cerrar Sesión</a>
                                                        
@@ -287,10 +287,10 @@
                                         <form action="{{route('web.subscription_email')}}" method="POST">
                                             @csrf
                                             <input type="email" name="subscription_email" autocomplete="off" placeholder="Email" value="{{auth()->user()->email}}">
-                                        </div>
-                                        <button type="submit" class="bg-footer-buttom-caliope" >subscribe!</button>
-                                    </form>
-                                        @endif
+                                            <button type="submit" class="bg-footer-buttom-caliope btn btn-sm" >subscribe!</button>
+                                        </form>
+                                    </div>
+                                    @endif
                             
                                 
                             @endauth
@@ -332,8 +332,8 @@
                                     @csrf
                                     <input type="email" name="subscription_email" autocomplete="off" placeholder="Email">
                                     <button type="submit" class="bg-footer-buttom-caliope btn btn-sm">subscribe!</button>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                             @endguest
                             
                             <!-- mailchimp-alerts end -->

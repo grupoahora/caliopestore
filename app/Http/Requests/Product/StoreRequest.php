@@ -26,6 +26,7 @@ class StoreRequest extends FormRequest
         return [
 
             'name'=>'string|required|unique:products|max:255',
+            /* 'files' => 'image|required|size: 2500', */
         
             
            

@@ -30,6 +30,7 @@ class WebShopController extends Controller
     }
     public function search_products_by_category(Request $request)
     {
+        
         $subcategories = Subcategory::where('category_id', $request->search_id_category)->paginate(12);
         $products  = Product::where('category_id', $request->search_id_category)->paginate(12);
         /* dd($products); */

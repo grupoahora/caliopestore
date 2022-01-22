@@ -26,6 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'name'=>'required|string|max:50',
             'description'=>'nullable|string|max:255',
+            /* 'images' => 'image|required|size: 2000' */
         ];
     }
     public function messages()
@@ -36,6 +37,7 @@ class StoreRequest extends FormRequest
             'name.max'=>'Solo se permite 50 caracteres.',
             'description.string'=>'El valor no es correcto.',
             'description.max'=>'Solo se permite 255 caracteres.',
+            'images.size'=>'la imagen supera el maximo temaño permitido de 2MB'
         ];
     }
 }

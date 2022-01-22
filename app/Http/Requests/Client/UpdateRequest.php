@@ -16,7 +16,7 @@ class UpdateRequest extends FormRequest
         return true;
     }
 
-    /**
+    /**number
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'dni'=>'string|required|unique:Users,dni,'.$this->route('client')->id.'|min:8|max:8',
             'ruc'=>'nullable|string|unique:Users,ruc,'.$this->route('client')->id.'|min:11|max:11',
             'address'=>'nullable|string|max:255',
-            'phone'=>'string|nullable|unique:Users,phone,'.$this->route('client')->id.'|min:9|max:9',
+            'number'=>'string|nullable|unique:Users,phone,'.$this->route('client')->id.'|min:9|max:9',
             'email'=>'string|nullable|unique:Users,email,'.$this->route('client')->id.'|max:255|email:rfc,dns',
         ];
     }
@@ -53,10 +53,10 @@ class UpdateRequest extends FormRequest
             'address.string'=>'El valor no es correcto.',
             'address.max'=>'Solo se permite 255 caracteres.',
             
-            'phone.string'=>'El valor no es correcto.',
-            'phone.unique'=>'El número de celular ya se encuentra registrado.',
-            'phone.min'=>'Se requiere de 9 caracteres.',
-            'phone.max'=>'Solo se permite 9 caracteres.',
+            'number.string'=>'El valor no es correcto.',
+            'number.unique'=>'El número de celular ya se encuentra registrado.',
+            'number.min'=>'Se requiere de 9 caracteres.',
+            'number.max'=>'Solo se permite 9 caracteres.',
 
             'email.string'=>'El valor no es correcto.',
             'email.unique'=>'La dirección de correo electrónico ya se encuentra registrada.',

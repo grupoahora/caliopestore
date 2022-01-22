@@ -57,12 +57,12 @@ Route::put('shopping_cart', 'ShoppingCartController@update')->name('shopping_car
 //=====================================rutas del productos =============================================//
 Route::get('products/json', 'WebController@products')->name('products.json');
 Route::get('verproducto/{product}', 'WebController@products_ver')->name('products.ver');
-Route::get('products/resultado/', 'webShopController@search_products')->name('web.search_products');
+Route::get('products/resultado/', 'WebShopController@search_products')->name('web.search_products');
 
-Route::get('products/subcategory/resultado/', 'webShopController@search_subcategories_by_category')->name('web.search_subcategories_by_category');
-Route::get('products/category/resultado/', 'webShopController@search_products_by_category')->name('web.search_products_by_category');
-Route::get('products/subcategory/resultado/', 'webShopController@search_products_by_subcategory')->name('web.search_products_by_subcategory');
-Route::get('products/tag/resultado/', 'webShopController@search_products_by_tag')->name('web.search_products_by_tag');
+Route::get('products/subcategory/resultado/', 'WebShopController@search_subcategories_by_category')->name('web.search_subcategories_by_category');
+Route::get('products/category/resultado/', 'WebShopController@search_products_by_category')->name('web.search_products_by_category');
+Route::get('products/subcategory/resultado/', 'WebShopController@search_products_by_subcategory')->name('web.search_products_by_subcategory');
+Route::get('products/tag/resultado/', 'WebShopController@search_products_by_tag')->name('web.search_products_by_tag');
 Route::post('subscription_email', 'WebShopController@subscription_email')->name('web.subscription_email');
 Route::post('rate_product/{product}', 'WebShopController@rate_product')->name('web.rate_product');
 //=====================================fin  =============================================//
