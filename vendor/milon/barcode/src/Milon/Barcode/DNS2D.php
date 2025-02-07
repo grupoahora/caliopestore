@@ -175,7 +175,7 @@ class DNS2D {
      * @param $w (int) Width of a single rectangle element in pixels.
      * @param $h (int) Height of a single rectangle element in pixels.
      * @param $color (array) RGB (0-255) foreground color for bar elements (background is transparent).
-     * @return path or false in case of error.
+     * @return string|false path or false in case of error.
      * @protected
      */
     public function getBarcodePNG($code, $type, $w = 3, $h = 3, $color = array(0, 0, 0)) {
@@ -215,9 +215,9 @@ class DNS2D {
                 if ($this->barcode_array['bcode'][$r][$c] == 1) {
                     // draw a single barcode cell
                     if ($imagick) {
-                        $bar->rectangle($x, $y, ($x + $w), ($y + $h));
+                        $bar->rectangle($x, $y, ($x + ($w-1)), ($y + ($h-1)));
                     } else {
-                        imagefilledrectangle($png, $x, $y, ($x + $w), ($y + $h), $fgcol);
+                        imagefilledrectangle($png, $x, $y, ($x + ($w-1)), ($y + ($h-1)), $fgcol);
                     }
                 }
                 $x += $w;
@@ -247,7 +247,7 @@ class DNS2D {
      * @param $w (int) Width of a single bar element in pixels.
      * @param $h (int) Height of a single bar element in pixels.
      * @param $color (array) RGB (0-255) foreground color for bar elements (background is transparent).
-     * @return url or false in case of error.
+     * @return string|false url or false in case of error.
      * @protected
      */
     protected function getBarcodePNGUri($code, $type, $w = 3, $h = 3, $color = array(0, 0, 0)) {
@@ -267,7 +267,7 @@ class DNS2D {
      * @param $w (int) Width of a single rectangle element in pixels.
      * @param $h (int) Height of a single rectangle element in pixels.
      * @param $color (array) RGB (0-255) foreground color for bar elements (background is transparent).
-     * @return path of image whice created
+     * @return string|false path of image which was created or false in case of error
      * @protected
      */
     protected function getBarcodePNGPath($code, $type, $w = 3, $h = 3, $color = array(0, 0, 0)) {
@@ -405,8 +405,8 @@ class DNS2D {
         return $path;
     }
 
-    protected function setStorPath($path) {
-        $this->store_path = rtrim($path, '/' . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+    public function setStorPath($path) {
+        $this->store_path = rtrim((string) $path, '/' . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         return $this;
     }
 

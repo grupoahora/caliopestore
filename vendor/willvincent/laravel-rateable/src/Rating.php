@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Config;
 
 class Rating extends Model
 {
-    public $fillable = ['rating', 'comment'];
+    public $fillable = ['rating','comment'];
 
     public function rateable()
     {
