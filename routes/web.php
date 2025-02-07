@@ -31,7 +31,7 @@ Route::get('/carrito', 'WebController@cart')->name('web.cart');
 Route::get('/contacto', 'WebController@contact_us')->name('web.contact_us');
 Route::get('/registro', 'WebController@login_register')->name('web.login_register');
 Route::get('/productos', 'WebController@shop_grid')->name('web.shop_grid');
-Route::get('/detalles', 'WebController@product_details')->name('web.product_details');
+/* Route::get('/detalles', 'WebController@product_details')->name('web.product_details'); */
 Route::get('/micuenta', 'MyAccountController@my_account')->name('web.my_account');
 Route::get('/mis_ordenes', 'MyAccountController@orders')->name('web.orders');
 Route::get('/mis_ordenes/pedido/{order}', 'MyAccountController@order_details')->name('web.order_details');
@@ -52,7 +52,7 @@ Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')->only([ 
 Route::get('shopping_cart_detail/{shopping_cart_detail}/destroy', 'ShoppingCartDetailController@destroy')->name('shopping_cart_details.destroy');
 Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
 Route::get('add_a_product_to_the_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product');
-Route::get('mi_carrito_de_compras', 'WebController@cart')->name('web.cart');
+/* Route::get('mi_carrito_de_compras', 'WebController@cart')->name('web.cart'); */
 Route::put('shopping_cart', 'ShoppingCartController@update')->name('shopping_cart.update');
 //=====================================rutas del productos =============================================//
 Route::get('products/json', 'WebController@products')->name('products.json');
@@ -143,7 +143,7 @@ Auth::routes();
 /* Auth::routes(['register' => false]); */
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*Ruta para las Órdenes*/ 
+/*Ruta para las Órdenes*/
 
 Route::resource('orders', 'OrderController')->names('orders')->only(['index', 'show']);
 Route::put('orders_update/{id}', 'OrderController@orders_update')->name('orders_update');

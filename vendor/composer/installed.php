@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'db7d444905b47acb8c27e9c14c9024c405eb5fe8',
+        'reference' => '7e2cef3e6f13dbfed898b3531cfbe6d71e160b5b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -490,6 +490,15 @@
                 0 => 'v10.48.28',
             ),
         ),
+        'inertiajs/inertia-laravel' => array(
+            'pretty_version' => 'v2.0.0',
+            'version' => '2.0.0.0',
+            'reference' => '0259e37f802bc39c814c42ba92c04ada17921f70',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../inertiajs/inertia-laravel',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'intervention/gif' => array(
             'pretty_version' => '4.2.1',
             'version' => '4.2.1.0',
@@ -571,7 +580,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'db7d444905b47acb8c27e9c14c9024c405eb5fe8',
+            'reference' => '7e2cef3e6f13dbfed898b3531cfbe6d71e160b5b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -655,6 +664,15 @@
             'reference' => '7d6ffa38d79f19c9b3e70a751a9af845e8f41d88',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/ui',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'laravelcollective/html' => array(
+            'pretty_version' => 'v6.4.1',
+            'version' => '6.4.1.0',
+            'reference' => '64ddfdcaeeb8d332bd98bef442bef81e39c3910b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravelcollective/html',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -1117,8 +1135,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(

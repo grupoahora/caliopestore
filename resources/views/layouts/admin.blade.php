@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- plugins:css -->
     {!! Html::style('melody/vendors/iconfonts/font-awesome/css/all.min.css') !!}
     {!! Html::style('melody/vendors/css/vendor.bundle.base.css') !!}
@@ -117,20 +118,20 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        
+
                             <div class="container">
                                 <div class="footer-bottom-wrap d-block">
                                     <div class="text-center h5 ">
                                         © Copyright 2022. Todos los derechos reservados. <br>
                                         Sitio web diseñado y desarrollado por manos Cucuteñas. <br>
-                        
-                                        
+
+
                                     </div>
                                     <div class="text-center h6">
                                         Hecho con ❤ Softwow!
                                     </div>
                             </div>
-                        
+
                     </div>
                 </footer>
                 <!-- partial -->

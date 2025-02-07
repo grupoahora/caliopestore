@@ -11,6 +11,7 @@
         "php": "^8.1",
         "barryvdh/laravel-dompdf": "*",
         "guzzlehttp/guzzle": "^7.2",
+        "inertiajs/inertia-laravel": "^2.0",
         "intervention/image-laravel": "*",
         "laravel/fortify": "^1.13",
         "laravel/framework": "^10.10",
@@ -26,7 +27,8 @@
         "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-permission": "^5.9",
         "willvincent/laravel-rateable": "^3.2",
-        "yajra/laravel-datatables-oracle": "*"
+        "yajra/laravel-datatables-oracle": "*",
+        "laravelcollective/html": "^6.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
@@ -40,10 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "App\\": "app/"
         },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
         "files": [
             "app/Helpers/helpers.php"
         ]

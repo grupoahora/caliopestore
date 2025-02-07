@@ -1,9 +1,19 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Category;
+use App\SocialMedia;
 use App\Subcategory;
 use App\Tag;
+use BusinessTableSeeder;
+use Carbon\Factory;
+use CurrencySeeder;
 use Illuminate\Database\Seeder;
+use PaymentPlatformSeeder;
+use PrinterTableSeeder;
+use RoleSeeder;
+use UsersTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,11 +45,16 @@ class DatabaseSeeder extends Seeder
             $product->images()->saveMany(factory(App\Image::class, 4)->make());
             $product->textures()->saveMany(factory(App\Texture::class, 1)->make());
         }); */
-        factory(App\SocialMedia::class, 3)->create();
-        
-        
-    
-        
+        //3 social media
+        SocialMedia::create([
+            'name' => 'facebook',
+            'url' => 'https://facebook.com/',
+            'icon' => 'fa-facebook',
+            'business_id' => 1
+        ]);
+
+
+
     }
     public function array($max)
     {
