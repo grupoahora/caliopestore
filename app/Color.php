@@ -2,11 +2,19 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Database\Factories\ColorFactory;
 
 class Color extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return ColorFactory::new();
+    }
     protected $fillable = [
         'name',
         'slug',
@@ -39,7 +47,7 @@ class Color extends Model
     }
     public function upload_files($request, $color)
     {
-        
+
         $urlimages = [];
         if ($request->hasFile('images')) {
             $images = $request->file('images');

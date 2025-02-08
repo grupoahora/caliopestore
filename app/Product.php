@@ -2,29 +2,36 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use willvincent\Rateable\Rateable;
 use Illuminate\Support\Facades\DB;
-
+use Database\Factories\ProductFactory;
 
 class Product extends Model
 {
-    use Rateable;
+    use HasFactory, Rateable;
+
+    protected static function newFactory()
+    {
+        return ProductFactory::new();
+    }
+
     protected $guarded = [
-        
+
     ];
 
     public function add_stock($quantity)
     {
         return $this->increment('stock', $quantity);
-       
+
 
     }
     public function substract_stock($quantity)
     {
         return $this->decrement('stock', $quantity);
-        
+
     }
     public function getRouteKeyName()
     {

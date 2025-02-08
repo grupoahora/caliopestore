@@ -2,11 +2,20 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Database\Factories\SubcategoryFactory;
 
 class Subcategory extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return SubcategoryFactory::new();
+    }
+
     protected $fillable = [
         'name',
         'slug',
@@ -37,10 +46,10 @@ class Subcategory extends Model
             'name' => $request->name,
             'description' => $request->description,
             'slug' => Str::slug($request->name, '_'),
-            
+
         ]);
     }
-    
+
     public function upload_files($request, $subcategory)
     {
         $urlimages = [];

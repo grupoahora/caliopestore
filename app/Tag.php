@@ -2,11 +2,20 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Database\Factories\TagFactory;
 
 class Tag extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return TagFactory::new();
+    }
+
     protected $fillable = [
         'name',
         'slug',

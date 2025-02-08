@@ -1,16 +1,30 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use Faker\Generator as Faker;
 use App\Texture;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Texture::class, function (Faker $faker) {
-return [
-        'url' => $faker->randomElement([
-            '/image/1637716116home3_static8.jpg',
-            
+class TextureFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Texture::class;
 
-        ])
-    ];
-});
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'url' => $this->faker->randomElement([
+                '/image/1637716116home3_static8.jpg',
+            ]),
+        ];
+    }
+}

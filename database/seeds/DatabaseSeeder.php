@@ -7,13 +7,17 @@ use App\SocialMedia;
 use App\Subcategory;
 use App\Tag;
 use BusinessTableSeeder;
-use Carbon\Factory;
 use CurrencySeeder;
 use Illuminate\Database\Seeder;
 use PaymentPlatformSeeder;
 use PrinterTableSeeder;
 use RoleSeeder;
 use UsersTableSeeder;
+use App\Color;
+use App\Size;
+use App\Image;
+use App\Product;
+use App\Texture;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,30 +36,36 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BusinessTableSeeder::class);
         $this->call(PrinterTableSeeder::class);
-        /* factory(App\Color::class, 10)->create();
-        factory(App\Size::class, 10)->create();
-        factory(App\Tag::class, 10)->create();
-        factory(App\Category::class, 10)->create()->each(function ($category) {
-            $category->images()->saveMany(factory(App\Image::class, 1)->make());
+
+        // Crear 10 colores
+        Color::factory()->count(10)->create();
+
+        // Crear 10 tamaños
+        Size::factory()->count(10)->create();
+
+        // Crear 10 etiquetas
+        Tag::factory()->count(10)->create();
+
+        // Crear 10 categorías con imágenes
+        Category::factory()->count(10)->create()->each(function ($category) {
+            $category->images()->saveMany(Image::factory()->count(1)->make());
         });
-        factory(App\Subcategory::class, 15)->create();
-        factory(App\Product::class,1000)->create()->each(function($product){
+
+        // Crear 15 subcategorías
+        Subcategory::factory()->count(15)->create();
+
+        // Crear 1000 productos con relaciones
+        Product::factory()->count(1000)->create()->each(function ($product) {
             $product->tags()->attach($this->array(rand(1, 10)));
             $product->sizes()->attach($this->array(rand(1, 10)));
-            $product->images()->saveMany(factory(App\Image::class, 4)->make());
-            $product->textures()->saveMany(factory(App\Texture::class, 1)->make());
-        }); */
-        //3 social media
-        SocialMedia::create([
-            'name' => 'facebook',
-            'url' => 'https://facebook.com/',
-            'icon' => 'fa-facebook',
-            'business_id' => 1
-        ]);
+            $product->images()->saveMany(Image::factory()->count(4)->make());
+            $product->textures()->saveMany(Texture::factory()->count(1)->make());
+        });
 
-
-
+        // Crear 3 redes sociales
+        SocialMedia::factory()->count(3)->create();
     }
+
     public function array($max)
     {
         $values = [];

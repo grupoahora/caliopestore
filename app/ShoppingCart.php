@@ -23,6 +23,9 @@ class ShoppingCart extends Model
         return $this->belongsTo(User::class);
     } */
     public static function findOrCreateBySessionId($shopping_cart_id){
+
+        // AGREGAR TERNARIA PARA CUANDO SE REINICA DB
+       /*  dd($shopping_cart_id); */
         if ($shopping_cart_id) {
             return ShoppingCart::find($shopping_cart_id);
         } else {
@@ -59,6 +62,7 @@ class ShoppingCart extends Model
         $session_name = 'shopping_cart_id';
         $shopping_cart_id = Session::get($session_name);
         $shopping_cart = self::findOrCreateBySessionId($shopping_cart_id);
+        /* dd($shopping_cart); */
         return  $shopping_cart;
     }
     /* public static function get_the_user_shopping_cart()
@@ -68,7 +72,7 @@ class ShoppingCart extends Model
     } */
     public function my_store($product, $request)
     {
-        
+
         $this->shopping_cart_details()->create([
             'quantity' => $request->quantity,
             'price' => $product->sell_price,

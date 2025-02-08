@@ -1,39 +1,55 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use Faker\Generator as Faker;
 use App\Image;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Image::class, function (Faker $faker) {
-return [
-        'url' => $faker->randomElement(['/image/product-s-1.jpg',
-            '/image/product-s-2.jpg',
-            '/image/product-s-3.jpg',
-            '/image/product-s-4.jpg',
-            '/image/product-s-5.jpg',
-            '/image/product-s-6.jpg',
-            '/image/product-s-2.jpg',
-            '/image/product-s-3.jpg',
-            '/image/product-s-4.jpg',
-            '/image/product-s-5.jpg',
-            '/image/product-s-6.jpg',
-            '/image/product-s-2.jpg',
-            '/image/product-s-3.jpg',
-            '/image/product-s-4.jpg',
-            '/image/product-s-5.jpg',
-            '/image/product-s-6.jpg',
-            '/image/product-s-2.jpg',
-            '/image/product-s-3.jpg',
-            '/image/product-s-4.jpg',
-            '/image/product-s-5.jpg',
-            '/image/product-s-6.jpg',
-            '/image/product-s-2.jpg',
-            '/image/product-s-3.jpg',
-            '/image/product-s-4.jpg',
-            '/image/product-s-5.jpg',
-            '/image/product-s-6.jpg',
+class ImageFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Image::class;
 
-        ])
-    ];
-});
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'url' => $this->faker->randomElement([
+                '/image/product-s-1.jpg',
+                '/image/product-s-2.jpg',
+                '/image/product-s-3.jpg',
+                '/image/product-s-4.jpg',
+                '/image/product-s-5.jpg',
+                '/image/product-s-6.jpg',
+                '/image/product-s-2.jpg',
+                '/image/product-s-3.jpg',
+                '/image/product-s-4.jpg',
+                '/image/product-s-5.jpg',
+                '/image/product-s-6.jpg',
+                '/image/product-s-2.jpg',
+                '/image/product-s-3.jpg',
+                '/image/product-s-4.jpg',
+                '/image/product-s-5.jpg',
+                '/image/product-s-6.jpg',
+                '/image/product-s-2.jpg',
+                '/image/product-s-3.jpg',
+                '/image/product-s-4.jpg',
+                '/image/product-s-5.jpg',
+                '/image/product-s-6.jpg',
+                '/image/product-s-2.jpg',
+                '/image/product-s-3.jpg',
+                '/image/product-s-4.jpg',
+                '/image/product-s-5.jpg',
+                '/image/product-s-6.jpg',
+            ]),
+        ];
+    }
+}

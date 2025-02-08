@@ -2,11 +2,20 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Database\Factories\CategoryFactory;
 
 class Category extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory()
+    {
+        return CategoryFactory::new();
+    }
+
     protected $fillable = [
         'name', 'description', 'slug', 'icon', 'id'
     ];
@@ -17,7 +26,7 @@ class Category extends Model
     {
         return $this->morphMany('App\Image', 'imageable');
     }
-    
+
     public function my_store($request){
         $category = self::create([
             'name' => $request->name,
@@ -37,7 +46,7 @@ class Category extends Model
         ]);
     }
 
-    
+
     public function subcategories(){
         return $this->hasMany(Subcategory::class);
     }
